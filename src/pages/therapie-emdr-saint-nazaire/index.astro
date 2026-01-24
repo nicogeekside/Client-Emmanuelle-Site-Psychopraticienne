@@ -5,6 +5,7 @@ import MainLayout from '../../layouts/MainLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Button from '../../components/Button.astro';
+import FaqSection from '../../components/FaqSection.astro';
 ---
 
 <MainLayout 
@@ -78,11 +79,12 @@ import Button from '../../components/Button.astro';
       </div>
     </section>
 
+
     <!-- Déroulement & Certification -->
     <section class="py-16 bg-white">
-      <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
         <div>
-          <h2 class="text-3xl font-serif font-bold text-primary mb-6">Comment se déroule une séance ?</h2>
+          <h2 class="text-3xl font-serif font-bold text-primary mb-6">Comment se déroule une thérapie EMDR ?</h2>
           <p class="text-lg text-text-main/80 mb-4">
             Une séance dure généralement entre 45min et 1h. Nous commençons toujours par une phase de préparation et de mise en confiance (installation de ressources positives) avant d'aborder les souvenirs difficiles.
           </p>
@@ -91,26 +93,23 @@ import Button from '../../components/Button.astro';
             <p class="text-sm text-text-main/70">Je suis accréditée par l'association EMDR France, garantissant une pratique respectueuse du protocole officiel.</p>
           </div>
         </div>
+        
         <div class="bg-secondary/20 p-8 rounded-xl">
-          <h3 class="text-2xl font-serif font-bold text-primary mb-6">FAQ</h3>
-          <details class="mb-4 group">
-            <summary class="font-bold text-text-main cursor-pointer list-none flex justify-between items-center group-open:text-accent">
-              Combien de séances pour voir un résultat ?
-              <span class="transform group-open:rotate-180 transition-transform">▼</span>
-            </summary>
-            <p class="mt-2 text-text-main/80 pl-4 border-l-2 border-accent/30">
-              Cela dépend de la complexité du traumatisme "socle". Pour un traumatisme simple (ex: accident unique), 3 à 5 séances peuvent suffire. Pour des traumatismes complexes, le suivi est plus long.
-            </p>
-          </details>
-          <details class="group">
-            <summary class="font-bold text-text-main cursor-pointer list-none flex justify-between items-center group-open:text-accent">
-              Est-ce que l'on perd le contrôle ?
-              <span class="transform group-open:rotate-180 transition-transform">▼</span>
-            </summary>
-            <p class="mt-2 text-text-main/80 pl-4 border-l-2 border-accent/30">
-              Non, vous restez pleinement conscient(e) durant toute la séance. Vous pouvez arrêter le processus à tout moment d'un simple geste.
-            </p>
-          </details>
+          <h3 class="text-2xl font-serif font-bold text-primary mb-6">Questions Fréquentes (FAQ)</h3>
+          <FaqSection items={[
+            {
+              question: "Combien de séances EMDR faut-il pour guérir un traumatisme ?",
+              answer: "Cela dépend de la nature du traumatisme. Pour un <strong>traumatisme simple</strong> (accident unique, agression spécifique), 3 à 5 séances suffisent souvent. Pour des traumatismes complexes ou anciens (enfance), le suivi est plus long pour assurer une stabilité émotionnelle durable."
+            },
+            {
+              question: "Est-ce que l'on perd le contrôle pendant la séance ?",
+              answer: "Non, jamais. Contrairement à l'hypnose de spectacle, vous restez <strong>pleinement conscient(e)</strong>. Vous gardez le contrôle et pouvez arrêter la stimulation bilatérale à tout moment d'un simple geste de la main."
+            },
+            {
+              question: "Y a-t-il des effets secondaires après une séance ?",
+              answer: "Il est possible de ressentir une fatigue passagère ou de continuer à traiter des informations pendant 24 à 48h (rêves, émotions). C'est normal : votre cerveau continue le travail de 'digestion'. Je vous donne des outils pour gérer cet après-séance."
+            }
+          ]} />
         </div>
       </div>
     </section>

@@ -5,6 +5,7 @@ import MainLayout from '../../layouts/MainLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Button from '../../components/Button.astro';
+import FaqSection from '../../components/FaqSection.astro';
 ---
 
 <MainLayout 
@@ -79,6 +80,7 @@ import Button from '../../components/Button.astro';
       </div>
     </section>
 
+
     <!-- Témoignage Spécifique -->
     <section class="py-16 bg-white">
         <div class="container mx-auto px-4 max-w-3xl">
@@ -90,6 +92,27 @@ import Button from '../../components/Button.astro';
                 <p class="text-center font-bold text-primary">— Sandrine T., après 4 séances.</p>
             </div>
         </div>
+    </section>
+
+    <!-- FAQ EFT -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <h2 class="text-3xl font-serif font-bold text-primary mb-8 text-center">Questions fréquentes sur l'EFT</h2>
+        <FaqSection items={[
+            {
+              question: "Quelle est la différence entre l'EFT et une psychothérapie classique ?",
+              answer: "L'EFT est une thérapie <strong>psycho-corporelle</strong>. On ne fait pas que 'parler' du problème, on agit physiquement sur le corps (via les points méridiens) pour désactiver la réponse de stress. C'est souvent plus rapide pour apaiser l'intensité émotionnelle."
+            },
+            {
+              question: "Puis-je pratiquer l'EFT seul(e) chez moi ?",
+              answer: "Oui ! C'est le grand avantage de cette méthode. En séance, nous traitons les problématiques de fond, et je vous apprends la 'ronde' (le protocole de base) pour que vous puissiez l'utiliser en toute autonomie entre deux séances à Saint-Nazaire."
+            },
+            {
+              question: "L'EFT fonctionne-t-elle pour les enfants ?",
+              answer: "Absolument. Les enfants sont très réceptifs car ils n'ont pas de barrières mentales. C'est très ludique ('la technique du super-héros') et efficace pour les peurs nocturnes, l'anxiété scolaire ou la colère."
+            }
+          ]} />
+      </div>
     </section>
 
     <!-- CTA -->

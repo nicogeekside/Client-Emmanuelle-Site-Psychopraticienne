@@ -6,6 +6,7 @@ import Button from '../../components/Button.astro';
 import { Image } from 'astro:assets';
 import imgDouceur from '../../assets/images/img-douceur.jpg';
 import imgSoutien from '../../assets/images/img-soutien.jpg';
+import FaqSection from '../../components/FaqSection.astro';
 ---
 
 <MainLayout 
@@ -59,6 +60,7 @@ import imgSoutien from '../../assets/images/img-soutien.jpg';
       </div>
     </section>
 
+
     <!-- Section Deuil & Maladie -->
     <section class="py-16 bg-primary/5">
       <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -83,6 +85,27 @@ import imgSoutien from '../../assets/images/img-soutien.jpg';
                 <p class="text-sm text-text-main/70">J'accompagne également les proches aidants qui s'épuisent souvent à soutenir leur malade.</p>
             </div>
         </div>
+      </div>
+    </section>
+
+    <!-- FAQ Spécialisée -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <h2 class="text-3xl font-serif font-bold text-primary mb-8 text-center">Questions fréquentes</h2>
+        <FaqSection items={[
+            {
+              question: "Pourquoi consulter en période périnatale (grossesse/post-partum) ?",
+              answer: "La maternité réveille souvent des fragilités anciennes ou des angoisses. Consulter permet de <strong>prévenir la dépression post-partum</strong>, de déposer sa fatigue sans jugement et de construire un lien serein avec son bébé. Ce n'est pas un aveu de faiblesse, c'est un cadeau pour votre famille."
+            },
+            {
+              question: "Comment surmonter un deuil périnatal ?",
+              answer: "Le deuil d'un enfant (in utero ou à la naissance) est un traumatisme souvent invisibilisé par la société. Mon accompagnement vous offre un <strong>espace sacré</strong> pour reconnaître votre douleur, légitimer votre vécu de parent et intégrer doucement cette perte dans votre histoire."
+            },
+            {
+              question: "Accompagnez-vous les conjoints ?",
+              answer: "Oui, la souffrance touche aussi les pères et co-parents, qui se sentent souvent impuissants. Ils sont les bienvenus, que ce soit pour une séance en couple ou en individuel."
+            }
+          ]} />
       </div>
     </section>
 
