@@ -1,0 +1,17 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Button from '../components/Button.astro';
+---
+
+<MainLayout title="Page non trouvée - 404">
+  <main class="min-h-screen flex flex-col items-center justify-center bg-secondary/30 text-center px-4">
+    <h1 class="text-9xl font-serif font-bold text-primary/20">404</h1>
+    <h2 class="text-3xl font-serif font-bold text-primary mb-4">Oups ! Cette page n'existe pas.</h2>
+    <p class="text-lg text-text-main/70 mb-8 max-w-md">
+      Il semble que vous ayez pris un chemin de traverse. Revenons ensemble vers l'essentiel.
+    </p>
+    <Button href="/" variant="primary">
+      Retour à l'accueil
+    </Button>
+  </main>
+</MainLayout>

@@ -1,0 +1,61 @@
+---
+import { SEO } from 'astro-seo';
+import 'aos/dist/aos.css';
+import '@fontsource/playfair-display';
+import '@fontsource/lato';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "Psychopraticienne à Saint-Nazaire - EMDR, EFT, Accompagnement Périnatalité et Deuil." } = Astro.props;
+---
+
+<!doctype html>
+<html lang="fr" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		
+		<!-- 
+			ANALYTICS PLACEHOLDER 
+			Paste your Google Analytics (GA4) or Plausible script here.
+			Example for GA4:
+			<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+			<script>
+			  window.dataLayer = window.dataLayer || [];
+			  function gtag(){dataLayer.push(arguments);}
+			  gtag('js', new Date());
+			  gtag('config', 'G-XXXXXXXXXX');
+			</script>
+		-->
+		
+		<SEO
+			title={title}
+			description={description}
+			openGraph={{
+				basic: {
+					title: title,
+					type: "website",
+					image: "/social-image.jpg", // TODO: Add default social image
+				}
+			}}
+		/>
+	</head>
+	<body class="font-sans text-text-main antialiased bg-secondary">
+		<slot />
+		
+		<script>
+			import AOS from 'aos';
+			AOS.init({
+				duration: 800,
+				easing: 'ease-out-cubic',
+				once: true,
+				offset: 50,
+			});
+		</script>
+	</body>
+</html>

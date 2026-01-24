@@ -1,0 +1,137 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Button from '../../components/Button.astro';
+import { siteInfo } from '../../data/config';
+---
+
+<MainLayout 
+  title="Prendre Rendez-vous | Psychopraticienne Saint-Nazaire"
+  description="Contactez-moi pour une séance d'EMDR ou EFT à Saint-Nazaire. Horaires, tarifs, accès et formulaire de contact."
+>
+  <Header />
+  
+  <main>
+    <section class="py-20 bg-secondary/30">
+      <div class="container mx-auto px-4">
+        <h1 class="text-4xl font-serif font-bold text-primary mb-12 text-center" data-aos="fade-up">Prendre Rendez-vous</h1>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto mb-16">
+            
+            <!-- Coordonnées & Infos Pratiques -->
+            <div data-aos="fade-right">
+                <div class="bg-white p-8 rounded-xl shadow-sm h-full">
+                    <h2 class="text-2xl font-serif font-bold text-primary mb-6">Informations Pratiques</h2>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-bold text-accent mb-2">Adresse du cabinet</h3>
+                            <p class="text-text-main">
+                                {siteInfo.address.street}<br/>
+                                {siteInfo.address.zip} {siteInfo.address.city}
+                            </p>
+                            <p class="text-sm text-text-main/60 mt-2">
+                                🅿️ Parking gratuit à proximité<br/>
+                            </p>
+                        </div>
+                        
+                        <div>
+                             <h3 class="font-bold text-accent mb-2">Horaires</h3>
+                             <p class="text-text-main">Lundi - Vendredi : 9h00 - 19h00<br/>Samedi : 9h00 - 12h00</p>
+                        </div>
+
+                         <div>
+                             <h3 class="font-bold text-accent mb-2">Contact</h3>
+                             <p class="text-text-main">Tél : {siteInfo.phone}</p>
+                             <p class="text-text-main">Email : {siteInfo.email}</p>
+                        </div>
+                        
+                        <div class="pt-4 border-t border-gray-100">
+                             <h3 class="font-bold text-accent mb-2">Tarifs</h3>
+                             <ul class="text-text-main space-y-2">
+                                 <li class="flex justify-between border-b border-gray-100 pb-2">
+                                     <span>Séance EMDR (1h)</span>
+                                     <span class="font-bold">60 €</span>
+                                 </li>
+                                 <li class="flex justify-between border-b border-gray-100 pb-2">
+                                     <span>Séance EFT (1h)</span>
+                                     <span class="font-bold">60 €</span>
+                                 </li>
+                                 <li class="flex justify-between">
+                                     <span>Accompagnement (45min)</span>
+                                     <span class="font-bold">50 €</span>
+                                 </li>
+                             </ul>
+                             <p class="text-xs text-text-main/50 mt-2">* Paiement par chèque ou espèces uniquement.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Formulaire de Contact SIMPLE -->
+            <div data-aos="fade-left">
+                <div class="bg-white p-8 rounded-xl shadow-sm h-full">
+                    <h2 class="text-2xl font-serif font-bold text-primary mb-6">M'envoyer un message</h2>
+                    
+                    <form class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-text-main mb-1">Nom complet</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" required placeholder="Votre nom" />
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-text-main mb-1">Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" required placeholder="votre@email.com" />
+                        </div>
+                        
+                         <div>
+                            <label for="phone" class="block text-sm font-medium text-text-main mb-1">Téléphone</label>
+                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="06 00 00 00 00" />
+                        </div>
+                        
+                        <div>
+                             <label for="message" class="block text-sm font-medium text-text-main mb-1">Message</label>
+                             <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" required placeholder="Bonjour, je souhaite prendre rendez-vous pour..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-accent text-white font-bold py-3 rounded-lg hover:bg-opacity-90 transition-colors shadow-md">
+                            Envoyer le message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CALENDLY Section -->
+        <div class="max-w-4xl mx-auto" id="rdv-en-ligne">
+            <h2 class="text-2xl font-serif font-bold text-primary mb-8 text-center" data-aos="fade-up">Réserver un créneau en ligne</h2>
+            
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden min-h-[600px] flex items-center justify-center relative border border-secondary" data-aos="zoom-in">
+                
+                <!-- 
+                    👋 TODO: REMPLACER CETTE DIV PAR LE CODE CALENDLY 
+                    1. Connectez-vous à Calendly
+                    2. Allez dans "Partager" > "Ajouter au site web" > "Inline Embed"
+                    3. Copiez le code commence par <div ...> et <script ...>
+                    4. Collez-le ici à la place de la div ci-dessous.
+                -->
+                <div class="text-center p-8">
+                    <p class="text-xl text-primary font-bold mb-4">Module de réservation Calendly</p>
+                    <p class="text-text-main/70 mb-6">Le module de réservation en ligne sera bientôt disponible ici.</p>
+                    <a href={`tel:${siteInfo.phone.replace(/\s/g, '')}`} class="inline-block bg-accent text-white px-6 py-3 rounded-lg hover:bg-opacity-90 transition-colors">
+                        Appeler pour prendre RDV : {siteInfo.phone}
+                    </a>
+                </div>
+
+            </div>
+        </div>
+        
+
+        
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</MainLayout>

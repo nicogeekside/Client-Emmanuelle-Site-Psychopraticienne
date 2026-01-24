@@ -1,0 +1,106 @@
+---
+import { Image } from 'astro:assets';
+import illustrationEft from '../../assets/images/illustration-eft.jpg';
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Button from '../../components/Button.astro';
+---
+
+<MainLayout 
+  title="Praticienne EFT à Saint-Nazaire | Gestion des Émotions & Stress"
+  description="Séances d'EFT (Emotional Freedom Techniques) à Saint-Nazaire. Apprenez à libérer vos émotions, gérer l'anxiété et les douleurs somatiques."
+>
+  <Header />
+  
+  <main>
+    <!-- Silo Hero -->
+    <section class="bg-secondary text-primary py-20 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-white/20 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
+      <div class="container mx-auto px-4 text-center z-10 relative">
+        <h1 class="text-3xl md:text-5xl font-serif font-bold mb-6" data-aos="fade-up">Praticienne EFT à Saint-Nazaire</h1>
+        <p class="text-xl max-w-2xl mx-auto text-text-main/80" data-aos="fade-up" data-aos-delay="100">
+          Libérez vos émotions et retrouvez votre calme intérieur grâce à l'EFT (Techniques de Liberté Émotionnelle).
+        </p>
+      </div>
+    </section>
+
+    <!-- Intro: Qu'est-ce que l'EFT ? -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div data-aos="fade-right">
+             <div class="aspect-video rounded-xl overflow-hidden shadow-lg mb-4">
+                 <Image 
+                  src={illustrationEft} 
+                  alt="Illustration séance EFT / Tapping" 
+                  class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                  width={800}
+                />
+             </div>
+        </div>
+        <div data-aos="fade-left">
+            <h2 class="text-3xl font-serif font-bold text-primary mb-6">L'EFT : L'acupuncture émotionnelle sans aiguilles</h2>
+            <p class="text-lg text-text-main/80 mb-4 leading-relaxed">
+            L'EFT (Emotional Freedom Techniques) est une pratique psycho-corporelle qui combine la psychologie et la stimulation de points méridiens (acupression).
+            </p>
+            <p class="text-lg text-text-main/80 mb-6 leading-relaxed">
+            En tapotant doucement sur des points spécifiques du visage et du corps tout en se concentrant sur une émotion dérangeante, on rééquilibre le système énergétique et on apaise la réponse de stress du cerveau.
+            </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Applications -->
+    <section class="py-16 bg-primary/5">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h2 class="text-3xl font-serif font-bold text-primary mb-8 text-center">Pour quelles situations ?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <ul class="space-y-4">
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-accent mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-lg text-text-main"><strong>Stress & Anxiété</strong> : Crises d'angoisse, stress professionnel, peur des examens.</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-accent mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-lg text-text-main"><strong>Phobies</strong> : Peurs irrationnelles (avion, animaux, foule).</span>
+            </li>
+          </ul>
+          <ul class="space-y-4">
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-accent mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-lg text-text-main"><strong>Douleurs Somatiques</strong> : Maux de tête, tensions musculaires liées au stress.</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-accent mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-lg text-text-main"><strong>Gestion des émotions</strong> : Colère, tristesse, irritabilité.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Témoignage Spécifique -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 max-w-3xl">
+            <div class="bg-secondary/30 p-8 rounded-2xl relative">
+                <div class="text-6xl text-accent opacity-20 absolute top-4 left-4 font-serif">"</div>
+                <p class="text-xl text-text-main italic relative z-10 mb-6 text-center">
+                    "Je souffrais d'anxiété généralisée depuis des années. L'EFT m'a donné un outil concret que je peux utiliser seule chez moi dès que je sens le stress monter. C'est une vraie libération."
+                </p>
+                <p class="text-center font-bold text-primary">— Sandrine T., après 4 séances.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 bg-white text-center border-t border-gray-100">
+        <h2 class="text-2xl font-serif font-bold text-primary mb-8">Envie d'essayer le Tapping ?</h2>
+        <Button href="/prendre-rendez-vous-saint-nazaire/" variant="secondary" class="shadow-lg bg-primary text-white hover:bg-primary/90">
+          Prendre RDV pour une séance
+        </Button>
+    </section>
+
+  </main>
+  
+  <Footer />
+</MainLayout>

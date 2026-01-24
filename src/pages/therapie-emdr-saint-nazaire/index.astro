@@ -1,0 +1,129 @@
+---
+import { Image } from 'astro:assets';
+import illustrationEmdr from '../../assets/images/illustration-emdr.jpg';
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Button from '../../components/Button.astro';
+---
+
+<MainLayout 
+  title="Thérapie EMDR à Saint-Nazaire | Traitement Traumatismes & Phobies"
+  description="Praticienne EMDR certifiée à Saint-Nazaire. Traitement efficace des chocs émotionnels, stress post-traumatique, phobies et deuils bloqués."
+>
+  <Header />
+  
+  <main>
+    <!-- Silo Hero -->
+    <section class="bg-primary text-secondary py-20">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-3xl md:text-5xl font-serif font-bold mb-6" data-aos="fade-up">Thérapie EMDR à Saint-Nazaire</h1>
+        <p class="text-xl max-w-2xl mx-auto opacity-90" data-aos="fade-up" data-aos-delay="100">
+          Une méthode reconnue pour guérir les blessures du passé et se libérer des traumatismes.
+        </p>
+      </div>
+    </section>
+
+    <!-- Intro: Qu'est-ce que l'EMDR ? -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div data-aos="fade-right">
+             <div class="aspect-video rounded-xl overflow-hidden shadow-lg mb-4">
+                <Image 
+                  src={illustrationEmdr} 
+                  alt="Illustration séance EMDR" 
+                  class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                  width={800}
+                />
+             </div>
+        </div>
+        <div data-aos="fade-left">
+            <h2 class="text-3xl font-serif font-bold text-primary mb-6">Qu'est-ce que l'EMDR ?</h2>
+            <p class="text-lg text-text-main/80 mb-4 leading-relaxed">
+              L'EMDR (Eye Movement Desensitization and Reprocessing) est une thérapie neuro-émotionnelle qui permet de désensibiliser et de retraiter les souvenirs traumatiques non digérés par le cerveau.
+            </p>
+            <p class="text-lg text-text-main/80 mb-6 leading-relaxed">
+              En stimulant les mécanismes naturels d'auto-guérison (via des mouvements oculaires ou des stimulations tactiles), l'EMDR permet de "ranger" le souvenir douloureux dans le passé, pour qu'il ne pollue plus votre présent.
+            </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pour qui ? (SEO List) -->
+    <section class="py-16 bg-secondary/30">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h2 class="text-3xl font-serif font-bold text-primary mb-8 text-center">Pour quelles problématiques ?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <ul class="space-y-4">
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-accent mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-lg text-text-main"><strong>Stress Post-Traumatique (ESPT)</strong> : Accidents, agressions, attentats.</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-accent mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-lg text-text-main"><strong>Deuils bloqués</strong> : Difficulté à surmonter la perte d'un proche.</span>
+            </li>
+          </ul>
+          <ul class="space-y-4">
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-accent mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-lg text-text-main"><strong>Phobies & Angoisses</strong> : Peur de conduire, agoraphobie, attaques de panique.</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-accent mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <span class="text-lg text-text-main"><strong>Traumatismes de l'enfance</strong> : Abus, négligences, humiliations.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Déroulement & Certification -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl font-serif font-bold text-primary mb-6">Comment se déroule une séance ?</h2>
+          <p class="text-lg text-text-main/80 mb-4">
+            Une séance dure généralement entre 45min et 1h. Nous commençons toujours par une phase de préparation et de mise en confiance (installation de ressources positives) avant d'aborder les souvenirs difficiles.
+          </p>
+          <div class="bg-gray-100 p-6 rounded-lg border-l-4 border-accent mt-6">
+            <p class="font-bold text-primary mb-2">Praticienne Certifiée EMDR Europe</p>
+            <p class="text-sm text-text-main/70">Je suis accréditée par l'association EMDR France, garantissant une pratique respectueuse du protocole officiel.</p>
+          </div>
+        </div>
+        <div class="bg-secondary/20 p-8 rounded-xl">
+          <h3 class="text-2xl font-serif font-bold text-primary mb-6">FAQ</h3>
+          <details class="mb-4 group">
+            <summary class="font-bold text-text-main cursor-pointer list-none flex justify-between items-center group-open:text-accent">
+              Combien de séances pour voir un résultat ?
+              <span class="transform group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <p class="mt-2 text-text-main/80 pl-4 border-l-2 border-accent/30">
+              Cela dépend de la complexité du traumatisme "socle". Pour un traumatisme simple (ex: accident unique), 3 à 5 séances peuvent suffire. Pour des traumatismes complexes, le suivi est plus long.
+            </p>
+          </details>
+          <details class="group">
+            <summary class="font-bold text-text-main cursor-pointer list-none flex justify-between items-center group-open:text-accent">
+              Est-ce que l'on perd le contrôle ?
+              <span class="transform group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <p class="mt-2 text-text-main/80 pl-4 border-l-2 border-accent/30">
+              Non, vous restez pleinement conscient(e) durant toute la séance. Vous pouvez arrêter le processus à tout moment d'un simple geste.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 bg-primary text-center">
+        <h2 class="text-2xl font-serif font-bold text-secondary mb-8">Besoin d'apaiser vos traumatismes ?</h2>
+        <Button href="/prendre-rendez-vous-saint-nazaire/" variant="accent" class="text-lg">
+          Prendre rendez-vous en ligne
+        </Button>
+    </section>
+
+  </main>
+  
+  <Footer />
+</MainLayout>

@@ -1,0 +1,74 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { siteInfo } from '../../data/config';
+---
+
+<MainLayout title="Mentions Légales | Emma Psychopraticienne">
+  <Header />
+  
+  <main class="py-20 bg-secondary/20">
+    <div class="container mx-auto px-4 max-w-4xl bg-white p-12 rounded-2xl shadow-sm">
+        <h1 class="text-3xl font-serif font-bold text-primary mb-8">Mentions Légales</h1>
+        
+        <div class="space-y-8 text-text-main/80">
+            <section>
+                <h2 class="text-xl font-bold text-primary mb-4">1. Éditeur du site</h2>
+                <p>
+                    Le site internet <strong>emma-psychopraticienne.fr</strong> est édité par :<br/>
+                    <strong>{siteInfo.name}</strong><br/>
+                    Adresse : {siteInfo.address.full}<br/>
+                    SIRET : {siteInfo.siret}<br/>
+                    Téléphone : {siteInfo.phone}<br/>
+                    Email : {siteInfo.email}
+                </p>
+            </section>
+            
+            <section>
+                <h2 class="text-xl font-bold text-primary mb-4">2. Hébergement</h2>
+                <p>
+                    Ce site est hébergé par :<br/>
+                    <strong>Vercel Inc.</strong><br/>
+                    340 S Lemon Ave #4133<br/>
+                    Walnut, CA 91789<br/>
+                    États-Unis
+                </p>
+            </section>
+            
+            <section>
+                <h2 class="text-xl font-bold text-primary mb-4">3. Propriété Intellectuelle</h2>
+                <p>
+                    L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés, y compris pour les documents téléchargeables et les représentations iconographiques et photographiques.
+                    La reproduction de tout ou partie de ce site sur un support électronique quel qu'il soit est formellement interdite sauf autorisation expresse du directeur de la publication.
+                </p>
+            </section>
+            
+            <section>
+                <h2 class="text-xl font-bold text-primary mb-4">4. Données Personnelles</h2>
+                <p>
+                    Les informations recueillies via le formulaire de contact sont enregistrées dans un fichier informatisé par {siteInfo.name} pour la gestion des demandes de contact.
+                    Elles sont conservées pendant 1 an et sont destinées uniquement à {siteInfo.name}.
+                    Conformément à la loi « informatique et libertés », vous pouvez exercer votre droit d'accès aux données vous concernant et les faire rectifier en contactant : {siteInfo.email}.
+                </p>
+            </section>
+            
+            <section>
+                <h2 class="text-xl font-bold text-primary mb-4">5. Cookies</h2>
+                <p>
+                   Ce site peut utiliser des cookies à des fins de statistiques de visite (via Google Analytics ou autre). Vous avez la possibilité de désactiver les cookies en vous rendant dans les options de votre navigateur.
+                </p>
+            </section>
+
+             <section>
+                <h2 class="text-xl font-bold text-primary mb-4">6. Médiation</h2>
+                <p>
+                   Conformément aux articles L.616-1 et R.616-1 du code de la consommation, nous proposons un dispositif de médiation de la consommation. (A compléter avec le nom du médiateur choisi).
+                </p>
+            </section>
+        </div>
+    </div>
+  </main>
+  
+  <Footer />
+</MainLayout>

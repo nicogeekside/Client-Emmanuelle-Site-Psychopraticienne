@@ -1,0 +1,30 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  href: string;
+  image?: string;
+}
+
+const { title, description, href, image } = Astro.props;
+---
+
+<div class="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-xl transition-shadow duration-300" data-aos="fade-up">
+  {image && (
+    <div class="h-48 overflow-hidden">
+      <img src={image} alt={title} class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" />
+    </div>
+  )}
+  <div class="p-8">
+    <h3 class="text-2xl font-serif font-bold text-primary mb-4">{title}</h3>
+    <p class="text-text-main/80 mb-6 leading-relaxed">
+      {description}
+    </p>
+    <a href={href} class="inline-flex items-center text-accent font-semibold hover:text-primary transition-colors group-hover:underline">
+      En savoir plus
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+      </svg>
+    </a>
+  </div>
+</div>

@@ -1,0 +1,147 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Button from '../components/Button.astro';
+import CardService from '../components/CardService.astro';
+import Reviews from '../components/Reviews.astro';
+import { Image } from 'astro:assets'; // Import Image component
+import portraitEmma from '../assets/images/portrait-emma.png'; // Import images
+import cabinetSiegeBleu from '../assets/images/cabinet-siege-bleu.png';
+---
+
+<MainLayout title="Psychopraticienne à Saint-Nazaire | EMDR & EFT - Emma">
+	<Header />
+	
+	<main>
+		<!-- Hero Section -->
+		<section class="relative min-h-[90vh] flex items-center justify-center bg-secondary overflow-hidden">
+			<div class="absolute inset-0 z-0">
+				<!-- Placeholder for Hero Image -->
+				<div class="w-full h-full bg-gradient-to-r from-primary/10 to-accent/10"></div>
+			</div>
+			
+			<div class="container mx-auto px-4 z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pt-20">
+				<div data-aos="fade-right">
+					<h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary mb-6 leading-tight">
+						Retrouver apaisement et confiance à Saint-Nazaire.
+					</h1>
+					<p class="text-xl text-text-main/80 mb-8 max-w-xl">
+						Je vous accompagne vers le mieux-être émotionnel et la libération des traumatismes grâce à l'EMDR et l'EFT.
+					</p>
+					<div class="flex flex-col sm:flex-row gap-4">
+						<Button href="/prendre-rendez-vous-saint-nazaire/" variant="accent" class="text-lg">
+							Je prends rendez-vous
+						</Button>
+						<Button href="#services" variant="outline" class="text-lg">
+							Découvrir mes approches
+						</Button>
+					</div>
+				</div>
+				<div class="relative" data-aos="fade-left">
+					<div class="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl bg-white group">
+						<!-- Use Astro Image component -->
+						<Image 
+							src={cabinetSiegeBleu} 
+							alt="Cabinet de psychothérapie calme et apaisant" 
+							class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+							width={600}
+						/>
+					</div>
+					<!-- decorative element -->
+					<div class="absolute -bottom-6 -right-6 w-32 h-32 bg-accent/20 rounded-full -z-10 blur-xl"></div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Problématiques (Le "Vous") -->
+		<section class="py-20 bg-white">
+			<div class="container mx-auto px-4 text-center max-w-4xl">
+				<h2 class="text-3xl font-serif font-bold text-primary mb-12" data-aos="fade-up">Je vous aide à traverser ces épreuves</h2>
+				<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+					{['Traumatismes', 'Deuil', 'Anxiété', 'Périnatalité', 'Phobies', 'Stress', 'Confiance en soi', 'Douleurs'].map((item, index) => (
+						<div class="p-6 rounded-lg bg-secondary/30 hover:bg-secondary transition-colors cursor-default" data-aos="fade-up" data-aos-delay={index * 50}>
+							<span class="text-lg font-semibold text-primary">{item}</span>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- Presentation Brief -->
+		<section class="py-20 bg-secondary/20">
+			<div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+				<div class="order-2 md:order-1" data-aos="fade-right">
+					<div class="aspect-square rounded-full max-w-md mx-auto overflow-hidden shadow-lg border-4 border-white group">
+						<!-- Use Astro Image component -->
+						<Image 
+							src={portraitEmma} 
+							alt="Portrait de Emma, Psychopraticienne" 
+							class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
+							width={600}
+						/>
+					</div>
+				</div>
+				<div class="order-1 md:order-2" data-aos="fade-left">
+					<span class="text-accent font-bold tracking-wider uppercase mb-2 block">Psychopraticienne</span>
+					<h2 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-6">Qui est Emma ?</h2>
+					<p class="text-lg text-text-main/80 mb-6 leading-relaxed">
+						Passionnée par la psychologie humaine et les capacités de résilience de chacun, j'ai choisi de me former à des thérapies brèves et efficaces comme l'EMDR et l'EFT. Mon approche est avant tout bienveillante, ancrée dans l'écoute active et le non-jugement.
+					</p>
+					<Button href="/a-propos-emma/" variant="outline">
+						En savoir plus sur mon parcours
+					</Button>
+				</div>
+			</div>
+		</section>
+
+		<!-- Services (Silos Links) -->
+		<section id="services" class="py-20 bg-white">
+			<div class="container mx-auto px-4">
+				<h2 class="text-3xl md:text-4xl font-serif font-bold text-center text-primary mb-4" data-aos="fade-up">Mes Outils Thérapeutiques</h2>
+				<p class="text-center text-text-main/70 mb-16 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+					Des méthodes reconnues pour libérer les blocages émotionnels et retrouver un équilibre de vie.
+				</p>
+				
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+					<CardService 
+						title="Thérapie EMDR"
+						description="La méthode de référence pour le traitement des traumatismes, chocs émotionnels et phobies. Retraitez les souvenirs douloureux."
+						href="/therapie-emdr-saint-nazaire/"
+						image="https://placehold.co/600x400/4A6C6F/white?text=EMDR"
+					/>
+					<CardService 
+						title="Séances EFT"
+						description="Une technique psycho-corporelle douce pour libérer les émotions négatives, le stress et l'anxiété au quotidien."
+						href="/seance-eft-gestion-emotions/"
+						image="https://placehold.co/600x400/C88D7D/white?text=EFT"
+					/>
+					<CardService 
+						title="Périnatalité & Deuil"
+						description="Un accompagnement spécialisé pour les étapes de vie délicates : grossesse, post-partum, maladie ou perte d'un proche."
+						href="/accompagnement-perinatalite-deuil/"
+						image="https://placehold.co/600x400/F5F0E6/4A6C6F?text=Soutien"
+					/>
+				</div>
+			</div>
+		</section>
+
+		<!-- Reviews -->
+		<Reviews />
+
+		<!-- CTA Final -->
+		<section class="py-20 bg-primary text-secondary text-center">
+			<div class="container mx-auto px-4">
+				<h2 class="text-3xl md:text-4xl font-serif font-bold mb-8" data-aos="zoom-in">Prêt(e) à aller mieux ?</h2>
+				<p class="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+					N'attendez plus pour prendre soin de vous. La première étape est souvent la plus difficile, je suis là pour vous accompagner.
+				</p>
+				<Button href="/prendre-rendez-vous-saint-nazaire/" variant="accent" class="text-lg px-10 py-4 shadow-xl hover:shadow-2xl">
+					Prendre rendez-vous au cabinet
+				</Button>
+			</div>
+		</section>
+	</main>
+
+	<Footer />
+</MainLayout>

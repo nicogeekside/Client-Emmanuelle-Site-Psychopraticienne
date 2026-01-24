@@ -1,0 +1,83 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { Image } from 'astro:assets';
+import cabinetSiegeBleu from '../../assets/images/cabinet-siege-bleu.png';
+import cabinetSiegesGris from '../../assets/images/cabinet-sieges-gris.png';
+---
+
+<MainLayout 
+  title="À propos d'Emma | Psychopraticienne Saint-Nazaire"
+  description="Découvrez mon parcours, mes valeurs et ma vision de l'accompagnement thérapeutique. Bienveillance, écoute et non-jugement au cœur de ma pratique."
+>
+  <Header />
+  
+  <main>
+    <section class="py-20 bg-secondary/20">
+      <div class="container mx-auto px-4">
+        <h1 class="text-4xl font-serif font-bold text-primary mb-12 text-center" data-aos="fade-up">Mon Parcours</h1>
+        
+        <div class="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-sm" data-aos="fade-up">
+            <p class="text-lg text-text-main/80 mb-6 leading-relaxed">
+                J'ai toujours été fascinée par la capacité de résilience de l'être humain. Après une première vie professionnelle dans le secteur social, j'ai ressenti le besoin d'aller plus loin dans l'accompagnement individuel.
+            </p>
+            <p class="text-lg text-text-main/80 mb-6 leading-relaxed">
+                Je me suis alors formée à la psychothérapie, en me spécialisant rapidement vers des outils concrets et efficaces comme l'<strong>EMDR</strong> et l'<strong>EFT</strong>. Ces méthodes m'ont convaincue par leur capacité à libérer les blocages profonds tout en douceur.
+            </p>
+            <p class="text-lg text-text-main/80 mb-6 leading-relaxed">
+                Aujourd'hui, je vous accueille dans mon cabinet à Saint-Nazaire pour vous aider à traverser vos épreuves de vie, qu'il s'agisse d'un traumatisme ancien ou d'un stress présent.
+            </p>
+            
+            <hr class="border-secondary my-8"/>
+            
+            <h2 class="text-2xl font-serif font-bold text-accent mb-6">Mes Valeurs</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                <div class="p-4">
+                    <div class="text-4xl mb-4">👂</div>
+                    <h3 class="font-bold text-primary mb-2">Écoute Active</h3>
+                    <p class="text-sm text-text-main/70">Un espace où votre parole est libre et entendue.</p>
+                </div>
+                 <div class="p-4">
+                    <div class="text-4xl mb-4">🤝</div>
+                    <h3 class="font-bold text-primary mb-2">Non-Jugement</h3>
+                    <p class="text-sm text-text-main/70">Accueil inconditionnel de ce que vous êtes.</p>
+                </div>
+                 <div class="p-4">
+                    <div class="text-4xl mb-4">🌱</div>
+                    <h3 class="font-bold text-primary mb-2">Autonomie</h3>
+                    <p class="text-sm text-text-main/70">Vous donner les outils pour avancer seul(e).</p>
+                </div>
+            </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Cabinet Photos Placeholder -->
+    <section class="py-20">
+         <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-serif font-bold text-primary mb-12 text-center">Un lieu apaisant</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="aspect-video rounded-xl overflow-hidden shadow-lg" data-aos="fade-right">
+                    <Image 
+                        src={cabinetSiegeBleu} 
+                        alt="Cabinet de consultation vue siège bleu" 
+                        class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" 
+                        width={800}
+                    />
+                </div>
+                <div class="aspect-video rounded-xl overflow-hidden shadow-lg" data-aos="fade-left">
+                     <Image 
+                        src={cabinetSiegesGris} 
+                        alt="Cabinet de consultation vue sièges gris" 
+                        class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" 
+                        width={800}
+                    />
+                </div>
+            </div>
+         </div>
+    </section>
+  </main>
+  
+  <Footer />
+</MainLayout>
