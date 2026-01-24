@@ -16,10 +16,10 @@ import FaqSection from '../../components/FaqSection.astro';
   
   <main>
     <!-- Silo Hero -->
-    <section class="bg-secondary text-primary py-20 relative overflow-hidden">
+    <section class="bg-secondary text-primary py-16 relative overflow-hidden min-h-[35vh] flex flex-col justify-center">
         <div class="absolute top-0 right-0 w-64 h-64 bg-white/20 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
-      <div class="container mx-auto px-4 text-center z-10 relative">
-        <h1 class="text-3xl md:text-5xl font-serif font-bold mb-6" data-aos="fade-up">Praticienne EFT à Saint-Nazaire</h1>
+      <div class="container mx-auto px-4 text-center z-10 relative pt-12">
+        <h1 class="text-4xl md:text-6xl font-serif font-bold mb-6" data-aos="fade-up">Praticienne EFT à Saint-Nazaire</h1>
         <p class="text-xl max-w-2xl mx-auto text-text-main/80" data-aos="fade-up" data-aos-delay="100">
           Libérez vos émotions et retrouvez votre calme intérieur grâce à l'EFT (Techniques de Liberté Émotionnelle).
         </p>
@@ -36,6 +36,7 @@ import FaqSection from '../../components/FaqSection.astro';
                   alt="Illustration séance EFT / Tapping" 
                   class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
                   width={800}
+                  loading="eager"
                 />
              </div>
         </div>

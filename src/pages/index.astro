@@ -6,8 +6,11 @@ import Button from '../components/Button.astro';
 import CardService from '../components/CardService.astro';
 import Reviews from '../components/Reviews.astro';
 import { Image } from 'astro:assets'; // Import Image component
-import portraitEmma from '../assets/images/portrait-emma.png'; // Import images
+import portraitEmma from '../assets/images/portrait-manu.jpg'; // Import images
 import cabinetSiegeBleu from '../assets/images/cabinet-siege-bleu.png';
+import illustrationEmdr from '../assets/images/illustration-emdr.jpg';
+import illustrationEft from '../assets/images/illustration-eft.jpg';
+import imgSoutien from '../assets/images/img-soutien.jpg';
 ---
 
 <MainLayout title="Psychopraticienne à Saint-Nazaire | EMDR & EFT - Emma">
@@ -46,6 +49,7 @@ import cabinetSiegeBleu from '../assets/images/cabinet-siege-bleu.png';
 							alt="Cabinet de psychothérapie calme et apaisant" 
 							class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
 							width={600}
+							loading="eager"
 						/>
 					</div>
 					<!-- decorative element -->
@@ -60,7 +64,7 @@ import cabinetSiegeBleu from '../assets/images/cabinet-siege-bleu.png';
 				<h2 class="text-3xl font-serif font-bold text-primary mb-12" data-aos="fade-up">Je vous aide à traverser ces épreuves</h2>
 				<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
 					{['Traumatismes', 'Deuil', 'Anxiété', 'Périnatalité', 'Phobies', 'Stress', 'Confiance en soi', 'Douleurs'].map((item, index) => (
-						<div class="p-6 rounded-lg bg-secondary/30 hover:bg-secondary transition-colors cursor-default" data-aos="fade-up" data-aos-delay={index * 50}>
+						<div class="p-6 rounded-lg bg-secondary/30 border border-secondary/40 hover:border-accent/40 shadow-sm hover:shadow-md hover:bg-secondary transition-all duration-300 cursor-default" data-aos="fade-up" data-aos-delay={index * 50}>
 							<span class="text-lg font-semibold text-primary">{item}</span>
 						</div>
 					))}
@@ -72,12 +76,12 @@ import cabinetSiegeBleu from '../assets/images/cabinet-siege-bleu.png';
 		<section class="py-20 bg-secondary/20">
 			<div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 				<div class="order-2 md:order-1" data-aos="fade-right">
-					<div class="aspect-square rounded-full max-w-md mx-auto overflow-hidden shadow-lg border-4 border-white group">
+					<div class="aspect-square rounded-full max-w-sm mx-auto overflow-hidden shadow-lg border-4 border-white group">
 						<!-- Use Astro Image component -->
 						<Image 
 							src={portraitEmma} 
 							alt="Portrait de Emma, Psychopraticienne" 
-							class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
+							class="w-full h-full object-cover object-[center_30%] transform transition-transform duration-500 group-hover:scale-110"
 							width={600}
 						/>
 					</div>
@@ -108,19 +112,19 @@ import cabinetSiegeBleu from '../assets/images/cabinet-siege-bleu.png';
 						title="Thérapie EMDR"
 						description="La méthode de référence pour le traitement des traumatismes, chocs émotionnels et phobies. Retraitez les souvenirs douloureux."
 						href="/therapie-emdr-saint-nazaire/"
-						image="https://placehold.co/600x400/4A6C6F/white?text=EMDR"
+						image={illustrationEmdr}
 					/>
 					<CardService 
 						title="Séances EFT"
 						description="Une technique psycho-corporelle douce pour libérer les émotions négatives, le stress et l'anxiété au quotidien."
 						href="/seance-eft-gestion-emotions/"
-						image="https://placehold.co/600x400/C88D7D/white?text=EFT"
+						image={illustrationEft}
 					/>
 					<CardService 
 						title="Périnatalité & Deuil"
 						description="Un accompagnement spécialisé pour les étapes de vie délicates : grossesse, post-partum, maladie ou perte d'un proche."
 						href="/accompagnement-perinatalite-deuil/"
-						image="https://placehold.co/600x400/F5F0E6/4A6C6F?text=Soutien"
+						image={imgSoutien}
 					/>
 				</div>
 			</div>
@@ -136,7 +140,7 @@ import cabinetSiegeBleu from '../assets/images/cabinet-siege-bleu.png';
 				<p class="text-xl mb-8 max-w-2xl mx-auto opacity-90">
 					N'attendez plus pour prendre soin de vous. La première étape est souvent la plus difficile, je suis là pour vous accompagner.
 				</p>
-				<Button href="/prendre-rendez-vous-saint-nazaire/" variant="accent" class="text-lg px-10 py-4 shadow-xl hover:shadow-2xl">
+				<Button href="/prendre-rendez-vous-saint-nazaire/" class="text-lg px-10 py-4 shadow-xl hover:shadow-2xl bg-white !text-primary hover:bg-white/90">
 					Prendre rendez-vous au cabinet
 				</Button>
 			</div>

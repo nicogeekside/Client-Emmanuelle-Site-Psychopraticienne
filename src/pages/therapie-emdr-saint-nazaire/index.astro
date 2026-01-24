@@ -16,9 +16,9 @@ import FaqSection from '../../components/FaqSection.astro';
   
   <main>
     <!-- Silo Hero -->
-    <section class="bg-primary text-secondary py-20">
-      <div class="container mx-auto px-4 text-center">
-        <h1 class="text-3xl md:text-5xl font-serif font-bold mb-6" data-aos="fade-up">Thérapie EMDR à Saint-Nazaire</h1>
+    <section class="bg-primary text-secondary py-16 min-h-[35vh] flex flex-col justify-center">
+      <div class="container mx-auto px-4 text-center pt-12">
+        <h1 class="text-4xl md:text-6xl font-serif font-bold mb-6" data-aos="fade-up">Thérapie EMDR à Saint-Nazaire</h1>
         <p class="text-xl max-w-2xl mx-auto opacity-90" data-aos="fade-up" data-aos-delay="100">
           Une méthode reconnue pour guérir les blessures du passé et se libérer des traumatismes.
         </p>
@@ -35,6 +35,7 @@ import FaqSection from '../../components/FaqSection.astro';
                   alt="Illustration séance EMDR" 
                   class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
                   width={800}
+                  loading="eager"
                 />
              </div>
         </div>
@@ -117,7 +118,7 @@ import FaqSection from '../../components/FaqSection.astro';
     <!-- CTA -->
     <section class="py-16 bg-primary text-center">
         <h2 class="text-2xl font-serif font-bold text-secondary mb-8">Besoin d'apaiser vos traumatismes ?</h2>
-        <Button href="/prendre-rendez-vous-saint-nazaire/" variant="accent" class="text-lg">
+        <Button href="/prendre-rendez-vous-saint-nazaire/" class="text-lg bg-white !text-primary hover:bg-white/90">
           Prendre rendez-vous en ligne
         </Button>
     </section>

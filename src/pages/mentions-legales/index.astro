@@ -3,69 +3,112 @@ import MainLayout from '../../layouts/MainLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { siteInfo } from '../../data/config';
+
 ---
 
-<MainLayout title="Mentions Légales | Emma Psychopraticienne">
+<MainLayout title={`Mentions Légales | ${siteInfo.name}`}>
   <Header />
   
-  <main class="py-20 bg-secondary/20">
-    <div class="container mx-auto px-4 max-w-4xl bg-white p-12 rounded-2xl shadow-sm">
-        <h1 class="text-3xl font-serif font-bold text-primary mb-8">Mentions Légales</h1>
+  <main class="py-24 bg-secondary/10">
+    <div class="container mx-auto px-4 max-w-4xl">
+        <h1 class="text-4xl font-serif font-bold text-primary mb-12 text-center" data-aos="fade-up">Mentions Légales</h1>
         
-        <div class="space-y-8 text-text-main/80">
+        <div class="bg-white p-10 md:p-14 rounded-2xl shadow-sm space-y-10 text-text-main/90 leading-relaxed" data-aos="fade-up" data-aos-delay="100">
+            
+            <!-- 1. Identité -->
             <section>
-                <h2 class="text-xl font-bold text-primary mb-4">1. Éditeur du site</h2>
-                <p>
-                    Le site internet <strong>emma-psychopraticienne.fr</strong> est édité par :<br/>
-                    <strong>{siteInfo.name}</strong><br/>
-                    Adresse : {siteInfo.address.full}<br/>
-                    SIRET : {siteInfo.siret}<br/>
-                    Téléphone : {siteInfo.phone}<br/>
-                    Email : {siteInfo.email}
-                </p>
+                <h2 class="text-xl font-serif font-bold text-primary mb-4 flex items-center">
+                    <span class="w-8 h-8 rounded-full bg-accent/20 text-accent flex items-center justify-center mr-3 text-sm">1</span>
+                    Éditeur du Site
+                </h2>
+                <div class="pl-11">
+                    <p class="mb-2">Le site <strong>emma-psychopraticienne.fr</strong> est édité par :</p>
+                    <ul class="list-disc list-inside space-y-1 ml-4 text-text-main">
+                        <li><strong>Nom commercial</strong> : {siteInfo.name}</li>
+                        <li><strong>Statut juridique</strong> : Entrepreneur Individuel (EI)</li>
+                        <li><strong>Adresse</strong> : {siteInfo.address.full}</li>
+                        <li><strong>SIRET</strong> : {siteInfo.siret === "123 456 789 00000" ? "En cours d'immatriculation" : siteInfo.siret}</li>
+                        <li><strong>Email</strong> : <a href={`mailto:${siteInfo.email}`} class="text-accent hover:underline">{siteInfo.email}</a></li>
+                        <li><strong>Téléphone</strong> : {siteInfo.phone}</li>
+                    </ul>
+                </div>
             </section>
             
+            <hr class="border-gray-100" />
+
+            <!-- 2. Hébergement -->
             <section>
-                <h2 class="text-xl font-bold text-primary mb-4">2. Hébergement</h2>
-                <p>
-                    Ce site est hébergé par :<br/>
-                    <strong>Vercel Inc.</strong><br/>
-                    340 S Lemon Ave #4133<br/>
-                    Walnut, CA 91789<br/>
-                    États-Unis
-                </p>
-            </section>
-            
-            <section>
-                <h2 class="text-xl font-bold text-primary mb-4">3. Propriété Intellectuelle</h2>
-                <p>
-                    L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés, y compris pour les documents téléchargeables et les représentations iconographiques et photographiques.
-                    La reproduction de tout ou partie de ce site sur un support électronique quel qu'il soit est formellement interdite sauf autorisation expresse du directeur de la publication.
-                </p>
-            </section>
-            
-            <section>
-                <h2 class="text-xl font-bold text-primary mb-4">4. Données Personnelles</h2>
-                <p>
-                    Les informations recueillies via le formulaire de contact sont enregistrées dans un fichier informatisé par {siteInfo.name} pour la gestion des demandes de contact.
-                    Elles sont conservées pendant 1 an et sont destinées uniquement à {siteInfo.name}.
-                    Conformément à la loi « informatique et libertés », vous pouvez exercer votre droit d'accès aux données vous concernant et les faire rectifier en contactant : {siteInfo.email}.
-                </p>
-            </section>
-            
-            <section>
-                <h2 class="text-xl font-bold text-primary mb-4">5. Cookies</h2>
-                <p>
-                   Ce site peut utiliser des cookies à des fins de statistiques de visite (via Google Analytics ou autre). Vous avez la possibilité de désactiver les cookies en vous rendant dans les options de votre navigateur.
-                </p>
+                <h2 class="text-xl font-serif font-bold text-primary mb-4 flex items-center">
+                    <span class="w-8 h-8 rounded-full bg-accent/20 text-accent flex items-center justify-center mr-3 text-sm">2</span>
+                    Hébergement
+                </h2>
+                <div class="pl-11">
+                    <p>Ce site est hébergé par la société <strong>Vercel Inc.</strong></p>
+                    <p class="text-sm text-gray-600 mt-2">
+                        Vercel Inc.<br/>
+                        340 S Lemon Ave #4133<br/>
+                        Walnut, CA 91789, USA<br/>
+                        <a href="https://vercel.com" target="_blank" rel="nofollow" class="hover:underline">https://vercel.com</a>
+                    </p>
+                </div>
             </section>
 
-             <section>
-                <h2 class="text-xl font-bold text-primary mb-4">6. Médiation</h2>
-                <p>
-                   Conformément aux articles L.616-1 et R.616-1 du code de la consommation, nous proposons un dispositif de médiation de la consommation. (A compléter avec le nom du médiateur choisi).
-                </p>
+            <hr class="border-gray-100" />
+
+            <!-- 3. Activité réglementée & Déontologie -->
+            <section>
+                <h2 class="text-xl font-serif font-bold text-primary mb-4 flex items-center">
+                    <span class="w-8 h-8 rounded-full bg-accent/20 text-accent flex items-center justify-center mr-3 text-sm">3</span>
+                    Activité & Déontologie
+                </h2>
+                <div class="pl-11 space-y-4">
+                    <p>
+                        <strong>Nature de l'activité</strong> : Psychopraticienne.<br/>
+                        L'accompagnement proposé (EMDR, EFT, Soutien émotionnel) s'inscrit dans le cadre de la relation d'aide et du bien-être.
+                    </p>
+                    <div class="bg-primary/5 p-4 rounded-lg border-l-4 border-primary text-sm">
+                        <strong>Avertissement important</strong> :<br/>
+                        La pratique de la psychothérapie relationnelle ne se substitue pas à un suivi médical ou psychiatrique. Aucun diagnostic médical n'est posé. En cas de pathologie lourde, il est impératif de consulter un médecin.
+                    </div>
+                </div>
             </section>
+
+            <hr class="border-gray-100" />
+            
+            <!-- 4. Données Personnelles (RGPD) -->
+            <section>
+                <h2 class="text-xl font-serif font-bold text-primary mb-4 flex items-center">
+                    <span class="w-8 h-8 rounded-full bg-accent/20 text-accent flex items-center justify-center mr-3 text-sm">4</span>
+                    Protection des Données (RGPD)
+                </h2>
+                <div class="pl-11 space-y-4">
+                    <p>
+                        <strong>Collecte</strong> : Les informations recueillies via le formulaire de contact (Nom, Email, Téléphone) sont strictement nécessaires à la gestion de la relation client (prise de rendez-vous, réponse aux questions).
+                    </p>
+                    <p>
+                        <strong>Conservation</strong> : Ces données sont conservées pour une durée maximale de 3 ans après le dernier contact. Elles ne sont <strong>jamais transmises à des tiers</strong> ni revendues.
+                    </p>
+                    <p>
+                        <strong>Vos droits</strong> : Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Pour l'exercer, contactez-moi par email à : {siteInfo.email}.
+                    </p>
+                </div>
+            </section>
+
+             <hr class="border-gray-100" />
+
+            <!-- 5. Propriété Intellectuelle -->
+            <section>
+                <h2 class="text-xl font-serif font-bold text-primary mb-4 flex items-center">
+                    <span class="w-8 h-8 rounded-full bg-accent/20 text-accent flex items-center justify-center mr-3 text-sm">5</span>
+                    Propriété Intellectuelle
+                </h2>
+                <div class="pl-11">
+                    <p>
+                        L'ensemble de ce site (textes, images, logo) est protégé par la législation sur le droit d'auteur. Toute reproduction, modification ou publication, même partielle, est interdite sans l'accord écrit préalable de {siteInfo.name}, sauf pour un usage strictement privé.
+                    </p>
+                </div>
+            </section>
+
         </div>
     </div>
   </main>

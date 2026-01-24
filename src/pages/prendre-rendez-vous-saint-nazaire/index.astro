@@ -3,7 +3,10 @@ import MainLayout from '../../layouts/MainLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Button from '../../components/Button.astro';
+import Button from '../../components/Button.astro';
 import { siteInfo } from '../../data/config';
+import { Image } from 'astro:assets';
+import portraitEmma from '../../assets/images/portrait-manu.jpg';
 ---
 
 <MainLayout 
@@ -21,8 +24,19 @@ import { siteInfo } from '../../data/config';
             
             <!-- Coordonnées & Infos Pratiques -->
             <div data-aos="fade-right">
-                <div class="bg-white p-8 rounded-xl shadow-sm h-full">
-                    <h2 class="text-2xl font-serif font-bold text-primary mb-6">Informations Pratiques</h2>
+                <div class="bg-white p-8 rounded-xl shadow-sm h-full relative overflow-hidden">
+                    <div class="flex justify-between items-start mb-6">
+                         <h2 class="text-2xl font-serif font-bold text-primary">Informations Pratiques</h2>
+                         <div class="w-32 h-32 rounded-[60%_40%_30%_70%/60%_30%_70%_40%] overflow-hidden border-2 border-secondary shadow-md shrink-0 ml-4 hidden md:block">
+                            <Image 
+                                src={portraitEmma} 
+                                alt="Portrait Emma" 
+                                class="w-full h-full object-cover object-[center_30%]"
+                                width={150}
+                                loading="eager"
+                            />
+                         </div>
+                    </div>
                     
                     <div class="space-y-6">
                         <div>
