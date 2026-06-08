@@ -1,61 +1,93 @@
 ---
-import { siteInfo } from '../data/config';
+import { siteInfo, navItems, navDropdown, navDropdownFormats } from '../data/config';
 ---
 
-<footer class="bg-primary text-secondary py-12 mt-auto">
+<footer class="bg-primary text-secondary py-14 mt-auto">
     <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
             <!-- Brand & Info -->
             <div>
-                <h3 class="text-2xl font-serif font-bold mb-4">{siteInfo.name}</h3>
-                <p class="mb-4 text-secondary/80">Accompagnement bienveillant vers le mieux-être émotionnel par l'EMDR et l'EFT.</p>
-                <div class="space-y-2">
-                    <p class="flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <h3 class="text-2xl font-serif font-bold mb-2">{siteInfo.name}</h3>
+                <p class="text-xs text-secondary/50 uppercase tracking-widest mb-4">Psychopraticienne · Saint-Nazaire</p>
+                <p class="mb-6 text-secondary/75 text-sm leading-relaxed">
+                    Un accompagnement bienveillant adapté à votre vie — en marchant, en visio ou en cabinet. Je choisis avec vous l'outil le plus adapté.
+                </p>
+                <div class="space-y-2.5">
+                    <p class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-accent flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>
-                        {siteInfo.address.city}
+                        <span>{siteInfo.address.full}</span>
                     </p>
-                    <p class="flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <a href={`tel:${siteInfo.phone.replace(/\s/g, '')}`} class="flex items-center gap-2 text-sm hover:text-accent transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-accent flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                         </svg>
                         {siteInfo.phone}
-                    </p>
+                    </a>
+                    <a href={`mailto:${siteInfo.email}`} class="flex items-center gap-2 text-sm hover:text-accent transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-accent flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        {siteInfo.email}
+                    </a>
                 </div>
             </div>
 
             <!-- Quick Links -->
             <div>
-                <h4 class="text-xl font-serif font-bold mb-4 text-accent">Navigation</h4>
+                <h4 class="text-base font-serif font-bold mb-4 text-accent">{navDropdownFormats.label}</h4>
+                <ul class="space-y-2 mb-6">
+                    {navDropdownFormats.items.map(item => (
+                        <li>
+                            <a href={item.href} class="text-sm hover:text-accent transition-colors text-secondary/80">{item.name}</a>
+                        </li>
+                    ))}
+                </ul>
+                <h4 class="text-base font-serif font-bold mb-4 text-accent">Approches thérapeutiques</h4>
+                <ul class="space-y-2 mb-6">
+                    {navDropdown.items.map(item => (
+                        <li>
+                            <a href={item.href} class="text-sm hover:text-accent transition-colors text-secondary/80">{item.name}</a>
+                        </li>
+                    ))}
+                </ul>
+                <h4 class="text-base font-serif font-bold mb-4 text-accent">Le Cabinet</h4>
                 <ul class="space-y-2">
-                    <li><a href="/" class="hover:text-accent transition-colors">Accueil</a></li>
-                    <li><a href="/therapie-emdr-saint-nazaire/" class="hover:text-accent transition-colors">Thérapie EMDR</a></li>
-                    <li><a href="/seance-eft-gestion-emotions/" class="hover:text-accent transition-colors">Séance EFT</a></li>
-                    <li><a href="/accompagnement-perinatalite-deuil/" class="hover:text-accent transition-colors">Périnatalité & Deuil</a></li>
-                    <li><a href="/a-propos-emma/" class="hover:text-accent transition-colors">À propos</a></li>
-                    <li><a href="/prendre-rendez-vous-saint-nazaire/" class="hover:text-accent transition-colors">Prendre RDV</a></li>
+                    {navItems.filter(i => i.name !== 'Accueil').map(item => (
+                        <li>
+                            <a href={item.href} class="text-sm hover:text-accent transition-colors text-secondary/80">{item.name}</a>
+                        </li>
+                    ))}
+                    <li>
+                        <a href="/seance-decouverte-therapie-psychocorporelle-saint-nazaire/" class="text-sm font-bold text-accent hover:text-white transition-colors">✦ Séance découverte (Offerte)</a>
+                    </li>
                 </ul>
             </div>
 
             <!-- Map/Legal -->
             <div>
-                <h4 class="text-xl font-serif font-bold mb-4 text-accent">Cabinet</h4>
+                <h4 class="text-base font-serif font-bold mb-4 text-accent">Le Cabinet</h4>
                 <div class="aspect-video w-full bg-secondary/10 rounded-lg overflow-hidden mb-4 shadow-inner">
                     <iframe 
-                        src="https://www.google.com/maps?q=Emmanuelle+Demeulemeester+Psychothérapeute+28+Allée+Stéphane+Grappelli+44600+Saint-Nazaire&output=embed" 
+                        src="https://www.google.com/maps?q=Emmanuelle+Demeulemeester+Psychothérapeute+7+rue+de+l'étoile+du+matin+44600+Saint-Nazaire&output=embed" 
                         width="100%" 
                         height="100%" 
                         style="border:0;" 
                         allowfullscreen="" 
                         loading="lazy"
-                        title="Carte de localisation du cabinet à Saint-Nazaire">
-                    </iframe>
+                        title="Carte de localisation du cabinet à Saint-Nazaire"
+                    ></iframe>
                 </div>
-                <div class="text-sm text-secondary/60">
-                    <p>&copy; {new Date().getFullYear()} {siteInfo.name}.</p>
-                    <a href="/mentions-legales/" class="hover:text-white transition-colors">Mentions légales</a>
+                <div class="text-xs text-secondary/50 space-y-3">
+                    <p class="leading-relaxed border-t border-primary-light/20 pt-3">
+                        Situé à Saint-Nazaire (St-Marc-sur-Mer), le cabinet est facilement accessible depuis la presqu'île guérandaise et le bassin nazairien : <strong class="font-normal text-secondary/80">Pornichet, La Baule, Trignac, Montoir-de-Bretagne et Saint-Brevin-les-Pins</strong>.
+                    </p>
+                    <div class="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center gap-2 pt-2">
+                        <p>&copy; {new Date().getFullYear()} {siteInfo.name}. Tous droits réservés.</p>
+                        <a href="/mentions-legales/" class="hover:text-white transition-colors">Mentions légales</a>
+                    </div>
                 </div>
             </div>
         </div>

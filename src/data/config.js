@@ -1,23 +1,102 @@
 export const siteInfo = {
-    name: "Emma Psychopraticienne",
-    title: "Psychopraticienne à Saint-Nazaire - EMDR & EFT",
+    name: "Emmanuelle Demeulemeester",
+    shortName: "Emmanuelle",
+    title: "Psychopraticienne à Saint-Nazaire | EMDR & EFT",
     phone: "07 67 15 84 71",
     email: "contact@emma-psychopraticienne.fr",
     address: {
-        street: "28 allée Stéphane Grappelli",
-        city: "St-Marc-sur-Mer",
+        street: "7 rue de l'étoile du matin",
+        city: "Saint-Nazaire",
         zip: "44600",
-        full: "28 allée Stéphane Grappelli, 44600 St-Marc-sur-Mer"
+        full: "7 rue de l'étoile du matin, 44600 Saint-Nazaire",
+        region: "Loire-Atlantique",
+        country: "FR"
     },
-    siret: "123 456 789 00000" // To be updated
+    siret: "À renseigner",
+    geo: {
+        latitude: "47.2735",
+        longitude: "-2.2010"
+    }
 };
 
 export const navItems = [
     { name: 'Accueil', href: '/' },
-    { name: 'EMDR & Trauma', href: '/therapie-emdr-saint-nazaire/' },
-    { name: 'EFT & Émotions', href: '/seance-eft-gestion-emotions/' },
-    { name: 'Périnatalité & Deuil', href: '/accompagnement-perinatalite-deuil/' },
-    { name: 'Qui suis-je ?', href: '/a-propos-emma/' },
+    { name: 'Qui suis-je ?', href: '/a-propos-emmanuelle/' },
+];
+
+export const navDropdownFormats = {
+    label: 'Lieux de consultation',
+    items: [
+        { name: 'En cabinet', href: '/therapie-cabinet-saint-nazaire/' },
+        { name: 'En visio', href: '/therapie-en-ligne-visio/' },
+        { name: 'En marchant', href: '/therapie-en-marchant-saint-nazaire/' },
+        { name: 'Post-Partum', href: '/espace-soutien-post-partum/' },
+    ]
+};
+
+export const navDropdown = {
+    label: 'Mes approches',
+    items: [
+        { name: 'Thérapie EMDR', href: '/therapie-emdr-saint-nazaire/' },
+        { name: 'Séances EFT', href: '/seance-eft-gestion-emotions/' },
+    ]
+};
+
+export const formats = [
+    {
+        id: "marchant",
+        icon: "🚶‍♀️",
+        title: "Thérapie en marchant",
+        subtitle: "Thérapie en mouvement",
+        description: "Marchez à mes côtés et laissez la parole venir naturellement. Côte à côte, en mouvement, certaines choses se disent plus facilement. Une approche douce et libératrice.",
+        note: "Séances en plein air, à votre rythme",
+        href: "/therapie-en-marchant-saint-nazaire/",
+        color: "from-emerald-50 to-emerald-100/50",
+        accent: "text-emerald-800",
+        border: "border-emerald-200"
+    },
+    {
+        id: "visio",
+        icon: "💻",
+        title: "Thérapie en visio",
+        subtitle: "Depuis chez vous",
+        description: "Bénéficiez du même accompagnement de qualité depuis le confort de votre domicile, partout en France. Flexible, confidentiel et efficace.",
+        note: "Disponible partout en France",
+        href: "/therapie-en-ligne-visio/",
+        color: "from-blue-50 to-indigo-50/50",
+        accent: "text-blue-800",
+        border: "border-blue-200"
+    },
+    {
+        id: "cabinet",
+        icon: "🛋️",
+        title: "Thérapie en cabinet",
+        subtitle: "Un espace sécurisant",
+        description: "Venez dans mon cabinet apaisant à Saint-Nazaire. Un cadre chaleureux et confidentiel pensé pour que vous vous sentiez en sécurité dès la première seconde.",
+        note: "Saint-Nazaire — Parking gratuit",
+        href: "/therapie-cabinet-saint-nazaire/",
+        color: "from-rose-50 to-orange-50/50",
+        accent: "text-rose-800",
+        border: "border-rose-200"
+    },
+    {
+        id: "post-partum",
+        icon: "🤱",
+        title: "Espace Post-Partum",
+        subtitle: "Rassemblement mensuel",
+        description: "Un espace de parole bienveillant et sans jugement, ouvert aux mamans et aux papas. Pour traverser ensemble les bouleversements de la parentalité.",
+        note: "Groupe mensuel — Hommes & Femmes",
+        href: "/espace-soutien-post-partum/",
+        color: "from-purple-50 to-fuchsia-50/50",
+        accent: "text-purple-800",
+        border: "border-purple-200"
+    }
+];
+
+export const epreuves = [
+    "Traumatismes", "Deuil", "Anxiété", "Périnatalité",
+    "Phobies", "Stress", "Confiance en soi", "Douleurs chroniques",
+    "Post-Partum", "Burn-out", "Trouble du sommeil", "Séparation"
 ];
 
 export const reviews = [
