@@ -38,47 +38,42 @@ import portraitEmma from '../../assets/images/portrait-manu.jpg';
                          </div>
                     </div>
                     
-                    <div class="space-y-6">
-                        <div>
-                            <h3 class="font-bold text-accent mb-2">Adresse du cabinet</h3>
-                            <p class="text-text-main">
-                                {siteInfo.address.street}<br/>
-                                {siteInfo.address.zip} {siteInfo.address.city}
-                            </p>
-                            <p class="text-sm text-text-main/60 mt-2">
-                                🅿️ Parking gratuit à proximité<br/>
-                            </p>
+                    <div class="space-y-6 text-text-main/80 text-sm leading-relaxed">
+                        <p>
+                            Je vous accueille en cabinet ou en visio pour un <strong>premier rendez-vous d'une durée d'1h</strong>. Cette première séance est essentielle pour faire connaissance, explorer votre parcours et clarifier vos attentes. Elle permet d'établir un cadre de confiance et de respect, nécessaire à un accompagnement adapté.
+                        </p>
+                        <p>
+                            Pour les séances suivantes, vous avez la possibilité de choisir entre une séance en présentiel au cabinet, une séance en visio ou une séance en extérieur (marche) pour un tarif de <strong>60 euros pour 1h</strong>.
+                        </p>
+                        <p>
+                            Je propose un <strong>tarif réduit à 50 euros pour 1h</strong> pour les étudiants et les demandeurs d'emplois. Il vous sera demandé un justificatif.
+                        </p>
+                        <p>
+                            Je propose une <strong>séance découverte gratuite</strong> de la thérapie énergétique et psychocorporelle. La séance dure 45 minutes et a lieu au cabinet. Je vous présente mon approche et mes outils thérapeutiques et nous testons l'EFT ou l'EMDR sur le sujet de votre choix.
+                        </p>
+                        <div class="p-4 bg-secondary/30 rounded-lg border border-secondary/60">
+                            <h3 class="font-bold text-primary mb-2">Paiement & Annulation</h3>
+                            <p class="mb-2">Les paiements se font par <strong>espèces, chèque ou virement bancaire</strong>, offrant ainsi une flexibilité dans les modalités de règlement.</p>
+                            <p>Les rendez-vous peuvent être pris par téléphone ou via le formulaire de prise de RDV de mon site internet. Je vous remercie de vous présenter à l'heure pour chaque séance, par respect pour le temps réservé. En cas d'annulation ou de report, je vous prie de bien vouloir me prévenir <strong>au moins 48 heures à l'avance</strong>, afin de permettre à une autre personne de bénéficier de ce créneau.</p>
                         </div>
-                        
                         <div>
                              <h3 class="font-bold text-accent mb-2">Horaires</h3>
-                             <p class="text-text-main">Lundi - Vendredi : 9h00 - 19h00<br/>Samedi : 9h00 - 12h00</p>
+                             <p>
+                                <strong>Au cabinet :</strong> Les lundi et mardi entre 9h et 20h.<br/>
+                                <strong>En visio & extérieur :</strong> Les jeudi et vendredi de 9h à 18h et le samedi de 9h à 13h.
+                             </p>
                         </div>
-
                          <div>
-                             <h3 class="font-bold text-accent mb-2">Contact</h3>
-                             <p class="text-text-main">Tél : {siteInfo.phone}</p>
-                             <p class="text-text-main">Email : {siteInfo.email}</p>
+                             <h3 class="font-bold text-accent mb-2">Contact & Accès</h3>
+                             <p>Tél : {siteInfo.phone}<br/>Email : {siteInfo.email}</p>
+                             <p class="mt-2">
+                                 {siteInfo.address.street}, {siteInfo.address.zip} {siteInfo.address.city}<br/>
+                                 <span class="text-xs">🅿️ Parking gratuit à proximité</span>
+                             </p>
                         </div>
-                        
-                        <div class="pt-4 border-t border-gray-100">
-                             <h3 class="font-bold text-accent mb-2">Tarifs</h3>
-                             <ul class="text-text-main space-y-2">
-                                 <li class="flex justify-between border-b border-gray-100 pb-2">
-                                     <span>Séance EMDR (1h)</span>
-                                     <span class="font-bold">60 €</span>
-                                 </li>
-                                 <li class="flex justify-between border-b border-gray-100 pb-2">
-                                     <span>Séance EFT (1h)</span>
-                                     <span class="font-bold">60 €</span>
-                                 </li>
-                                 <li class="flex justify-between">
-                                     <span>Accompagnement (45min)</span>
-                                     <span class="font-bold">50 €</span>
-                                 </li>
-                             </ul>
-                             <p class="text-xs text-text-main/50 mt-2">* Paiement par chèque ou espèces uniquement.</p>
-                        </div>
+                        <p class="italic text-primary/80 mt-4">
+                            Je reste à votre disposition pour toute question ou information supplémentaire concernant les séances ou votre parcours.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -123,20 +118,10 @@ import portraitEmma from '../../assets/images/portrait-manu.jpg';
             
             <div class="bg-white rounded-xl shadow-lg overflow-hidden min-h-[600px] flex items-center justify-center relative border border-secondary" data-aos="zoom-in">
                 
-                <!-- 
-                    👋 TODO: REMPLACER CETTE DIV PAR LE CODE CALENDLY 
-                    1. Connectez-vous à Calendly
-                    2. Allez dans "Partager" > "Ajouter au site web" > "Inline Embed"
-                    3. Copiez le code commence par <div ...> et <script ...>
-                    4. Collez-le ici à la place de la div ci-dessous.
-                -->
-                <div class="text-center p-8">
-                    <p class="text-xl text-primary font-bold mb-4">Module de réservation Calendly</p>
-                    <p class="text-text-main/70 mb-6">Le module de réservation en ligne sera bientôt disponible ici.</p>
-                    <a href={`tel:${siteInfo.phone.replace(/\s/g, '')}`} class="inline-block bg-accent text-white px-6 py-3 rounded-lg hover:bg-opacity-90 transition-colors">
-                        Appeler pour prendre RDV : {siteInfo.phone}
-                    </a>
-                </div>
+                <!-- Calendly inline widget begin -->
+                <div class="calendly-inline-widget w-full h-full min-h-[700px]" data-url="https://calendly.com/emma-psychopraticienne?hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
+                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                <!-- Calendly inline widget end -->
 
             </div>
         </div>
