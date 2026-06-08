@@ -3,47 +3,132 @@ import { SEO } from 'astro-seo';
 import 'aos/dist/aos.css';
 import '@fontsource/playfair-display';
 import '@fontsource/lato';
+import { siteInfo } from '../data/config';
 
 interface Props {
 	title: string;
 	description?: string;
+	image?: string;
+	type?: string;
 }
 
-const { title, description = "Psychopraticienne à Saint-Nazaire - EMDR, EFT, Accompagnement Périnatalité et Deuil." } = Astro.props;
+const { 
+	title, 
+	description = "Psychopraticienne à Saint-Nazaire - Emmanuelle Demeulemeester vous accompagne en cabinet, en visio ou en marchant. EMDR, EFT, soutien Post-Partum en Loire-Atlantique.",
+	image = "/social-image.jpg",
+	type = "website"
+} = Astro.props;
+
+const siteUrl = "https://emma-psychopraticienne.fr";
+const canonicalURL = `${siteUrl}${Astro.url.pathname}`;
+
+// Schema.org JSON-LD pour le SEO local (GEO)
+const schemaOrg = {
+	"@context": "https://schema.org",
+	"@type": "MedicalBusiness",
+	"name": siteInfo.name,
+	"description": description,
+	"url": canonicalURL,
+	"telephone": siteInfo.phone,
+	"email": siteInfo.email,
+	"image": image,
+	"address": {
+		"@type": "PostalAddress",
+		"streetAddress": siteInfo.address.street,
+		"addressLocality": siteInfo.address.city,
+		"postalCode": siteInfo.address.zip,
+		"addressRegion": siteInfo.address.region,
+		"addressCountry": siteInfo.address.country
+	},
+	"geo": {
+		"@type": "GeoCoordinates",
+		"latitude": siteInfo.geo.latitude,
+		"longitude": siteInfo.geo.longitude
+	},
+	"areaServed": [
+		{ "@type": "City", "name": "Saint-Nazaire" },
+		{ "@type": "City", "name": "Pornichet" },
+		{ "@type": "City", "name": "La Baule-Escoublac" },
+		{ "@type": "City", "name": "Trignac" },
+		{ "@type": "City", "name": "Montoir-de-Bretagne" },
+		{ "@type": "City", "name": "Saint-Brevin-les-Pins" }
+	],
+	"openingHoursSpecification": [
+		{
+			"@type": "OpeningHoursSpecification",
+			"dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+			"opens": "09:00",
+			"closes": "19:00"
+		},
+		{
+			"@type": "OpeningHoursSpecification",
+			"dayOfWeek": "Saturday",
+			"opens": "09:00",
+			"closes": "12:00"
+		}
+	],
+	"priceRange": "€€",
+	"medicalSpecialty": ["EMDR", "EFT", "Psychopratique"],
+	"areaServed": ["Saint-Nazaire", "Loire-Atlantique", "Pays de la Loire", "France"],
+	"knowsAbout": ["EMDR", "EFT", "Thérapie en marchant", "Soutien post-partum", "Gestion du stress", "Traumatismes", "Anxiété"],
+	"sameAs": []
+};
 ---
 
 <!doctype html>
 <html lang="fr" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/png" href="/favicon.png" />
 		<meta name="generator" content={Astro.generator} />
-		
-		<!-- 
-			ANALYTICS PLACEHOLDER 
-			Paste your Google Analytics (GA4) or Plausible script here.
-			Example for GA4:
-			<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-			<script>
-			  window.dataLayer = window.dataLayer || [];
-			  function gtag(){dataLayer.push(arguments);}
-			  gtag('js', new Date());
-			  gtag('config', 'G-XXXXXXXXXX');
-			</script>
-		-->
-		
+		<link rel="canonical" href={canonicalURL} />
+
+		<!-- Geo meta pour référencement local -->
+		<meta name="geo.region" content="FR-44" />
+		<meta name="geo.placename" content="Saint-Nazaire" />
+		<meta name="geo.position" content={`${siteInfo.geo.latitude};${siteInfo.geo.longitude}`} />
+		<meta name="ICBM" content={`${siteInfo.geo.latitude}, ${siteInfo.geo.longitude}`} />
+
+		<!-- SEO -->
 		<SEO
 			title={title}
 			description={description}
 			openGraph={{
 				basic: {
 					title: title,
-					type: "website",
-					image: "/social-image.jpg", // TODO: Add default social image
+					type: type,
+					image: image,
+					url: canonicalURL.toString(),
+				},
+				optional: {
+					description: description,
+					locale: "fr_FR",
+					siteName: siteInfo.name,
 				}
 			}}
+			twitter={{
+				card: "summary_large_image",
+				title: title,
+				description: description,
+				image: image,
+			}}
+			extend={{
+				meta: [
+					{ name: "robots", content: "index, follow" },
+					{ name: "author", content: siteInfo.name },
+					{ name: "theme-color", content: "#3D5A4E" },
+				]
+			}}
 		/>
+
+		<!-- Schema.org JSON-LD -->
+		<script type="application/ld+json" set:html={JSON.stringify(schemaOrg)} />
+
+		<!-- 
+			ANALYTICS PLACEHOLDER 
+			Paste your Google Analytics (GA4) or Plausible script here.
+		-->
 	</head>
 	<body class="font-sans text-text-main antialiased bg-secondary">
 		<slot />

@@ -4,10 +4,18 @@ export default {
     theme: {
         extend: {
             colors: {
-                primary: '#4A6C6F', // Deep Sage
-                secondary: '#F5F0E6', // Sand Beige
-                accent: '#C88D7D', // Terracotta
-                'text-main': '#2C3E50', // Charcoal
+                // 🌿 LA TOUCHE "SAUGE" DEMANDÉE PAR EMMA
+                primary: '#4A5D4E',         // Sauge Foncé (Parfait pour les titres H1/H2)
+                'primary-light': '#829A86', // Sauge Doux (Idéal pour les icônes, traits ou fonds secondaires)
+                
+                // 🎨 L'IDENTITÉ VISUELLE DU LOGO / CARTE DE VISITE
+                secondary: '#EBDCCC',       // Beige Sable du logo (Pour les cartes ou sections douces)
+                'text-muted': '#85827D',    // Gris Taupe du texte "Psychopraticienne" du logo
+                
+                // 🎯 LES FONDS ET L'ACTION
+                background: '#FAF7F3',      // Blanc cassé très léger pour le fond global
+                accent: '#C88D7D',          // Terracotta (Pour le bouton Prendre RDV)
+                'text-main': '#2C3E50',     // Gris Anthracite (Pour les longs paragraphes)
             },
             fontFamily: {
                 serif: ['"Playfair Display"', 'serif'],
