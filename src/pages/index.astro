@@ -3,149 +3,299 @@ import MainLayout from '../layouts/MainLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Button from '../components/Button.astro';
-import CardService from '../components/CardService.astro';
+import CardFormat from '../components/CardFormat.astro';
 import Reviews from '../components/Reviews.astro';
-import { Image } from 'astro:assets'; // Import Image component
-import portraitEmma from '../assets/images/portrait-manu.jpg'; // Import images
+import { Image } from 'astro:assets';
+import portraitEmma from '../assets/images/portrait-manu.jpg';
 import cabinetSiegeBleu from '../assets/images/cabinet-siege-bleu.png';
-import illustrationEmdr from '../assets/images/illustration-emdr.jpg';
-import illustrationEft from '../assets/images/illustration-eft.jpg';
-import imgSoutien from '../assets/images/img-soutien.jpg';
+import { formats, epreuves, siteInfo } from '../data/config';
+
+const pageDescription = "Emmanuelle Demeulemeester, psychopraticienne à Saint-Nazaire, vous accompagne en cabinet, en marchant ou en visio. EMDR, EFT, soutien post-partum en Loire-Atlantique.";
 ---
 
-<MainLayout title="Psychopraticienne à Saint-Nazaire | EMDR & EFT - Emma">
-	<Header />
-	
-	<main>
-		<!-- Hero Section -->
-		<section class="relative min-h-[90vh] flex items-center justify-center bg-secondary overflow-hidden">
-			<div class="absolute inset-0 z-0">
-				<!-- Placeholder for Hero Image -->
-				<div class="w-full h-full bg-gradient-to-r from-primary/10 to-accent/10"></div>
-			</div>
-			
-			<div class="container mx-auto px-4 z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pt-20">
-				<div data-aos="fade-right">
-					<h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary mb-6 leading-tight">
-						Retrouver apaisement et confiance à Saint-Nazaire.
-					</h1>
-					<p class="text-xl text-text-main/80 mb-8 max-w-xl">
-						Je vous accompagne vers le mieux-être émotionnel et la libération des traumatismes grâce à l'EMDR et l'EFT.
-					</p>
-					<div class="flex flex-col sm:flex-row gap-4">
-						<Button href="/prendre-rendez-vous-saint-nazaire/" variant="accent" class="text-lg">
-							Je prends rendez-vous
-						</Button>
-						<Button href="#services" variant="outline" class="text-lg">
-							Découvrir mes approches
-						</Button>
-					</div>
-				</div>
-				<div class="relative" data-aos="fade-left">
-					<div class="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl bg-white group">
-						<!-- Use Astro Image component -->
-						<Image 
-							src={cabinetSiegeBleu} 
-							alt="Cabinet de psychothérapie calme et apaisant" 
-							class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
-							width={600}
-							loading="eager"
-						/>
-					</div>
-					<!-- decorative element -->
-					<div class="absolute -bottom-6 -right-6 w-32 h-32 bg-accent/20 rounded-full -z-10 blur-xl"></div>
-				</div>
-			</div>
-		</section>
+<MainLayout 
+  title="Psychopraticienne à Saint-Nazaire | Emmanuelle Demeulemeester - EMDR & EFT"
+  description={pageDescription}
+>
+  <Header />
+  
+  <main>
 
-		<!-- Problématiques (Le "Vous") -->
-		<section class="py-20 bg-white">
-			<div class="container mx-auto px-4 text-center max-w-4xl">
-				<h2 class="text-3xl font-serif font-bold text-primary mb-12" data-aos="fade-up">Je vous aide à traverser ces épreuves</h2>
-				<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-					{['Traumatismes', 'Deuil', 'Anxiété', 'Périnatalité', 'Phobies', 'Stress', 'Confiance en soi', 'Douleurs'].map((item, index) => (
-						<div class="p-6 rounded-lg bg-secondary/30 border border-secondary/40 hover:border-accent/40 shadow-sm hover:shadow-md hover:bg-secondary transition-all duration-300 cursor-default" data-aos="fade-up" data-aos-delay={index * 50}>
-							<span class="text-lg font-semibold text-primary">{item}</span>
-						</div>
-					))}
-				</div>
-			</div>
-		</section>
+    <!-- ===== HERO ===== -->
+    <section class="relative min-h-dvh flex items-center bg-secondary overflow-hidden">
+      <!-- Fond décoratif -->
+      <div class="absolute inset-0 z-0 pointer-events-none">
+        <div class="absolute top-0 right-0 w-[60vw] h-full bg-gradient-to-l from-primary/8 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
+        <div class="absolute top-1/3 right-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+      </div>
 
-		<!-- Presentation Brief -->
-		<section class="py-20 bg-secondary/20">
-			<div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-				<div class="order-2 md:order-1" data-aos="fade-right">
-					<div class="aspect-square rounded-full max-w-sm mx-auto overflow-hidden shadow-lg border-4 border-white group">
-						<!-- Use Astro Image component -->
-						<Image 
-							src={portraitEmma} 
-							alt="Portrait de Emma, Psychopraticienne" 
-							class="w-full h-full object-cover object-[center_30%] transform transition-transform duration-500 group-hover:scale-110"
-							width={600}
-						/>
-					</div>
-				</div>
-				<div class="order-1 md:order-2" data-aos="fade-left">
-					<span class="text-accent font-bold tracking-wider uppercase mb-2 block">Psychopraticienne</span>
-					<h2 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-6">Qui est Emma ?</h2>
-					<p class="text-lg text-text-main/80 mb-6 leading-relaxed">
-						Passionnée par la psychologie humaine et les capacités de résilience de chacun, j'ai choisi de me former à des thérapies brèves et efficaces comme l'EMDR et l'EFT. Mon approche est avant tout bienveillante, ancrée dans l'écoute active et le non-jugement.
-					</p>
-					<Button href="/a-propos-emma/" variant="outline">
-						En savoir plus sur mon parcours
-					</Button>
-				</div>
-			</div>
-		</section>
+      <div class="container mx-auto px-6 lg:px-8 z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center pt-28 lg:pt-24 pb-20">
+        <!-- Texte gauche -->
+        <div data-aos="fade-right" class="order-2 lg:order-1">
+          <!-- Eyebrow -->
+          <div class="inline-flex items-center gap-2 bg-white border border-primary/10 rounded-full px-4 py-2 mb-6 shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+            <span class="text-sm font-medium text-primary">Psychopraticienne · Saint-Nazaire & visio France</span>
+          </div>
 
-		<!-- Services (Silos Links) -->
-		<section id="services" class="py-20 bg-white">
-			<div class="container mx-auto px-4">
-				<h2 class="text-3xl md:text-4xl font-serif font-bold text-center text-primary mb-4" data-aos="fade-up">Mes Outils Thérapeutiques</h2>
-				<p class="text-center text-text-main/70 mb-16 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-					Des méthodes reconnues pour libérer les blocages émotionnels et retrouver un équilibre de vie.
-				</p>
-				
-				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-					<CardService 
-						title="Thérapie EMDR"
-						description="La méthode de référence pour le traitement des traumatismes, chocs émotionnels et phobies. Retraitez les souvenirs douloureux."
-						href="/therapie-emdr-saint-nazaire/"
-						image={illustrationEmdr}
-					/>
-					<CardService 
-						title="Séances EFT"
-						description="Une technique psycho-corporelle douce pour libérer les émotions négatives, le stress et l'anxiété au quotidien."
-						href="/seance-eft-gestion-emotions/"
-						image={illustrationEft}
-					/>
-					<CardService 
-						title="Périnatalité & Deuil"
-						description="Un accompagnement spécialisé pour les étapes de vie délicates : grossesse, post-partum, maladie ou perte d'un proche."
-						href="/accompagnement-perinatalite-deuil/"
-						image={imgSoutien}
-					/>
-				</div>
-			</div>
-		</section>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary mb-6 leading-[1.1]">
+            Un accompagnement<br/>
+            <span class="text-accent">à votre image.</span>
+          </h1>
 
-		<!-- Reviews -->
-		<Reviews />
+          <p class="text-lg md:text-xl text-text-main/75 mb-4 max-w-xl leading-relaxed">
+            En cabinet, en visio ou en marchant à vos côtés — je m'adapte à vous, pas l'inverse.
+          </p>
+          <p class="text-base text-text-main/60 mb-10 max-w-lg leading-relaxed">
+            Que vous traversiez un traumatisme, un deuil, une anxiété ou une période post-partum difficile, je choisis avec vous l'approche thérapeutique la plus juste — EMDR ou EFT — selon votre profil.
+          </p>
 
-		<!-- CTA Final -->
-		<section class="py-20 bg-primary text-secondary text-center">
-			<div class="container mx-auto px-4">
-				<h2 class="text-3xl md:text-4xl font-serif font-bold mb-8" data-aos="zoom-in">Prêt(e) à aller mieux ?</h2>
-				<p class="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-					N'attendez plus pour prendre soin de vous. La première étape est souvent la plus difficile, je suis là pour vous accompagner.
-				</p>
-				<Button href="/prendre-rendez-vous-saint-nazaire/" class="text-lg px-10 py-4 shadow-xl hover:shadow-2xl bg-white !text-primary hover:bg-white/90">
-					Prendre rendez-vous au cabinet
-				</Button>
-			</div>
-		</section>
-	</main>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <Button href="/prendre-rendez-vous-saint-nazaire/" variant="accent" class="text-lg px-8 py-4 shadow-xl hover:shadow-2xl active:scale-95 transition-all">
+              Prendre rendez-vous
+            </Button>
+            <Button href="#formats" variant="outline" class="text-lg px-8 py-4 active:scale-95 transition-all">
+              Découvrir les formats
+            </Button>
+          </div>
 
-	<Footer />
+          <!-- Signaux de confiance -->
+          <div class="mt-10 flex flex-wrap gap-6">
+            <div class="flex items-center gap-2 text-sm text-text-main/60">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-accent" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <span>5 avis 5 étoiles</span>
+            </div>
+            <div class="flex items-center gap-2 text-sm text-text-main/60">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              <span>Certifiée EMDR Europe</span>
+            </div>
+            <div class="flex items-center gap-2 text-sm text-text-main/60">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+              <span>{siteInfo.phone}</span>
+            </div>
+            <a href="/seance-decouverte-therapie-psychocorporelle-saint-nazaire/" class="inline-flex items-center gap-2 text-sm text-primary font-bold bg-secondary px-4 py-2 rounded-full border border-accent/20 hover:bg-secondary/80 hover:shadow-md transition-all cursor-pointer">
+              <span class="text-accent">✦</span>
+              <span>Séance découverte de 45 min offerte</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Photo droite -->
+        <div class="relative order-1 lg:order-2" data-aos="fade-left">
+          <div class="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl bg-white max-w-sm mx-auto lg:max-w-none group">
+            <Image 
+              src={cabinetSiegeBleu} 
+              alt="Cabinet de psychothérapie d'Emmanuelle Demeulemeester à Saint-Nazaire — espace calme et apaisant" 
+              class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+              width={600}
+              loading="eager"
+            />
+          </div>
+          <!-- Carte flottante -->
+          <div class="absolute -bottom-6 -left-4 lg:-left-8 bg-white rounded-2xl shadow-xl p-4 border border-gray-100 max-w-[200px]" data-aos="zoom-in" data-aos-delay="400">
+            <p class="text-xs text-text-main/50 mb-1">Une première séance ?</p>
+            <p class="text-sm font-bold text-primary leading-snug">Je réponds à toutes vos questions sans engagement.</p>
+          </div>
+          <!-- Blob déco -->
+          <div class="absolute -top-8 -right-8 w-40 h-40 bg-accent/10 rounded-full blur-3xl -z-10"></div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ===== INTRO RASSURANTE ===== -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-6 lg:px-8 max-w-4xl text-center">
+        <p class="text-lg md:text-xl text-text-main/70 leading-relaxed" data-aos="fade-up">
+          Vous n'avez pas à savoir ce dont vous avez besoin avant de venir. C'est <strong class="text-primary font-semibold">mon rôle</strong> de comprendre votre situation, de vous expliquer les options et de vous guider vers l'approche la plus juste — qu'il s'agisse d'EMDR, d'EFT ou d'un simple espace de parole.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== 4 FORMATS ===== -->
+    <section id="formats" class="py-20 bg-secondary/30">
+      <div class="container mx-auto px-6 lg:px-8">
+        <div class="text-center mb-14" data-aos="fade-up">
+          <span class="text-accent font-bold tracking-wider uppercase text-sm block mb-3">Comment travailler ensemble ?</span>
+          <h2 class="text-3xl md:text-5xl font-serif font-bold text-primary mb-4">
+            Un format adapté<br/>à votre vie
+          </h2>
+          <p class="text-text-main/65 max-w-2xl mx-auto leading-relaxed">
+            Chaque personne est différente. C'est pourquoi je propose plusieurs façons de nous rencontrer — vous choisissez ce qui vous convient, je m'occupe du reste.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {formats.map((format, i) => (
+            <CardFormat
+              id={format.id}
+              icon={format.icon}
+              title={format.title}
+              subtitle={format.subtitle}
+              description={format.description}
+              note={format.note}
+              href={format.href}
+              color={format.color}
+              accent={format.accent}
+              border={format.border}
+              index={i}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ÉPREUVES ===== -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-6 lg:px-8 text-center max-w-5xl">
+        <div data-aos="fade-up" class="mb-14">
+          <span class="text-accent font-bold tracking-wider uppercase text-sm block mb-3">Vous traversez peut-être</span>
+          <h2 class="text-3xl md:text-5xl font-serif font-bold text-primary mb-4">Je vous aide à traverser ces épreuves</h2>
+          <p class="text-text-main/65 max-w-2xl mx-auto">
+            Quelle que soit votre situation, vous n'avez pas à traverser ça seul(e). Prenez un premier rendez-vous — sans engagement, juste pour parler.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+          {epreuves.map((item, index) => (
+            <div 
+              class="p-4 rounded-xl bg-secondary/40 border border-secondary/60 hover:border-accent/40 hover:bg-secondary/60 hover:shadow-md transition-all duration-300 cursor-default group" 
+              data-aos="fade-up" 
+              data-aos-delay={index * 40}
+            >
+              <span class="text-base font-semibold text-primary group-hover:text-accent transition-colors">{item}</span>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-12" data-aos="fade-up">
+          <Button href="/prendre-rendez-vous-saint-nazaire/" variant="accent" class="text-lg px-10 py-4 shadow-lg">
+            Je prends un premier rendez-vous
+          </Button>
+          <p class="mt-3 text-sm text-text-main/50">Sans engagement — en cabinet, en visio ou en marchant</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EMMANUELLE + POSITIONNEMENT EXPERT ===== -->
+    <section class="py-20 bg-primary text-secondary relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute bottom-0 left-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl pointer-events-none"></div>
+      
+      <div class="container mx-auto px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
+          <!-- Portrait -->
+          <div class="order-2 md:order-1 flex justify-center" data-aos="fade-right">
+            <div class="relative">
+              <div class="w-72 h-72 lg:w-80 lg:h-80 rounded-[40%_60%_60%_40%/50%_50%_60%_40%] overflow-hidden border-4 border-white/20 shadow-2xl group">
+                <Image 
+                  src={portraitEmma} 
+                  alt="Portrait d'Emmanuelle Demeulemeester, psychopraticienne à Saint-Nazaire"
+                  class="w-full h-full object-cover object-[center_30%] transform transition-transform duration-500 group-hover:scale-110"
+                  width={500}
+                />
+              </div>
+              <!-- Badge certif -->
+              <div class="absolute -bottom-4 -right-4 bg-accent text-white rounded-2xl px-5 py-3 shadow-xl">
+                <p class="text-xs font-bold uppercase tracking-wider">Certifiée</p>
+                <p class="text-sm font-bold">EMDR Europe</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Texte -->
+          <div class="order-1 md:order-2" data-aos="fade-left">
+            <span class="text-accent font-bold tracking-wider uppercase text-sm block mb-3">Votre thérapeute</span>
+            <h2 class="text-3xl md:text-4xl font-serif font-bold mb-6 leading-tight">
+              Emmanuelle Demeulemeester
+            </h2>
+            <p class="text-secondary/85 text-lg mb-5 leading-relaxed">
+              Je ne vous demanderai pas de choisir entre EMDR et EFT avant même d'avoir discuté ensemble. C'est <strong class="text-white">mon rôle d'experte</strong> d'évaluer ce dont vous avez besoin.
+            </p>
+            <p class="text-secondary/75 leading-relaxed mb-5">
+              Lors de notre premier échange, je prends le temps de comprendre votre histoire, vos blocages et ce que vous souhaitez changer. C'est seulement ensuite que je vous propose l'approche la plus adaptée.
+            </p>
+            <p class="text-secondary/75 leading-relaxed mb-8">
+              Ce qui compte, c'est <em>vous</em> — pas la méthode.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <Button href="/a-propos-emmanuelle/" variant="outline" class="border-white/30 text-white hover:bg-white/10 hover:border-white/60">
+                Mon parcours
+              </Button>
+              <Button href="/prendre-rendez-vous-saint-nazaire/" variant="white" class="shadow-lg">
+                Prendre RDV
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== APPROCHES SEO ===== -->
+    <section class="py-16 bg-secondary/20">
+      <div class="container mx-auto px-6 lg:px-8 text-center">
+        <h2 class="text-2xl md:text-3xl font-serif font-bold text-primary mb-3" data-aos="fade-up">Les approches thérapeutiques que j'utilise</h2>
+        <p class="text-text-main/60 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+          EMDR et EFT sont des outils reconnus et efficaces. Je les utilise selon ce qui est le plus adapté à votre profil, jamais par défaut.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+          <!-- EMDR -->
+          <a href="/therapie-emdr-saint-nazaire/" class="group bg-blue-50/50 rounded-2xl p-8 border border-blue-100 hover:border-blue-300 hover:shadow-xl transition-all duration-300 text-left hover:-translate-y-1" data-aos="fade-up">
+            <div class="text-3xl mb-4">🧠</div>
+            <h3 class="text-xl font-serif font-bold text-blue-900 mb-2 group-hover:text-blue-700 transition-colors">Thérapie EMDR</h3>
+            <p class="text-blue-800/70 text-sm leading-relaxed mb-4">
+              Pour le traitement des traumatismes, chocs émotionnels, phobies et deuils bloqués. Une méthode validée scientifiquement.
+            </p>
+            <span class="text-blue-600 text-sm font-semibold flex items-center gap-1">
+              En savoir plus
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+            </span>
+          </a>
+          <!-- EFT -->
+          <a href="/seance-eft-gestion-emotions/" class="group bg-emerald-50/50 rounded-2xl p-8 border border-emerald-100 hover:border-emerald-300 hover:shadow-xl transition-all duration-300 text-left hover:-translate-y-1" data-aos="fade-up" data-aos-delay="100">
+            <div class="text-3xl mb-4">✋</div>
+            <h3 class="text-xl font-serif font-bold text-emerald-900 mb-2 group-hover:text-emerald-700 transition-colors">Séances EFT</h3>
+            <p class="text-emerald-800/70 text-sm leading-relaxed mb-4">
+              Technique psycho-corporelle douce pour libérer stress, anxiété et émotions négatives. Utilisable en autonomie au quotidien.
+            </p>
+            <span class="text-emerald-600 text-sm font-semibold flex items-center gap-1">
+              En savoir plus
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== AVIS ===== -->
+    <Reviews />
+
+    <!-- ===== CTA FINAL ===== -->
+    <section class="py-20 bg-secondary/50 text-center relative overflow-hidden">
+      <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute top-0 left-1/4 w-64 h-64 bg-accent/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-1/4 w-80 h-80 bg-primary/5 rounded-full blur-3xl"></div>
+      </div>
+      <div class="container mx-auto px-6 relative z-10">
+        <div data-aos="zoom-in" class="max-w-2xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">Prête(e) à faire le premier pas ?</h2>
+          <p class="text-lg text-text-main/70 mb-8 leading-relaxed">
+            Un simple appel ou un message suffit. Je vous répondrai dans les plus brefs délais pour que l'on trouve ensemble le format qui vous convient.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button href="/prendre-rendez-vous-saint-nazaire/" variant="accent" class="text-lg px-10 py-4 shadow-xl hover:shadow-2xl active:scale-95 transition-all">
+              Je prends rendez-vous
+            </Button>
+            <a href={`tel:${siteInfo.phone.replace(/\s/g, '')}`} class="inline-flex items-center justify-center gap-2 text-lg px-10 py-4 border-2 border-primary/20 rounded-xl text-primary hover:bg-primary/5 transition-all active:scale-95">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+              {siteInfo.phone}
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
 </MainLayout>
