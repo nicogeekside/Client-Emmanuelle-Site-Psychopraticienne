@@ -9,17 +9,22 @@ import portraitEmma from '../../assets/images/portrait-manu.jpg';
 ---
 
 <MainLayout 
-  title="À propos d'Emma | Psychopraticienne Saint-Nazaire"
-  description="Découvrez mon parcours, mes valeurs et ma vision de l'accompagnement thérapeutique. Bienveillance, écoute et non-jugement au cœur de ma pratique."
+  title="À propos d'Emmanuelle Demeulemeester | Psychopraticienne Saint-Nazaire"
+  description="Découvrez le parcours d'Emmanuelle Demeulemeester, psychopraticienne certifiée EMDR Europe à Saint-Nazaire. Bienveillance, écoute et non-jugement au cœur de sa pratique."
 >
   <Header />
   
   <main>
-    <section class="py-20 bg-secondary/20">
-      <div class="container mx-auto px-4">
-        <h1 class="text-4xl font-serif font-bold text-primary mb-12 text-center" data-aos="fade-up">Mon Parcours</h1>
+    <section class="py-16 lg:py-24 bg-secondary/20">
+      <div class="container mx-auto px-6 lg:px-4">
+        <nav class="text-sm text-text-main/40 mb-8 flex items-center gap-2" aria-label="Fil d'Ariane">
+          <a href="/" class="hover:text-accent transition-colors">Accueil</a>
+          <span>/</span>
+          <span class="text-primary">Qui suis-je ?</span>
+        </nav>
+        <h1 class="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-primary mb-12 text-center" data-aos="fade-up">Emmanuelle Demeulemeester</h1>
         
-        <div class="max-w-6xl mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-sm" data-aos="fade-up">
+        <div class="max-w-6xl mx-auto bg-white p-6 md:p-12 rounded-2xl shadow-sm" data-aos="fade-up">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center mb-12">
                  <div class="md:col-span-2 order-2 md:order-1">
                     <p class="text-lg text-text-main/80 mb-6 leading-relaxed">
@@ -29,7 +34,10 @@ import portraitEmma from '../../assets/images/portrait-manu.jpg';
                         Je me suis alors formée à la psychothérapie, en me spécialisant rapidement vers des outils concrets et efficaces comme l'<strong>EMDR</strong> et l'<strong>EFT</strong>. Ces méthodes m'ont convaincue par leur capacité à libérer les blocages profonds tout en douceur.
                     </p>
                     <p class="text-lg text-text-main/80 mb-6 leading-relaxed">
-                        Aujourd'hui, je vous accueille dans mon cabinet à Saint-Nazaire pour vous aider à traverser vos épreuves de vie, qu'il s'agisse d'un traumatisme ancien ou d'un stress présent.
+                        Aujourd'hui, je vous accueille dans mon cabinet à Saint-Nazaire — ou en visio, ou en marchant à vos côtés — pour vous aider à traverser vos épreuves de vie, qu'il s'agisse d'un traumatisme ancien ou d'un stress présent.
+                    </p>
+                    <p class="text-lg text-text-main/80 leading-relaxed">
+                        Ce qui m'anime, c'est l'idée que <strong>vous n'avez pas à choisir l'outil</strong>. Mon rôle est de comprendre ce que vous traversez et de trouver, avec vous, l'approche la plus juste.
                     </p>
                  </div>
                  
@@ -37,7 +45,7 @@ import portraitEmma from '../../assets/images/portrait-manu.jpg';
                     <div class="morph-blob w-64 h-64 overflow-hidden border-4 border-white shadow-lg relative">
                         <Image 
                             src={portraitEmma} 
-                            alt="Portrait d'Emma" 
+                            alt="Portrait d'Emmanuelle Demeulemeester, psychopraticienne" 
                             class="w-full h-full object-cover object-[center_30%]"
                             width={400}
                             loading="eager"
