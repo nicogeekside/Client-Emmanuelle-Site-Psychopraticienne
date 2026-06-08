@@ -9,20 +9,48 @@ import FaqSection from '../../components/FaqSection.astro';
 ---
 
 <MainLayout 
-  title="Praticienne EFT à Saint-Nazaire | Gestion des Émotions & Stress"
-  description="Séances d'EFT (Emotional Freedom Techniques) à Saint-Nazaire. Apprenez à libérer vos émotions, gérer l'anxiété et les douleurs somatiques."
+  title="Séances EFT à Saint-Nazaire | Emmanuelle Demeulemeester, Psychopraticienne"
+  description="Emmanuelle Demeulemeester propose des séances EFT (Tapping) à Saint-Nazaire. L'EFT est l'un des outils qu'elle utilise pour libérer stress, anxiété et émotions. En cabinet, en visio ou en marchant."
 >
   <Header />
   
   <main>
-    <!-- Silo Hero -->
-    <section class="bg-secondary text-primary py-16 relative overflow-hidden min-h-[35vh] flex flex-col justify-center">
+    <!-- Hero -->
+    <section class="bg-secondary text-primary py-16 lg:py-24 relative overflow-hidden min-h-[60vh] flex flex-col justify-center">
         <div class="absolute top-0 right-0 w-64 h-64 bg-white/20 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
-      <div class="container mx-auto px-4 text-center z-10 relative pt-12">
-        <h1 class="text-4xl md:text-6xl font-serif font-bold mb-6" data-aos="fade-up">Praticienne EFT à Saint-Nazaire</h1>
-        <p class="text-xl max-w-2xl mx-auto text-text-main/80" data-aos="fade-up" data-aos-delay="100">
-          Libérez vos émotions et retrouvez votre calme intérieur grâce à l'EFT (Techniques de Liberté Émotionnelle).
-        </p>
+      <div class="container mx-auto px-6 lg:px-4 z-10 relative pt-24 lg:pt-12">
+        <nav class="text-sm text-text-main/40 mb-6 flex items-center gap-2" aria-label="Fil d'Ariane">
+          <a href="/" class="hover:text-accent transition-colors">Accueil</a>
+          <span>/</span>
+          <a href="/#services" class="hover:text-accent transition-colors">Approches thérapeutiques</a>
+          <span>/</span>
+          <span class="text-primary">EFT</span>
+        </nav>
+        <div class="max-w-3xl">
+          <div class="inline-flex items-center gap-2 bg-primary/5 border border-primary/10 rounded-full px-4 py-2 mb-6">
+            <span class="text-2xl leading-none">✋</span>
+            <span class="text-sm font-medium text-primary">Outil thérapeutique · Technique Tapping</span>
+          </div>
+          <h1 class="text-3xl md:text-5xl lg:text-6xl font-serif font-bold mb-6" data-aos="fade-up">Praticienne EFT à Saint-Nazaire</h1>
+          <p class="text-lg md:text-xl max-w-2xl text-text-main/80 leading-relaxed mb-6" data-aos="fade-up" data-aos-delay="100">
+            Libérez vos émotions et retrouvez votre calme intérieur grâce à l'EFT (Techniques de Liberté Émotionnelle).
+          </p>
+          <div class="bg-primary/5 border border-primary/10 rounded-xl p-4 max-w-2xl" data-aos="fade-up" data-aos-delay="200">
+            <p class="text-sm text-text-main/80 leading-relaxed">
+              <strong class="text-primary">Comment ça fonctionne chez Emmanuelle :</strong> L'EFT est l'un des outils que j'utilise selon votre profil. Lors de notre premier échange, on détermine ensemble si c'est l'approche la plus adaptée — vous n'avez pas à choisir avant de venir.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lien vers formats -->
+    <section class="py-6 bg-white border-b border-secondary/50">
+      <div class="container mx-auto px-4 flex flex-wrap gap-3 items-center justify-center text-sm">
+        <span class="text-text-main/60">Une séance EFT peut se faire :</span>
+        <a href="/therapie-cabinet-saint-nazaire/" class="inline-flex items-center gap-1 px-4 py-1.5 bg-secondary rounded-full border border-secondary shadow-sm hover:border-primary/30 hover:shadow-md transition-all text-primary font-medium">🛋️ En cabinet</a>
+        <a href="/therapie-en-ligne-visio/" class="inline-flex items-center gap-1 px-4 py-1.5 bg-secondary rounded-full border border-secondary shadow-sm hover:border-primary/30 hover:shadow-md transition-all text-primary font-medium">💻 En visio</a>
+        <span class="text-text-main/40 italic text-xs">(protocole complet, moins adapté en marchant)</span>
       </div>
     </section>
 
@@ -119,8 +147,8 @@ import FaqSection from '../../components/FaqSection.astro';
     <!-- CTA -->
     <section class="py-16 bg-white text-center border-t border-gray-100">
         <h2 class="text-2xl font-serif font-bold text-primary mb-8">Envie d'essayer le Tapping ?</h2>
-        <Button href="/prendre-rendez-vous-saint-nazaire/" variant="secondary" class="shadow-lg bg-primary text-white hover:bg-primary/90">
-          Prendre RDV pour une séance
+        <Button href="/prendre-rendez-vous-saint-nazaire/" variant="primary" class="shadow-lg w-full sm:w-auto active:scale-95 transition-transform">
+          Prendre un premier rendez-vous
         </Button>
     </section>
 

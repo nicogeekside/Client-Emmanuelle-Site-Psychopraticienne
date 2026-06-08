@@ -1,0 +1,218 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Button from '../../components/Button.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { siteInfo } from '../../data/config';
+import { Image } from 'astro:assets';
+import imgDouceur from '../../assets/images/img-douceur.jpg';
+---
+
+<MainLayout 
+  title="Espace Soutien Post-Partum à Saint-Nazaire | Emmanuelle Demeulemeester"
+  description="Espace de parole et soutien post-partum à Saint-Nazaire avec Emmanuelle Demeulemeester. Rassemblement mensuel pour mamans et papas traversant les bouleversements de la parentalité."
+>
+  <Header />
+  
+  <main>
+    <!-- HERO -->
+    <section class="relative min-h-[60vh] lg:min-h-[65vh] flex flex-col justify-end overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <Image 
+          src={imgDouceur}
+          alt="Espace de soutien post-partum — douceur et bienveillance"
+          class="w-full h-full object-cover opacity-35"
+          width={1400}
+          loading="eager"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-secondary/30"></div>
+      </div>
+
+      <div class="container mx-auto px-6 lg:px-8 pb-16 pt-32 relative z-10 text-secondary">
+        <nav class="text-sm text-secondary/50 mb-6 flex items-center gap-2" aria-label="Fil d'Ariane">
+          <a href="/" class="hover:text-white transition-colors">Accueil</a>
+          <span>/</span>
+          <span class="text-white">Espace Post-Partum</span>
+        </nav>
+        <div class="max-w-3xl">
+          <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
+            <span class="text-2xl leading-none">🤱</span>
+            <span class="text-sm font-medium text-white">Rassemblement mensuel · Mamans & Papas bienvenus</span>
+          </div>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 leading-[1.1]">
+            Espace de Parole<br/>Post-Partum
+          </h1>
+          <p class="text-xl text-secondary/85 leading-relaxed mb-8 max-w-2xl">
+            Un espace bienveillant pour traverser ensemble les bouleversements de la parentalité. Ouvert aux mamans et aux papas.
+          </p>
+          <Button href="/prendre-rendez-vous-saint-nazaire/" variant="white" class="text-lg px-8 py-4 shadow-xl font-bold">
+            Je veux rejoindre le groupe
+          </Button>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRO EMPATHIQUE -->
+    <section class="py-20 bg-background">
+      <div class="container mx-auto px-6 lg:px-8 max-w-4xl">
+        <div class="text-center mb-14" data-aos="fade-up">
+          <span class="text-accent font-bold tracking-wider uppercase text-sm block mb-3">Parce que vous n'êtes pas seul(e)</span>
+          <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-6 leading-tight">
+            Après la naissance, tout change.<br/>
+            Et personne n'en parle vraiment.
+          </h2>
+          <p class="text-lg text-text-main/70 leading-relaxed max-w-3xl mx-auto">
+            La société vous dit que vous devriez être heureux(se). Mais la réalité, c'est souvent l'épuisement, le doute, la perte de repères — parfois une tristesse qu'on ne comprend pas soi-même. Que vous soyez maman ou papa, ces bouleversements sont réels, normaux, et méritent un espace pour être dits.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CE QUE C'EST -->
+    <section class="py-16 bg-secondary/40">
+      <div class="container mx-auto px-6 lg:px-8 max-w-5xl">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
+          <div data-aos="fade-right">
+            <span class="text-accent font-bold tracking-wider uppercase text-sm block mb-3">Le concept</span>
+            <h2 class="text-3xl font-serif font-bold text-primary mb-6">Un rassemblement mensuel de parole</h2>
+            
+            <!-- Description par Emmanuelle -->
+            <div class="prose prose-primary mb-8">
+              <p class="text-text-main/80 leading-relaxed mb-4">
+                Un espace de parole et de soutien post-partum est un lieu d'échange bienveillant où les parents peuvent partager librement leur vécu après l'arrivée de leur bébé.
+              </p>
+              <p class="text-text-main/80 leading-relaxed mb-4">
+                Il permet d'exprimer ses émotions, ses questionnements et ses difficultés dans un cadre sécurisant, sans jugement. C'est également l'occasion de rencontrer d'autres parents, de rompre l'isolement et de trouver du soutien auprès de personnes vivant des expériences similaires.
+              </p>
+              <p class="text-text-main/80 leading-relaxed font-medium">
+                Parce qu'il n'est pas nécessaire d'aller mal pour avoir besoin de soutien, cet espace est ouvert à tous les parents qui souhaitent partager, échanger et prendre soin d'eux durant cette étape importante de leur vie.
+              </p>
+            </div>
+
+            <div class="mt-8 space-y-3">
+              <div class="flex gap-3 items-center p-4 bg-background rounded-xl border border-secondary">
+                <span class="text-2xl">📅</span>
+                <div>
+                  <p class="font-bold text-primary text-sm">Fréquence</p>
+                  <p class="text-text-muted text-sm">Rassemblement mensuel — dates à confirmer</p>
+                </div>
+              </div>
+              <div class="flex gap-3 items-center p-4 bg-background rounded-xl border border-secondary">
+                <span class="text-2xl">👥</span>
+                <div>
+                  <p class="font-bold text-primary text-sm">Ouvert à tous</p>
+                  <p class="text-text-muted text-sm">Mamans et papas — seul(e) ou en couple</p>
+                </div>
+              </div>
+              <div class="flex gap-3 items-center p-4 bg-background rounded-xl border border-secondary">
+                <span class="text-2xl">📍</span>
+                <div>
+                  <p class="font-bold text-primary text-sm">Lieu</p>
+                  <p class="text-text-muted text-sm">Saint-Nazaire (au cabinet ou en extérieur selon météo)</p>
+                </div>
+              </div>
+              <div class="flex gap-3 items-center p-4 bg-background rounded-xl border border-secondary">
+                <span class="text-2xl">⏳</span>
+                <div>
+                  <p class="font-bold text-primary text-sm">Durée & Fréquence</p>
+                  <p class="text-text-muted text-sm">Une fois par mois pendant 2 heures</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ce qu'on traverse ensemble -->
+          <div data-aos="fade-left">
+            <span class="text-accent font-bold tracking-wider uppercase text-sm block mb-3">Les bénéfices</span>
+            <h3 class="text-2xl font-serif font-bold text-primary mb-8">Pourquoi participer à cet espace ?</h3>
+            <p class="text-text-main/70 mb-6 leading-relaxed">
+              Le post-partum est une période de grands changements qui peut susciter autant de joie que de questionnements. Cet espace vous offre un temps pour vous poser et être accueilli(e) avec bienveillance dans ce que vous traversez. Participer, c'est :
+            </p>
+            
+            <div class="space-y-3">
+              {[
+                "Sortir de l'isolement et rencontrer d'autres parents.",
+                "Se sentir compris(e) et moins seul(e) face aux défis du quotidien.",
+                "Pouvoir parler librement de ses émotions, difficultés et réussites.",
+                "Être écouté(e) sans jugement, dans un cadre sécurisant.",
+                "Prendre du recul et renforcer ses ressources pour vivre cette période avec plus de sérénité."
+              ].map((item, i) => (
+                <div class="flex items-start gap-3 p-3.5 rounded-xl bg-background border border-secondary hover:border-accent/30 transition-colors" data-aos="fade-up" data-aos-delay={i * 40}>
+                  <span class="text-accent font-bold mt-0.5 flex-shrink-0">♡</span>
+                  <span class="text-sm text-text-main/80 leading-relaxed">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMENT SE DEROULE UNE RENCONTRE -->
+    <section class="py-20 bg-background">
+      <div class="container mx-auto px-6 lg:px-8 max-w-4xl">
+        <h2 class="text-3xl font-serif font-bold text-primary mb-8 text-center" data-aos="fade-up">Comment se déroule une rencontre ?</h2>
+        <div class="bg-secondary/30 rounded-2xl p-8 md:p-10 border border-secondary" data-aos="fade-up">
+          <p class="text-lg text-text-main/80 leading-relaxed mb-6">
+            Les rencontres ont lieu <strong>une fois par mois pendant 2 heures</strong>, à mon cabinet ou en extérieur lorsque la météo le permet. Elles se déroulent dans un cadre chaleureux, confidentiel et respectueux de chacun.
+          </p>
+          <p class="text-lg text-text-main/80 leading-relaxed mb-6">
+            Après un temps d'accueil, les participants sont invités à partager librement leur vécu, leurs questionnements, leurs difficultés ou leurs joies autour de la parentalité et du post-partum. <strong>Les échanges se construisent naturellement en fonction des besoins du groupe, sans thème imposé.</strong> Chacun est libre de prendre la parole ou simplement d'écouter.
+          </p>
+          <p class="text-lg text-text-main/80 leading-relaxed font-bold text-primary">
+            L'objectif est de créer un espace de soutien, d'écoute et de partage, où les parents peuvent se sentir compris, rompre l'isolement et repartir avec le sentiment d'être moins seuls dans cette période de transition.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20 bg-secondary/30">
+      <div class="container mx-auto px-6 lg:px-8 max-w-3xl">
+        <h2 class="text-3xl font-serif font-bold text-primary mb-12 text-center" data-aos="fade-up">Foire Aux Questions</h2>
+        <FaqSection items={[
+          {
+            question: "Dois-je avoir une difficulté particulière pour participer ?",
+            answer: "Non. Cet espace est ouvert à tous les parents en post-partum, que vous traversiez une période difficile ou que vous ressentiez simplement le besoin d'échanger, de partager votre expérience et de rencontrer d'autres parents."
+          },
+          {
+            question: "Suis-je obligé(e) de parler pendant la rencontre ?",
+            answer: "Non. Chacun est libre de participer à son rythme. Vous pouvez choisir de partager votre vécu ou simplement écouter les échanges. L'important est de vous sentir en sécurité et respecté(e) dans vos besoins du moment."
+          },
+          {
+            question: "Puis-je venir avec mon bébé ?",
+            answer: "Oui, les bébés sont les bienvenus. Cet espace a été pensé pour s'adapter aux réalités du post-partum et permettre aux parents de participer sereinement sans avoir à trouver un mode de garde."
+          }
+        ]} />
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-primary text-secondary text-center relative overflow-hidden">
+      <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-primary-light/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-secondary/10 rounded-full blur-3xl"></div>
+      </div>
+      <div class="container mx-auto px-4 relative z-10" data-aos="zoom-in">
+        <div class="text-5xl mb-6">🤱</div>
+        <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4">Vous souhaitez rejoindre le groupe ?</h2>
+        <p class="text-lg text-secondary/80 mb-8 max-w-xl mx-auto leading-relaxed">
+          Laissez-moi vos coordonnées — je vous enverrai les informations sur les prochaines dates dès qu'elles seront confirmées.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button href="/prendre-rendez-vous-saint-nazaire/" variant="white" class="text-lg px-10 py-4 shadow-xl font-bold">
+            Je veux être informé(e)
+          </Button>
+          <a href={`tel:${siteInfo.phone.replace(/\s/g, '')}`} class="inline-flex items-center justify-center gap-2 text-lg px-8 py-4 border-2 border-white/30 rounded-xl text-white hover:bg-white/10 transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+            Appeler
+          </a>
+        </div>
+        <p class="mt-5 text-sm text-secondary/50">Vous avez aussi la possibilité d'un suivi individuel en cabinet ou en visio si vous le souhaitez.</p>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</MainLayout>

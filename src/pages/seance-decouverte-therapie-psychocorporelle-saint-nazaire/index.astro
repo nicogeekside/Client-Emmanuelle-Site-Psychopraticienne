@@ -1,0 +1,173 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Button from '../../components/Button.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import { siteInfo } from '../../data/config';
+---
+
+<MainLayout 
+  title="Séance Découverte Thérapie Psychocorporelle Saint-Nazaire (Gratuite)"
+  description="Faisons connaissance lors d'une séance de découverte gratuite de 45 minutes à Saint-Nazaire, Pornichet ou en visio. Un premier échange sans engagement pour comprendre vos besoins."
+>
+  <Header />
+  
+  <main>
+    <!-- HERO -->
+    <section class="relative min-h-[60vh] bg-primary flex flex-col justify-end overflow-hidden">
+      <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-1/3 right-1/4 w-80 h-80 bg-primary-light/10 rounded-full blur-3xl"></div>
+        <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(circle, white 1px, transparent 1px); background-size: 40px 40px;"></div>
+      </div>
+
+      <div class="container mx-auto px-6 lg:px-8 pb-16 pt-32 relative z-10 text-secondary">
+        <nav class="text-sm text-secondary/50 mb-6 flex items-center gap-2" aria-label="Fil d'Ariane">
+          <a href="/" class="hover:text-white transition-colors">Accueil</a>
+          <span>/</span>
+          <span class="text-white">Séance découverte</span>
+        </nav>
+        <div class="max-w-3xl">
+          <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6 shadow-sm">
+            <span class="text-2xl leading-none">✦</span>
+            <span class="text-sm font-bold text-white uppercase tracking-wider">Premier échange offert</span>
+          </div>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 leading-[1.1]">
+            Séance Découverte<br/>Thérapie Psychocorporelle
+          </h1>
+          <p class="text-xl text-secondary/85 leading-relaxed mb-8 max-w-2xl">
+            La confiance est le socle de toute thérapie. C'est pourquoi je vous offre un premier échange de 45 minutes pour faire connaissance, sans aucun engagement.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 mb-4">
+            <Button href="/prendre-rendez-vous-saint-nazaire/" variant="white" class="text-lg px-8 py-4 shadow-xl">
+              Réserver ma séance gratuite
+            </Button>
+            <a href={`tel:${siteInfo.phone.replace(/\s/g, '')}`} class="inline-flex items-center justify-center gap-2 text-lg px-8 py-4 border-2 border-white/30 rounded-xl text-white hover:bg-white/10 transition-all">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+              {siteInfo.phone}
+            </a>
+          </div>
+          <p class="text-sm text-secondary/60">Disponible au cabinet à Saint-Nazaire, en marchant ou en visio.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- POURQUOI GRATUIT -->
+    <section class="py-20 bg-background">
+      <div class="container mx-auto px-6 lg:px-8 max-w-5xl">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          <div data-aos="fade-right">
+            <span class="text-accent font-bold tracking-wider uppercase text-sm block mb-3">L'importance de ce premier pas</span>
+            <h2 class="text-3xl font-serif font-bold text-primary mb-6">Pourquoi je propose cette séance gratuitement ?</h2>
+            <p class="text-lg text-text-main/75 mb-5 leading-relaxed">
+              Choisir de consulter une psychopraticienne n'est jamais une démarche facile. On se pose beaucoup de questions : <em>"Est-ce que le courant va passer ?"</em>, <em>"Est-ce la bonne approche pour moi ?"</em>, <em>"Vais-je me sentir écouté(e) ?"</em>.
+            </p>
+            <p class="text-text-main/70 mb-5 leading-relaxed">
+              Toutes les études en psychologie montrent que <strong>l'alliance thérapeutique</strong> (le lien de confiance entre vous et moi) compte bien plus que la technique utilisée. 
+            </p>
+            <p class="text-text-main/70 leading-relaxed">
+              C'est pour cette raison que je vous offre ce premier espace de 45 minutes. C'est un temps pour nous découvrir, pour que vous m'expliquiez ce que vous traversez, et pour que vous puissiez ressentir, sans pression financière, si je suis la bonne personne pour vous accompagner.
+            </p>
+          </div>
+          
+          <!-- Ce qu'on y fait -->
+          <div class="space-y-4" data-aos="fade-left">
+            {[
+              { icon: "🤝", title: "Faire connaissance", text: "Un échange humain avant tout. Vous découvrez mon cadre de travail, ma voix, mon énergie." },
+              { icon: "👂", title: "Être écouté(e) librement", text: "Vous déposez ce qui vous amène, avec vos mots, sans peur d'être jugé(e)." },
+              { icon: "💡", title: "Définir vos besoins", text: "Nous regardons ensemble si l'EMDR, l'EFT ou le soutien psychologique simple est le plus adapté." },
+              { icon: "🛡️", title: "Aucun engagement", text: "À la fin des 45 minutes, vous décidez librement si vous souhaitez entamer un suivi ou non." },
+            ].map((item, i) => (
+              <div class="flex gap-4 p-5 rounded-xl bg-white border border-secondary hover:border-primary/20 hover:shadow-md transition-all duration-300" data-aos="fade-up" data-aos-delay={i * 80}>
+                <div class="text-2xl flex-shrink-0 mt-0.5">{item.icon}</div>
+                <div>
+                  <h3 class="font-bold text-primary mb-1">{item.title}</h3>
+                  <p class="text-sm text-text-main/70 leading-relaxed">{item.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMENT CA SE PASSE -->
+    <section class="py-20 bg-secondary/30">
+      <div class="container mx-auto px-6 lg:px-8 max-w-4xl">
+        <h2 class="text-3xl font-serif font-bold text-primary mb-12 text-center" data-aos="fade-up">Le déroulement de la séance</h2>
+        <div class="space-y-6">
+          {[
+            { step: "01", title: "Vous choisissez votre format", text: "Vous pouvez réaliser cette séance découverte au cabinet (Saint-Nazaire), en extérieur (Thérapie en marchant) ou en ligne (Visio), selon ce qui vous met le plus à l'aise." },
+            { step: "02", title: "On prend le temps d'échanger", text: "Pendant 45 minutes, je vous écoute. Je vous poserai quelques questions pour bien comprendre votre situation, mais il n'y a pas de questionnaire formel ou de choses à préparer." },
+            { step: "03", title: "Je vous explique ma méthode", text: "Je vous expliquerai concrètement comment je travaille et comment la thérapie psychocorporelle (EMDR, EFT) peut agir sur ce que vous traversez." },
+            { step: "04", title: "Vous prenez votre décision", text: "Vous rentrez chez vous avec toutes les informations. Vous reprenez rendez-vous pour un vrai suivi uniquement si vous en ressentez l'envie et le besoin." },
+          ].map((item, i) => (
+            <div class="flex gap-6 items-start" data-aos="fade-up" data-aos-delay={i * 100}>
+              <div class="flex-shrink-0 w-14 h-14 rounded-2xl bg-primary flex items-center justify-center shadow-lg">
+                <span class="text-white font-bold text-xl font-serif">{item.step}</span>
+              </div>
+              <div class="pt-2">
+                <h3 class="font-bold text-primary text-lg mb-1">{item.title}</h3>
+                <p class="text-text-main/70 leading-relaxed">{item.text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- SEO LOCAL -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-6 lg:px-8 max-w-4xl text-center">
+        <div class="bg-primary/5 border border-primary/10 rounded-2xl p-8" data-aos="zoom-in">
+          <h2 class="text-2xl font-serif font-bold text-primary mb-4">Accessible sur le Bassin Nazairien</h2>
+          <p class="text-text-main/70 leading-relaxed mb-6">
+            Vous habitez <strong class="text-primary font-bold">Saint-Nazaire</strong>, <strong class="text-primary font-bold">Pornichet</strong>, <strong class="text-primary font-bold">La Baule</strong>, <strong class="text-primary font-bold">Trignac</strong>, <strong class="text-primary font-bold">Montoir-de-Bretagne</strong> ou <strong class="text-primary font-bold">Saint-Brevin-les-Pins</strong> ? 
+          </p>
+          <p class="text-text-main/70 leading-relaxed">
+            Le cabinet est situé à Saint-Marc-sur-Mer (Saint-Nazaire) avec un stationnement gratuit très facile. C'est l'emplacement idéal pour démarrer votre accompagnement psychocorporel en toute sérénité.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-16 bg-secondary/30">
+      <div class="container mx-auto px-6 lg:px-8 max-w-3xl">
+        <h2 class="text-3xl font-serif font-bold text-primary mb-10 text-center" data-aos="fade-up">Questions fréquentes</h2>
+        <FaqSection items={[
+          {
+            question: "Est-ce qu'on commence un protocole EMDR ou EFT dès cette première séance ?",
+            answer: "Non. Une séance de 45 minutes est trop courte pour entamer un protocole en toute sécurité, surtout l'EMDR. L'objectif est vraiment de faire connaissance et de définir ensemble le plan d'accompagnement."
+          },
+          {
+            question: "Y a-t-il vraiment aucun engagement caché ?",
+            answer: "Absolument aucun. Cette démarche part du principe que la relation thérapeutique doit être un choix libre et éclairé. Vous ne payez rien pour cette séance, et vous n'avez aucune obligation de revenir."
+          },
+          {
+            question: "Dois-je préparer quelque chose ?",
+            answer: "Pas du tout. Venez comme vous êtes, avec vos émotions du moment. Je vous guiderai dans l'échange."
+          },
+          {
+            question: "Comment réserver ce créneau ?",
+            answer: "Cliquez simplement sur le bouton de prise de rendez-vous ci-dessous. Vous pourrez m'envoyer un message via le formulaire ou m'appeler directement. Précisez juste que vous souhaitez faire la séance découverte."
+          }
+        ]} />
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-primary text-secondary text-center">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-serif font-bold mb-4" data-aos="zoom-in">Prêt(e) à faire le premier pas ?</h2>
+        <p class="text-lg opacity-80 mb-8 max-w-xl mx-auto">Prenez contact pour programmer cette séance découverte gratuite. On verra ensemble comment je peux vous aider.</p>
+        <Button href="/prendre-rendez-vous-saint-nazaire/" variant="white" class="text-lg px-10 py-4 shadow-xl active:scale-95 transition-all font-bold">
+          Réserver ma séance découverte
+        </Button>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</MainLayout>
