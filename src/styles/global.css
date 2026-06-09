@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   VARIABLES CSS PERSONNALISÉES
+   Correspondent exactement à tailwind.config.mjs
+   ============================================ */
+:root {
+  --color-primary: #4A5D4E;
+  --color-primary-light: #829A86;
+  --color-secondary: #EBDCCC;
+  --color-background: #FAF7F3;
+  --color-accent: #C88D7D;
+  --color-text-main: #2C3E50;
+  --color-text-muted: #85827D;
+}
