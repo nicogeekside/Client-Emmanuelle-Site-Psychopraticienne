@@ -1,0 +1,70 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { siteInfo } from '../../data/config';
+---
+
+<MainLayout 
+  title={`Charte Déontologique | Éthique et engagement | ${siteInfo.name}`}
+  description="Découvrez mes engagements éthiques et déontologiques en tant que praticienne certifiée IFPEC. Un cadre thérapeutique sécurisant, confidentiel et bienveillant à Saint-Nazaire."
+>
+  <Header />
+  
+  <main class="py-24 bg-background">
+    <div class="container mx-auto px-4 max-w-4xl">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <span class="text-accent font-bold tracking-wider uppercase text-sm block mb-3">Un cadre sécurisant</span>
+            <h1 class="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">Charte Déontologique</h1>
+            <p class="text-lg text-text-main/70 leading-relaxed max-w-2xl mx-auto">
+                En tant que praticienne certifiée, je m'engage à respecter scrupuleusement la charte éthique de l'IFPEC, garantissant ainsi un accompagnement professionnel, bienveillant et respectueux de votre intégrité.
+            </p>
+        </div>
+        
+        <div class="bg-white p-8 md:p-14 rounded-2xl shadow-sm border border-secondary/50 text-text-main/80 leading-relaxed space-y-10" data-aos="fade-up" data-aos-delay="100">
+            
+            <div class="prose prose-primary max-w-none prose-h2:text-2xl prose-h2:font-serif prose-h2:text-primary prose-h3:text-xl prose-h3:font-bold prose-h3:text-primary prose-p:mb-4 prose-li:mb-2">
+                
+                <h2 class="text-center bg-primary/5 p-4 rounded-xl mb-8">Engagements éthiques et déontologiques du Praticien certifié IFPEC</h2>
+                
+                <h3>1. Préambule</h3>
+                <p>
+                    La formation et la qualification de praticien en EFT Clinique et psychologie énergétique est réservée à des professionnels de l’accompagnement (thérapeutes, sophrologues, hypnologues, psychothérapeutes, infirmier(e)s, médecins, coachs, etc.), ayant satisfait aux critères de sélection et de formation définis par IFPEC Formation.
+                </p>
+                <p>
+                    Les approches de psychologie énergétique (EFT, TFT, REM, Logosynthèse, Matrix Reimprinting, etc.) sont des outils de traitement psychothérapeutique que des thérapeutes ayant des cursus de formation différents peuvent utiliser seuls ou en association avec d’autres moyens thérapeutiques.
+                </p>
+                <p>La spécificité de l’éthique du Praticien est en accord avec les principes généraux de l’éthique et s’inscrit dans l’ensemble des valeurs qui régissent les Droits de l’Homme et les droits de l’Enfant.</p>
+
+                <h3>2. Règles Générales</h3>
+                <ul class="list-none space-y-4 pl-0">
+                    <li class="flex gap-3"><span class="text-accent font-bold mt-1">a)</span> <span>Seuls les membres effectifs ayant formellement approuvé ce code déontologique peuvent figurer dans l'annuaire IFPEC.</span></li>
+                    <li class="flex gap-3"><span class="text-accent font-bold mt-1">b)</span> <span>Tout thérapeute reconnaît relever des instances de l’IFPEC concernant le respect de l'éthique.</span></li>
+                    <li class="flex gap-3"><span class="text-accent font-bold mt-1">c)</span> <span>Le praticien s’interdit de mêler publiquement à l’exercice de la psychologie énergétique des pratiques contraires aux lois, aux bonnes mœurs, entachées de mysticisme ou d’occultisme.</span></li>
+                    <li class="flex gap-3"><span class="text-accent font-bold mt-1">d)</span> <span>Conscient que psychothérapie et médecine ont des spécificités différentes, le praticien doit inviter la personne accompagnée à s’entourer de tout ce que l’une et l’autre peuvent lui apporter. <strong>En aucun cas le praticien ne devra suggérer d’interrompre un traitement prescrit par un médecin.</strong></span></li>
+                    <li class="flex gap-3"><span class="text-accent font-bold mt-1">e)</span> <span>L’exercice du soin ne devra pas être subordonné à une discrimination d'ordre ethnique, sexuel ou religieuse.</span></li>
+                </ul>
+
+                <h3>3. Règles propres à l’exercice de la profession de thérapeute</h3>
+                <ul class="list-none space-y-4 pl-0 mt-4">
+                    <li class="flex gap-3"><span class="text-accent font-bold mt-1">•</span> <span><strong>Intérêt de la personne</strong> : Tout thérapeute s’engage à n’utiliser la Psychologie Énergétique que dans l’intérêt de la personne accompagnée, conformément au principe médical du « Primum non nocere » (D'abord ne pas nuire).</span></li>
+                    <li class="flex gap-3"><span class="text-accent font-bold mt-1">•</span> <span><strong>Respect & Dignité</strong> : Le Praticien doit s’abstenir de toute relation sexuelle ou agressive, et ne profiter en aucun cas de la vulnérabilité de la personne.</span></li>
+                    <li class="flex gap-3"><span class="text-accent font-bold mt-1">•</span> <span><strong>Clarté du cadre</strong> : Il devra avoir établi clairement dès le premier entretien le cadre concret des séances : horaires, fréquence, durée, conditions d'annulation, montant et modalités de paiement.</span></li>
+                    <li class="flex gap-3"><span class="text-accent font-bold mt-1">•</span> <span><strong>Prudence & Limites</strong> : Il ne devra pas prétendre à des pouvoirs ou à des formations qu’il n’a pas. Il informera sur les méthodes utilisées, leurs effets, risques, avantages et limites.</span></li>
+                    <li class="flex gap-3"><span class="text-accent font-bold mt-1">•</span> <span><strong>Secret Professionnel</strong> : Le thérapeute est lié au secret professionnel absolu. Il ne peut s’en délivrer que dans les conditions prévues par la loi.</span></li>
+                    <li class="flex gap-3"><span class="text-accent font-bold mt-1">•</span> <span><strong>Formation & Supervision</strong> : L’exercice nécessite une pratique régulière de la supervision et l'engagement dans une formation permanente.</span></li>
+                </ul>
+
+                <hr class="my-10 border-secondary/50" />
+                <p class="text-sm italic text-text-muted text-center">
+                    Extrait de la Charte Déontologique officielle de l'IFPEC (Institut Français de Psychologie Énergétique Clinique).<br/>
+                    Pour consulter le document complet, <a href="https://www.ifpec.org" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">visitez le site de l'IFPEC</a>.
+                </p>
+            </div>
+            
+        </div>
+    </div>
+  </main>
+  
+  <Footer />
+</MainLayout>

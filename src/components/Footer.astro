@@ -84,9 +84,15 @@ import { siteInfo, navItems, navDropdown, navDropdownFormats } from '../data/con
                     <p class="leading-relaxed border-t border-primary-light/20 pt-3">
                         Situé à Saint-Nazaire, le cabinet est facilement accessible depuis la presqu'île guérandaise et le bassin nazairien : <strong class="font-normal text-secondary/80">Pornichet, La Baule, Trignac, Montoir-de-Bretagne et Saint-Brevin-les-Pins</strong>.
                     </p>
-                    <div class="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center gap-2 pt-2">
+                    <div class="flex flex-col lg:flex-row lg:justify-between items-start lg:items-center gap-4 pt-4">
                         <p>&copy; {new Date().getFullYear()} {siteInfo.name}. Tous droits réservés.</p>
-                        <a href="/mentions-legales/" class="hover:text-white transition-colors">Mentions légales</a>
+                        <div class="flex flex-wrap gap-3 md:gap-4 text-xs">
+                            <a href="/mentions-legales/" class="hover:text-white transition-colors">Mentions légales</a>
+                            <span>|</span>
+                            <a href="/politique-de-confidentialite/" class="hover:text-white transition-colors">Politique de confidentialité</a>
+                            <span>|</span>
+                            <a href="/charte-deontologique/" class="hover:text-white transition-colors">Charte déontologique</a>
+                        </div>
                     </div>
                 </div>
             </div>

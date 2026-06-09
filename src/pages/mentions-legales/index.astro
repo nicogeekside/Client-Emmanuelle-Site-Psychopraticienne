@@ -30,6 +30,7 @@ import { siteInfo } from '../../data/config';
                         <li><strong>SIRET</strong> : {siteInfo.siret === "123 456 789 00000" ? "En cours d'immatriculation" : siteInfo.siret}</li>
                         <li><strong>Email</strong> : <a href={`mailto:${siteInfo.email}`} class="text-accent hover:underline">{siteInfo.email}</a></li>
                         <li><strong>Téléphone</strong> : {siteInfo.phone}</li>
+                        <li><strong>Directeur de la publication</strong> : {siteInfo.name}</li>
                     </ul>
                 </div>
             </section>
@@ -74,32 +75,52 @@ import { siteInfo } from '../../data/config';
             </section>
 
             <hr class="border-gray-100" />
-            
-            <!-- 4. Données Personnelles (RGPD) -->
+
+            <!-- 4. Assurance et Médiation -->
             <section>
                 <h2 class="text-xl font-serif font-bold text-primary mb-4 flex items-center">
                     <span class="w-8 h-8 rounded-full bg-accent/20 text-accent flex items-center justify-center mr-3 text-sm">4</span>
+                    Assurance et Médiation
+                </h2>
+                <div class="pl-11 space-y-4">
+                    <p>
+                        <strong>Assurance Responsabilité Civile Professionnelle (RC Pro)</strong> :<br/>
+                        Souscrite auprès de : <em>[À COMPLÉTER : Nom de l'assurance]</em><br/>
+                        Numéro de contrat : <em>[À COMPLÉTER : Numéro]</em>
+                    </p>
+                    <p>
+                        <strong>Médiateur de la consommation</strong> :<br/>
+                        Conformément aux articles L.616-1 et R.616-1 du code de la consommation, nous proposons un dispositif de médiation de la consommation.<br/>
+                        L'entité de médiation retenue est : <em>[À COMPLÉTER : Nom du médiateur, ex: CNPM Médiation]</em>.<br/>
+                        En cas de litige, vous pouvez déposer votre réclamation sur son site : <em>[À COMPLÉTER : Site web du médiateur]</em>.
+                    </p>
+                </div>
+            </section>
+
+            <hr class="border-gray-100" />
+            
+            <!-- 5. Données Personnelles (RGPD) -->
+            <section>
+                <h2 class="text-xl font-serif font-bold text-primary mb-4 flex items-center">
+                    <span class="w-8 h-8 rounded-full bg-accent/20 text-accent flex items-center justify-center mr-3 text-sm">5</span>
                     Protection des Données (RGPD)
                 </h2>
                 <div class="pl-11 space-y-4">
                     <p>
-                        <strong>Collecte</strong> : Les informations recueillies via le formulaire de contact (Nom, Email, Téléphone) sont strictement nécessaires à la gestion de la relation client (prise de rendez-vous, réponse aux questions).
+                        Soucieuse de la protection de votre vie privée, je m'engage à ce que la collecte et le traitement de vos données soient conformes au Règlement Général sur la Protection des Données (RGPD).
                     </p>
                     <p>
-                        <strong>Conservation</strong> : Ces données sont conservées pour une durée maximale de 3 ans après le dernier contact. Elles ne sont <strong>jamais transmises à des tiers</strong> ni revendues.
-                    </p>
-                    <p>
-                        <strong>Vos droits</strong> : Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Pour l'exercer, contactez-moi par email à : {siteInfo.email}.
+                        Pour connaître en détail la façon dont sont gérées vos données personnelles, la durée de leur conservation, et la manière d'exercer vos droits d'accès, de rectification et d'effacement, veuillez consulter ma <a href="/politique-de-confidentialite/" class="text-accent hover:underline font-bold">Politique de Confidentialité</a>.
                     </p>
                 </div>
             </section>
 
              <hr class="border-gray-100" />
 
-            <!-- 5. Propriété Intellectuelle -->
+            <!-- 6. Propriété Intellectuelle -->
             <section>
                 <h2 class="text-xl font-serif font-bold text-primary mb-4 flex items-center">
-                    <span class="w-8 h-8 rounded-full bg-accent/20 text-accent flex items-center justify-center mr-3 text-sm">5</span>
+                    <span class="w-8 h-8 rounded-full bg-accent/20 text-accent flex items-center justify-center mr-3 text-sm">6</span>
                     Propriété Intellectuelle
                 </h2>
                 <div class="pl-11">

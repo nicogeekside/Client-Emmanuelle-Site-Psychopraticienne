@@ -1,0 +1,100 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { siteInfo } from '../../data/config';
+---
+
+<MainLayout 
+  title={`Politique de Confidentialité | ${siteInfo.name}`}
+  description="Politique de confidentialité et gestion des données personnelles (RGPD) du cabinet de psychopratique d'Emmanuelle Demeulemeester à Saint-Nazaire."
+>
+  <Header />
+  
+  <main class="py-24 bg-secondary/10">
+    <div class="container mx-auto px-4 max-w-4xl">
+        <div class="text-center mb-12" data-aos="fade-up">
+            <h1 class="text-4xl font-serif font-bold text-primary mb-4">Politique de Confidentialité</h1>
+            <p class="text-text-main/70">Gestion et protection de vos données personnelles (RGPD)</p>
+        </div>
+        
+        <div class="bg-white p-10 md:p-14 rounded-2xl shadow-sm space-y-10 text-text-main/90 leading-relaxed" data-aos="fade-up" data-aos-delay="100">
+            
+            <section>
+                <h2 class="text-2xl font-serif font-bold text-primary mb-4">1. Engagement de confidentialité</h2>
+                <p>
+                    Le respect de votre vie privée et la confidentialité de nos échanges sont au cœur de ma pratique. Dans le cadre de l'utilisation de ce site et de nos prises de contact, certaines données personnelles peuvent être collectées. Cette politique vous explique comment elles sont traitées, en toute transparence et conformément au Règlement Général sur la Protection des Données (RGPD).
+                </p>
+            </section>
+            
+            <hr class="border-gray-100" />
+
+            <section>
+                <h2 class="text-2xl font-serif font-bold text-primary mb-4">2. Données collectées</h2>
+                <p class="mb-2">Les seules données personnelles collectées sur ce site sont celles que vous me communiquez volontairement :</p>
+                <ul class="list-disc list-inside space-y-2 ml-4 text-text-main/80">
+                    <li><strong>Lors d'un contact (email ou téléphone)</strong> : Votre nom, prénom, adresse email et/ou numéro de téléphone, ainsi que les informations partagées dans votre message.</li>
+                    <li><strong>Lors d'une séance en visio</strong> : L'adresse email utilisée pour vous envoyer le lien Google Meet.</li>
+                </ul>
+                <p class="mt-4 text-sm bg-primary/5 p-4 rounded-lg border-l-4 border-primary">
+                    <em>Le site ne comporte pas de système de création de compte utilisateur, de newsletter ou de paiement en ligne direct.</em>
+                </p>
+            </section>
+
+            <hr class="border-gray-100" />
+
+            <section>
+                <h2 class="text-2xl font-serif font-bold text-primary mb-4">3. Utilisation de vos données</h2>
+                <p class="mb-2">Vos données sont collectées <strong>exclusivement</strong> pour les finalités suivantes :</p>
+                <ul class="list-disc list-inside space-y-2 ml-4 text-text-main/80">
+                    <li>Répondre à vos demandes de contact et questions.</li>
+                    <li>Gérer la prise de rendez-vous (envoi de confirmations, liens visio, modifications d'horaires).</li>
+                    <li>Établir des factures à votre demande (pour vos remboursements mutuelle).</li>
+                </ul>
+            </section>
+
+            <hr class="border-gray-100" />
+
+            <section>
+                <h2 class="text-2xl font-serif font-bold text-primary mb-4">4. Durée de conservation</h2>
+                <p>
+                    Vos informations de contact et d'échange sont conservées pendant la durée nécessaire à votre accompagnement. En l'absence de nouveau contact, elles sont supprimées au maximum <strong>3 ans</strong> après notre dernier échange, conformément aux recommandations de la CNIL. Les factures sont conservées 10 ans pour des raisons légales et comptables.
+                </p>
+            </section>
+
+            <hr class="border-gray-100" />
+
+            <section>
+                <h2 class="text-2xl font-serif font-bold text-primary mb-4">5. Partage des données</h2>
+                <p>
+                    <strong>Je suis la seule destinataire de vos données.</strong> Vos informations ne sont jamais vendues, louées ou cédées à des tiers à des fins commerciales ou publicitaires. Elles restent strictement confidentielles dans le cadre du secret professionnel lié à ma pratique.
+                </p>
+            </section>
+
+            <hr class="border-gray-100" />
+
+            <section>
+                <h2 class="text-2xl font-serif font-bold text-primary mb-4">6. Vos droits (RGPD)</h2>
+                <p class="mb-4">
+                    Conformément à la réglementation européenne, vous disposez des droits suivants concernant vos données personnelles :
+                </p>
+                <ul class="list-disc list-inside space-y-2 ml-4 text-text-main/80 mb-6">
+                    <li>Droit d'<strong>accès</strong> et de <strong>rectification</strong>.</li>
+                    <li>Droit à l'<strong>effacement</strong> (droit à l'oubli).</li>
+                    <li>Droit à la <strong>limitation</strong> du traitement.</li>
+                </ul>
+                <p>
+                    Pour exercer ces droits, vous pouvez me contacter à tout moment à l'adresse email suivante : <br/>
+                    <a href={`mailto:${siteInfo.email}`} class="text-accent hover:underline font-bold">{siteInfo.email}</a>.
+                </p>
+                <p class="mt-4 text-sm text-text-main/70">
+                    Si vous estimez, après m'avoir contactée, que vos droits ne sont pas respectés, vous pouvez adresser une réclamation à la CNIL (www.cnil.fr).
+                </p>
+            </section>
+
+        </div>
+    </div>
+  </main>
+  
+  <Footer />
+</MainLayout>
