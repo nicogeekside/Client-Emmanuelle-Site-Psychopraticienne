@@ -25,3 +25,5 @@ export default {
     },
     plugins: [],
 }
+
+// Forcer la purge du cache Vercel
