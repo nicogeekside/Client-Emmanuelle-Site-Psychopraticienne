@@ -5,7 +5,7 @@ export default {
         extend: {
             colors: {
                 // 🌿 LA TOUCHE "SAUGE" DEMANDÉE PAR EMMA
-                primary: '#4A5D4E',         // Sauge Foncé (Parfait pour les titres H1/H2)
+                primary: '#5C7A62',         // Sauge Clair (plus aéré et lumineux)
                 'primary-light': '#829A86', // Sauge Doux (Idéal pour les icônes, traits ou fonds secondaires)
                 
                 // 🎨 L'IDENTITÉ VISUELLE DU LOGO / CARTE DE VISITE
