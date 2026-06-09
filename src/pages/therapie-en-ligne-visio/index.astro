@@ -72,7 +72,7 @@ import { siteInfo } from '../../data/config';
             { icon: "🏠", title: "Depuis chez vous", text: "Pas de transport, pas de déplacement. Vous restez dans votre espace familier, ce qui peut faciliter la détente et l'ouverture." },
             { icon: "🇫🇷", title: "Partout en France", text: "Vous habitez loin de Saint-Nazaire ? Ce n'est pas un obstacle. La thérapie en visio vous donne accès à mon accompagnement où que vous soyez." },
             { icon: "📅", title: "Plus de flexibilité", text: "Les créneaux visio s'adaptent plus facilement à vos contraintes professionnelles ou familiales." },
-            { icon: "🔒", title: "Totalement confidentiel", text: "Les séances se déroulent via une plateforme sécurisée. Votre vie privée est protégée à chaque échange." },
+            { icon: "🔒", title: "Simple & connu", text: "Les séances se déroulent via Google Meet. Un outil que tout le monde connaît, sans installation. L'échange reste entre nous, dans la sphère privée de votre domicile." },
             { icon: "✅", title: "Aussi efficace", text: "Les études montrent que la thérapie en visio est aussi efficace que la thérapie en présentiel pour la majorité des problématiques." },
             { icon: "💛", title: "EMDR et EFT en visio", text: "Les deux protocoles sont parfaitement réalisables à distance. Je vous guide étape par étape, comme si vous étiez en face de moi." },
           ].map((item, i) => (
@@ -94,7 +94,7 @@ import { siteInfo } from '../../data/config';
           {[
             { step: "01", title: "Vous réservez un créneau", text: "Via le formulaire de contact ou par téléphone. Je vous envoie ensuite le lien de connexion sécurisé." },
             { step: "02", title: "Vous vous installez confortablement", text: "Dans une pièce calme où vous ne serez pas dérangé(e). Un casque ou des écouteurs améliorent la qualité de l'échange." },
-            { step: "03", title: "On se connecte", text: "Je vous retrouve à l'heure exacte sur la plateforme sécurisée. Pas d'application à installer, juste un lien à cliquer." },
+            { step: "03", title: "On se connecte via Google Meet", text: "Je vous retrouve à l'heure exacte sur Google Meet. Pas d'application à installer — juste un lien à cliquer dans votre navigateur." },
             { step: "04", title: "La séance se déroule normalement", text: "EMDR, EFT ou espace de parole — je m'adapte à ce dont vous avez besoin et je vous guide comme en présentiel." },
           ].map((item, i) => (
             <div class="flex gap-6 items-start" data-aos="fade-up" data-aos-delay={i * 100}>
@@ -111,6 +111,54 @@ import { siteInfo } from '../../data/config';
       </div>
     </section>
 
+    <!-- TARIFS & HORAIRES VISIO -->
+    <section class="py-16 bg-secondary/30">
+      <div class="container mx-auto px-6 lg:px-8 max-w-3xl text-center">
+        <h2 class="text-3xl font-serif font-bold text-primary mb-10" data-aos="fade-up">Tarifs & Disponibilités</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Tarifs -->
+          <div class="bg-white rounded-2xl p-8 shadow-sm border border-secondary" data-aos="fade-right">
+            <div class="text-3xl mb-4">💳</div>
+            <h3 class="font-bold text-primary text-xl mb-6">Tarifs</h3>
+            <div class="space-y-3">
+              <div class="flex justify-between items-center py-3 border-b border-secondary">
+                <span class="text-text-main/80">Séance (1h)</span>
+                <span class="font-bold text-primary text-xl">60 €</span>
+              </div>
+              <div class="py-3 border-b border-secondary">
+                <div class="flex justify-between items-center mb-1">
+                  <span class="text-text-main/80">Tarif réduit (1h)</span>
+                  <span class="font-bold text-primary text-xl">50 €</span>
+                </div>
+                <p class="text-xs text-text-muted bg-secondary/40 rounded-lg px-3 py-2">🎓 Réservé aux <strong>étudiants</strong> et <strong>demandeurs d’emploi</strong>. Un justificatif vous sera demandé.</p>
+              </div>
+              <div class="flex justify-between items-center py-3">
+                <span class="text-text-main/80">Séance découverte</span>
+                <span class="font-bold text-accent text-xl">✦ Gratuite</span>
+              </div>
+            </div>
+            <p class="text-xs text-text-muted mt-4 border-t border-secondary pt-3">Règlement accepté : virement bancaire, espèces ou chèque.</p>
+          </div>
+          <!-- Horaires -->
+          <div class="bg-white rounded-2xl p-8 shadow-sm border border-secondary" data-aos="fade-left">
+            <div class="text-3xl mb-4">🗓️</div>
+            <h3 class="font-bold text-primary text-xl mb-6">Disponibilités</h3>
+            <div class="space-y-3 text-left">
+              <div class="bg-secondary/30 rounded-xl px-4 py-3">
+                <p class="font-semibold text-text-main text-sm">Jeudi & Vendredi</p>
+                <p class="text-accent font-bold">9h00 – 18h00</p>
+              </div>
+              <div class="bg-secondary/30 rounded-xl px-4 py-3">
+                <p class="font-semibold text-text-main text-sm">Samedi</p>
+                <p class="text-accent font-bold">9h00 – 13h00</p>
+              </div>
+            </div>
+            <p class="text-xs text-text-muted mt-4 border-t border-secondary pt-3">Annulation souhaitée au moins 48h à l’avance, par respect du créneau réservé.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- FAQ -->
     <section class="py-16 bg-background">
       <div class="container mx-auto px-6 lg:px-8 max-w-3xl">
@@ -118,7 +166,7 @@ import { siteInfo } from '../../data/config';
         <FaqSection items={[
           {
             question: "Quelle plateforme utilisez-vous pour les séances en visio ?",
-            answer: "J'utilise une plateforme vidéo sécurisée et confidentielle. Pas besoin de créer un compte ou d'installer une application — il suffit de cliquer sur le lien que je vous envoie."
+            answer: "Les séances se déroulent via Google Meet — un outil simple, connu de tous, sans application à installer. Pas besoin de créer de compte : je vous envoie un lien avant la séance, et vous cliquez dessus depuis votre navigateur. Je travaille seule, sans aucun tiers, et vous restez dans l'intimité de votre espace."
           },
           {
             question: "L'EMDR est-elle vraiment possible à distance ?",

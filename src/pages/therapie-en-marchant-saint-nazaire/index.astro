@@ -10,8 +10,8 @@ import imgSoutien from '../../assets/images/img-soutien.jpg';
 ---
 
 <MainLayout 
-  title="Thérapie en marchant à Saint-Nazaire | Emmanuelle Demeulemeester Psychopraticienne"
-  description="Découvrez la thérapie en marchant avec Emmanuelle Demeulemeester, psychopraticienne à Saint-Nazaire. Séances en plein air pour traverser vos épreuves autrement — stress, anxiété, deuil, traumatismes."
+  title="Thérapie en marchant au Bois Jolland — Saint-Nazaire | Emmanuelle Demeulemeester"
+  description="Séances de thérapie en marchant au Bois Jolland et son étang, à Saint-Nazaire. Un cadre naturel apaisant pour avancer à votre rythme, accompagné(e) par Emmanuelle Demeulemeester, psycho-praticienne."
 >
   <Header />
   
@@ -38,7 +38,7 @@ import imgSoutien from '../../assets/images/img-soutien.jpg';
         <div class="max-w-3xl">
           <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
             <span class="text-2xl leading-none">🚶‍♀️</span>
-            <span class="text-sm font-medium text-white">Format de séance · En extérieur</span>
+            <span class="text-sm font-medium text-white">Bois Jolland &amp; son étang · Saint-Nazaire</span>
           </div>
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 leading-[1.1]">
             Thérapie en marchant
@@ -86,7 +86,7 @@ import imgSoutien from '../../assets/images/img-soutien.jpg';
             {[
               { icon: "🌿", title: "La nature comme alliée", text: "L'environnement naturel réduit le cortisol (hormone du stress) et favorise un état plus calme et réceptif." },
               { icon: "↔️", title: "Côte à côte, pas face à face", text: "Sans contact visuel direct, il est souvent plus facile d'aborder des sujets sensibles ou douloureux." },
-              { icon: "🚶", title: "Le corps en mouvement", text: "La marche rythme la pensée. Beaucoup de patients trouvent que leurs idées se clarifient naturellement en marchant." },
+              { icon: "🚶", title: "Le corps en mouvement", text: "La marche rythme la pensée. Beaucoup de personnes accompagnées trouvent que leurs idées se clarifient naturellement en marchant." },
               { icon: "🔓", title: "Moins de pression", text: "Sortir du cabinet crée une atmosphère moins formelle, ce qui peut réduire l'appréhension de la séance." },
             ].map((item, i) => (
               <div class="flex gap-4 p-5 rounded-xl bg-emerald-50/40 border border-emerald-100 hover:border-emerald-300 transition-colors" data-aos="fade-up" data-aos-delay={i * 80}>
@@ -151,6 +151,49 @@ import imgSoutien from '../../assets/images/img-soutien.jpg';
       </div>
     </section>
 
+    <!-- LIEU : BOIS JOLLAND -->
+    <section class="py-20 bg-background">
+      <div class="container mx-auto px-6 lg:px-8 max-w-5xl">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div data-aos="fade-right">
+            <span class="text-accent font-bold tracking-wider uppercase text-sm block mb-3">Le lieu de rendez-vous</span>
+            <h2 class="text-3xl font-serif font-bold text-primary mb-6">Le Bois Jolland et son étang</h2>
+            <p class="text-lg text-text-main/75 mb-5 leading-relaxed">
+              Toutes les séances de thérapie en marchant se déroulent au <strong>Bois Jolland</strong>, un espace naturel paisínble situé à Saint-Nazaire, autour de son étang.
+            </p>
+            <p class="text-text-main/70 mb-5 leading-relaxed">
+              Ce cadre verdoyant, à l'écart de l'agitation, est idéal pour favoriser un état de calme et d'ouverture. L'eau de l'étang, les arbres et le chemin tranquille créent naturellement les conditions d'un échange profond et libéré.
+            </p>
+            <div class="flex flex-col gap-3 mt-6">
+              <div class="flex items-center gap-3 text-sm text-text-main/80">
+                <span class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">📍</span>
+                <span><strong>Bois Jolland</strong>, Saint-Nazaire (44600)</span>
+              </div>
+              <div class="flex items-center gap-3 text-sm text-text-main/80">
+                <span class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">🚗</span>
+                <span>Parking disponible à l'entrée du bois</span>
+              </div>
+              <div class="flex items-center gap-3 text-sm text-text-main/80">
+                <span class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">⏱️</span>
+                <span>Séances d’environ 1h, au rythme de votre marche</span>
+              </div>
+            </div>
+          </div>
+          <div data-aos="fade-left" class="rounded-2xl overflow-hidden shadow-xl aspect-video">
+            <iframe
+              src="https://www.google.com/maps?q=Bois+Jolland+Saint-Nazaire+44600&output=embed"
+              width="100%"
+              height="100%"
+              style="border:0;"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Bois Jolland, Saint-Nazaire"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- POUR QUI -->
     <section class="py-20 bg-background">
       <div class="container mx-auto px-6 lg:px-8 max-w-4xl text-center">
@@ -173,6 +216,54 @@ import imgSoutien from '../../assets/images/img-soutien.jpg';
       </div>
     </section>
 
+    <!-- TARIFS & HORAIRES MARCHANT -->
+    <section class="py-16 bg-background">
+      <div class="container mx-auto px-6 lg:px-8 max-w-3xl text-center">
+        <h2 class="text-3xl font-serif font-bold text-primary mb-10" data-aos="fade-up">Tarifs & Disponibilités</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Tarifs -->
+          <div class="bg-white rounded-2xl p-8 shadow-sm border border-secondary" data-aos="fade-right">
+            <div class="text-3xl mb-4">💳</div>
+            <h3 class="font-bold text-primary text-xl mb-6">Tarifs</h3>
+            <div class="space-y-3">
+              <div class="flex justify-between items-center py-3 border-b border-secondary">
+                <span class="text-text-main/80">Séance (1h)</span>
+                <span class="font-bold text-primary text-xl">60 €</span>
+              </div>
+              <div class="py-3 border-b border-secondary">
+                <div class="flex justify-between items-center mb-1">
+                  <span class="text-text-main/80">Tarif réduit (1h)</span>
+                  <span class="font-bold text-primary text-xl">50 €</span>
+                </div>
+                <p class="text-xs text-text-muted bg-secondary/40 rounded-lg px-3 py-2">🎓 Réservé aux <strong>étudiants</strong> et <strong>demandeurs d’emploi</strong>. Un justificatif vous sera demandé.</p>
+              </div>
+              <div class="flex justify-between items-center py-3">
+                <span class="text-text-main/80">Séance découverte</span>
+                <span class="font-bold text-accent text-xl">✦ Gratuite</span>
+              </div>
+            </div>
+            <p class="text-xs text-text-muted mt-4 border-t border-secondary pt-3">Règlement accepté : virement bancaire, espèces ou chèque.</p>
+          </div>
+          <!-- Horaires -->
+          <div class="bg-white rounded-2xl p-8 shadow-sm border border-secondary" data-aos="fade-left">
+            <div class="text-3xl mb-4">🗓️</div>
+            <h3 class="font-bold text-primary text-xl mb-6">Disponibilités</h3>
+            <div class="space-y-3 text-left">
+              <div class="bg-secondary/30 rounded-xl px-4 py-3">
+                <p class="font-semibold text-text-main text-sm">Jeudi & Vendredi</p>
+                <p class="text-accent font-bold">9h00 – 18h00</p>
+              </div>
+              <div class="bg-secondary/30 rounded-xl px-4 py-3">
+                <p class="font-semibold text-text-main text-sm">Samedi</p>
+                <p class="text-accent font-bold">9h00 – 13h00</p>
+              </div>
+            </div>
+            <p class="text-xs text-text-muted mt-4 border-t border-secondary pt-3">Annulation souhaitée au moins 48h à l’avance, par respect du créneau réservé.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- FAQ -->
     <section class="py-16 bg-secondary/30">
       <div class="container mx-auto px-6 lg:px-8 max-w-3xl">
@@ -180,7 +271,7 @@ import imgSoutien from '../../assets/images/img-soutien.jpg';
         <FaqSection items={[
           {
             question: "Où se déroulent les séances en marchant ?",
-            answer: "Nous pouvons marcher dans n'importe quel endroit qui vous convient — un parc, le bord de mer, une promenade tranquille. Je m'adapte à votre lieu et à vos préférences. La confidentialité est toujours respectée."
+            answer: "Les séances ont lieu exclusivement au Bois Jolland et autour de son étang, à Saint-Nazaire. Ce cadre naturel est choisi pour sa tranquillité et sa beauté, idéals pour favoriser un état de calme et d'ouverture. Un parking est disponible à l'entrée du bois."
           },
           {
             question: "Faut-il être sportif(ve) pour une séance en marchant ?",
