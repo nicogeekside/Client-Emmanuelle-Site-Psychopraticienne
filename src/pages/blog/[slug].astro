@@ -1,0 +1,75 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog');
+  return blogEntries.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<MainLayout 
+  title={`${entry.data.title} | Blog Emmanuelle Demeulemeester`}
+  description={entry.data.description}
+>
+  <Header />
+  
+  <main class="pt-32 pb-24 bg-white min-h-screen">
+    <article class="container mx-auto px-6 lg:px-4 max-w-3xl">
+      
+      <!-- En-tête de l'article -->
+      <header class="mb-12 text-center" data-aos="fade-up">
+        <div class="text-sm font-bold tracking-widest text-accent uppercase mb-4">
+          {entry.data.pubDate.toLocaleDateString('fr-FR', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          })}
+        </div>
+        <h1 class="text-3xl md:text-5xl font-serif font-bold text-primary mb-6 leading-tight">
+          {entry.data.title}
+        </h1>
+        <p class="text-lg text-text-main/60 italic mb-8">
+          Par {entry.data.author}
+        </p>
+      </header>
+
+      <!-- Image de couverture (optionnelle) -->
+      {entry.data.image && (
+        <div class="mb-12 rounded-2xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="100">
+          <img src={entry.data.image} alt={entry.data.title} class="w-full h-auto object-cover aspect-video" />
+        </div>
+      )}
+
+      <!-- Contenu Markdown -->
+      <div 
+        class="prose prose-lg prose-headings:font-serif prose-headings:text-primary prose-a:text-accent hover:prose-a:text-accent/80 prose-img:rounded-xl max-w-none text-text-main/80"
+        data-aos="fade-up" 
+        data-aos-delay="200"
+      >
+        <Content />
+      </div>
+
+      <!-- Bouton Retour -->
+      <div class="mt-16 pt-8 border-t border-gray-100 flex justify-center" data-aos="fade-up">
+        <a href="/blog/" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-secondary/30 text-primary font-medium hover:bg-secondary/50 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          Retour au blog
+        </a>
+      </div>
+
+    </article>
+  </main>
+
+  <Footer />
+</MainLayout>

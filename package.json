@@ -12,6 +12,7 @@
     "@astrojs/tailwind": "^6.0.2",
     "@fontsource/lato": "^5.2.7",
     "@fontsource/playfair-display": "^5.2.8",
+    "@tailwindcss/typography": "^0.5.20",
     "aos": "^2.3.4",
     "astro": "^5.16.15",
     "astro-seo": "^1.1.0",

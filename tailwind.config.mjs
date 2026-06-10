@@ -23,7 +23,9 @@ export default {
             },
         },
     },
-    plugins: [],
+    plugins: [
+        require('@tailwindcss/typography'),
+    ],
 }
 
 // Forcer la purge du cache Vercel

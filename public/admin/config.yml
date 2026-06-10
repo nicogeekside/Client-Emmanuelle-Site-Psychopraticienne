@@ -1,0 +1,23 @@
+backend:
+  # On utilise git-gateway pour Netlify (ça connecte Decap à GitHub en arrière-plan)
+  name: git-gateway
+  branch: main # Branche sur laquelle les articles seront publiés
+
+local_backend: true # Permet de tester en local sans être connecté à GitHub
+
+media_folder: "public/images/uploads" # Où les images seront stockées
+public_folder: "/images/uploads" # L'URL publique pour accéder aux images
+
+collections:
+  - name: "blog" # Nom interne
+    label: "Blog (Articles)" # Ce que vous voyez
+    folder: "src/content/blog" # Où enregistrer les fichiers Markdown
+    create: true # Autorise la création de nouveaux articles
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Format de l'URL du fichier
+    fields:
+      - { label: "Titre de l'article", name: "title", text: true }
+      - { label: "Description (SEO & Aperçu)", name: "description", widget: "text", hint: "Courte description qui apparaît sur Google et dans la liste des articles. Max 160 caractères recommandés." }
+      - { label: "Date de publication", name: "pubDate", widget: "datetime" }
+      - { label: "Image de couverture", name: "image", widget: "image", required: false }
+      - { label: "Auteur", name: "author", widget: "string", default: "Emmanuelle Demeulemeester" }
+      - { label: "Corps de l'article", name: "body", widget: "markdown" }

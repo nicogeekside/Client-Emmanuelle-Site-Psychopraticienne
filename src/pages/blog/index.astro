@@ -1,0 +1,76 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+// Récupérer tous les articles du blog et les trier par date décroissante
+const allPosts = await getCollection('blog');
+const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<MainLayout 
+  title="Blog | Emmanuelle Demeulemeester - Psychopraticienne"
+  description="Lisez les derniers articles d'Emmanuelle Demeulemeester sur la psychothérapie, l'EMDR, l'EFT, et le bien-être."
+>
+  <Header />
+  
+  <main class="pt-32 pb-24 bg-secondary/10 min-h-screen">
+    <div class="container mx-auto px-6 lg:px-4 max-w-6xl">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+        <h1 class="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">Le Blog</h1>
+        <p class="text-lg text-text-main/70">
+          Réflexions, conseils et explications autour de la psychothérapie, de l'EMDR, de l'EFT et de l'accompagnement émotionnel.
+        </p>
+      </div>
+
+      {sortedPosts.length === 0 ? (
+        <div class="text-center py-20 bg-white rounded-2xl shadow-sm border border-primary/10">
+          <p class="text-text-main/50 text-lg">Aucun article publié pour le moment.</p>
+        </div>
+      ) : (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {sortedPosts.map((post) => (
+            <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-primary/5 flex flex-col group" data-aos="fade-up">
+              {post.data.image && (
+                <a href={`/blog/${post.slug}`} class="block aspect-video overflow-hidden">
+                  <img 
+                    src={post.data.image} 
+                    alt={post.data.title} 
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </a>
+              )}
+              <div class="p-8 flex flex-col flex-1">
+                <div class="text-xs font-bold tracking-widest text-accent uppercase mb-3">
+                  {post.data.pubDate.toLocaleDateString('fr-FR', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </div>
+                <h2 class="text-2xl font-serif font-bold text-primary mb-4 group-hover:text-accent transition-colors">
+                  <a href={`/blog/${post.slug}`}>
+                    {post.data.title}
+                  </a>
+                </h2>
+                <p class="text-text-main/70 mb-6 flex-1 line-clamp-3">
+                  {post.data.description}
+                </p>
+                <a href={`/blog/${post.slug}`} class="inline-flex items-center gap-2 text-sm font-bold text-primary hover:text-accent transition-colors mt-auto group/link">
+                  Lire l'article
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform group-hover/link:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      )}
+    </div>
+  </main>
+
+  <Footer />
+</MainLayout>
