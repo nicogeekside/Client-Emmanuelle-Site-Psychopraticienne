@@ -126,10 +126,9 @@ const schemaOrg = {
 		<!-- Schema.org JSON-LD -->
 		<script type="application/ld+json" set:html={JSON.stringify(schemaOrg)} />
 
-		<!-- 
-			ANALYTICS PLACEHOLDER 
-			Paste your Google Analytics (GA4) or Plausible script here.
-		-->
+		<!-- Script Netlify Identity (Nécessaire pour le setup initial du mot de passe admin) -->
+		<script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
 	</head>
 	<body class="font-sans text-text-main antialiased bg-secondary">
 		<slot />
@@ -142,6 +141,17 @@ const schemaOrg = {
 				once: true,
 				offset: 50,
 			});
+		</script>
+		<script is:inline>
+			if (window.netlifyIdentity) {
+			  window.netlifyIdentity.on("init", user => {
+				if (!user) {
+				  window.netlifyIdentity.on("login", () => {
+					document.location.href = "/admin/";
+				  });
+				}
+			  });
+			}
 		</script>
 	</body>
 </html>
