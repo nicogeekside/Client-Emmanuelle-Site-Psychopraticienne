@@ -3,6 +3,8 @@ backend:
   name: git-gateway
   branch: main # Branche sur laquelle les articles seront publiés
 
+publish_mode: editorial_workflow # ACTIVE LE MODE BROUILLON (Économise les déploiements)
+
 local_backend: true # Permet de tester en local sans être connecté à GitHub
 
 media_folder: "public/images/uploads" # Où les images seront stockées
