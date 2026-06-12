@@ -3,8 +3,8 @@ import MainLayout from '../../layouts/MainLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { Image } from 'astro:assets';
-import cabinetSiegeBleu from '../../assets/images/cabinet-siege-bleu.png';
-import cabinetSiegesGris from '../../assets/images/cabinet-sieges-gris.png';
+import lieuPhoto1 from '../../assets/images/img_modifs/20260601_140356.jpg';
+import lieuPhoto2 from '../../assets/images/img_modifs/20260404_090925.jpg';
 import portraitEmma from '../../assets/images/photos-emma/photo-4.png';
 ---
 
@@ -128,16 +128,16 @@ import portraitEmma from '../../assets/images/photos-emma/photo-4.png';
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="aspect-video rounded-xl overflow-hidden shadow-lg" data-aos="fade-right">
                     <Image 
-                        src={cabinetSiegeBleu} 
-                        alt="Cabinet de consultation vue siège bleu" 
+                        src={lieuPhoto1} 
+                        alt="Lieu de consultation apaisant" 
                         class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" 
                         width={800}
                     />
                 </div>
                 <div class="aspect-video rounded-xl overflow-hidden shadow-lg" data-aos="fade-left">
                      <Image 
-                        src={cabinetSiegesGris} 
-                        alt="Cabinet de consultation vue sièges gris" 
+                        src={lieuPhoto2} 
+                        alt="Espace de thérapie bienveillant" 
                         class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" 
                         width={800}
                     />
