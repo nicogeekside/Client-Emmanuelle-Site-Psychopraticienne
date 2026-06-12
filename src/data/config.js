@@ -26,7 +26,7 @@ export const navItems = [
 ];
 
 export const navDropdownFormats = {
-    label: 'Lieux de consultation',
+    label: 'Séance',
     items: [
         { name: 'En cabinet', href: '/therapie-cabinet-saint-nazaire/' },
         { name: 'En visio', href: '/therapie-en-ligne-visio/' },
@@ -73,7 +73,7 @@ export const formats = [
         icon: "🛋️",
         title: "Thérapie en cabinet",
         subtitle: "Un espace sécurisant",
-        description: "Venez dans mon cabinet apaisant à Saint-Nazaire. Un cadre chaleureux et confidentiel pensé pour que vous vous sentiez en sécurité dès la première seconde.",
+        description: "Venez dans mon cabinet apaisant à Saint-Nazaire. Un cadre chaleureux et confidentiel pensé pour un moment en toute sécurité.",
         note: "Saint-Nazaire — Parking gratuit",
         href: "/therapie-cabinet-saint-nazaire/",
         color: "from-rose-50 to-orange-50/50",
@@ -97,7 +97,8 @@ export const formats = [
 export const epreuves = [
     "Traumatismes", "Deuil", "Anxiété", "Périnatalité",
     "Phobies", "Stress", "Confiance en soi", "Douleurs chroniques",
-    "Post-Partum", "Burn-out", "Trouble du sommeil", "Séparation"
+    "Post-Partum", "Burn-out", "Trouble du sommeil", "Séparation",
+    "Schémas répétitifs", "Gestion des émotions", "Blocages émotionnels"
 ];
 
 export const reviews = [
