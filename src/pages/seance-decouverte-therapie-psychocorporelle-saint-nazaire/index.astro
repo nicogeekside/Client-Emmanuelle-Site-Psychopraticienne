@@ -17,19 +17,23 @@ import heroDecouverte from '../../assets/images/img_modifs/Capture d’écran 20
   
   <main>
     <!-- HERO -->
-    <section class="relative min-h-[60vh] bg-primary flex flex-col justify-end overflow-hidden">
-      <div class="absolute inset-0 z-0">
-        <Image 
-          src={heroDecouverte}
-          alt="Séance découverte thérapie psychocorporelle"
-          class="w-full h-full object-cover object-[center_30%] opacity-30"
-          width={1400}
-          loading="eager"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/70 to-primary/30"></div>
+    <section class="relative min-h-[60vh] lg:min-h-[65vh] flex items-center overflow-hidden bg-primary">
+      <div class="absolute inset-0 z-0 flex justify-end">
+        <div class="w-full lg:w-1/2 h-full relative pt-12 lg:pt-0">
+          <Image 
+            src={heroDecouverte}
+            alt="Séance découverte thérapie psychocorporelle"
+            class="w-full h-full object-contain object-right lg:object-center opacity-100"
+            style="-webkit-mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, black 50%, transparent 100%); mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, black 50%, transparent 100%);"
+            width={1200}
+            loading="eager"
+          />
+        </div>
       </div>
+      <div class="absolute inset-0 z-0 bg-gradient-to-r from-primary via-primary/90 to-transparent pointer-events-none"></div>
+      <div class="absolute inset-0 z-0 bg-gradient-to-t from-primary via-primary/90 to-transparent lg:hidden pointer-events-none"></div>
 
-      <div class="container mx-auto px-6 lg:px-8 pb-16 pt-32 relative z-10 text-secondary">
+      <div class="container mx-auto px-6 lg:px-8 py-20 lg:py-32 relative z-10 text-secondary">
         <nav class="text-sm text-secondary/50 mb-6 flex items-center gap-2" aria-label="Fil d'Ariane">
           <a href="/" class="hover:text-white transition-colors">Accueil</a>
           <span>/</span>

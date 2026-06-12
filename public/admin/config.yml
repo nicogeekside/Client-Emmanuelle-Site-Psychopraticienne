@@ -7,6 +7,8 @@ publish_mode: editorial_workflow # ACTIVE LE MODE BROUILLON (Économise les dép
 
 local_backend: true # Permet de tester en local sans être connecté à GitHub
 
+locale: 'fr' # Traduit l'interface d'administration en français
+
 media_folder: "public/images/uploads" # Où les images seront stockées
 public_folder: "/images/uploads" # L'URL publique pour accéder aux images
 

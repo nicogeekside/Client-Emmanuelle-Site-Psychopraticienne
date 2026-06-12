@@ -17,7 +17,17 @@ import portraitEmma from '../../assets/images/img_modifs/Capture d’écran 2026
   <main>
     <section class="py-20 bg-secondary/30">
       <div class="container mx-auto px-4">
-        <h1 class="text-4xl font-serif font-bold text-primary mb-12 text-center" data-aos="fade-up">Prendre Rendez-vous</h1>
+        <h1 class="text-4xl font-serif font-bold text-primary mb-6 text-center" data-aos="fade-up">Prendre Rendez-vous</h1>
+        
+        <!-- Indicateur pour le calendrier -->
+        <div class="flex flex-col items-center justify-center mb-12 animate-bounce cursor-pointer group" onclick="document.getElementById('rdv-en-ligne').scrollIntoView({behavior: 'smooth'})" data-aos="fade-up" data-aos-delay="100">
+            <span class="text-sm font-bold text-accent mb-2 group-hover:text-primary transition-colors">Voir le calendrier en ligne ci-dessous</span>
+            <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
+            </div>
+        </div>
         
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto mb-16">
             
