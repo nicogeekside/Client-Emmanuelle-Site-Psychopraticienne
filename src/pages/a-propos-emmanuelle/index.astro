@@ -126,15 +126,15 @@ import portraitEmma from '../../assets/images/photos-emma/photo-4.png';
          <div class="container mx-auto px-4">
             <h2 class="text-3xl font-serif font-bold text-primary mb-12 text-center">Un lieu apaisant</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="aspect-video rounded-xl overflow-hidden shadow-lg bg-[#faf9f6]" data-aos="fade-right">
+                <div class="aspect-square rounded-xl overflow-hidden shadow-lg" data-aos="fade-right">
                     <Image 
                         src={lieuPhoto1} 
                         alt="Lieu de consultation apaisant" 
-                        class="w-full h-full object-contain p-4 hover:scale-105 transition-transform duration-500" 
+                        class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500" 
                         width={800}
                     />
                 </div>
-                <div class="aspect-video rounded-xl overflow-hidden shadow-lg" data-aos="fade-left">
+                <div class="aspect-square rounded-xl overflow-hidden shadow-lg" data-aos="fade-left">
                      <Image 
                         src={lieuPhoto2} 
                         alt="Espace de thérapie bienveillant" 
