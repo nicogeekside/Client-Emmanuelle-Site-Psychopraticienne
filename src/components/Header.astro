@@ -12,7 +12,9 @@ import logoEmma from '../assets/images/img_modifs/logo_emma_couleurs_fond_transp
   <div class="container mx-auto px-4 py-3 flex justify-between items-center relative z-10">
     <!-- Logo -->
     <a href="/" class="flex items-center gap-3 leading-tight group" aria-label="Accueil - Emmanuelle Demeulemeester, Psychopraticienne">
-      <Image src={logoEmma} alt="Logo Emmanuelle Demeulemeester" width={48} class="h-12 w-auto object-contain flex-shrink-0" />
+      <div class="bg-white rounded-xl shadow-md p-1 border border-secondary/40 flex-shrink-0">
+        <Image src={logoEmma} alt="Logo Emmanuelle Demeulemeester" width={48} class="h-10 w-auto object-contain" />
+      </div>
       <div class="flex flex-col">
         <span class="text-xl font-serif font-bold text-primary group-hover:text-accent transition-colors" style="text-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 5px rgba(255, 255, 255, 0.8);">Emmanuelle Demeulemeester</span>
         <span class="text-xs font-medium text-text-main/80 tracking-widest uppercase">Psychopraticienne · Saint-Nazaire</span>
