@@ -1,7 +1,7 @@
 ---
 title: "Post-partum : la traversée émotionnelle dont personne ne parle"
 description: "Le post-partum est un bouleversement intense. Ne restez pas seule avec vos émotions et votre fatigue. Découvrez comment l'accompagnement psychocorporel peut vous aider."
-pubDate: 2026-06-13T10:00:00Z
+pubDate: 2026-06-12T10:00:00Z
 author: "Emmanuelle Demeulemeester"
 ---
 
