@@ -12,7 +12,7 @@ export const siteInfo = {
         region: "Loire-Atlantique",
         country: "FR"
     },
-    siret: "989 070 727 00015",
+    siret: "989 070 727 00023",
     geo: {
         latitude: "47.2735",
         longitude: "-2.2010"
