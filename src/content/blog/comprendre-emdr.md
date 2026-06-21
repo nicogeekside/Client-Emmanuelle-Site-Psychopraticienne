@@ -1,8 +1,11 @@
 ---
 title: "Comprendre l'EMDR : Comment cette thérapie traite les traumatismes"
-description: "Découvrez comment fonctionne la thérapie EMDR (Désensibilisation et Retraitement par les Mouvements Oculaires) pour surmonter les souvenirs douloureux et le stress post-traumatique."
-pubDate: 2026-06-10T10:00:00Z
-author: "Emmanuelle Demeulemeester"
+description: Découvrez comment fonctionne la thérapie EMDR (Désensibilisation et
+  Retraitement par les Mouvements Oculaires) pour surmonter les souvenirs
+  douloureux et le stress post-traumatique.
+pubDate: 2026-06-10T10:00:00.000Z
+image: /images/uploads/séance-emdr.webp
+author: Emmanuelle Demeulemeester
 ---
 
 ## Qu'est-ce que l'EMDR ?
