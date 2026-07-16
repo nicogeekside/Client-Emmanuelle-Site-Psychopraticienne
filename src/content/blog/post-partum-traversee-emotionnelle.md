@@ -4,7 +4,7 @@ description: Le post-partum est un bouleversement intense. Ne restez pas seule
   avec vos émotions et votre fatigue. Découvrez comment l'accompagnement
   psychocorporel peut vous aider.
 pubDate: 2026-06-12T10:00:00.000Z
-image: /images/uploads/capture-d’écran-2026-06-09-164915.png
+image: /images/uploads/la-vérité-sur-le-post-partum.png
 author: Emmanuelle Demeulemeester
 ---
 
