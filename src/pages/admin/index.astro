@@ -16,6 +16,79 @@
     <!-- Le script de Decap CMS -->
     <script is:inline src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js"></script>
     
+    <!-- Champ sur mesure : lien de l'article (nettoie la saisie + aperçu en direct) -->
+    <script is:inline>
+      (function () {
+        var h = window.h;
+        var createClass = window.createClass;
+        if (!window.CMS || !h || !createClass) return;
+
+        var SITE = "https://www.emma-psychopraticienne.fr";
+
+        // Transforme n'importe quelle saisie en adresse valide :
+        // "Thérapie Brève à Saint-Nazaire !" -> "therapie-breve-a-saint-nazaire"
+        function nettoyer(texte) {
+          return String(texte || "")
+            .normalize("NFD")               // sépare les accents des lettres
+            .replace(/[\u0300-\u036f]/g, "") // supprime les accents
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, "-")    // tout le reste devient un tiret
+            .replace(/^-+|-+$/g, "");       // pas de tiret au début ni à la fin
+        }
+
+        var ChampLien = createClass({
+          gererSaisie: function (e) {
+            this.props.onChange(nettoyer(e.target.value));
+          },
+
+          render: function () {
+            var valeur = this.props.value || "";
+            var vide = valeur === "";
+
+            var champ = h("input", {
+              type: "text",
+              id: this.props.forID,
+              className: this.props.classNameWrapper,
+              value: valeur,
+              onChange: this.gererSaisie,
+              placeholder: "therapie-breve-saint-nazaire",
+              autoComplete: "off",
+              spellCheck: false,
+            });
+
+            var apercu = vide
+              ? h("div", { style: { marginTop: "10px", fontSize: "14px", color: "#7b8290", lineHeight: "1.5" } },
+                  "Laissez vide et l'adresse sera créée automatiquement à partir du titre.",
+                  h("br"),
+                  "Remplissez ce champ uniquement si vous voulez choisir l'adresse vous-même."
+                )
+              : h("div", { style: { marginTop: "10px", fontSize: "14px", lineHeight: "1.5" } },
+                  h("div", { style: { color: "#7b8290", marginBottom: "2px" } }, "Adresse de l'article :"),
+                  h("div", { style: { fontFamily: "monospace", fontSize: "14px", color: "#1a7f5a", wordBreak: "break-all" } },
+                    SITE + "/blog/" + valeur + "/"
+                  )
+                );
+
+            var aide = h("div", { style: { marginTop: "10px", fontSize: "13px", color: "#9aa0ab", lineHeight: "1.5" } },
+              "Écrivez comme vous voulez : les accents, majuscules et espaces sont corrigés automatiquement pendant la frappe.",
+              h("br"),
+              h("strong", { style: { color: "#b3733a" } }, "À ne pas modifier"),
+              " une fois l'article publié : l'ancienne adresse ne fonctionnerait plus."
+            );
+
+            return h("div", {}, champ, apercu, aide);
+          },
+        });
+
+        // Aperçu (colonne de droite) : rien à afficher pour ce champ
+        var ApercuLien = createClass({
+          render: function () { return null; },
+        });
+
+        window.CMS.registerWidget("lien-article", ChampLien, ApercuLien);
+      })();
+    </script>
+
     <script is:inline>
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on("init", user => {
