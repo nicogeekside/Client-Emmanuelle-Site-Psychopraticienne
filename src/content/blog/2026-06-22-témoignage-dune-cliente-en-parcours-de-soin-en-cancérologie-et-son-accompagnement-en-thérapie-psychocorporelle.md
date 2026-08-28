@@ -1,6 +1,7 @@
 ---
 title: Témoignage d'une cliente en parcours de soin en cancérologie et son
   accompagnement en thérapie psychocorporelle
+slug: cancer-et-therapie-psychocorporelle
 description: "Cancer et accompagnement psychocorporel : découvrez comment l’EFT
   et l’EMDR ont aidé une cliente à traverser la maladie avec plus de sérénité"
 pubDate: 2025-11-24T10:00:00.000+01:00
