@@ -1,5 +1,6 @@
 ---
 title: "La libération de la parole à Saint-Nazaire : un chemin vers le mieux être"
+slug: la-liberation-de-la-parole-saint-nazaire
 description: À Saint-Nazaire, découvrez comment la libération de la parole
   apaise les émotions, réduit le stress et favorise un mieux-être durable.
 pubDate: 2026-06-05T10:00:00.000+02:00
