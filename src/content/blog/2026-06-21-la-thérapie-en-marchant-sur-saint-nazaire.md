@@ -1,5 +1,6 @@
 ---
 title: La thérapie en marchant sur Saint-Nazaire
+slug: la-therapie-en-marchant-saint-nazaire
 description: "Découvrez les bienfaits de la marche thérapeutique : réduction du
   stress, meilleure santé mentale, sommeil amélioré et reconnexion
   corps-esprit."
