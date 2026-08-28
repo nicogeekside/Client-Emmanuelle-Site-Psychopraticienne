@@ -1,5 +1,6 @@
 ---
 title: les croyances limitantes
+slug: les-croyances-limitantes
 description: Identifiez les croyances limitantes issues de votre enfance et
   libérez - vous de leurs impacts grâce à l’EFT et l’EMDR
 pubDate: 2025-09-09T08:00:00.000+02:00
