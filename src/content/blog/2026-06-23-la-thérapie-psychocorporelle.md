@@ -1,5 +1,6 @@
 ---
 title: La thérapie psychocorporelle
+slug: la-therapie-psychocorporelle-saint-nazaire
 description: "Thérapie psychocorporelle à Saint-Nazaire : apaisez stress,
   anxiété et blocages émotionnels grâce à un accompagnement personnalisé."
 pubDate: 2025-11-04T08:00:00.000+01:00
