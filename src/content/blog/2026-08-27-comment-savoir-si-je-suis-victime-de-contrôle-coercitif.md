@@ -1,5 +1,6 @@
 ---
 title: Comment savoir si je suis victime de contrôle coercitif ?
+slug: le-controle-coercitif
 description: "Contrôle coercitif, emprise et violences conjugales à
   Saint-Nazaire : apprenez à reconnaître les signes, comprendre les mécanismes
   et trouver de l’aide près de chez vous."
