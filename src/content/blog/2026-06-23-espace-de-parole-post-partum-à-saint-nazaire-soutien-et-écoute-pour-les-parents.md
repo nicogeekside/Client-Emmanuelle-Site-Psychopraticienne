@@ -1,6 +1,7 @@
 ---
 title: Espace de parole post-partum à Saint-Nazaire | Soutien et écoute pour les
   parents
+slug: espace-de-parole-post-partum-saint-nazaire
 description: "Découvrez un espace de parole post-partum à Saint-Nazaire :
   écoute, soutien, partage d'expériences et accompagnement bienveillant des
   parents."
