@@ -1,6 +1,7 @@
 ---
 title: "Stress et cancer à Saint-Nazaire : les bienfaits d'une prise en charge
   en thérapie psychocorporelle"
+slug: stress-et-cancer-a-saint-nazaire
 description: "Cancer et santé mentale : découvrez comment l'EFT et l'EMDR aident
   à réduire l'anxiété, apaiser les émotions et mieux vivre la maladie."
 pubDate: 2025-11-13T08:00:00.000+01:00
