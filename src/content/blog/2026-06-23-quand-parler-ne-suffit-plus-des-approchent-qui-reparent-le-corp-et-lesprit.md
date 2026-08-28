@@ -1,5 +1,6 @@
 ---
 title: Quand parler ne suffit plus... des approchent qui reparent le corp et l'esprit
+slug: psychotraumatismes-saint-nazaire
 description: "Psychotraumatisme à Saint-Nazaire : accompagnement par EMDR et EFT
   pour apaiser les traumatismes, l’anxiété, le stress et retrouver l’équilibre"
 pubDate: 2025-11-10T16:00:00.000+01:00
