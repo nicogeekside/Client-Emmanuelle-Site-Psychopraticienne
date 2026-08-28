@@ -1,5 +1,6 @@
 ---
 title: Le thérapeute énergétique
+slug: le-therapeute-energetique
 description: "Thérapeute énergétique à Saint-Nazaire : libérez vos blocages
   émotionnels, réduisez stress et anxiété, et retrouvez équilibre et sérénité."
 pubDate: 2025-11-14T09:00:00.000+01:00
