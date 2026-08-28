@@ -1,6 +1,7 @@
 ---
 title: Soulager la douleur chronique avec la psychologie énergétique et
   psychocorporelle
+slug: douleur-chronique-et-therapie-psychocorporelle
 description: "Douleur chronique : découvrez comment l’EFT et l’EMDR aident à
   réduire la douleur, le stress et retrouver une meilleure qualité de vie."
 pubDate: 2025-11-16T10:00:00.000+01:00
