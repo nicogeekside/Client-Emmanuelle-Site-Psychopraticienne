@@ -1,5 +1,6 @@
 ---
 title: "Post-partum : la traversée émotionnelle dont personne ne parle"
+slug: le-post-partum
 description: Le post-partum est un bouleversement intense. Ne restez pas seule
   avec vos émotions et votre fatigue. Découvrez comment l'accompagnement
   psychocorporel peut vous aider.
