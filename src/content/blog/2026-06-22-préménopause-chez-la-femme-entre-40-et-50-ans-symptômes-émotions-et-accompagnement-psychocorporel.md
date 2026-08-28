@@ -1,6 +1,7 @@
 ---
 title: "Préménopause chez la femme entre 40 et 50 ans : symptômes, émotions et
   accompagnement psychocorporel"
+slug: la-premenopause-entre-40-et-50-ans
 description: Psychopraticienne à Saint-Nazaire, j’accompagne les femmes en
   préménopause grâce à l’EFT et l’EMDR pour retrouver bien-être et apaisement
 pubDate: 2026-01-02T08:00:00.000+01:00
