@@ -1,5 +1,6 @@
 ---
 title: La thérapie IFS
+slug: la-therapie-ifs
 description: Découvrez la thérapie IFS, une approche qui aide à mieux comprendre
   ses différentes parts intérieures, apaiser ses émotions et retrouver davantage
   d’équilibre et de sérénité face au mal-être.
