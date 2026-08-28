@@ -36,14 +36,32 @@
             .replace(/^-+|-+$/g, "");       // pas de tiret au début ni à la fin
         }
 
+        // Pendant la frappe, on garde le tiret en cours de saisie : sinon il
+        // serait effacé au moment même où on le tape, et les mots se colleraient.
+        // Le tiret de fin est retiré quand on quitte le champ (voir gererSortie).
+        function nettoyerPendantSaisie(texte) {
+          return String(texte || "")
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/^-+/, "");            // pas de tiret au début
+        }
+
         var ChampLien = createClass({
           gererSaisie: function (e) {
-            this.props.onChange(nettoyer(e.target.value));
+            this.props.onChange(nettoyerPendantSaisie(e.target.value));
+          },
+
+          gererSortie: function () {
+            var propre = nettoyer(this.props.value);
+            if (propre !== (this.props.value || "")) this.props.onChange(propre);
           },
 
           render: function () {
             var valeur = this.props.value || "";
-            var vide = valeur === "";
+            var adresse = nettoyer(valeur);
+            var vide = adresse === "";
 
             var champ = h("input", {
               type: "text",
@@ -51,6 +69,7 @@
               className: this.props.classNameWrapper,
               value: valeur,
               onChange: this.gererSaisie,
+              onBlur: this.gererSortie,
               placeholder: "therapie-breve-saint-nazaire",
               autoComplete: "off",
               spellCheck: false,
@@ -65,7 +84,7 @@
               : h("div", { style: { marginTop: "10px", fontSize: "14px", lineHeight: "1.5" } },
                   h("div", { style: { color: "#7b8290", marginBottom: "2px" } }, "Adresse de l'article :"),
                   h("div", { style: { fontFamily: "monospace", fontSize: "14px", color: "#1a7f5a", wordBreak: "break-all" } },
-                    SITE + "/blog/" + valeur + "/"
+                    SITE + "/blog/" + adresse + "/"
                   )
                 );
 
