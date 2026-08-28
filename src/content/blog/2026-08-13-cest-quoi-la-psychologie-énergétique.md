@@ -1,5 +1,6 @@
 ---
 title: C'est quoi la psychologie énergétique?
+slug: la-psychologie-energetique
 description: Découvrez la psychologie énergétique et l’EFT, des approches douces
   pour mieux comprendre et apaiser vos émotions, réduire le stress, dépasser
   certains blocages et retrouver davantage de sérénité au quotidien.
