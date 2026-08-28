@@ -1,5 +1,6 @@
 ---
 title: La santé mentale n'est pas un luxe, c'est une nécessité
+slug: la-sante-mentale-a-saint-nazaire
 description: "Santé mentale : pourquoi hésitons - nous à demander de l’aide ?
   Décryptage des freins et des solutions pour lever les tabous"
 pubDate: 2025-12-13T10:00:00.000+01:00
