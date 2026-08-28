@@ -1,5 +1,6 @@
 ---
 title: Les thérapies brèves
+slug: les-therapies-breves
 description: "Thérapies brèves à Saint-Nazaire : EFT, EMDR et accompagnement
   psychocorporel pour apaiser stress, anxiété, traumatismes et émotions."
 pubDate: 2025-12-01T08:00:00.000+01:00
