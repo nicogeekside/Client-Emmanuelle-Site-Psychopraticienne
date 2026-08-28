@@ -1,5 +1,6 @@
 ---
 title: "Comprendre l'EMDR : Comment cette thérapie traite les traumatismes"
+slug: therapie-emdr-saint-nazaire
 description: Découvrez comment fonctionne la thérapie EMDR (Désensibilisation et
   Retraitement par les Mouvements Oculaires) pour surmonter les souvenirs
   douloureux et le stress post-traumatique.
