@@ -1,5 +1,6 @@
 ---
 title: Comprendre le lien d’attachement et ses blessures durables
+slug: comprendre-le-lien-d-attachement-et-ses-blessures-durables
 description: Découvrez comment les blessures d’attachement influencent vos
   relations et comment l’EFT aide à retrouver sécurité intérieure et confiance.
 pubDate: 2025-08-03T11:00:00.000+02:00
