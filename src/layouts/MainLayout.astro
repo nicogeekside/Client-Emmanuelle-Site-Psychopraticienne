@@ -11,13 +11,15 @@ interface Props {
 	description?: string;
 	image?: string;
 	type?: string;
+	noindex?: boolean;
 }
 
 const { 
 	title, 
 	description = "Psychopraticienne à Saint-Nazaire - Emmanuelle Demeulemeester vous accompagne en cabinet, en visio ou en marchant. EMDR, EFT, soutien Post-Partum en Loire-Atlantique.",
 	image = "/social-image.jpg",
-	type = "website"
+	type = "website",
+	noindex = false
 } = Astro.props;
 
 const siteUrl = "https://emma-psychopraticienne.fr";
@@ -97,6 +99,7 @@ const schemaOrg = {
 		<!-- SEO -->
 		<SEO
 			title={title}
+			noindex={noindex}
 			description={description}
 			openGraph={{
 				basic: {
@@ -119,7 +122,6 @@ const schemaOrg = {
 			}}
 			extend={{
 				meta: [
-					{ name: "robots", content: "index, follow" },
 					{ name: "author", content: siteInfo.name },
 					{ name: "theme-color", content: "#3D5A4E" },
 				]

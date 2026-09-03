@@ -7,6 +7,7 @@ export default defineConfig({
   site: 'https://www.emma-psychopraticienne.fr', // Remplace par le vrai domaine final si besoin
   integrations: [
     tailwind({ applyBaseStyles: false }),
-    sitemap()
+    // La page de remerciement n'a pas vocation a etre indexee ni proposee dans Google
+    sitemap({ filter: (page) => !page.includes('/merci/') })
   ],
 });

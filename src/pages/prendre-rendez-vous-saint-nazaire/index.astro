@@ -92,7 +92,23 @@ import portraitEmma from '../../assets/images/photo-portrait-exterieur.jpg';
                 <div class="bg-white p-8 rounded-xl shadow-sm h-full">
                     <h2 class="text-2xl font-serif font-bold text-primary mb-6">M'envoyer un message</h2>
                     
-                    <form class="space-y-4" name="contact" method="POST" data-netlify="true">
+                    <form
+                        class="space-y-4"
+                        name="contact"
+                        method="POST"
+                        action="/merci/"
+                        data-netlify="true"
+                        netlify-honeypot="bot-field"
+                    >
+                        <!-- Netlify a besoin de ce champ pour identifier le formulaire -->
+                        <input type="hidden" name="form-name" value="contact" />
+
+                        <!-- Piege a robots : invisible pour un humain, rempli par les bots.
+                             Netlify rejette silencieusement toute soumission ou il est rempli. -->
+                        <p class="hidden" aria-hidden="true">
+                            <label>Ne pas remplir ce champ : <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+                        </p>
+
                         <div>
                             <label for="name" class="block text-sm font-medium text-text-main mb-1">Nom et Prénom</label>
                             <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" required placeholder="Votre nom" />
