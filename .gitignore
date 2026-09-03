@@ -22,3 +22,9 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# configs d'outils locales (Claude Code, Codex, Cursor, Impeccable)
+.claude/
+.codex/
+.cursor/
+.impeccable/
