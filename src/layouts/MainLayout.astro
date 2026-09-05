@@ -22,8 +22,9 @@ const {
 	noindex = false
 } = Astro.props;
 
-const siteUrl = "https://emma-psychopraticienne.fr";
-const canonicalURL = `${siteUrl}${Astro.url.pathname}`;
+// Le domaine vient d'astro.config.mjs (Astro.site) : une seule source de verite,
+// sinon la canonical, le sitemap et og:url finissent par diverger.
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
 
 // Schema.org JSON-LD pour le SEO local (GEO)
 const schemaOrg = {
@@ -88,7 +89,6 @@ const schemaOrg = {
 
 		<!-- Google Search Console -->
 		<meta name="google-site-verification" content="R3HWIHQskIXynk-I5_ZeTf9q3L3-iiA7SDyRCc5W_mU" />
-		<link rel="canonical" href={canonicalURL} />
 
 		<!-- Geo meta pour référencement local -->
 		<meta name="geo.region" content="FR-44" />

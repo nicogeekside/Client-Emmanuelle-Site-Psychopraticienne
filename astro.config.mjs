@@ -1,13 +1,49 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
+import fs from 'node:fs';
 
-// https://astro.build/config
+// Le serveur de production force le domaine sans www (www -> 301 -> non-www).
+// Tout doit s'aligner dessus : sitemap, canonical, og:url, robots.txt.
+const SITE = 'https://emma-psychopraticienne.fr';
+
+const DOSSIER_BLOG = new URL('./src/content/blog/', import.meta.url);
+
+// slug -> date de publication, pour renseigner le <lastmod> des articles.
+// On lit le frontmatter directement : getCollection() n'est pas disponible ici.
+function datesDesArticles() {
+  const dates = new Map();
+  for (const fichier of fs.readdirSync(DOSSIER_BLOG)) {
+    if (!fichier.endsWith('.md')) continue;
+    const contenu = fs.readFileSync(new URL(fichier, DOSSIER_BLOG), 'utf8');
+    const slug = contenu.match(/^slug:\s*["']?(.+?)["']?\s*$/m)?.[1]?.trim()
+      ?? fichier.replace(/\.md$/, '');
+    const publie = contenu.match(/^pubDate:\s*["']?(.+?)["']?\s*$/m)?.[1]?.trim();
+    if (publie && !Number.isNaN(Date.parse(publie))) {
+      dates.set(slug, new Date(publie));
+    }
+  }
+  return dates;
+}
+
+const datesArticles = datesDesArticles();
+
 export default defineConfig({
-  site: 'https://www.emma-psychopraticienne.fr', // Remplace par le vrai domaine final si besoin
+  site: SITE,
   integrations: [
     tailwind({ applyBaseStyles: false }),
-    // La page de remerciement n'a pas vocation a etre indexee ni proposee dans Google
-    sitemap({ filter: (page) => !page.includes('/merci/') })
+    sitemap({
+      // /merci/ est une confirmation, /admin/ est le back-office : ni l'une ni
+      // l'autre n'a vocation a etre indexee ou proposee dans Google.
+      filter: (page) => !page.includes('/merci/') && !page.includes('/admin/'),
+      serialize(entree) {
+        const article = entree.url.match(/\/blog\/([^/]+)\/$/);
+        if (article) {
+          const date = datesArticles.get(decodeURIComponent(article[1]));
+          if (date) entree.lastmod = date.toISOString();
+        }
+        return entree;
+      },
+    }),
   ],
 });
