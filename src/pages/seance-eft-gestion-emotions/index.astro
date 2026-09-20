@@ -6,6 +6,10 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Button from '../../components/Button.astro';
 import FaqSection from '../../components/FaqSection.astro';
+import { reviews } from '../../data/config';
+
+// Premier avis Google réel portant sur l'EFT — aucun témoignage n'est rédigé pour le site.
+const avisEft = reviews.find((a) => a.tag === 'EFT');
 ---
 
 <MainLayout 
@@ -110,16 +114,27 @@ import FaqSection from '../../components/FaqSection.astro';
     </section>
 
 
-    <!-- Témoignage Spécifique -->
+    <!-- Avis Google réel, tagué EFT -->
     <section class="py-16 bg-white">
         <div class="container mx-auto px-4 max-w-3xl">
-            <div class="bg-secondary/30 p-8 rounded-2xl relative">
-                <div class="text-6xl text-accent opacity-20 absolute top-4 left-4 font-serif">"</div>
-                <p class="text-xl text-text-main italic relative z-10 mb-6 text-center">
-                    "Je souffrais d'anxiété généralisée depuis des années. L'EFT m'a donné un outil concret que je peux utiliser seule chez moi dès que je sens le stress monter. C'est une vraie libération."
-                </p>
-                <p class="text-center font-bold text-primary">— Sandrine T., après 4 séances.</p>
-            </div>
+            {avisEft && (
+            <figure class="bg-secondary/30 p-8 rounded-2xl">
+                <div class="flex gap-1 text-accent mb-4" role="img" aria-label={`${avisEft.stars} étoiles sur 5`}>
+                    {[...Array(avisEft.stars)].map(() => (
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                    ))}
+                </div>
+                <blockquote class="text-lg text-text-main italic mb-5 leading-relaxed">
+                    « {avisEft.text} »
+                </blockquote>
+                <figcaption class="text-sm">
+                    <span class="font-bold text-primary">{avisEft.name}</span>
+                    <span class="text-text-main/60"> — avis Google</span>
+                </figcaption>
+            </figure>
+            )}
         </div>
     </section>
 

@@ -4,7 +4,7 @@ import '../styles/global.css';
 import 'aos/dist/aos.css';
 import '@fontsource/playfair-display';
 import '@fontsource/lato';
-import { siteInfo } from '../data/config';
+import { siteInfo, horaires } from '../data/config';
 
 interface Props {
 	title: string;
@@ -25,17 +25,20 @@ const {
 // Le domaine vient d'astro.config.mjs (Astro.site) : une seule source de verite,
 // sinon la canonical, le sitemap et og:url finissent par diverger.
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
+// Les réseaux sociaux exigent une URL absolue : un chemin relatif n'est pas résolu
+// par les robots de Facebook, WhatsApp ou LinkedIn.
+const imageURL = new URL(image, Astro.site).href;
 
 // Schema.org JSON-LD pour le SEO local (GEO)
 const schemaOrg = {
 	"@context": "https://schema.org",
-	"@type": "MedicalBusiness",
+	"@type": "ProfessionalService",
 	"name": siteInfo.name,
 	"description": description,
 	"url": canonicalURL,
 	"telephone": siteInfo.phone,
 	"email": siteInfo.email,
-	"image": image,
+	"image": imageURL,
 	"address": {
 		"@type": "PostalAddress",
 		"streetAddress": siteInfo.address.street,
@@ -57,24 +60,31 @@ const schemaOrg = {
 		{ "@type": "City", "name": "Montoir-de-Bretagne" },
 		{ "@type": "City", "name": "Saint-Brevin-les-Pins" }
 	],
-	"openingHoursSpecification": [
-		{
-			"@type": "OpeningHoursSpecification",
-			"dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-			"opens": "09:00",
-			"closes": "19:00"
-		},
-		{
-			"@type": "OpeningHoursSpecification",
-			"dayOfWeek": "Saturday",
-			"opens": "09:00",
-			"closes": "12:00"
-		}
-	],
+	// Générés depuis config.js : les horaires affichés et ceux envoyés à Google
+	// proviennent de la même source et ne peuvent plus diverger.
+	"openingHoursSpecification": horaires.map((h) => ({
+		"@type": "OpeningHoursSpecification",
+		"dayOfWeek": h.schema.jours,
+		"opens": h.schema.ouvre,
+		"closes": h.schema.ferme
+	})),
 	"priceRange": "€€",
-	"medicalSpecialty": ["EMDR", "EFT", "Psychopratique"],
 	"areaServed": ["Saint-Nazaire", "Loire-Atlantique", "Pays de la Loire", "France"],
 	"knowsAbout": ["EMDR", "EFT", "Thérapie en marchant", "Soutien post-partum", "Gestion du stress", "Traumatismes", "Anxiété"],
+	"hasCredential": [
+		{
+			"@type": "EducationalOccupationalCredential",
+			"name": "Psycho-Praticienne en Techniques Énergétiques et Psycho-Corporelles — option EFT Clinique (360 h)",
+			"credentialCategory": "certificate",
+			"recognizedBy": { "@type": "Organization", "name": "IFPEC — Institut Francophone de Psychologie Énergétique Clinique" }
+		},
+		{
+			"@type": "EducationalOccupationalCredential",
+			"name": "Praticienne en EMDR-DSA — Niveau 2",
+			"credentialCategory": "certificate",
+			"recognizedBy": { "@type": "Organization", "name": "AHTMA Formation" }
+		}
+	],
 	"sameAs": []
 };
 ---
@@ -105,7 +115,7 @@ const schemaOrg = {
 				basic: {
 					title: title,
 					type: type,
-					image: image,
+					image: imageURL,
 					url: canonicalURL.toString(),
 				},
 				optional: {
@@ -118,7 +128,7 @@ const schemaOrg = {
 				card: "summary_large_image",
 				title: title,
 				description: description,
-				image: image,
+				image: imageURL,
 			}}
 			extend={{
 				meta: [
