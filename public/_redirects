@@ -9,3 +9,8 @@
 /blog/2026-08-27-comment-savoir-si-je-suis-victime-de-contrôle-coercitif        /blog/le-controle-coercitif/    301
 /blog/comprendre-emdr                                                           /blog/therapie-emdr-saint-nazaire/    301
 /blog/post-partum-traversee-emotionnelle                                        /blog/le-post-partum/    301
+
+# L'article de blog occupait l'URL de la page principale EMDR : les deux se
+# cannibalisaient sur la meme intention de recherche. L'article est renomme,
+# la page principale garde le sujet.
+/blog/therapie-emdr-saint-nazaire    /blog/comprendre-la-therapie-emdr/    301

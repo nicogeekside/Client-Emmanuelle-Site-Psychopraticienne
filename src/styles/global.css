@@ -15,3 +15,30 @@
   --color-text-main: #2C3E50;
   --color-text-muted: #85827D;
 }
+
+/* ============================================
+   MOUVEMENT RÉDUIT
+   Une partie des visiteurs arrive en détresse émotionnelle ou en
+   épuisement post-partum. Quand le système d'exploitation demande
+   moins de mouvement, le site n'en produit aucun.
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* AOS masque ses éléments avant de les révéler : sans animation pour
+     les dévoiler, il faut les rendre visibles d'emblée. */
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

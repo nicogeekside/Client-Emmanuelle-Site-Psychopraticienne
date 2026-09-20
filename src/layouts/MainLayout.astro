@@ -152,11 +152,15 @@ const schemaOrg = {
 		
 		<script>
 			import AOS from 'aos';
+			// Une partie des visiteurs arrive en détresse ou en épuisement : quand le
+			// système demande moins de mouvement, on n'en produit aucun.
+			const moinsDeMouvement = window.matchMedia('(prefers-reduced-motion: reduce)');
 			AOS.init({
 				duration: 800,
 				easing: 'ease-out-cubic',
 				once: true,
 				offset: 50,
+				disable: () => moinsDeMouvement.matches,
 			});
 		</script>
 		<script is:inline>
