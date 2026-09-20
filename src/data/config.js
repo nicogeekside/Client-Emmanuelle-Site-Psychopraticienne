@@ -134,9 +134,10 @@ export const reviews = [
     }
 ];
 
-// Horaires réels du cabinet — source unique.
-// Sert à la fois l'affichage sur les pages et les données structurées envoyées
-// à Google : les deux ne peuvent plus diverger.
+// Horaires réels du cabinet — source unique de vérité.
+// Alimente aujourd'hui les données structurées envoyées à Google (MainLayout).
+// Les blocs « Disponibilités » des pages les affichent encore en dur : leur
+// branchement sur cette source est prévu au lot 5.
 export const horaires = [
     {
         libelle: "Au cabinet",
@@ -158,7 +159,8 @@ export const horaires = [
     }
 ];
 
-// Tarifs — source unique, pour ne pas les voir diverger comme les horaires l'ont fait.
+// Tarifs — source unique, pas encore consommée : les pages les affichent en dur.
+// À brancher au lot 5, avant qu'ils ne divergent comme les horaires l'ont fait.
 export const tarifs = {
     seance: { montant: "60 €", duree: "1h", libelle: "Séance" },
     reduit: { montant: "50 €", duree: "1h", libelle: "Tarif réduit", condition: "Étudiants et demandeurs d'emploi, sur justificatif" },

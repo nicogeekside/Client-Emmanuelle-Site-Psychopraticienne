@@ -32,7 +32,7 @@ const imageURL = new URL(image, Astro.site).href;
 // Schema.org JSON-LD pour le SEO local (GEO)
 const schemaOrg = {
 	"@context": "https://schema.org",
-	"@type": "ProfessionalService",
+	"@type": ["LocalBusiness", "HealthAndBeautyBusiness"],
 	"name": siteInfo.name,
 	"description": description,
 	"url": canonicalURL,
@@ -60,8 +60,8 @@ const schemaOrg = {
 		{ "@type": "City", "name": "Montoir-de-Bretagne" },
 		{ "@type": "City", "name": "Saint-Brevin-les-Pins" }
 	],
-	// Générés depuis config.js : les horaires affichés et ceux envoyés à Google
-	// proviennent de la même source et ne peuvent plus diverger.
+	// Générés depuis config.js. Les horaires affichés sur les pages sont encore
+	// écrits en dur : leur branchement sur cette même source est prévu au lot 5.
 	"openingHoursSpecification": horaires.map((h) => ({
 		"@type": "OpeningHoursSpecification",
 		"dayOfWeek": h.schema.jours,
@@ -69,7 +69,6 @@ const schemaOrg = {
 		"closes": h.schema.ferme
 	})),
 	"priceRange": "€€",
-	"areaServed": ["Saint-Nazaire", "Loire-Atlantique", "Pays de la Loire", "France"],
 	"knowsAbout": ["EMDR", "EFT", "Thérapie en marchant", "Soutien post-partum", "Gestion du stress", "Traumatismes", "Anxiété"],
 	"hasCredential": [
 		{
@@ -133,6 +132,9 @@ const schemaOrg = {
 			extend={{
 				meta: [
 					{ name: "author", content: siteInfo.name },
+					{ property: "og:image:width", content: "1200" },
+					{ property: "og:image:height", content: "630" },
+					{ property: "og:image:alt", content: `${siteInfo.name}, psychopraticienne à Saint-Nazaire` },
 					{ name: "theme-color", content: "#3D5A4E" },
 				]
 			}}
