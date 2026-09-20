@@ -27,7 +27,7 @@ import { siteInfo } from '../../data/config';
                         <li><strong>Nom commercial</strong> : {siteInfo.name}</li>
                         <li><strong>Statut juridique</strong> : Entrepreneur Individuel (EI)</li>
                         <li><strong>Adresse</strong> : {siteInfo.address.full}</li>
-                        <li><strong>SIRET</strong> : {siteInfo.siret === "123 456 789 00000" ? "En cours d'immatriculation" : siteInfo.siret}</li>
+                        <li><strong>SIRET</strong> : {siteInfo.siret}</li>
                         <li><strong>Email</strong> : <a href={`mailto:${siteInfo.email}`} class="text-accent hover:underline">{siteInfo.email}</a></li>
                         <li><strong>Téléphone</strong> : {siteInfo.phone}</li>
                         <li><strong>Directeur de la publication</strong> : {siteInfo.name}</li>
@@ -44,12 +44,12 @@ import { siteInfo } from '../../data/config';
                     Hébergement
                 </h2>
                 <div class="pl-11">
-                    <p>Ce site est hébergé par la société <strong>Vercel Inc.</strong></p>
+                    <p>Ce site est hébergé par la société <strong>Netlify, Inc.</strong></p>
                     <p class="text-sm text-gray-600 mt-2">
-                        Vercel Inc.<br/>
-                        340 S Lemon Ave #4133<br/>
-                        Walnut, CA 91789, USA<br/>
-                        <a href="https://vercel.com" target="_blank" rel="nofollow" class="hover:underline">https://vercel.com</a>
+                        Netlify, Inc.<br/>
+                        512 2nd Street, Suite 200<br/>
+                        San Francisco, CA 94107, USA<br/>
+                        <a href="https://www.netlify.com" target="_blank" rel="nofollow" class="hover:underline">https://www.netlify.com</a>
                     </p>
                 </div>
             </section>
@@ -75,34 +75,10 @@ import { siteInfo } from '../../data/config';
             </section>
 
             <hr class="border-gray-100" />
-
-            <!-- 4. Assurance et Médiation -->
+            <!-- 4. Données Personnelles (RGPD) -->
             <section>
                 <h2 class="text-xl font-serif font-bold text-primary mb-4 flex items-center">
                     <span class="w-8 h-8 rounded-full bg-accent/20 text-accent flex items-center justify-center mr-3 text-sm">4</span>
-                    Assurance et Médiation
-                </h2>
-                <div class="pl-11 space-y-4">
-                    <p>
-                        <strong>Assurance Responsabilité Civile Professionnelle (RC Pro)</strong> :<br/>
-                        Souscrite auprès de : <em>[À COMPLÉTER : Nom de l'assurance]</em><br/>
-                        Numéro de contrat : <em>[À COMPLÉTER : Numéro]</em>
-                    </p>
-                    <p>
-                        <strong>Médiateur de la consommation</strong> :<br/>
-                        Conformément aux articles L.616-1 et R.616-1 du code de la consommation, nous proposons un dispositif de médiation de la consommation.<br/>
-                        L'entité de médiation retenue est : <em>[À COMPLÉTER : Nom du médiateur, ex: CNPM Médiation]</em>.<br/>
-                        En cas de litige, vous pouvez déposer votre réclamation sur son site : <em>[À COMPLÉTER : Site web du médiateur]</em>.
-                    </p>
-                </div>
-            </section>
-
-            <hr class="border-gray-100" />
-            
-            <!-- 5. Données Personnelles (RGPD) -->
-            <section>
-                <h2 class="text-xl font-serif font-bold text-primary mb-4 flex items-center">
-                    <span class="w-8 h-8 rounded-full bg-accent/20 text-accent flex items-center justify-center mr-3 text-sm">5</span>
                     Protection des Données (RGPD)
                 </h2>
                 <div class="pl-11 space-y-4">
@@ -117,10 +93,10 @@ import { siteInfo } from '../../data/config';
 
              <hr class="border-gray-100" />
 
-            <!-- 6. Propriété Intellectuelle -->
+            <!-- 5. Propriété Intellectuelle -->
             <section>
                 <h2 class="text-xl font-serif font-bold text-primary mb-4 flex items-center">
-                    <span class="w-8 h-8 rounded-full bg-accent/20 text-accent flex items-center justify-center mr-3 text-sm">6</span>
+                    <span class="w-8 h-8 rounded-full bg-accent/20 text-accent flex items-center justify-center mr-3 text-sm">5</span>
                     Propriété Intellectuelle
                 </h2>
                 <div class="pl-11">

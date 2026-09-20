@@ -53,7 +53,7 @@ Tout le site est en bas de fourchette ou en dessous.
 > un site généré ». Aucun de ces points n'entre en conflit avec l'audit technique.
 
 ### A1 — Témoignage fabriqué **P0** ✅ vérifié
-- [ ] `src/pages/seance-eft-gestion-emotions/index.astro:113-124`
+- [x] `src/pages/seance-eft-gestion-emotions/index.astro:113-124`
 
 « *Je souffrais d'anxiété généralisée depuis des années…* » — **« Sandrine T., après 4 séances. »**
 
@@ -69,7 +69,7 @@ rend les 5 vrais avis suspects à leur tour.
 **Correction** : supprimer le bloc. Le remplacer par un avis réel taggé `EFT` de
 `config.js` (Karine S. ou Le Berre Valerie), avec mention « Avis Google ».
 
-### A2 — Mentions légales à trous **P0** ✅ vérifié en production
+### A2 — Mentions légales à trous **P0** ✅ ⚠️ partiellement fait (crochets retirés ; assurance et médiateur en attente)
 - [ ] `src/pages/mentions-legales/index.astro:88-89` et `:94-95`
 
 Quatre champs de gabarit affichés en clair :
@@ -86,7 +86,7 @@ Sur la page que consulte précisément le prospect méfiant, et sur l'assurance 
 **À défaut : retirer les sections.** Une rubrique absente vaut mieux qu'un crochet affiché.
 
 ### A3 — Hébergeur déclaré faux **P0** ✅ vérifié
-- [ ] `src/pages/mentions-legales/index.astro:47-52`
+- [x] `src/pages/mentions-legales/index.astro:47-52`
 
 « Ce site est hébergé par la société **Vercel Inc.** », Walnut CA.
 Le site tourne sur **Netlify** (Netlify Forms, `identity.netlify.com`, git-gateway).
@@ -95,7 +95,7 @@ Mention légale obligatoire, inexacte.
 **Correction** : Netlify Inc., 512 2nd Street, Suite 200, San Francisco, CA 94107.
 
 ### A4 — Google affiche de faux horaires **P0** ✅ vérifié en production
-- [ ] `src/layouts/MainLayout.astro:60-73`
+- [x] `src/layouts/MainLayout.astro:60-73`
 
 | | Déclaré à Google | Affiché sur le site |
 |---|---|---|
@@ -111,7 +111,7 @@ pour que les deux ne puissent plus diverger. Horaires réels : cabinet lundi-mar
 9h-20h ; visio + extérieur jeudi-vendredi 9h-18h, samedi 9h-13h.
 
 ### A5 — Le site se déclare établissement médical **P0** ✅ vérifié (3/5 agents)
-- [ ] `src/layouts/MainLayout.astro:31` et `:75`
+- [x] `src/layouts/MainLayout.astro:31` et `:75`
 
 ```json
 "@type": "MedicalBusiness",
@@ -125,7 +125,7 @@ affirme à Google l'inverse de ce qu'il dit à ses visiteurs. Risque déontologi
 `medicalSpecialty`, ajout de `hasCredential` pour les deux certifications.
 
 ### A6 — « Bois Jolland » : le lieu est mal orthographié **P0** ✅ vérifié
-- [ ] 10 occurrences dans 2 fichiers
+- [x] 10 occurrences dans 2 fichiers
 
 Le vrai nom est **Bois Joalland** (vérifié : office de tourisme de Saint-Nazaire,
 étang de 44 ha creusé en 1918). Le site l'écrit correctement **une seule fois**
@@ -141,11 +141,11 @@ Tout Nazairien connaît ce parc. Le voir écorché dix fois signale que le conte
 n'a pas été écrit ni relu par quelqu'un de la région.
 
 ### A7 — Fautes de français **P0** ✅ vérifié
-- [ ] `src/pages/index.astro:51` — « je **choisi** avec vous » → *choisis* (2ᵉ paragraphe du hero)
-- [ ] `src/pages/index.astro:48` — « à mes côtés **,** » → espace avant virgule
-- [ ] `src/pages/index.astro:278` — « **Prête(e)** à faire le premier pas ? » → *Prêt(e)* (titre 36 px)
-- [ ] `src/pages/index.astro:213` — « plus **profonde** » → *profondes*
-- [ ] `src/pages/prendre-rendez-vous-saint-nazaire/index.astro:58` — « demandeurs d'**emplois** » → *emploi*
+- [x] `src/pages/index.astro:51` — « je **choisi** avec vous » → *choisis* (2ᵉ paragraphe du hero)
+- [x] `src/pages/index.astro:48` — « à mes côtés **,** » → espace avant virgule
+- [x] `src/pages/index.astro:278` — « **Prête(e)** à faire le premier pas ? » → *Prêt(e)* (titre 36 px)
+- [x] `src/pages/index.astro:213` — « plus **profonde** » → *profondes*
+- [x] `src/pages/prendre-rendez-vous-saint-nazaire/index.astro:58` — « demandeurs d'**emplois** » → *emploi*
 
 ### A8 — Affirmations à risque déontologique **P0**
 - [ ] ~20 formulations relevées
@@ -643,7 +643,7 @@ Le premier critère d'évaluation du prospect n'a rien à se mettre sous la dent
 > restent à couvrir par agent.
 
 ### G1 — Aucune image de partage sur tout le site **P0** ✅ vérifié
-- [ ] `src/layouts/MainLayout.astro:20` — `image = "/social-image.jpg"`
+- [x] `src/layouts/MainLayout.astro:20` — `image = "/social-image.jpg"`
 
 Le fichier **n'existe pas** : `public/social-image.jpg` absent, et
 `https://emma-psychopraticienne.fr/social-image.jpg` renvoie **404**.

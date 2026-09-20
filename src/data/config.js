@@ -133,3 +133,36 @@ export const reviews = [
         tag: "EFT"
     }
 ];
+
+// Horaires réels du cabinet — source unique de vérité.
+// Alimente aujourd'hui les données structurées envoyées à Google (MainLayout).
+// Les blocs « Disponibilités » des pages les affichent encore en dur : leur
+// branchement sur cette source est prévu au lot 5.
+export const horaires = [
+    {
+        libelle: "Au cabinet",
+        jours: "Lundi & Mardi",
+        creneaux: "9h – 20h",
+        schema: { jours: ["Monday", "Tuesday"], ouvre: "09:00", ferme: "20:00" }
+    },
+    {
+        libelle: "Visio & Extérieur (Bois Joalland)",
+        jours: "Jeudi & Vendredi",
+        creneaux: "9h – 18h",
+        schema: { jours: ["Thursday", "Friday"], ouvre: "09:00", ferme: "18:00" }
+    },
+    {
+        libelle: "Visio & Extérieur (Bois Joalland)",
+        jours: "Samedi",
+        creneaux: "9h – 13h",
+        schema: { jours: ["Saturday"], ouvre: "09:00", ferme: "13:00" }
+    }
+];
+
+// Tarifs — source unique, pas encore consommée : les pages les affichent en dur.
+// À brancher au lot 5, avant qu'ils ne divergent comme les horaires l'ont fait.
+export const tarifs = {
+    seance: { montant: "60 €", duree: "1h", libelle: "Séance" },
+    reduit: { montant: "50 €", duree: "1h", libelle: "Tarif réduit", condition: "Étudiants et demandeurs d'emploi, sur justificatif" },
+    decouverte: { montant: "Offerte", duree: "45 min", libelle: "Séance découverte" }
+};
