@@ -234,18 +234,31 @@ import logoEmma from '../assets/images/logo-emma-couleurs.png';
       if (!conteneur.contains(e.relatedTarget)) signaler(false);
     });
 
-    // Le bouton bascule le menu pour qui navigue au clavier sans souris.
-    bouton.addEventListener('click', () => {
-      const ouvert = bouton.getAttribute('aria-expanded') === 'true';
-      signaler(!ouvert);
-      if (ouvert) bouton.blur();
+    // Échap referme réellement le panneau. L'ouverture étant pilotée par
+    // :hover et :focus-within en CSS, rendre le focus au bouton le garderait
+    // ouvert : il faut une classe qui force la fermeture, levée au prochain
+    // survol ou au prochain focus entrant.
+    conteneur.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      conteneur.classList.add('ferme');
+      signaler(false);
+      bouton.focus();
     });
 
-    conteneur.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        signaler(false);
-        bouton.focus();
-      }
+    const rouvrir = () => conteneur.classList.remove('ferme');
+    conteneur.addEventListener('mouseenter', rouvrir);
+    conteneur.addEventListener('focusin', rouvrir);
+    bouton.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') rouvrir();
     });
   });
 </script>
+
+<style>
+  /* Échap ferme le panneau malgré :hover / :focus-within, qui restent actifs
+     tant que le pointeur ou le focus n'a pas quitté le conteneur. */
+  .ferme > div[id^="menu-"] {
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+</style>
