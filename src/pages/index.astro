@@ -10,6 +10,7 @@ import portraitEmma from '../assets/images/portrait-emma-interieur.jpg';
 import cabinetSiegeBleu from '../assets/images/photo-fauteuil.jpg';
 import { formats, epreuves, siteInfo } from '../data/config';
 
+import Icon from '../components/Icon.astro';
 const pageDescription = "Emmanuelle Demeulemeester, psychopraticienne à Saint-Nazaire, vous accompagne en cabinet, en marchant ou en visio. EMDR, EFT, soutien post-partum en Loire-Atlantique.";
 ---
 
@@ -75,7 +76,7 @@ const pageDescription = "Emmanuelle Demeulemeester, psychopraticienne à Saint-N
               <span>{siteInfo.phone}</span>
             </div>
             <a href="/seance-decouverte-therapie-psychocorporelle-saint-nazaire/" class="inline-flex items-center gap-2 text-sm text-primary-dark font-bold bg-secondary px-4 py-2 rounded-full border border-accent/10 hover:bg-secondary/70 hover:shadow-md transition-all cursor-pointer">
-              <span class="text-accent-dark">✦</span>
+              <Icon name="sparkles" size={24} class="text-accent-dark" />
               <span>Séance découverte de 45 min offerte</span>
             </a>
           </div>
@@ -238,7 +239,7 @@ const pageDescription = "Emmanuelle Demeulemeester, psychopraticienne à Saint-N
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
           <!-- EMDR -->
           <a href="/therapie-emdr-saint-nazaire/" class="group bg-blue-50/50 rounded-2xl p-8 border border-blue-100 hover:border-blue-300 hover:shadow-xl transition-all duration-300 text-left hover:-translate-y-1" data-aos="fade-up">
-            <div class="text-3xl mb-4">🧠</div>
+            <Icon name="brain" size={28} class="mb-4" />
             <h3 class="text-xl font-serif font-bold text-blue-900 mb-2 group-hover:text-blue-700 transition-colors">Thérapie EMDR</h3>
             <p class="text-blue-800/70 text-sm leading-relaxed mb-4">
               Pour le traitement des traumatismes, chocs émotionnels, phobies et deuils bloqués. Une thérapie recommandée par la Haute Autorité de Santé et l'OMS dans le stress post-traumatique.
@@ -250,7 +251,7 @@ const pageDescription = "Emmanuelle Demeulemeester, psychopraticienne à Saint-N
           </a>
           <!-- EFT -->
           <a href="/seance-eft-gestion-emotions/" class="group bg-emerald-50/50 rounded-2xl p-8 border border-emerald-100 hover:border-emerald-300 hover:shadow-xl transition-all duration-300 text-left hover:-translate-y-1" data-aos="fade-up" data-aos-delay="100">
-            <div class="text-3xl mb-4">✋</div>
+            <Icon name="hand" size={28} class="mb-4" />
             <h3 class="text-xl font-serif font-bold text-emerald-900 mb-2 group-hover:text-emerald-700 transition-colors">Séances EFT</h3>
             <p class="text-emerald-800/70 text-sm leading-relaxed mb-4">
               Technique psycho-corporelle douce pour libérer stress, anxiété et émotions négatives. Utilisable en autonomie au quotidien.

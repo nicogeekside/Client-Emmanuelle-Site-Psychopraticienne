@@ -10,7 +10,8 @@ import cabinetImg from '../../assets/images/cabinet.webp';
 import immeubleImg from '../../assets/images/immeuble.webp';
 import salleAttenteImg from '../../assets/images/salle-attente.webp';
 import { siteInfo } from '../../data/config';
----
+
+import Icon from '../../components/Icon.astro';---
 
 <MainLayout 
   title="Thérapie en Cabinet à Saint-Nazaire | Emmanuelle Demeulemeester Psychopraticienne"
@@ -44,7 +45,7 @@ import { siteInfo } from '../../data/config';
         </nav>
         <div class="max-w-3xl">
           <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
-            <span class="text-2xl leading-none">🛋️</span>
+            <Icon name="armchair" size={24} />
             <span class="text-sm font-medium text-white">Cabinet · Saint-Nazaire · Parking gratuit</span>
           </div>
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 leading-[1.1]">
@@ -63,7 +64,7 @@ import { siteInfo } from '../../data/config';
             </a>
           </div>
           <a href="/seance-decouverte-therapie-psychocorporelle-saint-nazaire/" class="inline-flex items-center gap-2 text-sm font-bold bg-white text-primary-dark px-4 py-2 rounded-full shadow-md hover:bg-secondary/50 transition-colors">
-            <span class="text-accent-dark">✦</span>
+            <Icon name="sparkles" size={24} class="text-accent-dark" />
             <span>Séance découverte de 45 min offerte</span>
           </a>
         </div>
@@ -87,14 +88,14 @@ import { siteInfo } from '../../data/config';
             <!-- Infos pratiques -->
             <div class="mt-8 space-y-4">
               {[
-                { icon: "📍", label: "Adresse", value: siteInfo.address.full },
-                { icon: "🅿️", label: "Stationnement", value: "Parking gratuit à proximité immédiate" },
-                { icon: "🕘", label: "Horaires cabinet", value: "Lundi & Mardi : 9h – 20h" },
-                { icon: "📞", label: "Téléphone", value: siteInfo.phone, href: `tel:${siteInfo.phone.replace(/\s/g, '')}` },
-                { icon: "✉️", label: "Email", value: siteInfo.email, href: `mailto:${siteInfo.email}` },
+                { icon: "map-pin", label: "Adresse", value: siteInfo.address.full },
+                { icon: "circle-parking", label: "Stationnement", value: "Parking gratuit à proximité immédiate" },
+                { icon: "clock", label: "Horaires cabinet", value: "Lundi & Mardi : 9h – 20h" },
+                { icon: "phone", label: "Téléphone", value: siteInfo.phone, href: `tel:${siteInfo.phone.replace(/\s/g, '')}` },
+                { icon: "mail", label: "Email", value: siteInfo.email, href: `mailto:${siteInfo.email}` },
               ].map(item => (
                 <div class="flex gap-4 items-start">
-                  <span class="text-xl flex-shrink-0 w-8">{item.icon}</span>
+                  <Icon name={item.icon} size={20} class="flex-shrink-0 w-8 text-accent-dark" />
                   <div>
                     <span class="text-xs font-bold uppercase tracking-wider text-text-main/75">{item.label}</span>
                     {item.href ? (
@@ -145,15 +146,15 @@ import { siteInfo } from '../../data/config';
         <h2 class="text-3xl font-serif font-bold text-primary mb-10 text-center" data-aos="fade-up">Ce qu'on peut faire ensemble en cabinet</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {[
-            { icon: "🧠", title: "EMDR", text: "Protocole complet avec stimulations bilatérales pour le traitement des traumatismes." },
-            { icon: "✋", title: "EFT – Tapping", text: "Séances complètes avec l'apprentissage de la technique pour une utilisation autonome." },
-            { icon: "💬", title: "Espace de parole", text: "Simplement parler, être écouté(e) sans jugement." },
-            { icon: "😮‍💨", title: "Gestion du stress", text: "Techniques de régulation émotionnelle, sophrologie légère, respiration." },
-            { icon: "🌱", title: "Suivi thérapeutique", text: "Accompagnement sur plusieurs mois avec un plan adapté à votre évolution." },
-            { icon: "👶", title: "Post-Partum & Périnatalité", text: "Soutien spécialisé pour les bouleversements de la parentalité." },
+            { icon: "brain", title: "EMDR", text: "Protocole complet avec stimulations bilatérales pour le traitement des traumatismes." },
+            { icon: "hand", title: "EFT – Tapping", text: "Séances complètes avec l'apprentissage de la technique pour une utilisation autonome." },
+            { icon: "message-circle", title: "Espace de parole", text: "Simplement parler, être écouté(e) sans jugement." },
+            { icon: "waves", title: "Gestion du stress", text: "Techniques de régulation émotionnelle, sophrologie légère, respiration." },
+            { icon: "sprout", title: "Suivi thérapeutique", text: "Accompagnement sur plusieurs mois avec un plan adapté à votre évolution." },
+            { icon: "baby", title: "Post-Partum & Périnatalité", text: "Soutien spécialisé pour les bouleversements de la parentalité." },
           ].map((item, i) => (
             <div class="bg-rose-50/40 rounded-xl p-6 border border-rose-100 hover:border-rose-300 hover:shadow-md transition-all duration-300" data-aos="fade-up" data-aos-delay={i * 70}>
-              <div class="text-3xl mb-3">{item.icon}</div>
+              <Icon name={item.icon} size={28} class="mb-3 text-accent-dark" />
               <h3 class="font-bold text-rose-900 mb-2">{item.title}</h3>
               <p class="text-sm text-text-main/80 leading-relaxed">{item.text}</p>
             </div>
@@ -169,7 +170,7 @@ import { siteInfo } from '../../data/config';
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <!-- Tarifs -->
           <div class="bg-white rounded-2xl p-8 shadow-sm border border-secondary" data-aos="fade-right">
-            <div class="text-3xl mb-4">💳</div>
+            <Icon name="euro" size={28} class="mx-auto mb-4" />
             <h3 class="font-bold text-primary text-xl mb-6">Tarifs</h3>
             <div class="space-y-3">
               <div class="flex justify-between items-center py-3 border-b border-secondary">
@@ -181,18 +182,18 @@ import { siteInfo } from '../../data/config';
                   <span class="text-text-main/80">Tarif réduit (1h)</span>
                   <span class="font-bold text-primary text-xl">50 €</span>
                 </div>
-                <p class="text-sm text-text-main/75 bg-secondary/30 rounded-lg px-3 py-2">🎓 Réservé aux <strong>étudiants</strong> et <strong>demandeurs d’emploi</strong>. Un justificatif vous sera demandé.</p>
+                <p class="text-sm text-text-main/75 bg-secondary/30 rounded-lg px-3 py-2 inline-flex items-start gap-2 text-left"><Icon name="graduation-cap" size={16} class="mt-0.5 shrink-0" /><span>Réservé aux <strong>étudiants</strong> et <strong>demandeurs d’emploi</strong>. Un justificatif vous sera demandé.</span></p>
               </div>
               <div class="flex justify-between items-center py-3">
                 <span class="text-text-main/80">Séance découverte</span>
-                <span class="font-bold text-accent-display text-xl">✦ Gratuite</span>
+                <span class="font-bold text-accent-display text-xl inline-flex items-center gap-1.5"><Icon name="sparkles" size={18} /> Gratuite</span>
               </div>
             </div>
             <p class="text-sm text-text-main/75 mt-4 border-t border-secondary pt-3">Règlement accepté : virement bancaire, espèces ou chèque.</p>
           </div>
           <!-- Horaires -->
           <div class="bg-white rounded-2xl p-8 shadow-sm border border-secondary" data-aos="fade-left">
-            <div class="text-3xl mb-4">🗓️</div>
+            <Icon name="calendar-clock" size={28} class="mx-auto mb-4" />
             <h3 class="font-bold text-primary text-xl mb-6">Disponibilités</h3>
             <div class="space-y-3 text-left">
               <div class="bg-secondary/30 rounded-xl px-4 py-3">
@@ -248,7 +249,7 @@ import { siteInfo } from '../../data/config';
           ></iframe>
         </div>
         <p class="text-center text-text-main/75 mt-4 text-sm">
-          📍 {siteInfo.address.full}
+          <span class="inline-flex items-center gap-1.5"><Icon name="map-pin" size={15} /> {siteInfo.address.full}</span>
         </p>
       </div>
     </section>

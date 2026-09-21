@@ -3,7 +3,8 @@ import { navItems, navDropdown, navDropdownFormats, siteInfo } from '../data/con
 import Button from './Button.astro';
 import { Image } from 'astro:assets';
 import logoEmma from '../assets/images/logo-emma-couleurs.png';
----
+
+import Icon from './Icon.astro';---
 
 <header class="fixed w-full top-0 z-50 transition-all duration-300" id="main-header">
   <!-- Background -->
@@ -94,7 +95,7 @@ import logoEmma from '../assets/images/logo-emma-couleurs.png';
       <div class="w-px h-5 bg-primary/10 mx-2"></div>
 
       <a href="/seance-decouverte-therapie-psychocorporelle-saint-nazaire/" class="text-sm font-bold text-accent-dark hover:text-accent-dark/80 transition-colors flex items-center gap-1 px-3 py-2">
-        <span class="text-lg">✦</span> Séance découverte
+        <Icon name="sparkles" size={20} /> Séance découverte
       </a>
 
       <Button href="/prendre-rendez-vous-saint-nazaire/" variant="accent" class="shadow-md hover:shadow-lg transition-shadow text-sm">
@@ -141,7 +142,7 @@ import logoEmma from '../assets/images/logo-emma-couleurs.png';
         href="/seance-decouverte-therapie-psychocorporelle-saint-nazaire/" 
         class="mobile-link text-xl font-serif font-bold text-accent-display hover:text-accent-display transition-colors py-3 border-b border-gray-50 flex items-center justify-between group"
       >
-        <span class="flex items-center gap-2"><span class="text-xl">✦</span> Séance découverte</span>
+        <span class="flex items-center gap-2"><Icon name="sparkles" size={22} /> Séance découverte</span>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
         </svg>

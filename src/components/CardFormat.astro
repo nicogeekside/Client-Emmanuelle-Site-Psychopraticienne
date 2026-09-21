@@ -14,6 +14,8 @@ interface Props {
 }
 
 const { id, icon, title, subtitle, description, note, href, color = "from-gray-50 to-gray-100", accent = "text-primary", border = "border-gray-200", index = 0 } = Astro.props;
+
+import Icon from './Icon.astro';
 ---
 
 <a 
@@ -31,7 +33,7 @@ const { id, icon, title, subtitle, description, note, href, color = "from-gray-5
 
     <!-- Icône + badge -->
     <div class="flex items-start justify-between relative z-10">
-      <div class="text-5xl group-hover:scale-110 transition-transform duration-300 select-none leading-none">{icon}</div>
+      <Icon name={icon} size={44} stroke={1.25} class={`shrink-0 ${accent} transition-transform duration-500 ease-out group-hover:-translate-y-0.5`} />
       <div class="flex items-center gap-1.5 bg-white/70 backdrop-blur-sm border border-white/80 rounded-full px-3 py-1.5 shadow-sm">
         <span class="w-2 h-2 rounded-full bg-current animate-pulse" class:list={[accent]}></span>
         <span class={`text-xs font-bold tracking-wide uppercase ${accent}`}>{subtitle}</span>
