@@ -52,9 +52,9 @@ export const formats = [
         description: "Marchez à mes côtés et laissez la parole venir naturellement. Côte à côte, en mouvement, certaines choses se disent plus facilement. Une approche douce et libératrice.",
         note: "Séances en plein air, à votre rythme",
         href: "/therapie-en-marchant-saint-nazaire/",
-        color: "from-primary-light/10 to-primary-light/30",
+        color: "from-white to-primary-light/10",
         accent: "text-primary-dark",
-        border: "border-primary-light/50"
+        border: "border-primary-light"
     },
     {
         id: "visio",
@@ -64,9 +64,9 @@ export const formats = [
         description: "Bénéficiez du même accompagnement de qualité depuis le confort de votre domicile, partout en France. Flexible, confidentiel et efficace.",
         note: "Disponible partout en France",
         href: "/therapie-en-ligne-visio/",
-        color: "from-primary/30 to-primary/50",
+        color: "from-white to-primary/10",
         accent: "text-primary-dark",
-        border: "border-primary/50"
+        border: "border-primary"
     },
     {
         id: "cabinet",
@@ -76,9 +76,9 @@ export const formats = [
         description: "Venez dans mon cabinet apaisant à Saint-Nazaire. Un cadre chaleureux et confidentiel pensé pour un moment en toute sécurité.",
         note: "Saint-Nazaire — Parking gratuit",
         href: "/therapie-cabinet-saint-nazaire/",
-        color: "from-accent/10 to-accent/30",
+        color: "from-white to-accent/10",
         accent: "text-accent-dark",
-        border: "border-accent/50"
+        border: "border-accent"
     },
     {
         id: "post-partum",
@@ -88,9 +88,9 @@ export const formats = [
         description: "Un espace de parole bienveillant et sans jugement, ouvert aux mamans et aux papas. Pour traverser ensemble les bouleversements de la parentalité.",
         note: "Groupe mensuel — Hommes & Femmes",
         href: "/espace-soutien-post-partum/",
-        color: "from-accent-dark/10 to-accent-dark/30",
+        color: "from-white to-accent-dark/10",
         accent: "text-accent-dark",
-        border: "border-accent-dark/50"
+        border: "border-accent-dark"
     }
 ];
 
