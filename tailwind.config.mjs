@@ -28,6 +28,11 @@ export default {
                 'accent-light': '#E8C4B8',  // Terracotta Clair — texte terracotta sur le sauge profond du pied de page (4,7:1)
                 'text-main': '#2C3E50',     // Gris Anthracite (Pour les longs paragraphes)
             },
+            // ÉCHELLE D'OPACITÉ — 5 paliers : /10 /30 /50 /70 /90
+            // Elle s'applique aux FONDS, BORDURES et remplissages décoratifs.
+            // Les couleurs de TEXTE en sont exemptées : l'opacité y est un
+            // levier de contraste, pas un choix de style. Les arrondir vers le
+            // bas fait passer du texte sous le seuil AA — c'est arrivé une fois.
             fontFamily: {
                 serif: ['"Playfair Display"', 'serif'],
                 sans: ['"Lato"', 'sans-serif'],
