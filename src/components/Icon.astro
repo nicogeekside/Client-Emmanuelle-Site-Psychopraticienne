@@ -1,0 +1,54 @@
+---
+import fs from 'node:fs';
+import path from 'node:path';
+
+interface Props {
+  /** Nom du glyphe Lucide, ex. « footprints », « map-pin ». */
+  name: string;
+  /** Côté du carré de dessin, en pixels. */
+  size?: number;
+  /** Épaisseur du trait. 1.5 est la valeur de la maison — Lucide livre 2,
+      trop lourd à côté du Playfair et du Lato du site. */
+  stroke?: number;
+  class?: string;
+  /** Renseigner uniquement si l'icône porte une information que le texte
+      voisin ne dit pas. Sans label, elle est décorative et masquée aux
+      lecteurs d'écran. */
+  label?: string;
+}
+
+const { name, size = 24, stroke = 1.5, class: className, label } = Astro.props;
+
+const fichier = path.join(process.cwd(), 'node_modules', 'lucide-static', 'icons', `${name}.svg`);
+
+if (!fs.existsSync(fichier)) {
+  throw new Error(`Icône « ${name} » introuvable dans lucide-static. Vérifiez le nom du glyphe.`);
+}
+
+// On n'inline que la géométrie : les attributs de présentation sont réécrits
+// ici pour que toutes les icônes du site partagent une graisse de trait.
+const geometrie = fs
+  .readFileSync(fichier, 'utf8')
+  .replace(/<!--[\s\S]*?-->/g, '')
+  .replace(/^[\s\S]*?<svg[^>]*>/, '')
+  .replace(/<\/svg>\s*$/, '')
+  .trim();
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width={size}
+  height={size}
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width={stroke}
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class={className}
+  role={label ? 'img' : undefined}
+  aria-label={label}
+  aria-hidden={label ? undefined : 'true'}
+  focusable="false"
+  set:html={geometrie}
+/>
