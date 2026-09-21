@@ -37,7 +37,7 @@ import { siteInfo } from '../../data/config';
       <div class="absolute inset-0 z-0 bg-gradient-to-t from-primary via-primary/90 to-transparent lg:hidden pointer-events-none"></div>
 
       <div class="container mx-auto px-6 lg:px-8 py-20 lg:py-32 relative z-10 text-secondary">
-        <nav class="text-sm text-secondary/50 mb-6 flex items-center gap-2" aria-label="Fil d'Ariane">
+        <nav class="text-sm text-white mb-6 flex items-center gap-2" aria-label="Fil d'Ariane">
           <a href="/" class="hover:text-white transition-colors">Accueil</a>
           <span>/</span>
           <span class="text-white">Thérapie en cabinet</span>
@@ -50,7 +50,7 @@ import { siteInfo } from '../../data/config';
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 leading-[1.1]">
             Thérapie en cabinet
           </h1>
-          <p class="text-xl text-secondary/85 leading-relaxed mb-8 max-w-2xl">
+          <p class="text-xl text-secondary/90 leading-relaxed mb-8 max-w-2xl">
             Venez dans un espace pensé pour vous. Calme, confidentiel et apaisant pour un moment en toute sécurité.
           </p>
           <div class="flex flex-col sm:flex-row gap-4 mb-4">
@@ -62,8 +62,8 @@ import { siteInfo } from '../../data/config';
               {siteInfo.phone}
             </a>
           </div>
-          <a href="/seance-decouverte-therapie-psychocorporelle-saint-nazaire/" class="inline-flex items-center gap-2 text-sm font-bold bg-white text-primary px-4 py-2 rounded-full shadow-md hover:bg-secondary/50 transition-colors">
-            <span class="text-accent">✦</span>
+          <a href="/seance-decouverte-therapie-psychocorporelle-saint-nazaire/" class="inline-flex items-center gap-2 text-sm font-bold bg-white text-primary-dark px-4 py-2 rounded-full shadow-md hover:bg-secondary/50 transition-colors">
+            <span class="text-accent-dark">✦</span>
             <span>Séance découverte de 45 min offerte</span>
           </a>
         </div>
@@ -75,7 +75,7 @@ import { siteInfo } from '../../data/config';
       <div class="container mx-auto px-6 lg:px-8 max-w-5xl">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div data-aos="fade-right">
-            <span class="text-accent font-bold tracking-wider uppercase text-sm block mb-3">Le cabinet</span>
+            <span class="text-accent-dark font-bold tracking-wider uppercase text-sm block mb-3">Le cabinet</span>
             <h2 class="text-3xl font-serif font-bold text-primary mb-6">Un lieu pensé pour votre bien-être</h2>
             <p class="text-lg text-text-main/75 mb-5 leading-relaxed">
               Mon cabinet est situé à Saint-Nazaire, dans un environnement calme et accessible. Dès que vous franchissez la porte, l'objectif est que vous vous sentiez en sécurité et à l'aise.
@@ -96,9 +96,9 @@ import { siteInfo } from '../../data/config';
                 <div class="flex gap-4 items-start">
                   <span class="text-xl flex-shrink-0 w-8">{item.icon}</span>
                   <div>
-                    <span class="text-xs font-bold uppercase tracking-wider text-text-muted">{item.label}</span>
+                    <span class="text-xs font-bold uppercase tracking-wider text-text-main/75">{item.label}</span>
                     {item.href ? (
-                      <a href={item.href} class="block text-primary font-medium hover:text-accent transition-colors">{item.value}</a>
+                      <a href={item.href} class="block text-primary font-medium hover:text-accent-dark transition-colors">{item.value}</a>
                     ) : (
                       <p class="text-primary font-medium">{item.value}</p>
                     )}
@@ -140,7 +140,7 @@ import { siteInfo } from '../../data/config';
     </section>
 
     <!-- CE QU'ON PEUT FAIRE EN CABINET -->
-    <section class="py-16 bg-secondary/40">
+    <section class="py-16 bg-secondary/30">
       <div class="container mx-auto px-6 lg:px-8 max-w-4xl">
         <h2 class="text-3xl font-serif font-bold text-primary mb-10 text-center" data-aos="fade-up">Ce qu'on peut faire ensemble en cabinet</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -181,14 +181,14 @@ import { siteInfo } from '../../data/config';
                   <span class="text-text-main/80">Tarif réduit (1h)</span>
                   <span class="font-bold text-primary text-xl">50 €</span>
                 </div>
-                <p class="text-xs text-text-muted bg-secondary/40 rounded-lg px-3 py-2">🎓 Réservé aux <strong>étudiants</strong> et <strong>demandeurs d’emploi</strong>. Un justificatif vous sera demandé.</p>
+                <p class="text-sm text-text-main/75 bg-secondary/30 rounded-lg px-3 py-2">🎓 Réservé aux <strong>étudiants</strong> et <strong>demandeurs d’emploi</strong>. Un justificatif vous sera demandé.</p>
               </div>
               <div class="flex justify-between items-center py-3">
                 <span class="text-text-main/80">Séance découverte</span>
-                <span class="font-bold text-accent text-xl">✦ Gratuite</span>
+                <span class="font-bold text-accent-display text-xl">✦ Gratuite</span>
               </div>
             </div>
-            <p class="text-xs text-text-muted mt-4 border-t border-secondary pt-3">Règlement accepté : virement bancaire, espèces ou chèque.</p>
+            <p class="text-sm text-text-main/75 mt-4 border-t border-secondary pt-3">Règlement accepté : virement bancaire, espèces ou chèque.</p>
           </div>
           <!-- Horaires -->
           <div class="bg-white rounded-2xl p-8 shadow-sm border border-secondary" data-aos="fade-left">
@@ -197,13 +197,13 @@ import { siteInfo } from '../../data/config';
             <div class="space-y-3 text-left">
               <div class="bg-secondary/30 rounded-xl px-4 py-3">
                 <p class="font-semibold text-text-main text-sm">Lundi & Mardi</p>
-                <p class="text-accent font-bold">9h00 – 20h00</p>
+                <p class="text-accent-dark font-bold">9h00 – 20h00</p>
               </div>
             </div>
-            <p class="text-xs text-text-muted mt-4 border-t border-secondary pt-3">Annulation souhaitée au moins 48h à l’avance, par respect du créneau réservé.</p>
+            <p class="text-sm text-text-main/75 mt-4 border-t border-secondary pt-3">Annulation souhaitée au moins 48h à l’avance, par respect du créneau réservé.</p>
           </div>
         </div>
-        <p class="mt-8 text-sm text-text-muted" data-aos="fade-up">Certaines mutuelles remboursent partiellement les séances — renseignez-vous auprès de la vôtre. Je fournis une facture sur demande.</p>
+        <p class="mt-8 text-sm text-text-main/75" data-aos="fade-up">Certaines mutuelles remboursent partiellement les séances — renseignez-vous auprès de la vôtre. Je fournis une facture sur demande.</p>
       </div>
     </section>
 
@@ -247,7 +247,7 @@ import { siteInfo } from '../../data/config';
             title="Localisation cabinet Emmanuelle Demeulemeester Saint-Nazaire"
           ></iframe>
         </div>
-        <p class="text-center text-text-muted mt-4 text-sm">
+        <p class="text-center text-text-main/75 mt-4 text-sm">
           📍 {siteInfo.address.full}
         </p>
       </div>

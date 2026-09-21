@@ -12,13 +12,13 @@ import { siteInfo } from '../../data/config';
   <Header />
   
   <main class="py-24 bg-secondary/10">
-    <div class="container mx-auto px-4 max-w-4xl">
-        <div class="text-center mb-12" data-aos="fade-up">
+    <div class="container mx-auto px-4 max-w-2xl">
+        <div class="text-center mb-12">
             <h1 class="text-4xl font-serif font-bold text-primary mb-4">Politique de Confidentialité</h1>
             <p class="text-text-main/70">Gestion et protection de vos données personnelles (RGPD)</p>
         </div>
         
-        <div class="bg-white p-10 md:p-14 rounded-2xl shadow-sm space-y-10 text-text-main/90 leading-relaxed" data-aos="fade-up" data-aos-delay="100">
+        <div class="bg-white p-10 md:p-14 rounded-2xl shadow-sm space-y-10 text-text-main/90 leading-relaxed">
             
             <section>
                 <h2 class="text-2xl font-serif font-bold text-primary mb-4">1. Engagement de confidentialité</h2>
@@ -36,7 +36,7 @@ import { siteInfo } from '../../data/config';
                     <li><strong>Lors d'un contact (email ou téléphone)</strong> : Votre nom, prénom, adresse email et/ou numéro de téléphone, ainsi que les informations partagées dans votre message.</li>
                     <li><strong>Lors d'une séance en visio</strong> : L'adresse email utilisée pour vous envoyer le lien Google Meet.</li>
                 </ul>
-                <p class="mt-4 text-sm bg-primary/5 p-4 rounded-lg border-l-4 border-primary">
+                <p class="mt-4 text-sm bg-primary/10 p-4 rounded-lg border-l-4 border-primary">
                     <em>Le site ne comporte pas de système de création de compte utilisateur, de newsletter ou de paiement en ligne direct.</em>
                 </p>
             </section>
@@ -85,7 +85,7 @@ import { siteInfo } from '../../data/config';
                 </ul>
                 <p>
                     Pour exercer ces droits, vous pouvez me contacter à tout moment à l'adresse email suivante : <br/>
-                    <a href={`mailto:${siteInfo.email}`} class="text-accent hover:underline font-bold">{siteInfo.email}</a>.
+                    <a href={`mailto:${siteInfo.email}`} class="text-accent-dark hover:underline font-bold">{siteInfo.email}</a>.
                 </p>
                 <p class="mt-4 text-sm text-text-main/70">
                     Si vous estimez, après m'avoir contactée, que vos droits ne sont pas respectés, vous pouvez adresser une réclamation à la CNIL (www.cnil.fr).

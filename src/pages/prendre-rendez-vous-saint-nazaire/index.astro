@@ -21,9 +21,9 @@ import portraitEmma from '../../assets/images/photo-portrait-exterieur.jpg';
         
         <!-- Indicateur pour le calendrier -->
         <div class="flex flex-col items-center justify-center mb-12 animate-bounce cursor-pointer group" onclick="document.getElementById('rdv-en-ligne').scrollIntoView({behavior: 'smooth'})" data-aos="fade-up" data-aos-delay="100">
-            <span class="text-sm font-bold text-accent mb-2 group-hover:text-primary transition-colors">Voir le calendrier en ligne ci-dessous</span>
-            <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <span class="text-sm font-bold text-accent-dark mb-2 group-hover:text-primary transition-colors">Voir le calendrier en ligne ci-dessous</span>
+            <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent/10 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-accent-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
             </div>
@@ -60,20 +60,20 @@ import portraitEmma from '../../assets/images/photo-portrait-exterieur.jpg';
                         <p>
                             Je propose une <strong>séance découverte gratuite</strong> de la thérapie énergétique et psychocorporelle. La séance dure 45 minutes et peut se dérouler au cabinet, en visio ou en marchant autour du bois Joalland. Je vous présente mon approche et mes outils thérapeutiques et nous testons l'EFT ou l'EMDR sur le sujet de votre choix.
                         </p>
-                        <div class="p-4 bg-secondary/30 rounded-lg border border-secondary/60">
+                        <div class="p-4 bg-secondary/30 rounded-lg border border-secondary/50">
                             <h3 class="font-bold text-primary mb-2">Paiement & Annulation</h3>
                             <p class="mb-2">Les paiements se font par <strong>espèces, chèque ou virement bancaire</strong>, offrant ainsi une flexibilité dans les modalités de règlement.</p>
                             <p>Les rendez-vous peuvent être pris par téléphone ou via le formulaire de prise de RDV de mon site internet. Je vous remercie de vous présenter à l'heure pour chaque séance, par respect pour le temps réservé. En cas d'annulation ou de report, je vous prie de bien vouloir me prévenir <strong>au moins 48 heures à l'avance</strong>, afin de permettre à une autre personne de bénéficier de ce créneau.</p>
                         </div>
                         <div>
-                             <h3 class="font-bold text-accent mb-2">Horaires</h3>
+                             <h3 class="font-bold text-accent-dark mb-2">Horaires</h3>
                              <p>
                                 <strong>Au cabinet :</strong> Lundi & Mardi, 9h – 20h.<br/>
                                 <strong>Visio & Extérieur (Bois Joalland) :</strong> Jeudi & Vendredi 9h – 18h, Samedi 9h – 13h.
                              </p>
                         </div>
                          <div>
-                             <h3 class="font-bold text-accent mb-2">Contact & Accès</h3>
+                             <h3 class="font-bold text-accent-dark mb-2">Contact & Accès</h3>
                              <p>Tél : {siteInfo.phone}<br/>Email : {siteInfo.email}</p>
                              <p class="mt-2">
                                  {siteInfo.address.street}, {siteInfo.address.zip} {siteInfo.address.city}<br/>
@@ -129,7 +129,7 @@ import portraitEmma from '../../assets/images/photo-portrait-exterieur.jpg';
                              <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" required placeholder="Bonjour, je souhaite prendre rendez-vous pour..."></textarea>
                         </div>
                         
-                        <button type="submit" class="w-full bg-accent text-white font-bold py-3 rounded-lg hover:bg-opacity-90 transition-colors shadow-md">
+                        <button type="submit" class="w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-dark focus-visible:ring-offset-2 bg-accent-dark text-white font-bold py-3 rounded-lg hover:bg-accent-dark/90 transition-colors shadow-md">
                             Envoyer le message
                         </button>
                     </form>
