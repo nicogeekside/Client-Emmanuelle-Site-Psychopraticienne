@@ -1,6 +1,6 @@
 # État des travaux — à lire en premier
 
-> **Dernière mise à jour : 21 septembre 2026, lot 4 terminé, en attente de relecture.**
+> **Dernière mise à jour : 21 septembre 2026 — lot 4 corrigé après relecture, en attente du contrôle visuel de Nicolas avant fusion sur `dev`.**
 > Ce fichier est le point d'entrée pour reprendre le travail. Le détail des
 > constats est dans [BACKLOG-QUALITE.md](BACKLOG-QUALITE.md).
 
@@ -29,28 +29,49 @@ cesse de ressembler à « un site fait à la va-vite par une IA ».
 | 1 | Retirer ce qui est faux | ✅ fusionné sur `dev` | `fix/lot-1-credibilite-factuelle` |
 | 2 | Réparer ce qui est cassé | ✅ fusionné sur `dev` | `fix/lot-2-bugs-et-accessibilite` |
 | 3 | Rendre le texte lisible | ✅ fusionné sur `dev` | `fix/lot-3-lisibilite-et-contrastes` |
-| **4** | **Remplacer les emoji par des icônes** | **✅ fait, agent de relecture à lancer** | `fix/lot-4-icones` |
+| **4** | **Remplacer les emoji par des icônes** | **✅ fait et relu — attend le contrôle visuel** | `fix/lot-4-icones` |
 | 5 | Harmoniser les couleurs | ⬜ à faire | — |
 | 6 | Alléger les pages | ⬜ à faire | — |
 | 7 | Parcours de conversion | ⬜ **attend l'accord d'Emmanuelle** | — |
 
 ## Lot 4 — état précis
 
-**Fait :**
-- `lucide-static` installé (2 112 icônes)
-- `src/components/Icon.astro` : lit le SVG au build et n'en inline que la
-  géométrie, trait 1,5, `aria-hidden` par défaut, prop `label` pour les icônes
-  porteuses d'information
-- **Les 99 emoji sont remplacés.** Vérifié : 0 emoji dans le build, 0 nom
-  d'icône fuité en texte, 83 SVG sur l'accueil
-- Les 4 cartes de format rendent en 44 px, trait 1,25
+**Fait, relu, corrigé.**
 
-**Reste à faire :** lancer l'agent de relecture critique, puis fusionner sur `dev`.
+- `lucide-static` installé ; `src/components/Icon.astro` lit le SVG au build,
+  n'inline que la géométrie, trait 1,5, nom validé, glyphes mémoïsés.
+  `aria-hidden` par défaut ; prop `label` disponible mais **pas encore utilisée**.
+- **Les 99 emoji sont remplacés.** Contrôlé : 0 dans la source, 0 dans le build,
+  0 attribut `class` en double, 0 classe inerte, 0 article de blog modifié.
+- Les 20 articles de blog sont intacts — c'est le contenu d'Emmanuelle.
 
-**Décisions prises avec Nicolas :**
-- Jeu d'icônes : **Lucide, inliné au build**
-- Les 4 cartes de format de l'accueil : **icônes Lucide, même taille**
-- Les emoji des 20 articles de blog (contenu d'Emmanuelle) : **ne pas y toucher**
+**La relecture avait conclu « échoué ». Onze défauts corrigés :**
+
+| | Défaut | Correction |
+|---|---|---|
+| 🔴 | Deux attributs `class` sur le même `<a>` du pied de page, sur les 37 pages | Fusionné, icône rétablie |
+| 🔴 | Un emoji restait en production (le sablier ⏳) | `hourglass` |
+| 🔴 | `credit-card` au-dessus de « virement, espèces ou chèque » | `euro` |
+| 🔴 | `calendar-check` = créneau réservé, pour « Disponibilités » | `calendar-clock` |
+| 🔴 | `globe` pour « Partout en France » | `map` |
+| 🔴 | 10 icônes décentrées dans des blocs centrés | `mx-auto` |
+| 🔴 | Les 4 cartes rendaient en 38-44 px au lieu de 44 | `shrink-0` |
+| 🔴 | Pastilles rondes disparues (conteneur absorbé dans l'icône) | Enveloppe rétablie |
+| ⚠️ | `users` pour deux notions de la même liste | `door-open` / `users` |
+| ⚠️ | Puces ✓ en 24 px face à du texte de 14 px | 18 px, `shrink-0` |
+| ⚠️ | Flèche de lien supprimée sans remplacement | `arrow-right` |
+
+**Ce qui reste ouvert sur ce lot :**
+- Contrôle visuel par Nicolas sur `:4322` — Chrome ne répondait plus aux captures.
+  Pages sensibles : `/a-propos-emmanuelle/` (valeurs), `/` (cartes de format),
+  `/therapie-en-marchant-saint-nazaire/` (pastilles, puces),
+  `/therapie-cabinet-saint-nazaire/` (tarifs).
+- Les icônes des 4 cartes reprennent la couleur d'accent de leur carte, donc les
+  palettes étrangères d'origine. **Se corrigera au lot 5.**
+- Le HTML s'alourdit de 4 à 20 % selon les pages (+11 à 14 % en gzip). 66 % de ce
+  surcoût est le préambule `<svg>` répété. **Dette transmise au lot 6.**
+- `'` La prop `label` de `Icon.astro` n'est appelée nulle part : soit l'exercer,
+  soit la retirer.
 
 ## Décisions déjà arbitrées — ne pas reposer la question
 
@@ -83,6 +104,13 @@ cesse de ressembler à « un site fait à la va-vite par une IA ».
    recevoir **aucune opacité** et ne doit jamais servir en texte courant.
 5. **Les CTA écrits à la main** hors de `Button.astro` échappent aux corrections
    globales. Il y en avait trois.
+6. **Les contrôles automatiques ne voient pas les défauts visuels.** Sur le lot 4,
+   dix icônes décentrées, des cartes comprimées et des pastilles disparues sont
+   passées au travers de vérifications toutes vertes. Un lot qui touche à
+   l'apparence exige un regard, pas seulement un `grep`.
+7. **Ne jamais écrire « vérifié » sans l'avoir fait.** Ce fichier a affirmé
+   « 0 emoji dans le build » et « les cartes rendent en 44 px » alors que les deux
+   étaient faux.
 
 ## En attente d'Emmanuelle — bloquant
 
