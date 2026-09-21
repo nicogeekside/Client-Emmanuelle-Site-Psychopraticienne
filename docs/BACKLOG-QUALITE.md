@@ -4,8 +4,10 @@
 > indépendants (en aveugle les uns des autres), couvrant les 17 pages et les
 > 8 composants du site.
 >
-> **Aucune correction n'a encore été appliquée.** Ce fichier est la liste de
-> travail de la session de modification à venir.
+> **État au 21 septembre 2026 : lots 1 à 4 faits et fusionnés sur `dev`.**
+> Les cases cochées correspondent au travail réellement livré et relu.
+> Le point d'entrée pour reprendre est [ETAT-DES-TRAVAUX.md](ETAT-DES-TRAVAUX.md) ;
+> ce fichier-ci reste le détail des constats.
 
 ## Comment lire ce document
 
@@ -148,7 +150,7 @@ n'a pas été écrit ni relu par quelqu'un de la région.
 - [x] `src/pages/prendre-rendez-vous-saint-nazaire/index.astro:58` — « demandeurs d'**emplois** » → *emploi*
 
 ### A8 — Affirmations à risque déontologique **P0**
-- [ ] ~20 formulations relevées
+- [x] ~20 formulations relevées
 
 La charte IFPEC interdit : promesse de guérison, claim médical, chiffre non sourcé.
 
@@ -197,7 +199,7 @@ fidèlement sa formation ? Ne pas modifier une affirmation sur son parcours sans
 # BLOC B — Bugs réels
 
 ### B1 — Le fond du header n'existe pas **P0** ✅ vérifié dans le CSS livré
-- [ ] `src/components/Header.astro:10`
+- [x] `src/components/Header.astro:10`
 
 `bg-secondary/97` **n'est pas compilé par Tailwind 3** (opacité hors échelle).
 Vérifié dans `dist/_astro/index.OQ3wuFSz.css` : seules les opacités
@@ -213,7 +215,7 @@ visible autour du nom.
 supprimer le `text-shadow` inline** devenu inutile.
 
 ### B2 — Les articles sont invisibles sans JavaScript **P0** ✅ vérifié
-- [ ] `src/pages/blog/[slug].astro:53-57` (et `:29,47,62,73`, `blog/index.astro:35`)
+- [x] `src/pages/blog/[slug].astro:53-57` (et `:29,47,62,73`, `blog/index.astro:35`)
 
 Le CSS contient `[data-aos^=fade]{opacity:0}`. Le corps de l'article porte
 `data-aos="fade-up"` : il part à `opacity: 0` et n'apparaît que si AOS s'initialise.
@@ -224,7 +226,7 @@ première impression du site depuis Google.
 `@media (prefers-reduced-motion: reduce){[data-aos]{opacity:1!important;transform:none!important}}`.
 
 ### B3 — Sous-menus inaccessibles au clavier **P1** ✅ vérifié
-- [ ] `src/components/Header.astro:49` et `:75`
+- [x] `src/components/Header.astro:49` et `:75`
 
 Panneaux en `opacity-0 invisible`, révélés uniquement par `group-hover`.
 `visibility:hidden` retire les enfants de l'ordre de tabulation, et aucune variante
@@ -240,7 +242,7 @@ Un lecteur d'écran annonce « réduit » en permanence.
 gestionnaire JS qui bascule réellement `aria-expanded`, et fermeture sur `Escape`.
 
 ### B4 — Carrousel d'avis inarrêtable **P0** (WCAG 2.2.2) ✅ vérifié
-- [ ] `src/components/Reviews.astro:11,42-51`
+- [x] `src/components/Reviews.astro:11,42-51`
 
 `animation: scroll 40s linear infinite`. La pause au survol a été **retirée
 volontairement** (commentaire ligne 46 : « Hover pause removed as requested »).
@@ -258,18 +260,18 @@ Deux aggravants :
 bouton pause + pause au survol et au focus. Supprimer la duplication et les fausses pastilles.
 
 ### B5 — Classes d'un plugin non installé **P2** ✅ vérifié
-- [ ] `src/components/FaqSection.astro:33`
+- [x] `src/components/FaqSection.astro:33`
 
 `animate-in fade-in slide-in-from-top-2` appartiennent à `tailwindcss-animate`,
 **absent de `package.json`** et du CSS compilé. Ces classes ne font rien.
 
 ### B6 — Composant mort **P2** ✅ vérifié
-- [ ] `src/components/CardService.astro` — 77 lignes, **importé nulle part**.
+- [x] `src/components/CardService.astro` — 77 lignes, **importé nulle part**.
   Contient un badge « Séance découverte 45 min offerte » codé en dur et une classe
   contradictoire `w-12 … w-0`.
 
 ### B7 — Collision d'URL **P1**
-- [ ] `src/content/blog/comprendre-emdr.md`
+- [x] `src/content/blog/comprendre-emdr.md`
 
 L'article déclare `slug: therapie-emdr-saint-nazaire`, donc il est servi sur
 `/blog/therapie-emdr-saint-nazaire/` — quasi-jumeau de la page SEO
@@ -280,7 +282,7 @@ L'article déclare `slug: therapie-emdr-saint-nazaire`, donc il est servi sur
 # BLOC C — Signaux « fait à la va-vite »
 
 ### C1 — 79 emoji comme système d'icônes **P0** (5/5 agents) ✅ vérifié
-- [ ] 39 glyphes distincts, 13 fichiers
+- [x] 39 glyphes distincts, 13 fichiers
 
 **Le signal n°1 pour l'objectif de crédibilité.** Aggravé par le fait que le site
 charge **déjà** des dizaines de SVG inline propres (`Header`, `Footer`, `CardFormat`,
@@ -366,6 +368,8 @@ Extraire `SectionHeading`, `PricingCard`, et une variante `Button` fantôme blan
 retirer le `#` de la barre d'outils Decap, nettoyer les 6 articles.
 
 ### C6 — Détecteur Impeccable **P2** ✅ vérifié (5 signalements, 0 faux positif)
+
+> **partiellement — le `bounce-easing` est corrigé ; les 4 `border-l-4` relèvent du lot 5**
 - [ ] `border-l-4` × 4 — `a-propos:46`, `mentions-legales:70`, `politique-de-confidentialite:39`, `therapie-emdr:129`
 - [ ] `animate-bounce` × 1 — `prendre-rendez-vous:23` (rebond permanent, non protégé par reduced-motion)
 
@@ -374,7 +378,7 @@ retirer le `#` de la barre d'outils Decap, nettoyer les 6 articles.
 # BLOC D — Accessibilité
 
 ### D1 — Contrastes en échec **P0** (5/5 agents) ✅ calculés
-- [ ] **14 combinaisons sous le seuil AA**
+- [x] **14 combinaisons sous le seuil AA**
 
 | Combinaison | Ratio | Où |
 |---|---|---|
@@ -406,7 +410,7 @@ pâles — tarif réduit, moyens de paiement, délai d'annulation, horaires. Or 
 illisible se lit comme un cadre dissimulé.
 
 ### D2 — `prefers-reduced-motion` nulle part **P0** (5/5 agents) ✅ vérifié
-- [ ] **0 occurrence** dans les 97 502 octets du CSS livré
+- [x] **0 occurrence** dans les 97 502 octets du CSS livré
 
 - 106 attributs `data-aos`, `AOS.init()` sans option `disable`
 - `animate-scroll` 40 s infini (`Reviews.astro`)
@@ -417,23 +421,25 @@ En contradiction directe avec la contrainte inscrite dans `PRODUCT.md` — le pu
 inclut des personnes en détresse émotionnelle et en épuisement post-partum.
 
 ### D3 — Focus clavier invisible **P1** ✅ vérifié
-- [ ] `Header.astro:100` — `focus:outline-none` **sans aucun remplacement**
-- [ ] `Button.astro:11` — aucun style de focus sur **toutes les CTA du site**
-- [ ] `global.css` fait 17 lignes et ne contient **aucune règle `:focus-visible`**
+- [x] `Header.astro:100` — `focus:outline-none` **sans aucun remplacement**
+- [x] `Button.astro:11` — aucun style de focus sur **toutes les CTA du site**
+- [x] `global.css` fait 17 lignes et ne contient **aucune règle `:focus-visible`**
 
 ### D4 — Menu mobile sans piège de focus **P1**
+
+> **non traité — seul `Escape` a été ajouté ; le piège de focus du menu mobile reste ouvert**
 - [ ] `Header.astro:188-198` — `openMenu()` ne déplace pas le focus, ne le piège pas,
   ne le restitue pas, ne gère pas `Escape`, pas d'`aria-modal`.
   Le focus reste derrière le panneau plein écran.
 
 ### D5 — Texte sous le plancher de 16 px **P1**
-- [ ] 31 `text-xs` (12 px) + nombreux `text-sm` (14 px)
-- [ ] **L'intégralité du pied de page** (coordonnées, adresse, navigation) est sous le
+- [x] 31 `text-xs` (12 px) + nombreux `text-sm` (14 px)
+- [x] **L'intégralité du pied de page** (coordonnées, adresse, navigation) est sous le
   plancher **et** à 2,0-2,9:1 de contraste, sur les 17 pages
-- [ ] `PRODUCT.md` fixe 16 px minimum pour le texte courant
+- [x] `PRODUCT.md` fixe 16 px minimum pour le texte courant
 
 ### D6 — Longueur de ligne **P1** ✅ mesuré
-- [ ] Cible 65-75 caractères. Mesures réelles (métriques Lato embarquée) :
+- [x] Cible 65-75 caractères. Mesures réelles (métriques Lato embarquée) :
 
 | Surface | Longueur de ligne | Écart |
 |---|---|---|
@@ -448,10 +454,12 @@ Le garde-fou existait ; il a été retiré.
 
 **Correction** : `max-w-[68ch]` sur le conteneur `prose`, `max-w-[70ch]` dans les pages légales.
 
-- [ ] Bonus : `[slug].astro:54` applique aussi `text-text-main/80`, ce qui délave le
+- [x] Bonus : `[slug].astro:54` applique aussi `text-text-main/80`, ce qui délave le
   corps de **10,31:1 à 6,02:1**. Supprimer le `/80`.
 
 ### D7 — `alt` inexploitables **P2**
+
+> **non traité — les `alt` et le lien d'évitement restent ouverts**
 - [ ] Bonne nouvelle : **100 % des 22 images ont un `alt`**. Mais 4 sont à réécrire :
   - `therapie-emdr:48` — `alt="EMDR"` (un acronyme ne décrit pas une image)
   - `prendre-rendez-vous:42` — `alt="Portrait Emma"` (familier, incohérent avec le vouvoiement)
@@ -692,6 +700,8 @@ et contraindre le poids dans `public/admin/config.yml`.
 
 ### G4 — 13 pages sur 36 ont une hiérarchie de titres cassée **P1** ✅ mesuré
 
+> **Non traité — relève du CMS et du gabarit d'article, à prévoir avec le lot 6.**
+
 | Page | Anomalie |
 |---|---|
 | `/blog/le-controle-coercitif` | **17 `<h1>`** (27 titres) |
@@ -779,15 +789,19 @@ responsive avant la session de correction.*
 > Ordonnés par **rapport impact / risque**, pas par facilité.
 > Chaque lot est indépendant : on peut s'arrêter après n'importe lequel.
 
-| Lot | Titre | Points | Risque visuel | Objectif |
-|---|---|---|---|---|
-| **1** | Arrêter de dire des choses fausses | A1→A8, G1 | **aucun** | Crédibilité |
-| **2** | Réparer ce qui est cassé | B1→B6, G3 | faible | Fonctionnement |
-| **3** | Rendre le site lisible | D1, D3, D5, D6 | moyen | Accessibilité |
-| **4** | Remplacer les emoji par de vraies icônes | C1 | moyen | Crédibilité |
-| **5** | Unifier les couleurs | C2, F1, F2, F3 | moyen | Cohérence |
-| **6** | Alléger | G2, G5, C4 | aucun | Performance |
-| **7** | Réparer le parcours de conversion | E1→E6 | **élevé** | Conversion |
+| Lot | Titre | Points | État |
+|---|---|---|---|
+| 1 | Arrêter de dire des choses fausses | A1→A8, G1 | ✅ fusionné — **A2 et A9 attendent Emmanuelle** |
+| 2 | Réparer ce qui est cassé | B1→B7, G3 | ✅ fusionné |
+| 3 | Rendre le site lisible | D1, D2, D3, D5, D6 | ✅ fusionné |
+| 4 | Remplacer les emoji par de vraies icônes | C1 | ✅ fusionné |
+| **5** | **Unifier les couleurs** | C2, C6, F1, F2, F3 | **⬜ prochaine étape** |
+| 6 | Alléger | G2, G4, G5, C4, C5 | ⬜ à faire |
+| 7 | Réparer le parcours de conversion | E1→E14 | ⬜ **attend l'accord d'Emmanuelle** |
+
+**Restent ouverts hors lots :** D4 (piège de focus du menu mobile), D7 (`alt` et
+lien d'évitement), C3 (composition dupliquée), E7→E14 (contradictions, blog, 404,
+charte déontologique).
 
 ## Lot 1 — Arrêter de dire des choses fausses
 **Ce qu'on fait** : supprimer le faux témoignage · retirer ou remplir les `[À COMPLÉTER]` ·
