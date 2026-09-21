@@ -114,7 +114,7 @@ import logoEmma from '../assets/images/logo-emma-couleurs.png';
   <div id="mobile-menu" class="hidden fixed inset-0 z-[200] bg-white flex-col lg:hidden">
     <!-- Header Mobile -->
     <div class="flex justify-between items-center px-6 py-4 border-b border-gray-100">
-      <span class="text-lg font-serif font-bold text-primary">Emmanuelle Demeulemeester</span>
+      <span class="text-lg font-serif font-bold text-primary-dark">Emmanuelle Demeulemeester</span>
       <button id="close-menu-btn" class="p-2 text-primary hover:bg-gray-100 rounded-full transition-colors" aria-label="Fermer le menu">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -151,7 +151,7 @@ import logoEmma from '../assets/images/logo-emma-couleurs.png';
       {navDropdownFormats.items.map(item => (
         <a 
           href={item.href} 
-          class="mobile-link text-lg text-primary/70 hover:text-accent-dark transition-colors py-2.5 border-b border-gray-50 flex items-center gap-3"
+          class="mobile-link text-lg text-primary-dark/70 hover:text-accent-dark transition-colors py-2.5 border-b border-gray-50 flex items-center gap-3"
         >
           <span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>
           {item.name}
@@ -162,7 +162,7 @@ import logoEmma from '../assets/images/logo-emma-couleurs.png';
       {navDropdown.items.map(item => (
         <a 
           href={item.href} 
-          class="mobile-link text-lg text-primary/70 hover:text-accent-dark transition-colors py-2.5 border-b border-gray-50 flex items-center gap-3"
+          class="mobile-link text-lg text-primary-dark/70 hover:text-accent-dark transition-colors py-2.5 border-b border-gray-50 flex items-center gap-3"
         >
           <span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>
           {item.name}

@@ -37,7 +37,7 @@ import { siteInfo } from '../../data/config';
       <div class="absolute inset-0 z-0 bg-gradient-to-t from-primary via-primary/90 to-transparent lg:hidden pointer-events-none"></div>
 
       <div class="container mx-auto px-6 lg:px-8 py-20 lg:py-32 relative z-10 text-secondary">
-        <nav class="text-sm text-secondary/50 mb-6 flex items-center gap-2" aria-label="Fil d'Ariane">
+        <nav class="text-sm text-white mb-6 flex items-center gap-2" aria-label="Fil d'Ariane">
           <a href="/" class="hover:text-white transition-colors">Accueil</a>
           <span>/</span>
           <span class="text-white">Thérapie en cabinet</span>
@@ -62,7 +62,7 @@ import { siteInfo } from '../../data/config';
               {siteInfo.phone}
             </a>
           </div>
-          <a href="/seance-decouverte-therapie-psychocorporelle-saint-nazaire/" class="inline-flex items-center gap-2 text-sm font-bold bg-white text-primary px-4 py-2 rounded-full shadow-md hover:bg-secondary/50 transition-colors">
+          <a href="/seance-decouverte-therapie-psychocorporelle-saint-nazaire/" class="inline-flex items-center gap-2 text-sm font-bold bg-white text-primary-dark px-4 py-2 rounded-full shadow-md hover:bg-secondary/50 transition-colors">
             <span class="text-accent-dark">✦</span>
             <span>Séance découverte de 45 min offerte</span>
           </a>
@@ -96,7 +96,7 @@ import { siteInfo } from '../../data/config';
                 <div class="flex gap-4 items-start">
                   <span class="text-xl flex-shrink-0 w-8">{item.icon}</span>
                   <div>
-                    <span class="text-xs font-bold uppercase tracking-wider text-text-muted">{item.label}</span>
+                    <span class="text-xs font-bold uppercase tracking-wider text-text-main/75">{item.label}</span>
                     {item.href ? (
                       <a href={item.href} class="block text-primary font-medium hover:text-accent-dark transition-colors">{item.value}</a>
                     ) : (
@@ -203,7 +203,7 @@ import { siteInfo } from '../../data/config';
             <p class="text-sm text-text-main/75 mt-4 border-t border-secondary pt-3">Annulation souhaitée au moins 48h à l’avance, par respect du créneau réservé.</p>
           </div>
         </div>
-        <p class="mt-8 text-sm text-text-muted" data-aos="fade-up">Certaines mutuelles remboursent partiellement les séances — renseignez-vous auprès de la vôtre. Je fournis une facture sur demande.</p>
+        <p class="mt-8 text-sm text-text-main/75" data-aos="fade-up">Certaines mutuelles remboursent partiellement les séances — renseignez-vous auprès de la vôtre. Je fournis une facture sur demande.</p>
       </div>
     </section>
 
@@ -247,7 +247,7 @@ import { siteInfo } from '../../data/config';
             title="Localisation cabinet Emmanuelle Demeulemeester Saint-Nazaire"
           ></iframe>
         </div>
-        <p class="text-center text-text-muted mt-4 text-sm">
+        <p class="text-center text-text-main/75 mt-4 text-sm">
           📍 {siteInfo.address.full}
         </p>
       </div>
