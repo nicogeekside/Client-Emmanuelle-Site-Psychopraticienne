@@ -1,6 +1,6 @@
 # État des travaux — à lire en premier
 
-> **Dernière mise à jour : 21 septembre 2026, lot 4 en cours.**
+> **Dernière mise à jour : 21 septembre 2026, lot 4 terminé, en attente de relecture.**
 > Ce fichier est le point d'entrée pour reprendre le travail. Le détail des
 > constats est dans [BACKLOG-QUALITE.md](BACKLOG-QUALITE.md).
 
@@ -29,7 +29,7 @@ cesse de ressembler à « un site fait à la va-vite par une IA ».
 | 1 | Retirer ce qui est faux | ✅ fusionné sur `dev` | `fix/lot-1-credibilite-factuelle` |
 | 2 | Réparer ce qui est cassé | ✅ fusionné sur `dev` | `fix/lot-2-bugs-et-accessibilite` |
 | 3 | Rendre le texte lisible | ✅ fusionné sur `dev` | `fix/lot-3-lisibilite-et-contrastes` |
-| **4** | **Remplacer les emoji par des icônes** | **🔨 en cours** | `fix/lot-4-icones` |
+| **4** | **Remplacer les emoji par des icônes** | **✅ fait, agent de relecture à lancer** | `fix/lot-4-icones` |
 | 5 | Harmoniser les couleurs | ⬜ à faire | — |
 | 6 | Alléger les pages | ⬜ à faire | — |
 | 7 | Parcours de conversion | ⬜ **attend l'accord d'Emmanuelle** | — |
@@ -38,16 +38,19 @@ cesse de ressembler à « un site fait à la va-vite par une IA ».
 
 **Fait :**
 - `lucide-static` installé (2 112 icônes)
-- `src/components/Icon.astro` créé : lit le SVG au build et l'inline, trait 1,5,
-  `aria-hidden` par défaut, `label` pour les icônes porteuses d'information
-- Inventaire : **99 emoji, 42 glyphes distincts, 13 fichiers**
+- `src/components/Icon.astro` : lit le SVG au build et n'en inline que la
+  géométrie, trait 1,5, `aria-hidden` par défaut, prop `label` pour les icônes
+  porteuses d'information
+- **Les 99 emoji sont remplacés.** Vérifié : 0 emoji dans le build, 0 nom
+  d'icône fuité en texte, 83 SVG sur l'accueil
+- Les 4 cartes de format rendent en 44 px, trait 1,25
 
-**Pas encore fait :** aucun emoji n'a été remplacé. Le composant n'est appelé nulle part.
+**Reste à faire :** lancer l'agent de relecture critique, puis fusionner sur `dev`.
 
 **Décisions prises avec Nicolas :**
 - Jeu d'icônes : **Lucide, inliné au build**
-- Les 4 cartes de format de l'accueil : **icônes Lucide, même taille (56 px)**
-- Les emoji des articles de blog (contenu d'Emmanuelle) : **ne pas y toucher**
+- Les 4 cartes de format de l'accueil : **icônes Lucide, même taille**
+- Les emoji des 20 articles de blog (contenu d'Emmanuelle) : **ne pas y toucher**
 
 ## Décisions déjà arbitrées — ne pas reposer la question
 
