@@ -18,7 +18,13 @@ export default {
                 // Terracotta de la carte de visite. Il ne porte PAS de texte blanc
                 // (2,78:1) : réservé aux aplats, filets et pastilles décoratives.
                 accent: '#C88D7D',
-                'accent-dark': '#9A5849',   // Terracotta Profond — fond des boutons et texte terracotta sur fond clair (5,4:1 sur blanc)
+                // Terracotta de titraille, au plus près de la carte de visite.
+                // USAGE UNIQUE : grand texte (>=24px, ou >=18,66px gras) sur fond
+                // clair. 3,10:1 sur le beige — conforme au seuil du grand texte.
+                // Il ne peut PAS porter de texte blanc (4,17) ni servir en texte
+                // courant (4,17 sur blanc) : aucune couleur de texte ne passe dessus.
+                'accent-display': '#A07164',
+                'accent-dark': '#9A5849',   // Terracotta Profond — fond des boutons et texte courant terracotta (5,4:1 sur blanc)
                 'accent-light': '#E8C4B8',  // Terracotta Clair — texte terracotta sur le sauge profond du pied de page (4,7:1)
                 'text-main': '#2C3E50',     // Gris Anthracite (Pour les longs paragraphes)
             },

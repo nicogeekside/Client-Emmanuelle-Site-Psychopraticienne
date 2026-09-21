@@ -19,6 +19,7 @@
      L'identité imprimée (#5C7A62, #C88D7D) reste la référence ; ces variantes
      existent parce que le terracotta ne porte pas de texte blanc (2,78:1). */
   --color-primary-dark: #3D5A4E;
+  --color-accent-display: #A07164;
   --color-accent-dark: #9A5849;
   --color-accent-light: #E8C4B8;
 }
