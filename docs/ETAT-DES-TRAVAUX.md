@@ -1,6 +1,6 @@
 # État des travaux — à lire en premier
 
-> **Dernière mise à jour : 21 septembre 2026 — lot 4 corrigé après relecture, en attente du contrôle visuel de Nicolas avant fusion sur `dev`.**
+> **Dernière mise à jour : 21 septembre 2026 — lots 1 à 4 fusionnés sur `dev`. Prochaine étape : lot 5, harmoniser les couleurs.**
 > Ce fichier est le point d'entrée pour reprendre le travail. Le détail des
 > constats est dans [BACKLOG-QUALITE.md](BACKLOG-QUALITE.md).
 
@@ -29,8 +29,8 @@ cesse de ressembler à « un site fait à la va-vite par une IA ».
 | 1 | Retirer ce qui est faux | ✅ fusionné sur `dev` | `fix/lot-1-credibilite-factuelle` |
 | 2 | Réparer ce qui est cassé | ✅ fusionné sur `dev` | `fix/lot-2-bugs-et-accessibilite` |
 | 3 | Rendre le texte lisible | ✅ fusionné sur `dev` | `fix/lot-3-lisibilite-et-contrastes` |
-| **4** | **Remplacer les emoji par des icônes** | **✅ fait et relu — attend le contrôle visuel** | `fix/lot-4-icones` |
-| 5 | Harmoniser les couleurs | ⬜ à faire | — |
+| 4 | Remplacer les emoji par des icônes | ✅ fusionné sur `dev` | `fix/lot-4-icones` |
+| **5** | **Harmoniser les couleurs** | **⬜ prochaine étape** | — |
 | 6 | Alléger les pages | ⬜ à faire | — |
 | 7 | Parcours de conversion | ⬜ **attend l'accord d'Emmanuelle** | — |
 
@@ -61,17 +61,36 @@ cesse de ressembler à « un site fait à la va-vite par une IA ».
 | ⚠️ | Puces ✓ en 24 px face à du texte de 14 px | 18 px, `shrink-0` |
 | ⚠️ | Flèche de lien supprimée sans remplacement | `arrow-right` |
 
-**Ce qui reste ouvert sur ce lot :**
-- Contrôle visuel par Nicolas sur `:4322` — Chrome ne répondait plus aux captures.
-  Pages sensibles : `/a-propos-emmanuelle/` (valeurs), `/` (cartes de format),
-  `/therapie-en-marchant-saint-nazaire/` (pastilles, puces),
-  `/therapie-cabinet-saint-nazaire/` (tarifs).
+**Contrôle visuel : fait par Nicolas, validé.** Fusionné sur `dev`.
+
+**Dettes transmises :**
 - Les icônes des 4 cartes reprennent la couleur d'accent de leur carte, donc les
   palettes étrangères d'origine. **Se corrigera au lot 5.**
 - Le HTML s'alourdit de 4 à 20 % selon les pages (+11 à 14 % en gzip). 66 % de ce
   surcoût est le préambule `<svg>` répété. **Dette transmise au lot 6.**
 - `'` La prop `label` de `Icon.astro` n'est appelée nulle part : soit l'exercer,
   soit la retirer.
+
+## Lot 5 — ce qui l'attend
+
+Harmoniser les couleurs. Le détail est dans le bloc C2 du backlog.
+
+- **76 classes de 8 familles Tailwind étrangères** à la charte : gray (33),
+  emerald (15), blue (15), rose (7), purple/indigo/orange/fuchsia (6).
+- **`src/data/config.js:55-93`** — les 4 formats portent chacun un dégradé hors
+  charte. C'est le bloc « Un format adapté à votre vie » de l'accueil, soit
+  l'argument de positionnement n°1, rendu en quatre couleurs absentes du logo.
+  **Les icônes des cartes reprennent désormais ces couleurs** : les corriger ici
+  corrige aussi les icônes.
+- Ces couleurs sont recopiées à la main dans `index.astro`, `therapie-en-ligne-visio`,
+  `therapie-en-marchant` et `therapie-cabinet`.
+- `config.js:91` annonce du `purple` pour l'Espace Post-Partum, mais la page cible
+  n'utilise jamais de violet.
+- Rythme des fonds à unifier sur les 4 pages de format (bloc F1/F2 du backlog).
+- Résidus : `theme-color` hors charte, `netlify-identity` chargé hors `/admin`,
+  SIRET factice dans une ternaire, commentaire « cache Vercel », import mort.
+- Détecteur : 4 `border-l-4` et 1 `animate-bounce` — ce sont des choix de style,
+  c'est ici qu'ils se traitent.
 
 ## Décisions déjà arbitrées — ne pas reposer la question
 
