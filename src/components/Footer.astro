@@ -37,7 +37,8 @@ import { siteInfo, navItems, navDropdown, navDropdownFormats } from '../data/con
 
             <!-- Quick Links -->
             <div>
-                <h4 class="text-base font-serif font-bold mb-4 text-accent-light">{navDropdownFormats.label}</h4>
+                <span class="block w-8 h-[3px] bg-accent mb-3" aria-hidden="true"></span>
+                <h4 class="text-base font-serif font-bold mb-4 text-white">{navDropdownFormats.label}</h4>
                 <ul class="space-y-2 mb-6">
                     {navDropdownFormats.items.map(item => (
                         <li>
@@ -45,7 +46,8 @@ import { siteInfo, navItems, navDropdown, navDropdownFormats } from '../data/con
                         </li>
                     ))}
                 </ul>
-                <h4 class="text-base font-serif font-bold mb-4 text-accent-light">Approches thérapeutiques</h4>
+                <span class="block w-8 h-[3px] bg-accent mb-3" aria-hidden="true"></span>
+                <h4 class="text-base font-serif font-bold mb-4 text-white">Approches thérapeutiques</h4>
                 <ul class="space-y-2 mb-6">
                     {navDropdown.items.map(item => (
                         <li>
@@ -53,7 +55,8 @@ import { siteInfo, navItems, navDropdown, navDropdownFormats } from '../data/con
                         </li>
                     ))}
                 </ul>
-                <h4 class="text-base font-serif font-bold mb-4 text-accent-light">Le Cabinet</h4>
+                <span class="block w-8 h-[3px] bg-accent mb-3" aria-hidden="true"></span>
+                <h4 class="text-base font-serif font-bold mb-4 text-white">Le Cabinet</h4>
                 <ul class="space-y-2">
                     {navItems.filter(i => i.name !== 'Accueil').map(item => (
                         <li>
@@ -68,7 +71,8 @@ import { siteInfo, navItems, navDropdown, navDropdownFormats } from '../data/con
 
             <!-- Map/Legal -->
             <div>
-                <h4 class="text-base font-serif font-bold mb-4 text-accent-light">Le Cabinet</h4>
+                <span class="block w-8 h-[3px] bg-accent mb-3" aria-hidden="true"></span>
+                <h4 class="text-base font-serif font-bold mb-4 text-white">Le Cabinet</h4>
                 <div class="aspect-video w-full bg-secondary/10 rounded-lg overflow-hidden mb-4 shadow-inner">
                     <iframe 
                         src="https://www.google.com/maps?q=Emmanuelle+Demeulemeester+Psychothérapeute+7+rue+de+l'étoile+du+matin+44600+Saint-Nazaire&output=embed" 
