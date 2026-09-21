@@ -32,7 +32,7 @@ const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
       ) : (
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {sortedPosts.map((post) => (
-            <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-primary/5 flex flex-col group">
+            <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-primary/10 flex flex-col group">
               {post.data.image && (
                 <a href={`/blog/${post.slug}`} class="block aspect-video overflow-hidden">
                   <img 
