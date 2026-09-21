@@ -90,10 +90,10 @@ import Icon from '../../components/Icon.astro';---
               { icon: "footprints", title: "Le corps en mouvement", text: "La marche rythme la pensée. Beaucoup de personnes accompagnées trouvent que leurs idées se clarifient naturellement en marchant." },
               { icon: "feather", title: "Moins de pression", text: "Sortir du cabinet crée une atmosphère moins formelle, ce qui peut réduire l'appréhension de la séance." },
             ].map((item, i) => (
-              <div class="flex gap-4 p-5 rounded-xl bg-emerald-50/40 border border-emerald-100 hover:border-emerald-300 transition-colors" data-aos="fade-up" data-aos-delay={i * 80}>
+              <div class="flex gap-4 p-5 rounded-xl bg-primary-light/10 border border-primary-light/30 hover:border-primary-light/50 transition-colors" data-aos="fade-up" data-aos-delay={i * 80}>
                 <Icon name={item.icon} size={24} class="flex-shrink-0 mt-1 text-primary-dark" />
                 <div>
-                  <h3 class="font-bold text-emerald-900 mb-1">{item.title}</h3>
+                  <h3 class="font-bold text-primary-dark mb-1">{item.title}</h3>
                   <p class="text-sm text-text-main/70 leading-relaxed">{item.text}</p>
                 </div>
               </div>
@@ -196,7 +196,7 @@ import Icon from '../../components/Icon.astro';---
     </section>
 
     <!-- POUR QUI -->
-    <section class="py-20 bg-background">
+    <section class="py-20 bg-secondary/30">
       <div class="container mx-auto px-6 lg:px-8 max-w-4xl text-center">
         <h2 class="text-3xl font-serif font-bold text-primary mb-6" data-aos="fade-up">Ce format est fait pour vous si…</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-left mt-10">

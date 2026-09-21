@@ -52,9 +52,9 @@ export const formats = [
         description: "Marchez à mes côtés et laissez la parole venir naturellement. Côte à côte, en mouvement, certaines choses se disent plus facilement. Une approche douce et libératrice.",
         note: "Séances en plein air, à votre rythme",
         href: "/therapie-en-marchant-saint-nazaire/",
-        color: "from-emerald-50 to-emerald-100/50",
-        accent: "text-emerald-800",
-        border: "border-emerald-200"
+        color: "from-primary-light/10 to-primary-light/30",
+        accent: "text-primary-dark",
+        border: "border-primary-light/50"
     },
     {
         id: "visio",
@@ -64,9 +64,9 @@ export const formats = [
         description: "Bénéficiez du même accompagnement de qualité depuis le confort de votre domicile, partout en France. Flexible, confidentiel et efficace.",
         note: "Disponible partout en France",
         href: "/therapie-en-ligne-visio/",
-        color: "from-blue-50 to-indigo-50/50",
-        accent: "text-blue-800",
-        border: "border-blue-200"
+        color: "from-primary/30 to-primary/50",
+        accent: "text-primary-dark",
+        border: "border-primary/50"
     },
     {
         id: "cabinet",
@@ -76,9 +76,9 @@ export const formats = [
         description: "Venez dans mon cabinet apaisant à Saint-Nazaire. Un cadre chaleureux et confidentiel pensé pour un moment en toute sécurité.",
         note: "Saint-Nazaire — Parking gratuit",
         href: "/therapie-cabinet-saint-nazaire/",
-        color: "from-rose-50 to-orange-50/50",
-        accent: "text-rose-800",
-        border: "border-rose-200"
+        color: "from-accent/10 to-accent/30",
+        accent: "text-accent-dark",
+        border: "border-accent/50"
     },
     {
         id: "post-partum",
@@ -88,9 +88,9 @@ export const formats = [
         description: "Un espace de parole bienveillant et sans jugement, ouvert aux mamans et aux papas. Pour traverser ensemble les bouleversements de la parentalité.",
         note: "Groupe mensuel — Hommes & Femmes",
         href: "/espace-soutien-post-partum/",
-        color: "from-purple-50 to-fuchsia-50/50",
-        accent: "text-purple-800",
-        border: "border-purple-200"
+        color: "from-accent-dark/10 to-accent-dark/30",
+        accent: "text-accent-dark",
+        border: "border-accent-dark/50"
     }
 ];
 

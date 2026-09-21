@@ -50,7 +50,7 @@ import Icon from './Icon.astro';---
           </svg>
         </button>
         <!-- Dropdown menu Formats -->
-        <div id="menu-formats" class="absolute top-full left-0 mt-2 w-52 bg-white rounded-xl shadow-xl border border-gray-100 py-2 opacity-0 invisible group-hover/dropdown-format:opacity-100 group-hover/dropdown-format:visible group-focus-within/dropdown-format:opacity-100 group-focus-within/dropdown-format:visible transition-all duration-200 -translate-y-2 group-hover/dropdown-format:translate-y-0 group-focus-within/dropdown-format:translate-y-0">
+        <div id="menu-formats" class="absolute top-full left-0 mt-2 w-52 bg-white rounded-xl shadow-xl border border-secondary py-2 opacity-0 invisible group-hover/dropdown-format:opacity-100 group-hover/dropdown-format:visible group-focus-within/dropdown-format:opacity-100 group-focus-within/dropdown-format:visible transition-all duration-200 -translate-y-2 group-hover/dropdown-format:translate-y-0 group-focus-within/dropdown-format:translate-y-0">
           {navDropdownFormats.items.map(item => (
             <a 
               href={item.href} 
@@ -79,7 +79,7 @@ import Icon from './Icon.astro';---
           </svg>
         </button>
         <!-- Dropdown menu -->
-        <div id="menu-approches" class="absolute top-full right-0 mt-2 w-52 bg-white rounded-xl shadow-xl border border-gray-100 py-2 opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible group-focus-within/dropdown:opacity-100 group-focus-within/dropdown:visible transition-all duration-200 -translate-y-2 group-hover/dropdown:translate-y-0 group-focus-within/dropdown:translate-y-0">
+        <div id="menu-approches" class="absolute top-full right-0 mt-2 w-52 bg-white rounded-xl shadow-xl border border-secondary py-2 opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible group-focus-within/dropdown:opacity-100 group-focus-within/dropdown:visible transition-all duration-200 -translate-y-2 group-hover/dropdown:translate-y-0 group-focus-within/dropdown:translate-y-0">
           {navDropdown.items.map(item => (
             <a 
               href={item.href} 
@@ -114,9 +114,9 @@ import Icon from './Icon.astro';---
   <!-- Mobile Menu Overlay -->
   <div id="mobile-menu" class="hidden fixed inset-0 z-[200] bg-white flex-col lg:hidden">
     <!-- Header Mobile -->
-    <div class="flex justify-between items-center px-6 py-4 border-b border-gray-100">
+    <div class="flex justify-between items-center px-6 py-4 border-b border-secondary">
       <span class="text-lg font-serif font-bold text-primary-dark">Emmanuelle Demeulemeester</span>
-      <button id="close-menu-btn" class="p-2 text-primary hover:bg-gray-100 rounded-full transition-colors" aria-label="Fermer le menu">
+      <button id="close-menu-btn" class="p-2 text-primary hover:bg-secondary/50 rounded-full transition-colors" aria-label="Fermer le menu">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
         </svg>
@@ -129,7 +129,7 @@ import Icon from './Icon.astro';---
       {navItems.map(item => (
         <a 
           href={item.href} 
-          class="mobile-link text-xl font-serif font-bold text-primary hover:text-accent-display transition-colors py-3 border-b border-gray-50 flex items-center justify-between group"
+          class="mobile-link text-xl font-serif font-bold text-primary hover:text-accent-display transition-colors py-3 border-b border-secondary/50 flex items-center justify-between group"
         >
           {item.name}
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-accent-dark opacity-0 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -140,7 +140,7 @@ import Icon from './Icon.astro';---
 
       <a 
         href="/seance-decouverte-therapie-psychocorporelle-saint-nazaire/" 
-        class="mobile-link text-xl font-serif font-bold text-accent-display hover:text-accent-display transition-colors py-3 border-b border-gray-50 flex items-center justify-between group"
+        class="mobile-link text-xl font-serif font-bold text-accent-display hover:text-accent-display transition-colors py-3 border-b border-secondary/50 flex items-center justify-between group"
       >
         <span class="flex items-center gap-2"><Icon name="sparkles" size={22} /> Séance découverte</span>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -152,7 +152,7 @@ import Icon from './Icon.astro';---
       {navDropdownFormats.items.map(item => (
         <a 
           href={item.href} 
-          class="mobile-link text-lg text-primary-dark/70 hover:text-accent-dark transition-colors py-2.5 border-b border-gray-50 flex items-center gap-3"
+          class="mobile-link text-lg text-primary-dark/70 hover:text-accent-dark transition-colors py-2.5 border-b border-secondary/50 flex items-center gap-3"
         >
           <span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>
           {item.name}
@@ -163,7 +163,7 @@ import Icon from './Icon.astro';---
       {navDropdown.items.map(item => (
         <a 
           href={item.href} 
-          class="mobile-link text-lg text-primary-dark/70 hover:text-accent-dark transition-colors py-2.5 border-b border-gray-50 flex items-center gap-3"
+          class="mobile-link text-lg text-primary-dark/70 hover:text-accent-dark transition-colors py-2.5 border-b border-secondary/50 flex items-center gap-3"
         >
           <span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>
           {item.name}

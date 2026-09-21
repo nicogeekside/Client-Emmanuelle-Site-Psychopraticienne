@@ -153,9 +153,9 @@ import Icon from '../../components/Icon.astro';---
             { icon: "sprout", title: "Suivi thérapeutique", text: "Accompagnement sur plusieurs mois avec un plan adapté à votre évolution." },
             { icon: "baby", title: "Post-Partum & Périnatalité", text: "Soutien spécialisé pour les bouleversements de la parentalité." },
           ].map((item, i) => (
-            <div class="bg-rose-50/40 rounded-xl p-6 border border-rose-100 hover:border-rose-300 hover:shadow-md transition-all duration-300" data-aos="fade-up" data-aos-delay={i * 70}>
+            <div class="bg-accent-dark/10 rounded-xl p-6 border border-accent-dark/30 hover:border-accent-dark/50 hover:shadow-md transition-all duration-300" data-aos="fade-up" data-aos-delay={i * 70}>
               <Icon name={item.icon} size={28} class="mb-3 text-accent-dark" />
-              <h3 class="font-bold text-rose-900 mb-2">{item.title}</h3>
+              <h3 class="font-bold text-accent-dark mb-2">{item.title}</h3>
               <p class="text-sm text-text-main/80 leading-relaxed">{item.text}</p>
             </div>
           ))}

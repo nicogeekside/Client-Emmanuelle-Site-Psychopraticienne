@@ -143,11 +143,29 @@ const schemaOrg = {
 		<!-- Schema.org JSON-LD -->
 		<script type="application/ld+json" set:html={JSON.stringify(schemaOrg)} />
 
-		<!-- Script Netlify Identity (Nécessaire pour le setup initial du mot de passe admin) -->
-		<script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+		<!-- Netlify Identity : chargé uniquement si l'adresse porte un jeton
+		     d'invitation ou de mot de passe oublié. La page /admin/ charge le
+		     widget elle-même : les pages publiques n'ont pas à appeler ce tiers. -->
+		<script is:inline>
+			if (/(invite|recovery|confirmation|email_change|access)_token=/.test(location.hash)) {
+				var identite = document.createElement('script');
+				identite.src = 'https://identity.netlify.com/v1/netlify-identity-widget.js';
+				identite.onload = function () {
+					if (!window.netlifyIdentity) return;
+					window.netlifyIdentity.on('init', function (user) {
+						if (!user) {
+							window.netlifyIdentity.on('login', function () {
+								document.location.href = '/admin/';
+							});
+						}
+					});
+				};
+				document.head.appendChild(identite);
+			}
+		</script>
 
 	</head>
-	<body class="font-sans text-text-main antialiased bg-secondary">
+	<body class="font-sans text-text-main antialiased bg-background">
 		<slot />
 		
 		<script>

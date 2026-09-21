@@ -37,6 +37,36 @@ export default {
                 serif: ['"Playfair Display"', 'serif'],
                 sans: ['"Lato"', 'sans-serif'],
             },
+            // LE TEXTE LONG — blog, charte deontologique, page post-partum.
+            // Sans cette cle, @tailwindcss/typography habille TOUT le contenu
+            // .prose dans son gris par defaut (corps #374151, gras #111827,
+            // puces #d1d5db, filets #e5e7eb) : une palette etrangere de plus,
+            // invisible dans la source puisque c'est le plugin qui la genere.
+            // C'est la surface la plus lue du site : les 20 articles.
+            typography: ({ theme }) => ({
+                DEFAULT: {
+                    css: {
+                        '--tw-prose-body': theme('colors.text-main'),
+                        '--tw-prose-headings': theme('colors.primary-dark'),
+                        '--tw-prose-lead': theme('colors.text-main'),
+                        '--tw-prose-links': theme('colors.accent-dark'),
+                        '--tw-prose-bold': theme('colors.text-main'),
+                        // Puces et numeros : terracotta profond, 5,4:1 sur blanc.
+                        '--tw-prose-counters': theme('colors.accent-dark'),
+                        '--tw-prose-bullets': theme('colors.accent-dark'),
+                        '--tw-prose-hr': theme('colors.secondary'),
+                        '--tw-prose-quotes': theme('colors.primary-dark'),
+                        '--tw-prose-quote-borders': theme('colors.accent'),
+                        '--tw-prose-captions': theme('colors.text-main'),
+                        '--tw-prose-kbd': theme('colors.text-main'),
+                        '--tw-prose-code': theme('colors.text-main'),
+                        '--tw-prose-pre-code': theme('colors.secondary'),
+                        '--tw-prose-pre-bg': theme('colors.primary-dark'),
+                        '--tw-prose-th-borders': theme('colors.secondary'),
+                        '--tw-prose-td-borders': theme('colors.secondary'),
+                    },
+                },
+            }),
         },
     },
     plugins: [
@@ -44,4 +74,3 @@ export default {
     ],
 }
 
-// Forcer la purge du cache Vercel
