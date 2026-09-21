@@ -1,5 +1,6 @@
 ---
 import { siteInfo, navItems, navDropdown, navDropdownFormats } from '../data/config';
+import Icon from './Icon.astro';
 ---
 
 <footer class="bg-primary-dark text-secondary py-14 mt-auto">
@@ -64,7 +65,7 @@ import { siteInfo, navItems, navDropdown, navDropdownFormats } from '../data/con
                         </li>
                     ))}
                     <li>
-                        <a href="/seance-decouverte-therapie-psychocorporelle-saint-nazaire/" class="text-base font-bold text-accent-light hover:text-white transition-colors" class="inline-flex items-center gap-2">Séance découverte (offerte)</a>
+                        <a href="/seance-decouverte-therapie-psychocorporelle-saint-nazaire/" class="text-base font-bold text-accent-light hover:text-white transition-colors inline-flex items-center gap-2"><Icon name="sparkles" size={16} /> Séance découverte (Offerte)</a>
                     </li>
                 </ul>
             </div>

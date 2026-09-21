@@ -58,7 +58,7 @@ export const formats = [
     },
     {
         id: "visio",
-        icon: "monitor",
+        icon: "video",
         title: "Thérapie en visio",
         subtitle: "Depuis chez vous",
         description: "Bénéficiez du même accompagnement de qualité depuis le confort de votre domicile, partout en France. Flexible, confidentiel et efficace.",

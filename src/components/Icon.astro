@@ -19,20 +19,30 @@ interface Props {
 
 const { name, size = 24, stroke = 1.5, class: className, label } = Astro.props;
 
+// Les noms Lucide sont en minuscules séparées par des tirets. Valider ici
+// évite qu'un nom calculé puisse sortir du dossier des icônes.
+if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(name ?? '')) {
+  throw new Error(`Nom d'icône invalide : « ${name} ». Attendu : minuscules et tirets.`);
+}
+
 const fichier = path.join(process.cwd(), 'node_modules', 'lucide-static', 'icons', `${name}.svg`);
 
 if (!fs.existsSync(fichier)) {
   throw new Error(`Icône « ${name} » introuvable dans lucide-static. Vérifiez le nom du glyphe.`);
 }
 
-// On n'inline que la géométrie : les attributs de présentation sont réécrits
-// ici pour que toutes les icônes du site partagent une graisse de trait.
-const geometrie = fs
+// Mémoïsation : le même glyphe est lu une seule fois par build, pas une fois
+// par occurrence — la coche revient 13 fois sur une seule page.
+const cache = ((globalThis as any).__iconesLucide ??= new Map<string, string>());
+
+const geometrie = cache.get(name) ?? fs
   .readFileSync(fichier, 'utf8')
   .replace(/<!--[\s\S]*?-->/g, '')
   .replace(/^[\s\S]*?<svg[^>]*>/, '')
   .replace(/<\/svg>\s*$/, '')
   .trim();
+
+cache.set(name, geometrie);
 ---
 
 <svg

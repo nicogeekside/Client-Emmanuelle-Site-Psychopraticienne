@@ -84,9 +84,9 @@ import Icon from '../../components/Icon.astro';---
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
             { icon: "house", title: "Depuis chez vous", text: "Pas de transport, pas de déplacement. Vous restez dans votre espace familier, ce qui peut faciliter la détente et l'ouverture." },
-            { icon: "globe", title: "Partout en France", text: "Vous habitez loin de Saint-Nazaire ? Ce n'est pas un obstacle. La thérapie en visio vous donne accès à mon accompagnement où que vous soyez." },
+            { icon: "map", title: "Partout en France", text: "Vous habitez loin de Saint-Nazaire ? Ce n'est pas un obstacle. La thérapie en visio vous donne accès à mon accompagnement où que vous soyez." },
             { icon: "calendar-days", title: "Plus de flexibilité", text: "Les créneaux visio s'adaptent plus facilement à vos contraintes professionnelles ou familiales." },
-            { icon: "lock", title: "Simple & connu", text: "Les séances se déroulent via Google Meet. Un outil que tout le monde connaît, sans installation. L'échange reste entre nous, dans la sphère privée de votre domicile." },
+            { icon: "video", title: "Simple & connu", text: "Les séances se déroulent via Google Meet. Un outil que tout le monde connaît, sans installation. L'échange reste entre nous, dans la sphère privée de votre domicile." },
             { icon: "circle-check", title: "Aussi efficace", text: "Les études montrent que la thérapie en visio est aussi efficace que la thérapie en présentiel pour la majorité des problématiques." },
             { icon: "heart", title: "EMDR et EFT en visio", text: "Les deux protocoles sont parfaitement réalisables à distance. Je vous guide étape par étape, comme si vous étiez en face de moi." },
           ].map((item, i) => (
@@ -132,7 +132,7 @@ import Icon from '../../components/Icon.astro';---
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <!-- Tarifs -->
           <div class="bg-white rounded-2xl p-8 shadow-sm border border-secondary" data-aos="fade-right">
-            <Icon name="credit-card" size={28} class="mb-4" />
+            <Icon name="euro" size={28} class="mx-auto mb-4" />
             <h3 class="font-bold text-primary text-xl mb-6">Tarifs</h3>
             <div class="space-y-3">
               <div class="flex justify-between items-center py-3 border-b border-secondary">
@@ -144,7 +144,7 @@ import Icon from '../../components/Icon.astro';---
                   <span class="text-text-main/80">Tarif réduit (1h)</span>
                   <span class="font-bold text-primary text-xl">50 €</span>
                 </div>
-                <p class="text-sm text-text-main/75 bg-secondary/30 rounded-lg px-3 py-2 flex items-start gap-2"><Icon name="graduation-cap" size={15} class="mt-0.5 flex-shrink-0" /><span>Réservé aux <strong>étudiants</strong> et <strong>demandeurs d’emploi</strong>. Un justificatif vous sera demandé.</span></p>
+                <p class="text-sm text-text-main/75 bg-secondary/30 rounded-lg px-3 py-2 inline-flex items-start gap-2 text-left"><Icon name="graduation-cap" size={16} class="mt-0.5 shrink-0" /><span>Réservé aux <strong>étudiants</strong> et <strong>demandeurs d’emploi</strong>. Un justificatif vous sera demandé.</span></p>
               </div>
               <div class="flex justify-between items-center py-3">
                 <span class="text-text-main/80">Séance découverte</span>
@@ -155,7 +155,7 @@ import Icon from '../../components/Icon.astro';---
           </div>
           <!-- Horaires -->
           <div class="bg-white rounded-2xl p-8 shadow-sm border border-secondary" data-aos="fade-left">
-            <Icon name="calendar-check" size={28} class="mb-4" />
+            <Icon name="calendar-clock" size={28} class="mx-auto mb-4" />
             <h3 class="font-bold text-primary text-xl mb-6">Disponibilités</h3>
             <div class="space-y-3 text-left">
               <div class="bg-secondary/30 rounded-xl px-4 py-3">

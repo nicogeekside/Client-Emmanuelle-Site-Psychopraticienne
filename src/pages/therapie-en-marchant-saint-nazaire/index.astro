@@ -86,9 +86,9 @@ import Icon from '../../components/Icon.astro';---
           <div class="space-y-4" data-aos="fade-left">
             {[
               { icon: "leaf", title: "La nature comme alliée", text: "L'environnement naturel réduit le cortisol (hormone du stress) et favorise un état plus calme et réceptif." },
-              { icon: "move-horizontal", title: "Côte à côte, pas face à face", text: "Sans contact visuel direct, il est souvent plus facile d'aborder des sujets sensibles ou douloureux." },
+              { icon: "users", title: "Côte à côte, pas face à face", text: "Sans contact visuel direct, il est souvent plus facile d'aborder des sujets sensibles ou douloureux." },
               { icon: "footprints", title: "Le corps en mouvement", text: "La marche rythme la pensée. Beaucoup de personnes accompagnées trouvent que leurs idées se clarifient naturellement en marchant." },
-              { icon: "lock-open", title: "Moins de pression", text: "Sortir du cabinet crée une atmosphère moins formelle, ce qui peut réduire l'appréhension de la séance." },
+              { icon: "feather", title: "Moins de pression", text: "Sortir du cabinet crée une atmosphère moins formelle, ce qui peut réduire l'appréhension de la séance." },
             ].map((item, i) => (
               <div class="flex gap-4 p-5 rounded-xl bg-emerald-50/40 border border-emerald-100 hover:border-emerald-300 transition-colors" data-aos="fade-up" data-aos-delay={i * 80}>
                 <Icon name={item.icon} size={24} class="flex-shrink-0 mt-1 text-primary-dark" />
@@ -117,7 +117,7 @@ import Icon from '../../components/Icon.astro';---
             <ul class="space-y-3">
               {["Écoute active et parole libre", "Anxiété, stress, ruminations", "Deuil et accompagnement émotionnel", "Confiance en soi et blocages", "Exploration de problématiques de vie", "Soutien dans les transitions (post-partum, séparation...)", "Thérapies de soutien régulières"].map(item => (
                 <li class="flex items-start gap-2 text-sm text-text-main/80">
-                  <Icon name="check" size={24} class="text-primary-dark font-bold mt-0.5" />
+                  <Icon name="check" size={18} stroke={2} class="text-primary-dark shrink-0 mt-1" />
                   {item}
                 </li>
               ))}
@@ -167,15 +167,15 @@ import Icon from '../../components/Icon.astro';---
             </p>
             <div class="flex flex-col gap-3 mt-6">
               <div class="flex items-center gap-3 text-sm text-text-main/80">
-                <Icon name="map-pin" size={24} class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0" />
+                <span class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary-dark flex-shrink-0"><Icon name="map-pin" size={16} /></span>
                 <span><strong>Bois Joalland</strong>, Saint-Nazaire (44600)</span>
               </div>
               <div class="flex items-center gap-3 text-sm text-text-main/80">
-                <Icon name="car" size={24} class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0" />
+                <span class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary-dark flex-shrink-0"><Icon name="car" size={16} /></span>
                 <span>Parking disponible à l'entrée du bois</span>
               </div>
               <div class="flex items-center gap-3 text-sm text-text-main/80">
-                <Icon name="timer" size={24} class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0" />
+                <span class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary-dark flex-shrink-0"><Icon name="timer" size={16} /></span>
                 <span>Séances d’environ 1h, au rythme de votre marche</span>
               </div>
             </div>
@@ -209,7 +209,7 @@ import Icon from '../../components/Icon.astro';---
             "Vous souhaitez un suivi régulier dans un cadre différent",
           ].map((item, i) => (
             <div class="flex items-start gap-3 p-4 rounded-xl border border-secondary bg-secondary/30" data-aos="fade-up" data-aos-delay={i * 60}>
-              <Icon name="check" size={20} class="text-accent-dark font-bold flex-shrink-0" />
+              <Icon name="check" size={18} stroke={2} class="text-accent-dark shrink-0 mt-1" />
               <span class="text-text-main/80 text-sm leading-relaxed">{item}</span>
             </div>
           ))}
@@ -224,7 +224,7 @@ import Icon from '../../components/Icon.astro';---
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <!-- Tarifs -->
           <div class="bg-white rounded-2xl p-8 shadow-sm border border-secondary" data-aos="fade-right">
-            <Icon name="credit-card" size={28} class="mb-4" />
+            <Icon name="euro" size={28} class="mx-auto mb-4" />
             <h3 class="font-bold text-primary text-xl mb-6">Tarifs</h3>
             <div class="space-y-3">
               <div class="flex justify-between items-center py-3 border-b border-secondary">
@@ -236,7 +236,7 @@ import Icon from '../../components/Icon.astro';---
                   <span class="text-text-main/80">Tarif réduit (1h)</span>
                   <span class="font-bold text-primary text-xl">50 €</span>
                 </div>
-                <p class="text-sm text-text-main/75 bg-secondary/30 rounded-lg px-3 py-2 flex items-start gap-2"><Icon name="graduation-cap" size={15} class="mt-0.5 flex-shrink-0" /><span>Réservé aux <strong>étudiants</strong> et <strong>demandeurs d’emploi</strong>. Un justificatif vous sera demandé.</span></p>
+                <p class="text-sm text-text-main/75 bg-secondary/30 rounded-lg px-3 py-2 inline-flex items-start gap-2 text-left"><Icon name="graduation-cap" size={16} class="mt-0.5 shrink-0" /><span>Réservé aux <strong>étudiants</strong> et <strong>demandeurs d’emploi</strong>. Un justificatif vous sera demandé.</span></p>
               </div>
               <div class="flex justify-between items-center py-3">
                 <span class="text-text-main/80">Séance découverte</span>
@@ -247,7 +247,7 @@ import Icon from '../../components/Icon.astro';---
           </div>
           <!-- Horaires -->
           <div class="bg-white rounded-2xl p-8 shadow-sm border border-secondary" data-aos="fade-left">
-            <Icon name="calendar-check" size={28} class="mb-4" />
+            <Icon name="calendar-clock" size={28} class="mx-auto mb-4" />
             <h3 class="font-bold text-primary text-xl mb-6">Disponibilités</h3>
             <div class="space-y-3 text-left">
               <div class="bg-secondary/30 rounded-xl px-4 py-3">
