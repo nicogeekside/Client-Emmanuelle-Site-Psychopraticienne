@@ -27,7 +27,7 @@ const { Content } = await entry.render();
       
       <!-- En-tête de l'article -->
       <header class="mb-12 text-center">
-        <div class="text-sm font-bold tracking-widest text-accent uppercase mb-4">
+        <div class="text-sm font-bold tracking-widest text-accent-dark uppercase mb-4">
           {entry.data.pubDate.toLocaleDateString('fr-FR', {
             year: 'numeric',
             month: 'long',
@@ -51,7 +51,7 @@ const { Content } = await entry.render();
 
       <!-- Contenu Markdown -->
       <div 
-        class="prose prose-lg prose-headings:font-serif prose-headings:text-primary prose-a:text-accent hover:prose-a:text-accent/80 prose-img:rounded-xl max-w-none text-text-main/80"
+        class="prose prose-lg prose-headings:font-serif prose-headings:text-primary prose-a:text-accent-dark prose-a:underline prose-a:underline-offset-2 hover:prose-a:text-primary-dark prose-img:rounded-xl max-w-[68ch] mx-auto"
       >
         <Content />
       </div>

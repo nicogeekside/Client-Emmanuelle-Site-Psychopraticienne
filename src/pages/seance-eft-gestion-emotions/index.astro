@@ -24,9 +24,9 @@ const avisEft = reviews.find((a) => a.tag === 'EFT');
         <div class="absolute top-0 right-0 w-64 h-64 bg-white/20 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
       <div class="container mx-auto px-6 lg:px-4 z-10 relative pt-24 lg:pt-12">
         <nav class="text-sm text-text-main/40 mb-6 flex items-center gap-2" aria-label="Fil d'Ariane">
-          <a href="/" class="hover:text-accent transition-colors">Accueil</a>
+          <a href="/" class="hover:text-accent-dark transition-colors">Accueil</a>
           <span>/</span>
-          <a href="/#services" class="hover:text-accent transition-colors">Approches thérapeutiques</a>
+          <a href="/#services" class="hover:text-accent-dark transition-colors">Approches thérapeutiques</a>
           <span>/</span>
           <span class="text-primary">EFT</span>
         </nav>
@@ -91,21 +91,21 @@ const avisEft = reviews.find((a) => a.tag === 'EFT');
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <ul class="space-y-4">
             <li class="flex items-start">
-              <svg class="w-6 h-6 text-accent mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <svg class="w-6 h-6 text-accent-dark mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
               <span class="text-lg text-text-main"><strong>Stress & Anxiété</strong> : Crises d'angoisse, stress professionnel, peur des examens.</span>
             </li>
             <li class="flex items-start">
-              <svg class="w-6 h-6 text-accent mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <svg class="w-6 h-6 text-accent-dark mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
               <span class="text-lg text-text-main"><strong>Phobies</strong> : Peurs irrationnelles (avion, animaux, foule).</span>
             </li>
           </ul>
           <ul class="space-y-4">
             <li class="flex items-start">
-              <svg class="w-6 h-6 text-accent mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <svg class="w-6 h-6 text-accent-dark mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
               <span class="text-lg text-text-main"><strong>Douleurs Somatiques</strong> : Maux de tête, tensions musculaires liées au stress.</span>
             </li>
             <li class="flex items-start">
-              <svg class="w-6 h-6 text-accent mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <svg class="w-6 h-6 text-accent-dark mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
               <span class="text-lg text-text-main"><strong>Gestion des émotions</strong> : Colère, tristesse, irritabilité.</span>
             </li>
           </ul>
@@ -119,7 +119,7 @@ const avisEft = reviews.find((a) => a.tag === 'EFT');
     <section class="py-16 bg-white">
         <div class="container mx-auto px-4 max-w-3xl">
             <figure class="bg-secondary/30 p-8 rounded-2xl">
-                <div class="flex gap-1 text-accent mb-4" role="img" aria-label={`${Number(avisEft.stars) || 5} étoiles sur 5`}>
+                <div class="flex gap-1 text-accent-dark mb-4" role="img" aria-label={`${Number(avisEft.stars) || 5} étoiles sur 5`}>
                     {[...Array(Number(avisEft.stars) || 5)].map(() => (
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                             <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />

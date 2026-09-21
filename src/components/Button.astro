@@ -8,15 +8,29 @@ interface Props {
 
 const { href, variant = 'primary', class: className, target } = Astro.props;
 
-const baseStyles = "inline-block px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95 shadow-md hover:shadow-lg text-center cursor-pointer select-none";
+const baseStyles = [
+  "inline-block px-6 py-3 rounded-lg font-semibold text-center cursor-pointer select-none",
+  "transition-[transform,box-shadow,background-color,color] duration-300 ease-out",
+  "hover:-translate-y-0.5 active:translate-y-0",
+  "shadow-md hover:shadow-lg",
+  // Le focus clavier était invisible sur toutes les CTA du site.
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-dark focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+].join(" ");
 
+// Contrastes mesurés (WCAG 2.1) pour chaque variante avec son libellé :
+//   primary   blanc sur #5C7A62 ............ 4,76:1
+//   accent    blanc sur #9A5849 ............ 5,43:1  (le #C88D7D de la carte
+//             de visite est à 2,78:1 : il ne peut pas porter de texte blanc)
+//   secondary #3D5A4E sur #EBDCCC .......... 5,64:1
+//   outline   #3D5A4E sur fond clair ....... 7,10:1
+//   white     #3D5A4E sur blanc ............ 7,58:1
 const variants = {
-  primary: "bg-primary text-white hover:bg-primary/90",
-  secondary: "bg-secondary text-primary hover:bg-secondary/90",
-  accent: "bg-accent text-white hover:bg-accent/90",
-  outline: "border-2 border-primary text-primary hover:bg-primary hover:text-white",
-  ghost: "bg-transparent text-primary hover:bg-primary/10 shadow-none hover:shadow-sm",
-  white: "bg-white text-primary hover:bg-white/90"
+  primary: "bg-primary text-white hover:bg-primary-dark",
+  secondary: "bg-secondary text-primary-dark hover:bg-secondary/80",
+  accent: "bg-accent-dark text-white hover:bg-accent-dark/90",
+  outline: "border-2 border-primary text-primary-dark hover:bg-primary-dark hover:text-white hover:border-primary-dark",
+  ghost: "bg-transparent text-primary-dark hover:bg-primary/10 !shadow-none",
+  white: "bg-white text-primary-dark hover:bg-white/90",
 };
 ---
 

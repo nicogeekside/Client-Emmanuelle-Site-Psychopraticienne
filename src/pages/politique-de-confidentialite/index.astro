@@ -12,13 +12,13 @@ import { siteInfo } from '../../data/config';
   <Header />
   
   <main class="py-24 bg-secondary/10">
-    <div class="container mx-auto px-4 max-w-4xl">
-        <div class="text-center mb-12" data-aos="fade-up">
+    <div class="container mx-auto px-4 max-w-4xl [&_p]:max-w-[70ch] [&_li]:max-w-[70ch]">
+        <div class="text-center mb-12">
             <h1 class="text-4xl font-serif font-bold text-primary mb-4">Politique de Confidentialité</h1>
             <p class="text-text-main/70">Gestion et protection de vos données personnelles (RGPD)</p>
         </div>
         
-        <div class="bg-white p-10 md:p-14 rounded-2xl shadow-sm space-y-10 text-text-main/90 leading-relaxed" data-aos="fade-up" data-aos-delay="100">
+        <div class="bg-white p-10 md:p-14 rounded-2xl shadow-sm space-y-10 text-text-main/90 leading-relaxed">
             
             <section>
                 <h2 class="text-2xl font-serif font-bold text-primary mb-4">1. Engagement de confidentialité</h2>
@@ -85,7 +85,7 @@ import { siteInfo } from '../../data/config';
                 </ul>
                 <p>
                     Pour exercer ces droits, vous pouvez me contacter à tout moment à l'adresse email suivante : <br/>
-                    <a href={`mailto:${siteInfo.email}`} class="text-accent hover:underline font-bold">{siteInfo.email}</a>.
+                    <a href={`mailto:${siteInfo.email}`} class="text-accent-dark hover:underline font-bold">{siteInfo.email}</a>.
                 </p>
                 <p class="mt-4 text-sm text-text-main/70">
                     Si vous estimez, après m'avoir contactée, que vos droits ne sont pas respectés, vous pouvez adresser une réclamation à la CNIL (www.cnil.fr).
