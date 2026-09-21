@@ -310,8 +310,10 @@ d'un visiteur à l'autre.
 **Note** : les 48 emoji présents dans les articles de blog sont du contenu éditorial
 d'Emmanuelle — **hors périmètre**, ne pas y toucher.
 
-### C2 — 76 classes de palettes étrangères **P1** (4/5 agents) ✅ vérifié
-- [ ] 8 familles Tailwind, alors que la charte en compte 7 tokens
+### C2 — 76 classes de palettes étrangères **P1** (4/5 agents) ✅ corrigé (lot 5)
+- [x] 8 familles Tailwind, alors que la charte en compte 7 tokens
+- [x] **9ᵉ famille trouvée au lot 5** : le thème par défaut de `@tailwindcss/typography`
+  habillait les 20 articles en gris Tailwind, sans aucune classe pour le dire
 
 | Famille | Occ. | Principaux fichiers |
 |---|---|---|
@@ -367,7 +369,7 @@ Extraire `SectionHeading`, `PricingCard`, et une variante `Button` fantôme blan
 **Correction** : rétrograder les `h1` du Markdown en `h2` dans le gabarit (plugin rehype),
 retirer le `#` de la barre d'outils Decap, nettoyer les 6 articles.
 
-### C6 — Détecteur Impeccable **P2** ✅ vérifié (5 signalements, 0 faux positif)
+### C6 — Détecteur Impeccable **P2** ✅ corrigé (lot 5 — 0 signalement)
 
 > **partiellement — le `bounce-easing` est corrigé ; les 4 `border-l-4` relèvent du lot 5**
 - [ ] `border-l-4` × 4 — `a-propos:46`, `mentions-legales:70`, `politique-de-confidentialite:39`, `therapie-emdr:129`
@@ -597,7 +599,7 @@ Le premier critère d'évaluation du prospect n'a rien à se mettre sous la dent
 
 # BLOC F — Cohérence entre pages
 
-### F1 — Les 4 pages de format divergent sans raison **P2**
+### F1 — Les 4 pages de format divergent sans raison **P2** ⬜ hors lot 5 (touche au parcours)
 
 | Élément | Divergence |
 |---|---|
@@ -611,7 +613,7 @@ Le premier critère d'évaluation du prospect n'a rien à se mettre sous la dent
 | Libellé du CTA final | 4 pages, **3 verbes différents** |
 | Liens inter-formats | **0, 0, 1, 0** — l'argument n°1 n'est pas maillé |
 
-### F2 — Rythme des fonds cassé **P2**
+### F2 — Rythme des fonds cassé **P2** ✅ corrigé (lot 5)
 - [ ] `therapie-en-marchant` — **trois sections crème consécutives** (`:155`, `:198`, `:220`),
   soit ~1 500 px sans aucune séparation : « Le lieu », « Pour qui » et « Tarifs » se
   collent en une masse indistincte.
@@ -621,7 +623,7 @@ Le premier critère d'évaluation du prospect n'a rien à se mettre sous la dent
   `bg-secondary` → **10 % de beige sur du beige = beige plein**. Chaque ajustement
   d'opacité y est sans effet. Même problème sur la 404 (`bg-secondary/30`).
 
-### F3 — Résidus **P2**
+### F3 — Résidus **P2** ✅ partiellement corrigé (lot 5)
 - [ ] `MainLayout.astro:126` — `theme-color: #3D5A4E`, couleur **hors charte** (le sauge
   est `#5C7A62`). Sur Android, la barre d'adresse affiche une couleur qui n'existe pas.
 - [ ] `MainLayout.astro:135` — `netlify-identity-widget.js` chargé en `is:inline` sur

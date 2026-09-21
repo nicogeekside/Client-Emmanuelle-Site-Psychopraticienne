@@ -1,6 +1,6 @@
 # État des travaux — à lire en premier
 
-> **Dernière mise à jour : 21 septembre 2026 — lots 1 à 4 fusionnés sur `dev`. Prochaine étape : lot 5, harmoniser les couleurs.**
+> **Dernière mise à jour : 21 septembre 2026 — lot 5 fait, agent de relecture à lancer avant la fusion sur `dev`.**
 > Ce fichier est le point d'entrée pour reprendre le travail. Le détail des
 > constats est dans [BACKLOG-QUALITE.md](BACKLOG-QUALITE.md).
 
@@ -30,7 +30,7 @@ cesse de ressembler à « un site fait à la va-vite par une IA ».
 | 2 | Réparer ce qui est cassé | ✅ fusionné sur `dev` | `fix/lot-2-bugs-et-accessibilite` |
 | 3 | Rendre le texte lisible | ✅ fusionné sur `dev` | `fix/lot-3-lisibilite-et-contrastes` |
 | 4 | Remplacer les emoji par des icônes | ✅ fusionné sur `dev` | `fix/lot-4-icones` |
-| **5** | **Harmoniser les couleurs** | **⬜ prochaine étape** | — |
+| **5** | **Harmoniser les couleurs** | **✅ fait, agent de relecture à lancer** | `fix/lot-5-couleurs` |
 | 6 | Alléger les pages | ⬜ à faire | — |
 | 7 | Parcours de conversion | ⬜ **attend l'accord d'Emmanuelle** | — |
 
@@ -71,26 +71,68 @@ cesse de ressembler à « un site fait à la va-vite par une IA ».
 - `'` La prop `label` de `Icon.astro` n'est appelée nulle part : soit l'exercer,
   soit la retirer.
 
-## Lot 5 — ce qui l'attend
+## Lot 5 — état précis
 
-Harmoniser les couleurs. Le détail est dans le bloc C2 du backlog.
+**Fait. Contrôle visuel et agent de relecture : à faire.**
 
-- **76 classes de 8 familles Tailwind étrangères** à la charte : gray (33),
-  emerald (15), blue (15), rose (7), purple/indigo/orange/fuchsia (6).
-- **`src/data/config.js:55-93`** — les 4 formats portent chacun un dégradé hors
-  charte. C'est le bloc « Un format adapté à votre vie » de l'accueil, soit
-  l'argument de positionnement n°1, rendu en quatre couleurs absentes du logo.
-  **Les icônes des cartes reprennent désormais ces couleurs** : les corriger ici
-  corrige aussi les icônes.
-- Ces couleurs sont recopiées à la main dans `index.astro`, `therapie-en-ligne-visio`,
-  `therapie-en-marchant` et `therapie-cabinet`.
-- `config.js:91` annonce du `purple` pour l'Espace Post-Partum, mais la page cible
-  n'utilise jamais de violet.
-- Rythme des fonds à unifier sur les 4 pages de format (bloc F1/F2 du backlog).
-- Résidus : `theme-color` hors charte, `netlify-identity` chargé hors `/admin`,
-  SIRET factice dans une ternaire, commentaire « cache Vercel », import mort.
-- Détecteur : 4 `border-l-4` et 1 `animate-bounce` — ce sont des choix de style,
-  c'est ici qu'ils se traitent.
+**Les 4 formats** — `config.js` portait quatre dégradés absents du logo.
+Marchant et visio passent au sauge (clair puis franc), cabinet et post-partum
+au terracotta (clair puis profond). Les icônes du lot 4 héritaient de ces
+couleurs : la dette est soldée par la même correction.
+
+**La 9ᵉ famille étrangère, que le backlog n'avait pas vue.** Sans clé
+`typography`, le plugin habillait tout le contenu `.prose` dans son gris par
+défaut — corps `#374151`, puces `#d1d5db`, filets `#e5e7eb`. Soit **les 20
+articles, la charte déontologique et la page post-partum**. Invisible au grep
+de la source, puisque c'est le plugin qui la génère. Trouvée par le croisement
+des classes inertes, en tirant le fil de `prose-primary` (qui ne correspondait
+à aucun thème du plugin et ne produisait rien).
+
+| | Défaut | Correction |
+|---|---|---|
+| 🔴 | 4 champs du formulaire RDV en `gray-200`, soit **1,27:1** — sous le seuil 3:1 du critère 1.4.11 | `text-muted`, 3,83:1 |
+| 🔴 | Tout le contenu `.prose` en gris Tailwind | thème `typography` sur la charte |
+| 🔴 | Carte post-partum **sans fond visible** (`secondary` sur une section déjà beige) | terracotta profond |
+| 🔴 | Carte visio lisant « **désactivée** » (`primary-dark` se désature en gris-vert) | sauge franc |
+| 🔴 | `body` en `bg-secondary` → beige sur beige sur le blog et la 404 | `bg-background` |
+| ⚠️ | marchant : 3 sections crème consécutives, ~1500 px sans séparation | alternance rétablie |
+| ⚠️ | visio : 2 sections beige **identiques** depuis que le lot 3 a normalisé les opacités | alternance rétablie |
+| ⚠️ | `netlify-identity-widget` appelait un tiers sur les 37 pages publiques | chargé à la demande, sur jeton |
+
+**Décisions prises avec Nicolas :**
+- Les 4 formats : **4 nuances de la charte**, pas une teinte unique
+- Les gris : **tokens existants**, pas de 8ᵉ token
+- Périmètre : **C2 + F2 + F3**, F1 (divergences structurelles) hors lot
+- Les 4 encadrés `border-l-4` : **filet de 1 px**, le signal reste
+- La flèche du calendrier : **trois rebonds puis immobile**
+
+**Écart assumé sur l'arbitrage des cartes.** Le mapping validé demandait
+« texte : token plein » avec `primary-light` et `secondary` comme encres.
+Impossible : le champ `accent` colore aussi le texte du badge en 12 px gras,
+et ces deux tokens valent 2,84 et 1,3:1. Chaque carte porte donc une encre
+vérifiée (`primary-dark` ou `accent-dark`), et la teinte vit dans le fond et
+le filet. **À regarder à la relecture :** la carte visio est la plus soutenue
+des quatre et attire l'œil en premier — c'est un choix, pas un accident.
+
+**Contrôles :** 37 pages, 0 avertissement. 0 classe étrangère dans la source,
+0 classe inerte, **0 signalement du détecteur** (contre 5). Les 46 emoji
+restants sont confinés aux 3 articles d'Emmanuelle, épargnés au lot 4.
+
+**Dettes transmises :**
+- Le thème `prose-invert` (mode sombre) est compilé mais **jamais utilisé** :
+  11 valeurs de gris mortes dans le CSS livré. **Lot 6.**
+- Le surpoids HTML des SVG inlinés du lot 4 court toujours. **Lot 6.**
+- La prop `label` d'`Icon.astro` n'est toujours appelée nulle part.
+- `theme-color: #3D5A4E` — l'entrée F3 du backlog est **périmée** : c'est le
+  token `primary-dark` depuis le lot 3. Laissé tel quel.
+- F3 restants, hors périmètre car ils touchent au parcours, pas à la couleur :
+  téléphone du hero non cliquable (`index.astro:75`), priorités inversées sur
+  `/merci/`, trois liens vers la même URL par carte de blog.
+
+## Lot 6 — ce qui l'attend
+
+Alléger les pages. Le détail est dans le bloc G du backlog, plus les trois
+dettes de poids ci-dessus.
 
 ## Décisions déjà arbitrées — ne pas reposer la question
 
@@ -127,7 +169,11 @@ Harmoniser les couleurs. Le détail est dans le bloc C2 du backlog.
    dix icônes décentrées, des cartes comprimées et des pastilles disparues sont
    passées au travers de vérifications toutes vertes. Un lot qui touche à
    l'apparence exige un regard, pas seulement un `grep`.
-7. **Ne jamais écrire « vérifié » sans l'avoir fait.** Ce fichier a affirmé
+7. **Les classes ne sont pas la seule source de couleur.** Le plugin
+   `typography` a habillé les 20 articles en gris Tailwind pendant tout le
+   chantier sans qu'aucune classe ne le dise. Un grep de la source ne voit
+   pas ce qu'un plugin génère : croiser avec les variables du CSS livré.
+8. **Ne jamais écrire « vérifié » sans l'avoir fait.** Ce fichier a affirmé
    « 0 emoji dans le build » et « les cartes rendent en 44 px » alors que les deux
    étaient faux.
 
