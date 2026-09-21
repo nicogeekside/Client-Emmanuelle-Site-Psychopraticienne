@@ -6,7 +6,8 @@ import { Image } from 'astro:assets';
 import lieuPhoto1 from '../../assets/images/photo-20260601.jpg';
 import lieuPhoto2 from '../../assets/images/photo-20260404.jpg';
 import portraitEmma from '../../assets/images/portrait-emma-interieur.jpg';
----
+
+import Icon from '../../components/Icon.astro';---
 
 <MainLayout 
   title="À propos d'Emmanuelle Demeulemeester | Psychopraticienne Saint-Nazaire"
@@ -95,17 +96,17 @@ import portraitEmma from '../../assets/images/portrait-emma-interieur.jpg';
             <h2 class="text-2xl font-serif font-bold text-accent-display mb-6">Mes Valeurs</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
                 <div class="p-4">
-                    <div class="text-4xl mb-4">👂</div>
+                    <Icon name="ear" size={34} class="mb-4" />
                     <h3 class="font-bold text-primary mb-2">Écoute Active</h3>
                     <p class="text-sm text-text-main/70">Un espace où votre parole est libre et entendue.</p>
                 </div>
                  <div class="p-4">
-                    <div class="text-4xl mb-4">🤝</div>
+                    <Icon name="handshake" size={34} class="mb-4" />
                     <h3 class="font-bold text-primary mb-2">Non-Jugement</h3>
                     <p class="text-sm text-text-main/70">Accueil inconditionnel de ce que vous êtes.</p>
                 </div>
                  <div class="p-4">
-                    <div class="text-4xl mb-4">🌱</div>
+                    <Icon name="sprout" size={34} class="mb-4" />
                     <h3 class="font-bold text-primary mb-2">Autonomie</h3>
                     <p class="text-sm text-text-main/70">Vous donner les outils pour avancer seul(e).</p>
                 </div>

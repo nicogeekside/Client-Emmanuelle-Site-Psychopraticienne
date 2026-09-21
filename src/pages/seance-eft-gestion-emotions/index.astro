@@ -8,6 +8,7 @@ import Button from '../../components/Button.astro';
 import FaqSection from '../../components/FaqSection.astro';
 import { reviews } from '../../data/config';
 
+import Icon from '../../components/Icon.astro';
 // Premier avis Google réel portant sur l'EFT — aucun témoignage n'est rédigé pour le site.
 const avisEft = reviews.find((a) => a.tag === 'EFT');
 ---
@@ -32,7 +33,7 @@ const avisEft = reviews.find((a) => a.tag === 'EFT');
         </nav>
         <div class="max-w-3xl">
           <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/10 rounded-full px-4 py-2 mb-6">
-            <span class="text-2xl leading-none">✋</span>
+            <Icon name="hand" size={24} />
             <span class="text-sm font-medium text-primary-dark">Outil thérapeutique · Technique Tapping</span>
           </div>
           <h1 class="text-3xl md:text-5xl lg:text-6xl font-serif font-bold mb-6" data-aos="fade-up">Praticienne EFT à Saint-Nazaire</h1>
@@ -52,8 +53,8 @@ const avisEft = reviews.find((a) => a.tag === 'EFT');
     <section class="py-6 bg-white border-b border-secondary/50">
       <div class="container mx-auto px-4 flex flex-wrap gap-3 items-center justify-center text-sm">
         <span class="text-text-main/60">Une séance EFT peut se faire :</span>
-        <a href="/therapie-cabinet-saint-nazaire/" class="inline-flex items-center gap-1 px-4 py-1.5 bg-secondary rounded-full border border-secondary shadow-sm hover:border-primary/30 hover:shadow-md transition-all text-primary font-medium">🛋️ En cabinet</a>
-        <a href="/therapie-en-ligne-visio/" class="inline-flex items-center gap-1 px-4 py-1.5 bg-secondary rounded-full border border-secondary shadow-sm hover:border-primary/30 hover:shadow-md transition-all text-primary font-medium">💻 En visio</a>
+        <a href="/therapie-cabinet-saint-nazaire/" class="inline-flex items-center gap-1 px-4 py-1.5 bg-secondary rounded-full border border-secondary shadow-sm hover:border-primary/30 hover:shadow-md transition-all text-primary font-medium" aria-label="En cabinet"><Icon name="armchair" size={16} /> En cabinet</a>
+        <a href="/therapie-en-ligne-visio/" class="inline-flex items-center gap-1 px-4 py-1.5 bg-secondary rounded-full border border-secondary shadow-sm hover:border-primary/30 hover:shadow-md transition-all text-primary font-medium" aria-label="En visio"><Icon name="monitor" size={16} /> En visio</a>
         <span class="text-text-main/40 italic text-xs">(protocole complet, moins adapté en marchant)</span>
       </div>
     </section>

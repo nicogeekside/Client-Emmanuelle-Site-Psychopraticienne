@@ -7,7 +7,8 @@ import FaqSection from '../../components/FaqSection.astro';
 import { siteInfo } from '../../data/config';
 import { Image } from 'astro:assets';
 import heroDecouverte from '../../assets/images/photo-seance-decouverte.jpg';
----
+
+import Icon from '../../components/Icon.astro';---
 
 <MainLayout 
   title="Séance Découverte Thérapie Psychocorporelle Saint-Nazaire (Gratuite)"
@@ -41,7 +42,7 @@ import heroDecouverte from '../../assets/images/photo-seance-decouverte.jpg';
         </nav>
         <div class="max-w-3xl">
           <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6 shadow-sm">
-            <span class="text-2xl leading-none">✦</span>
+            <Icon name="sparkles" size={24} />
             <span class="text-sm font-bold text-white uppercase tracking-wider">Premier échange offert</span>
           </div>
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 leading-[1.1]">
@@ -85,13 +86,13 @@ import heroDecouverte from '../../assets/images/photo-seance-decouverte.jpg';
           <!-- Ce qu'on y fait -->
           <div class="space-y-4" data-aos="fade-left">
             {[
-              { icon: "🤝", title: "Faire connaissance", text: "Un échange humain avant tout. Vous découvrez mon cadre de travail, ma voix, mon énergie." },
-              { icon: "👂", title: "Être écouté(e) librement", text: "Vous déposez ce qui vous amène, avec vos mots, sans peur d'être jugé(e)." },
-              { icon: "💡", title: "Définir vos besoins", text: "Nous regardons ensemble si l'EMDR, l'EFT ou le soutien psychologique simple est le plus adapté." },
-              { icon: "🛡️", title: "Aucun engagement", text: "À la fin des 45 minutes, vous décidez librement si vous souhaitez entamer un suivi ou non." },
+              { icon: "handshake", title: "Faire connaissance", text: "Un échange humain avant tout. Vous découvrez mon cadre de travail, ma voix, mon énergie." },
+              { icon: "ear", title: "Être écouté(e) librement", text: "Vous déposez ce qui vous amène, avec vos mots, sans peur d'être jugé(e)." },
+              { icon: "lightbulb", title: "Définir vos besoins", text: "Nous regardons ensemble si l'EMDR, l'EFT ou le soutien psychologique simple est le plus adapté." },
+              { icon: "shield", title: "Aucun engagement", text: "À la fin des 45 minutes, vous décidez librement si vous souhaitez entamer un suivi ou non." },
             ].map((item, i) => (
               <div class="flex gap-4 p-5 rounded-xl bg-white border border-secondary hover:border-primary/10 hover:shadow-md transition-all duration-300" data-aos="fade-up" data-aos-delay={i * 80}>
-                <div class="text-2xl flex-shrink-0 mt-0.5">{item.icon}</div>
+                <Icon name={item.icon} size={24} class="flex-shrink-0 mt-1 text-primary-dark" />
                 <div>
                   <h3 class="font-bold text-primary mb-1">{item.title}</h3>
                   <p class="text-sm text-text-main/70 leading-relaxed">{item.text}</p>

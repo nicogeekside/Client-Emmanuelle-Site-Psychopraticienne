@@ -7,7 +7,8 @@ import FaqSection from '../../components/FaqSection.astro';
 import { siteInfo } from '../../data/config';
 import { Image } from 'astro:assets';
 import imgDouceur from '../../assets/images/img-douceur.jpg';
----
+
+import Icon from '../../components/Icon.astro';---
 
 <MainLayout 
   title="Espace Soutien Post-Partum à Saint-Nazaire | Emmanuelle Demeulemeester"
@@ -37,7 +38,7 @@ import imgDouceur from '../../assets/images/img-douceur.jpg';
         </nav>
         <div class="max-w-3xl">
           <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
-            <span class="text-2xl leading-none">🤱</span>
+            <Icon name="baby" size={24} />
             <span class="text-sm font-medium text-white">Rassemblement mensuel · Mamans & Papas bienvenus</span>
           </div>
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 leading-[1.1]">
@@ -92,21 +93,21 @@ import imgDouceur from '../../assets/images/img-douceur.jpg';
 
             <div class="mt-8 space-y-3">
               <div class="flex gap-3 items-center p-4 bg-background rounded-xl border border-secondary">
-                <span class="text-2xl">📅</span>
+                <Icon name="calendar-days" size={24} />
                 <div>
                   <p class="font-bold text-primary-dark text-sm">Fréquence</p>
                   <p class="text-text-main/75 text-sm">Rassemblement mensuel — dates à confirmer</p>
                 </div>
               </div>
               <div class="flex gap-3 items-center p-4 bg-background rounded-xl border border-secondary">
-                <span class="text-2xl">👥</span>
+                <Icon name="users" size={24} />
                 <div>
                   <p class="font-bold text-primary-dark text-sm">Ouvert à tous</p>
                   <p class="text-text-main/75 text-sm">Mamans et papas — seul(e) ou en couple</p>
                 </div>
               </div>
               <div class="flex gap-3 items-center p-4 bg-background rounded-xl border border-secondary">
-                <span class="text-2xl">📍</span>
+                <Icon name="map-pin" size={24} />
                 <div>
                   <p class="font-bold text-primary-dark text-sm">Lieu</p>
                   <p class="text-text-main/75 text-sm">En extérieur ou à mon domicile (Saint-Nazaire)</p>
@@ -120,14 +121,14 @@ import imgDouceur from '../../assets/images/img-douceur.jpg';
                 </div>
               </div>
               <div class="flex gap-3 items-center p-4 bg-background rounded-xl border border-secondary">
-                <span class="text-2xl">👥</span>
+                <Icon name="users" size={24} />
                 <div>
                   <p class="font-bold text-primary-dark text-sm">Groupe limité</p>
                   <p class="text-text-main/75 text-sm">6 participants maximum par date</p>
                 </div>
               </div>
               <div class="flex gap-3 items-center p-4 bg-background rounded-xl border border-secondary">
-                <span class="text-2xl">💚</span>
+                <Icon name="heart" size={24} />
                 <div>
                   <p class="font-bold text-primary-dark text-sm">Gratuit</p>
                   <p class="text-text-main/75 text-sm">Participation entièrement gratuite</p>
@@ -153,7 +154,7 @@ import imgDouceur from '../../assets/images/img-douceur.jpg';
                 "Prendre du recul et renforcer ses ressources pour vivre cette période avec plus de sérénité."
               ].map((item, i) => (
                 <div class="flex items-start gap-3 p-3.5 rounded-xl bg-background border border-secondary hover:border-accent/30 transition-colors" data-aos="fade-up" data-aos-delay={i * 40}>
-                  <span class="text-accent-dark font-bold mt-0.5 flex-shrink-0">♡</span>
+                  <Icon name="heart" size={24} class="text-accent-dark font-bold mt-0.5 flex-shrink-0" />
                   <span class="text-sm text-text-main/80 leading-relaxed">{item}</span>
                 </div>
               ))}
@@ -209,7 +210,7 @@ import imgDouceur from '../../assets/images/img-douceur.jpg';
         <div class="absolute bottom-0 left-0 w-64 h-64 bg-secondary/10 rounded-full blur-3xl"></div>
       </div>
       <div class="container mx-auto px-4 relative z-10" data-aos="zoom-in">
-        <div class="text-5xl mb-6">🤱</div>
+        <Icon name="baby" size={40} class="mb-6" />
         <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4">Vous souhaitez rejoindre le groupe ?</h2>
         <p class="text-lg text-secondary/80 mb-8 max-w-xl mx-auto leading-relaxed">
           Laissez-moi vos coordonnées — je vous enverrai les informations sur les prochaines dates dès qu'elles seront confirmées.

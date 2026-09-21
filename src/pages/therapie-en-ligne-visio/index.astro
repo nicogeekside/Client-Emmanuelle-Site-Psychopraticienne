@@ -7,7 +7,8 @@ import FaqSection from '../../components/FaqSection.astro';
 import { siteInfo } from '../../data/config';
 import { Image } from 'astro:assets';
 import photoVisioHero from '../../assets/images/img-visio.jpg';
----
+
+import Icon from '../../components/Icon.astro';---
 
 <MainLayout 
   title="Thérapie en Visio | Psychopraticienne en ligne - Emmanuelle Demeulemeester"
@@ -43,7 +44,7 @@ import photoVisioHero from '../../assets/images/img-visio.jpg';
         </nav>
         <div class="max-w-3xl">
           <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
-            <span class="text-2xl leading-none">💻</span>
+            <Icon name="monitor" size={24} />
             <span class="text-sm font-medium text-white">Partout en France · Disponible dès maintenant</span>
           </div>
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 leading-[1.1]">
@@ -62,7 +63,7 @@ import photoVisioHero from '../../assets/images/img-visio.jpg';
             </a>
           </div>
           <a href="/seance-decouverte-therapie-psychocorporelle-saint-nazaire/" class="inline-flex items-center gap-2 text-sm font-bold bg-white text-primary-dark px-4 py-2 rounded-full shadow-md hover:bg-secondary/50 transition-colors">
-            <span class="text-accent-dark">✦</span>
+            <Icon name="sparkles" size={24} class="text-accent-dark" />
             <span>Séance découverte de 45 min offerte</span>
           </a>
         </div>
@@ -82,15 +83,15 @@ import photoVisioHero from '../../assets/images/img-visio.jpg';
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
-            { icon: "🏠", title: "Depuis chez vous", text: "Pas de transport, pas de déplacement. Vous restez dans votre espace familier, ce qui peut faciliter la détente et l'ouverture." },
-            { icon: "🇫🇷", title: "Partout en France", text: "Vous habitez loin de Saint-Nazaire ? Ce n'est pas un obstacle. La thérapie en visio vous donne accès à mon accompagnement où que vous soyez." },
-            { icon: "📅", title: "Plus de flexibilité", text: "Les créneaux visio s'adaptent plus facilement à vos contraintes professionnelles ou familiales." },
-            { icon: "🔒", title: "Simple & connu", text: "Les séances se déroulent via Google Meet. Un outil que tout le monde connaît, sans installation. L'échange reste entre nous, dans la sphère privée de votre domicile." },
-            { icon: "✅", title: "Aussi efficace", text: "Les études montrent que la thérapie en visio est aussi efficace que la thérapie en présentiel pour la majorité des problématiques." },
-            { icon: "💛", title: "EMDR et EFT en visio", text: "Les deux protocoles sont parfaitement réalisables à distance. Je vous guide étape par étape, comme si vous étiez en face de moi." },
+            { icon: "house", title: "Depuis chez vous", text: "Pas de transport, pas de déplacement. Vous restez dans votre espace familier, ce qui peut faciliter la détente et l'ouverture." },
+            { icon: "globe", title: "Partout en France", text: "Vous habitez loin de Saint-Nazaire ? Ce n'est pas un obstacle. La thérapie en visio vous donne accès à mon accompagnement où que vous soyez." },
+            { icon: "calendar-days", title: "Plus de flexibilité", text: "Les créneaux visio s'adaptent plus facilement à vos contraintes professionnelles ou familiales." },
+            { icon: "lock", title: "Simple & connu", text: "Les séances se déroulent via Google Meet. Un outil que tout le monde connaît, sans installation. L'échange reste entre nous, dans la sphère privée de votre domicile." },
+            { icon: "circle-check", title: "Aussi efficace", text: "Les études montrent que la thérapie en visio est aussi efficace que la thérapie en présentiel pour la majorité des problématiques." },
+            { icon: "heart", title: "EMDR et EFT en visio", text: "Les deux protocoles sont parfaitement réalisables à distance. Je vous guide étape par étape, comme si vous étiez en face de moi." },
           ].map((item, i) => (
             <div class="p-7 rounded-2xl border border-blue-100 bg-blue-50/40 hover:border-blue-300 hover:bg-blue-100/30 hover:shadow-md transition-all duration-300 group" data-aos="fade-up" data-aos-delay={i * 70}>
-              <div class="text-3xl mb-4 group-hover:scale-110 transition-transform">{item.icon}</div>
+              <Icon name={item.icon} size={28} class="mb-4 text-primary-dark transition-transform duration-500 ease-out group-hover:-translate-y-0.5" />
               <h3 class="font-bold text-blue-900 mb-2">{item.title}</h3>
               <p class="text-sm text-text-main/80 leading-relaxed">{item.text}</p>
             </div>
@@ -131,7 +132,7 @@ import photoVisioHero from '../../assets/images/img-visio.jpg';
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <!-- Tarifs -->
           <div class="bg-white rounded-2xl p-8 shadow-sm border border-secondary" data-aos="fade-right">
-            <div class="text-3xl mb-4">💳</div>
+            <Icon name="credit-card" size={28} class="mb-4" />
             <h3 class="font-bold text-primary text-xl mb-6">Tarifs</h3>
             <div class="space-y-3">
               <div class="flex justify-between items-center py-3 border-b border-secondary">
@@ -143,18 +144,18 @@ import photoVisioHero from '../../assets/images/img-visio.jpg';
                   <span class="text-text-main/80">Tarif réduit (1h)</span>
                   <span class="font-bold text-primary text-xl">50 €</span>
                 </div>
-                <p class="text-sm text-text-main/75 bg-secondary/30 rounded-lg px-3 py-2">🎓 Réservé aux <strong>étudiants</strong> et <strong>demandeurs d’emploi</strong>. Un justificatif vous sera demandé.</p>
+                <p class="text-sm text-text-main/75 bg-secondary/30 rounded-lg px-3 py-2 flex items-start gap-2"><Icon name="graduation-cap" size={15} class="mt-0.5 flex-shrink-0" /><span>Réservé aux <strong>étudiants</strong> et <strong>demandeurs d’emploi</strong>. Un justificatif vous sera demandé.</span></p>
               </div>
               <div class="flex justify-between items-center py-3">
                 <span class="text-text-main/80">Séance découverte</span>
-                <span class="font-bold text-accent-display text-xl">✦ Gratuite</span>
+                <span class="font-bold text-accent-display text-xl inline-flex items-center gap-1.5"><Icon name="sparkles" size={18} /> Gratuite</span>
               </div>
             </div>
             <p class="text-sm text-text-main/75 mt-4 border-t border-secondary pt-3">Règlement accepté : virement bancaire, espèces ou chèque.</p>
           </div>
           <!-- Horaires -->
           <div class="bg-white rounded-2xl p-8 shadow-sm border border-secondary" data-aos="fade-left">
-            <div class="text-3xl mb-4">🗓️</div>
+            <Icon name="calendar-check" size={28} class="mb-4" />
             <h3 class="font-bold text-primary text-xl mb-6">Disponibilités</h3>
             <div class="space-y-3 text-left">
               <div class="bg-secondary/30 rounded-xl px-4 py-3">

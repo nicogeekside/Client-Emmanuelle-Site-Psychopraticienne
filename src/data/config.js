@@ -46,7 +46,7 @@ export const navDropdown = {
 export const formats = [
     {
         id: "marchant",
-        icon: "🚶‍♀️",
+        icon: "footprints",
         title: "Thérapie en marchant",
         subtitle: "Thérapie en mouvement",
         description: "Marchez à mes côtés et laissez la parole venir naturellement. Côte à côte, en mouvement, certaines choses se disent plus facilement. Une approche douce et libératrice.",
@@ -58,7 +58,7 @@ export const formats = [
     },
     {
         id: "visio",
-        icon: "💻",
+        icon: "monitor",
         title: "Thérapie en visio",
         subtitle: "Depuis chez vous",
         description: "Bénéficiez du même accompagnement de qualité depuis le confort de votre domicile, partout en France. Flexible, confidentiel et efficace.",
@@ -70,7 +70,7 @@ export const formats = [
     },
     {
         id: "cabinet",
-        icon: "🛋️",
+        icon: "armchair",
         title: "Thérapie en cabinet",
         subtitle: "Un espace sécurisant",
         description: "Venez dans mon cabinet apaisant à Saint-Nazaire. Un cadre chaleureux et confidentiel pensé pour un moment en toute sécurité.",
@@ -82,7 +82,7 @@ export const formats = [
     },
     {
         id: "post-partum",
-        icon: "🤱",
+        icon: "baby",
         title: "Espace Post-Partum",
         subtitle: "Rassemblement mensuel",
         description: "Un espace de parole bienveillant et sans jugement, ouvert aux mamans et aux papas. Pour traverser ensemble les bouleversements de la parentalité.",

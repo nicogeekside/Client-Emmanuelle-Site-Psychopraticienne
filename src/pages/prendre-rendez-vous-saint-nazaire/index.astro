@@ -6,7 +6,8 @@ import Button from '../../components/Button.astro';
 import { siteInfo } from '../../data/config';
 import { Image } from 'astro:assets';
 import portraitEmma from '../../assets/images/photo-portrait-exterieur.jpg';
----
+
+import Icon from '../../components/Icon.astro';---
 
 <MainLayout 
   title="Prendre Rendez-vous | Psychopraticienne Saint-Nazaire"
@@ -77,7 +78,7 @@ import portraitEmma from '../../assets/images/photo-portrait-exterieur.jpg';
                              <p>Tél : {siteInfo.phone}<br/>Email : {siteInfo.email}</p>
                              <p class="mt-2">
                                  {siteInfo.address.street}, {siteInfo.address.zip} {siteInfo.address.city}<br/>
-                                 <span class="text-xs">🅿️ Parking gratuit à proximité</span>
+                                 <span class="text-sm inline-flex items-center gap-1.5"><Icon name="circle-parking" size={15} /> Parking gratuit à proximité</span>
                              </p>
                         </div>
                         <p class="italic text-primary/80 mt-4">
