@@ -1,17 +1,44 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 import Button from '../components/Button.astro';
+import Icon from '../components/Icon.astro';
 ---
 
-<MainLayout title="Page non trouvée - 404">
-  <main class="min-h-screen flex flex-col items-center justify-center bg-secondary/30 text-center px-4">
-    <h1 class="text-9xl font-serif font-bold text-primary/20">404</h1>
+<!-- E12 du backlog : cette page n'avait ni menu ni pied de page (le
+     visiteur perdu perdait aussi la navigation), une seule issue proposée,
+     un "404" décoratif à 1,24:1 de contraste, et sortait indexable. -->
+<MainLayout title="Page non trouvée | Emmanuelle Demeulemeester" noindex={true}>
+  <Header />
+  <main class="min-h-[70vh] flex flex-col items-center justify-center bg-secondary/30 text-center px-4 py-24">
+    <h1 class="text-8xl md:text-9xl font-serif font-bold text-primary/40">404</h1>
     <h2 class="text-3xl font-serif font-bold text-primary mb-4">Oups ! Cette page n'existe pas.</h2>
-    <p class="text-lg text-text-main/70 mb-8 max-w-md">
-      Il semble que vous ayez pris un chemin de traverse. Revenons ensemble vers l'essentiel.
+    <p class="text-lg text-text-main/70 mb-10 max-w-md">
+      Il semble que vous ayez pris un chemin de traverse. Voici où vous pourriez vouloir aller à la place :
     </p>
-    <Button href="/" variant="primary">
-      Retour à l'accueil
-    </Button>
+    <div class="flex flex-col sm:flex-row gap-4 mb-10">
+      <Button href="/" variant="primary">
+        Retour à l'accueil
+      </Button>
+      <Button href="/seance-decouverte-therapie-psychocorporelle-saint-nazaire/" variant="outline">
+        Séance découverte offerte
+      </Button>
+    </div>
+    <nav aria-label="Pages fréquentées" class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
+      <a href="/blog/" class="inline-flex items-center gap-1.5 font-semibold text-accent-dark hover:text-primary-dark transition-colors">
+        Le blog
+        <Icon name="arrow-right" size={14} />
+      </a>
+      <a href="/a-propos-emmanuelle/" class="inline-flex items-center gap-1.5 font-semibold text-accent-dark hover:text-primary-dark transition-colors">
+        Qui suis-je ?
+        <Icon name="arrow-right" size={14} />
+      </a>
+      <a href="/prendre-rendez-vous-saint-nazaire/" class="inline-flex items-center gap-1.5 font-semibold text-accent-dark hover:text-primary-dark transition-colors">
+        Prendre rendez-vous
+        <Icon name="arrow-right" size={14} />
+      </a>
+    </nav>
   </main>
+  <Footer />
 </MainLayout>

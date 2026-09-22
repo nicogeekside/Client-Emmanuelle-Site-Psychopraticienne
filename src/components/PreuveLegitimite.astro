@@ -1,0 +1,45 @@
+---
+// Bloc de preuves de légitimité, à poser sur une page qui n'en contient
+// aucune — c'était le cas des 4 pages de format avant ce lot (bloc E4 du
+// backlog qualité) : aucune occurrence d'IFPEC, AHTMA, « 360 h », « 25 ans »,
+// « déontolog… », et aucun lien vers /a-propos-emmanuelle/ ni
+// /charte-deontologique/. Un seul composant partagé pour éviter d'ouvrir
+// une 4e copie de la même duplication que le backlog signale déjà en C3.
+import Icon from './Icon.astro';
+---
+
+<section class="py-16 bg-white">
+  <div class="container mx-auto px-6 lg:px-4 max-w-4xl">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+      <div class="flex gap-4 p-5 rounded-xl border border-primary/10 bg-primary/10">
+        <Icon name="badge-check" size={28} class="shrink-0 text-primary-dark" />
+        <div>
+          <p class="text-xs font-bold uppercase tracking-wider text-accent-dark mb-1">IFPEC — Octobre 2025</p>
+          <p class="font-bold text-primary-dark text-sm">EFT Clinique</p>
+          <p class="text-sm text-text-main/75 mt-1">360 h de formation, Institut Francophone de Psychologie Énergétique Clinique</p>
+        </div>
+      </div>
+      <div class="flex gap-4 p-5 rounded-xl border border-primary/10 bg-primary/10">
+        <Icon name="badge-check" size={28} class="shrink-0 text-primary-dark" />
+        <div>
+          <p class="text-xs font-bold uppercase tracking-wider text-accent-dark mb-1">AHTMA — Octobre 2025</p>
+          <p class="font-bold text-primary-dark text-sm">EMDR-DSA, Niveau 2</p>
+          <p class="text-sm text-text-main/75 mt-1">Eye Movement Desensitization and Reprocessing</p>
+        </div>
+      </div>
+    </div>
+    <p class="text-center text-text-main/70 max-w-2xl mx-auto mb-6">
+      25 ans dans le domaine médical avant cette reconversion, et une pratique encadrée par la charte déontologique IFPEC.
+    </p>
+    <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm font-semibold">
+      <a href="/a-propos-emmanuelle/" class="inline-flex items-center gap-1.5 text-accent-dark hover:text-primary-dark transition-colors">
+        Découvrir mon parcours
+        <Icon name="arrow-right" size={14} />
+      </a>
+      <a href="/charte-deontologique/" class="inline-flex items-center gap-1.5 text-accent-dark hover:text-primary-dark transition-colors">
+        Ma charte déontologique
+        <Icon name="arrow-right" size={14} />
+      </a>
+    </div>
+  </div>
+</section>
