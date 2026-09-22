@@ -100,14 +100,7 @@ import Icon from '../../components/Icon.astro';---
                 <Icon name="calendar-days" size={24} />
                 <div>
                   <p class="font-bold text-primary-dark text-sm">Fréquence</p>
-                  <p class="text-text-main/75 text-sm">Une fois par mois, 2 heures — dates à confirmer</p>
-                </div>
-              </div>
-              <div class="flex gap-3 items-center p-4 bg-accent-dark/10 rounded-xl border border-accent-dark/30">
-                <Icon name="sparkles" size={24} class="text-accent-dark" />
-                <div>
-                  <p class="font-bold text-accent-dark text-sm">Gratuit</p>
-                  <p class="text-text-main/75 text-sm">Participation entièrement gratuite</p>
+                  <p class="text-text-main/75 text-sm">Le premier jeudi de chaque mois, 9h30 – 11h30</p>
                 </div>
               </div>
               <div class="flex gap-3 items-center p-4 bg-background rounded-xl border border-secondary">
@@ -121,7 +114,7 @@ import Icon from '../../components/Icon.astro';---
                 <Icon name="map-pin" size={24} />
                 <div>
                   <p class="font-bold text-primary-dark text-sm">Lieu</p>
-                  <p class="text-text-main/75 text-sm">En extérieur ou dans un lieu convivial à Saint-Nazaire, précisé à l'inscription</p>
+                  <p class="text-text-main/75 text-sm">En extérieur ou à mon domicile (Saint-Nazaire) — l'adresse vous est envoyée par un rappel 24h avant</p>
                 </div>
               </div>
               <div class="flex gap-3 items-center p-4 bg-background rounded-xl border border-secondary">
@@ -131,6 +124,26 @@ import Icon from '../../components/Icon.astro';---
                   <p class="text-text-main/75 text-sm">6 participants maximum par date</p>
                 </div>
               </div>
+            </div>
+
+            <!-- Les dates : demande explicite d'un encart dedie plutot que
+                 noye dans la liste d'infos pratiques. -->
+            <div class="mt-6 p-6 bg-primary/10 border border-primary/20 rounded-2xl" data-aos="fade-up">
+              <div class="flex items-center gap-2 mb-4">
+                <Icon name="calendar-check" size={22} class="text-primary-dark" />
+                <h3 class="font-bold text-primary-dark">Prochaines dates</h3>
+              </div>
+              <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 text-center">
+                {[
+                  "1er oct.", "5 nov.", "3 déc.", "7 janv.", "4 févr.",
+                  "11 mars", "1er avril", "13 mai", "3 juin", "1er juil.",
+                ].map((date) => (
+                  <div class="bg-white rounded-lg py-2 px-1 border border-primary/10">
+                    <span class="text-sm font-semibold text-primary-dark">{date}</span>
+                  </div>
+                ))}
+              </div>
+              <p class="text-sm text-text-main/60 mt-4">9h30 – 11h30 · d'octobre 2026 à juillet 2027</p>
             </div>
           </div>
 
@@ -167,7 +180,7 @@ import Icon from '../../components/Icon.astro';---
         <h2 class="text-3xl font-serif font-bold text-primary mb-8 text-center" data-aos="fade-up">Comment se déroule une rencontre ?</h2>
         <div class="bg-secondary/30 rounded-2xl p-8 md:p-10 border border-secondary" data-aos="fade-up">
           <p class="text-lg text-text-main/80 leading-relaxed mb-6">
-            Les rencontres ont lieu <strong>une fois par mois pendant 2 heures</strong>, en extérieur ou à mon domicile. Elles se déroulent dans un cadre chaleureux, confidentiel et respectueux de chacun.
+            Les rencontres ont lieu <strong>le premier jeudi de chaque mois, de 9h30 à 11h30</strong>, en extérieur ou à mon domicile — l'adresse exacte vous est envoyée par un rappel 24h avant. Elles se déroulent dans un cadre chaleureux, confidentiel et respectueux de chacun.
           </p>
           <p class="text-lg text-text-main/80 leading-relaxed mb-6">
             Après un temps d'accueil, les participants sont invités à partager librement leur vécu, leurs questionnements, leurs difficultés ou leurs joies autour de la parentalité et du post-partum. <strong>Les échanges se construisent naturellement en fonction des besoins du groupe, sans thème imposé.</strong> Chacun est libre de prendre la parole ou simplement d'écouter.

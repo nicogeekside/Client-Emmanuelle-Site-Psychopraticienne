@@ -52,8 +52,8 @@ import Icon from '../../components/Icon.astro';---
             <Button href="/seance-decouverte-therapie-psychocorporelle-saint-nazaire/" variant="white" class="text-lg px-8 py-4 shadow-xl">
               Séance découverte — 45 min offertes
             </Button>
-            <a href="/prendre-rendez-vous-saint-nazaire/" class="inline-flex items-center justify-center gap-2 text-lg px-8 py-4 border-2 border-white/30 rounded-xl text-white hover:bg-white/10 transition-all">
-              Réserver ma séance
+            <a href="#ce-qu-on-fait" class="inline-flex items-center justify-center gap-2 text-lg px-8 py-4 border-2 border-white/30 rounded-xl text-white hover:bg-white/10 transition-all">
+              Ce qu'on fait en marchant
             </a>
           </div>
           <a href={`tel:${siteInfo.phone.replace(/\s/g, '')}`} class="inline-flex items-center gap-2 text-sm font-bold bg-white text-primary-dark px-4 py-2 rounded-full shadow-md hover:bg-secondary/50 transition-colors">
@@ -104,7 +104,7 @@ import Icon from '../../components/Icon.astro';---
     </section>
 
     <!-- CE QUI EST FAISABLE OU NON -->
-    <section class="py-16 bg-secondary/30">
+    <section id="ce-qu-on-fait" class="py-16 bg-secondary/30">
       <div class="container mx-auto px-6 lg:px-8 max-w-4xl">
         <h2 class="text-3xl font-serif font-bold text-primary mb-10 text-center" data-aos="fade-up">Ce que l'on fait — et ne fait pas — en marchant</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -220,7 +220,7 @@ import Icon from '../../components/Icon.astro';---
     <!-- TARIFS & HORAIRES MARCHANT -->
     <section class="py-16 bg-background">
       <div class="container mx-auto px-6 lg:px-8 max-w-3xl text-center">
-        <h2 class="text-3xl font-serif font-bold text-primary mb-10" data-aos="fade-up">Tarifs & Disponibilités</h2>
+        <h2 class="text-3xl font-serif font-bold text-primary mb-10" data-aos="fade-up">Tarifs et Disponibilités</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <!-- Tarifs -->
           <div class="bg-white rounded-2xl p-8 shadow-sm border border-secondary" data-aos="fade-right">

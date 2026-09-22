@@ -1,4 +1,18 @@
 ---
+// Carte photo plein cadre, texte en surimpression sur un dégradé sombre.
+// Remplace la version « 4 rectangles » à fond teinté : Nicolas voulait voir
+// de vraies images plutôt qu'une couleur et une icône. Chaque format
+// réutilise la photo déjà en fond de hero sur sa propre page — rien à
+// fournir en plus, une seule source par photo.
+//
+// Le dégradé est neutre (noir, pas une teinte de la charte) : c'est la
+// seule façon de garantir 4,5:1 pour un texte blanc quel que soit le
+// contenu de la photo en dessous — une teinte de marque n'aurait pas cette
+// garantie sur des photos aussi différentes.
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+
 interface Props {
   id: string;
   icon: string;
@@ -7,53 +21,60 @@ interface Props {
   description: string;
   note: string;
   href: string;
-  color?: string;
+  image: ImageMetadata;
   accent?: string;
-  border?: string;
   index?: number;
 }
 
-const { id, icon, title, subtitle, description, note, href, color = "from-white to-secondary/30", accent = "text-primary-dark", border = "border-secondary", index = 0 } = Astro.props;
-
-import Icon from './Icon.astro';
+const { icon, title, subtitle, description, note, href, image, accent = 'text-white', index = 0 } = Astro.props;
 ---
 
 <a
   href={href}
-  class="group block h-full rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-dark focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+  class="group block h-full rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-background"
   data-aos="fade-up"
   data-aos-delay={index * 80}
   aria-label={`${title} — découvrir ce format`}
 >
-  <div class={`h-full rounded-2xl border ${border} bg-gradient-to-br ${color} p-8 flex flex-col gap-5 transition-[transform,box-shadow] duration-500 ease-out group-hover:-translate-y-1 group-hover:shadow-xl`}>
+  <div class="relative h-full min-h-[22rem] rounded-2xl overflow-hidden shadow-md transition-shadow duration-500 ease-out group-hover:shadow-xl">
+    <Image
+      src={image}
+      alt=""
+      class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+      width={500}
+    />
+    <!-- Dégradé noir, pas une teinte de marque : seule garantie de contraste
+         valable sur 4 photos différentes. -->
+    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/5"></div>
 
-    <Icon name={icon} size={44} stroke={1.25} class={`shrink-0 ${accent} transition-transform duration-500 ease-out group-hover:-translate-y-0.5`} />
+    <div class="relative h-full flex flex-col justify-between p-6 text-white">
+      <div class="w-11 h-11 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm shrink-0">
+        <Icon name={icon} size={22} stroke={1.5} class="text-primary-dark" />
+      </div>
 
-    <div class="flex-grow">
-      <!-- « Thérapie en marchant » passe sur deux lignes quand les trois autres
-           tiennent sur une : sans hauteur commune, les sous-titres de la rangée
-           se décalent. Reserve deux lignes seulement là où les cartes sont
-           cote a cote. -->
-      <h3 class="text-2xl font-serif font-bold text-primary leading-tight lg:min-h-[3.75rem]">
-        {title}
-      </h3>
-      <p class={`mt-1.5 mb-3 text-xs font-bold uppercase tracking-[0.12em] ${accent}`}>
-        {subtitle}
-      </p>
-      <p class="text-text-main/90 leading-relaxed">
-        {description}
-      </p>
-    </div>
-
-    <div>
-      <p class="text-sm text-text-main/75 italic">{note}</p>
-      <div class="mt-4 pt-4 border-t border-text-main/10 flex items-center justify-between">
-        <!-- L'action est nommée : c'est elle qui dit que la carte se clique,
-             pas une flèche décorative dans un rond gris. -->
-        <span class={`text-sm font-semibold ${accent} underline-offset-4 decoration-1 group-hover:underline`}>
-          Découvrir ce format
-        </span>
-        <Icon name="arrow-right" size={16} class={`shrink-0 ${accent} transition-transform duration-300 ease-out group-hover:translate-x-1`} />
+      <div>
+        <!-- « Thérapie en marchant » passe sur deux lignes quand les trois
+             autres tiennent sur une : sans hauteur commune, les sous-titres
+             de la rangée se décalent. Réservé seulement là où les cartes
+             sont côte à côte. -->
+        <h3 class="text-2xl font-serif font-bold leading-tight lg:min-h-[3.75rem] drop-shadow-sm">
+          {title}
+        </h3>
+        <p class="mt-1.5 mb-3 text-xs font-bold uppercase tracking-[0.12em] text-white/90">
+          {subtitle}
+        </p>
+        <p class="text-white/90 leading-relaxed">
+          {description}
+        </p>
+        <p class="mt-3 text-sm text-white/75 italic">{note}</p>
+        <div class="mt-4 pt-4 border-t border-white/25 flex items-center justify-between">
+          <!-- L'action est nommée : c'est elle qui dit que la carte se
+               clique, pas une flèche décorative dans un rond gris. -->
+          <span class={`text-sm font-semibold ${accent} underline-offset-4 decoration-1 group-hover:underline`}>
+            Découvrir ce format
+          </span>
+          <Icon name="arrow-right" size={16} class={`shrink-0 ${accent} transition-transform duration-300 ease-out group-hover:translate-x-1`} />
+        </div>
       </div>
     </div>
   </div>

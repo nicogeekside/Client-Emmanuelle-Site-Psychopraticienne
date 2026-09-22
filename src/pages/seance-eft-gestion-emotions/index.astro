@@ -6,12 +6,9 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Button from '../../components/Button.astro';
 import FaqSection from '../../components/FaqSection.astro';
-import { reviews } from '../../data/config';
+import Reviews from '../../components/Reviews.astro';
 
-import Icon from '../../components/Icon.astro';
-// Premier avis Google réel portant sur l'EFT — aucun témoignage n'est rédigé pour le site.
-const avisEft = reviews.find((a) => a.tag === 'EFT');
----
+import Icon from '../../components/Icon.astro';---
 
 <MainLayout 
   title="Séances EFT à Saint-Nazaire | Emmanuelle Demeulemeester, Psychopraticienne"
@@ -21,29 +18,35 @@ const avisEft = reviews.find((a) => a.tag === 'EFT');
   
   <main>
     <!-- Hero -->
-    <section class="bg-secondary text-primary py-16 lg:py-24 relative overflow-hidden min-h-[60vh] flex flex-col justify-center">
-        <div class="absolute top-0 right-0 w-64 h-64 bg-white/20 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
-      <div class="container mx-auto px-6 lg:px-4 z-10 relative pt-24 lg:pt-12">
-        <nav class="text-sm text-text-main/40 mb-6 flex items-center gap-2" aria-label="Fil d'Ariane">
-          <a href="/" class="hover:text-accent-dark transition-colors">Accueil</a>
+    <section class="bg-primary text-secondary py-16 lg:py-24 min-h-[60vh] flex flex-col justify-center">
+      <div class="container mx-auto px-6 lg:px-4 pt-24 lg:pt-12">
+        <nav class="text-sm text-white mb-6 flex items-center gap-2" aria-label="Fil d'Ariane">
+          <a href="/" class="hover:text-white transition-colors">Accueil</a>
           <span>/</span>
-          <a href="/#services" class="hover:text-accent-dark transition-colors">Approches thérapeutiques</a>
+          <a href="/#services" class="hover:text-white transition-colors">Approches thérapeutiques</a>
           <span>/</span>
-          <span class="text-primary">EFT</span>
+          <span class="text-white">EFT</span>
         </nav>
         <div class="max-w-3xl">
-          <div class="inline-flex items-center gap-2 mb-6 pb-2.5 border-b border-primary-dark/30">
+          <div class="inline-flex items-center gap-2 mb-6 pb-2.5 border-b border-white/30">
             <Icon name="hand" size={16} />
-            <span class="text-sm font-bold uppercase tracking-[0.12em] text-primary-dark">Outil thérapeutique · Technique Tapping</span>
+            <span class="text-sm font-bold uppercase tracking-[0.12em] text-white">Outil thérapeutique · Technique Tapping</span>
           </div>
-          <h1 class="text-3xl md:text-5xl lg:text-6xl font-serif font-bold mb-6" data-aos="fade-up">Praticienne EFT à Saint-Nazaire</h1>
-          <p class="text-lg md:text-xl max-w-2xl text-text-main/80 leading-relaxed mb-6" data-aos="fade-up" data-aos-delay="100">
-            Libérez vos émotions et retrouvez votre calme intérieur grâce à l'EFT (Techniques de libération Emotionnelle).
-          </p>
-          <div class="bg-primary/10 border border-primary/10 rounded-xl p-4 max-w-2xl" data-aos="fade-up" data-aos-delay="200">
-            <p class="text-sm text-text-main/80 leading-relaxed">
-              <strong class="text-primary">Comment ça fonctionne chez Emmanuelle :</strong> L'EFT est l'un des outils que j'utilise selon votre profil. Lors de notre premier échange, on détermine ensemble si c'est l'approche la plus adaptée — vous n'avez pas à choisir avant de venir.
-            </p>
+          <div class="flex flex-col md:flex-row gap-8 items-start mb-6">
+            <div class="flex-1">
+              <h1 class="text-3xl md:text-5xl lg:text-6xl font-serif font-bold mb-6" data-aos="fade-up">Praticienne EFT à Saint-Nazaire</h1>
+              <p class="text-lg md:text-xl max-w-2xl opacity-90 leading-relaxed mb-6" data-aos="fade-up" data-aos-delay="100">
+                Libérez vos émotions et retrouvez votre calme intérieur grâce à l'EFT (Techniques de libération Émotionnelle).
+              </p>
+              <div class="bg-white/10 border border-white/20 rounded-xl p-4 max-w-2xl" data-aos="fade-up" data-aos-delay="200">
+                <p class="text-sm text-secondary/90 leading-relaxed">
+                  <strong class="text-white">Comment ça fonctionne chez Emmanuelle :</strong> L'EFT est l'un des outils que j'utilise selon votre profil. Lors de notre premier échange, on détermine ensemble si c'est l'approche la plus adaptée — vous n'avez pas à choisir avant de venir.
+                </p>
+              </div>
+            </div>
+            <div class="w-40 h-40 rounded-2xl overflow-hidden shadow-xl flex-shrink-0 border-2 border-white/20" data-aos="fade-left">
+              <Image src={illustrationEft} alt="Séance EFT : technique de tapping" class="w-full h-full object-cover" width={200} />
+            </div>
           </div>
         </div>
       </div>
@@ -115,35 +118,27 @@ const avisEft = reviews.find((a) => a.tag === 'EFT');
     </section>
 
 
-    <!-- Avis Google réel, tagué EFT -->
-    {avisEft && (
+    <!-- Comment se deroule + FAQ, fusionnes sous un seul titre : meme
+         structure que la page EMDR. Le temoignage isole qui vivait ici
+         (avisEft) faisait doublon avec le carrousel d'avis EFT juste plus
+         bas — retire. -->
     <section class="py-16 bg-white">
-        <div class="container mx-auto px-4 max-w-3xl">
-            <figure class="bg-secondary/30 p-8 rounded-2xl">
-                <div class="flex gap-1 text-accent-dark mb-4" role="img" aria-label={`${Number(avisEft.stars) || 5} étoiles sur 5`}>
-                    {[...Array(Number(avisEft.stars) || 5)].map(() => (
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                        </svg>
-                    ))}
-                </div>
-                <blockquote class="text-lg text-text-main italic mb-5 leading-relaxed">
-                    « {avisEft.text} »
-                </blockquote>
-                <figcaption class="text-sm">
-                    <span class="font-bold text-primary">{avisEft.name}</span>
-                    <span class="text-text-main/60"> — avis Google</span>
-                </figcaption>
-            </figure>
+      <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+        <div>
+          <h2 class="text-3xl font-serif font-bold text-primary mb-6">Comment se déroule une séance EFT ?</h2>
+          <p class="text-lg text-text-main/80 mb-4">
+            Une séance dure généralement 1h. Nous commençons par identifier ensemble l'émotion ou la situation à travailler, puis nous appliquons le protocole de tapping sur les points méridiens jusqu'à ce que son intensité redescende.
+          </p>
+          <div class="bg-secondary/30 p-6 rounded-lg border-l border-accent mt-6">
+            <p class="font-bold text-primary mb-2">Praticienne Certifiée IFPEC</p>
+            <p class="text-sm text-text-main/75">Certification : Psycho-Praticienne en Techniques Énergétiques et Psycho-Corporelles, option EFT Clinique — 360h de formation<br/><span class="text-sm text-text-main/75">Délivrée par l'Institut Francophone de Psychologie Énergétique Clinique — Octobre 2025</span></p>
+            <p class="text-sm text-text-main/70">Cette certification garantit une pratique du tapping rigoureuse et encadrée par la charte déontologique IFPEC.</p>
+          </div>
         </div>
-    </section>
-    )}
 
-    <!-- FAQ EFT -->
-    <section class="py-16 bg-secondary/30">
-      <div class="container mx-auto px-4 max-w-3xl">
-        <h2 class="text-3xl font-serif font-bold text-primary mb-8 text-center">Questions fréquentes sur l'EFT</h2>
-        <FaqSection items={[
+        <div class="bg-secondary/10 p-8 rounded-xl">
+          <h3 class="text-2xl font-serif font-bold text-primary mb-6">Questions Fréquentes (FAQ)</h3>
+          <FaqSection items={[
             {
               question: "Quelle est la différence entre l'EFT et une psychothérapie classique ?",
               answer: "L'EFT est une thérapie <strong>psycho-corporelle</strong>. On ne fait pas que 'parler' du problème, on agit physiquement sur le corps (via les points méridiens) pour désactiver la réponse de stress. C'est souvent plus rapide pour apaiser l'intensité émotionnelle."
@@ -157,8 +152,13 @@ const avisEft = reviews.find((a) => a.tag === 'EFT');
               answer: "Absolument. Les enfants sont très réceptifs car ils n'ont pas de barrières mentales. C'est très ludique ('la technique du super-héros') et efficace pour les peurs nocturnes, l'anxiété scolaire ou la colère."
             }
           ]} />
+        </div>
       </div>
     </section>
+
+    <div class="container mx-auto px-4 py-16">
+      <Reviews tags={["EFT"]} titre="Ce qu'on en dit de l'EFT" />
+    </div>
 
     <!-- CTA -->
     <section class="py-16 bg-white text-center border-t border-secondary">

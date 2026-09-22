@@ -7,9 +7,21 @@ import logoEmma from '../assets/images/logo-emma-couleurs.png';
 import Icon from './Icon.astro';---
 
 <header class="fixed w-full top-0 z-50 transition-all duration-300" id="main-header">
+  <!-- Bandeau : la seance decouverte, sur toutes les pages, au-dessus du
+       menu. Fait partie du header (donc de son fixed top-0) pour rester une
+       seule source de verite sur la hauteur a degager en haut de chaque
+       page — pas 17 pt- a resynchroniser. -->
+  <a
+    href="/seance-decouverte-therapie-psychocorporelle-saint-nazaire/"
+    class="relative z-10 flex items-center justify-center gap-2 bg-accent-dark text-white text-sm font-semibold py-2 px-4 text-center hover:bg-primary-dark transition-colors"
+  >
+    <Icon name="sparkles" size={16} />
+    Séance découverte offerte — 45 min, sans engagement
+  </a>
+
   <!-- Background -->
   <div class="absolute inset-0 bg-secondary/90 backdrop-blur-sm shadow-sm z-0 pointer-events-none border-b border-primary/10"></div>
-  
+
   <div class="container mx-auto px-4 py-3 flex justify-between items-center relative z-10">
     <!-- Logo -->
     <a href="/" class="flex items-center gap-3 leading-tight group" aria-label="Accueil - Emmanuelle Demeulemeester, Psychopraticienne">
