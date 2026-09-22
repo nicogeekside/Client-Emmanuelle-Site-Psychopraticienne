@@ -62,7 +62,14 @@ export default function optimiserImagesUploadees() {
           const original = fs.readFileSync(chemin);
           poidsAvant += original.length;
 
-          const base = () => sharp(original).resize({ width: LARGEUR_MAX, withoutEnlargement: true });
+          // .rotate() sans argument applique la rotation dictée par le tag
+          // EXIF orientation puis l'efface — indispensable pour les photos de
+          // téléphone (une photo verticale y est souvent stockée en pixels
+          // paysage avec l'instruction de pivoter à l'affichage). Sans lui,
+          // sharp ignore le tag, l'écrit rarement dans le buffer de sortie,
+          // et l'image ressort couchée sur le côté. Trouvé à la relecture,
+          // sur un fichier absent de l'échantillon vérifié dans ce commit.
+          const base = () => sharp(original).rotate().resize({ width: LARGEUR_MAX, withoutEnlargement: true });
 
           const webp = await base().webp({ quality: QUALITE_WEBP }).toBuffer();
           fs.writeFileSync(chemin.replace(/\.(png|jpe?g)$/i, '.webp'), webp);
