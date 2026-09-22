@@ -1,6 +1,6 @@
 # État des travaux — à lire en premier
 
-> **Dernière mise à jour : 22 septembre 2026 — lots 1 à 6 fusionnés sur `dev`. Prochaine étape : lot 7, bloqué en partie tant qu'Emmanuelle n'a pas répondu.**
+> **Dernière mise à jour : 22 septembre 2026 — lots 1 à 6 et la 1re partie du lot 7 fusionnés sur `dev`. Prochaine étape : relecture, puis lot 7b (blog) ou relance d'Emmanuelle.**
 > Ce fichier est le point d'entrée pour reprendre le travail. Le détail des
 > constats est dans [BACKLOG-QUALITE.md](BACKLOG-QUALITE.md).
 
@@ -32,7 +32,8 @@ cesse de ressembler à « un site fait à la va-vite par une IA ».
 | 4 | Remplacer les emoji par des icônes | ✅ fusionné sur `dev` | `fix/lot-4-icones` |
 | 5 | Harmoniser les couleurs | ✅ fusionné sur `dev` | `fix/lot-5-couleurs` + `fix/lot-5b-cartes-et-pastilles` |
 | **6** | **Alléger les pages** | **✅ fusionné sur `dev`** | `fix/lot-6-images` |
-| 7 | Parcours de conversion | ⬜ **attend l'accord d'Emmanuelle** | — |
+| **7** | **Parcours de conversion (1re partie)** | **✅ fusionné sur `dev`** | `fix/lot-7-conversion` |
+| 7b | Navigation du blog | ⬜ à faire | — |
 
 ## Lot 4 — état précis
 
