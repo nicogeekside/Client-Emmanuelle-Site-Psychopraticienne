@@ -1,21 +1,38 @@
 ---
-import { reviews } from '../data/config';
+import { reviews as tousLesAvis } from '../data/config';
+
+interface Props {
+  // Filtre par tag (EMDR, EFT...) — pour poser cette section sur la page
+  // d'une approche precise et n'y montrer que les avis qui la concernent.
+  tags?: string[];
+  titre?: string;
+}
+
+const { tags, titre = "Ce qu'on en dit" } = Astro.props;
+const reviews = tags ? tousLesAvis.filter((avis) => tags.includes(avis.tag)) : tousLesAvis;
+
+// En dessous de 2 avis, un defilement n'a rien a boucler : meme traitement
+// que prefers-reduced-motion (statique, sans bouton pause), deja cable en CSS.
+const statique = reviews.length < 2;
 
 // Les avis sont dupliqués pour que la boucle soit continue : la seconde série
 // est masquée aux lecteurs d'écran pour ne pas annoncer deux fois les mêmes avis.
-const defilement = [
-  ...reviews.map((avis) => ({ avis, copie: false })),
-  ...reviews.map((avis) => ({ avis, copie: true })),
-];
+const defilement = statique
+  ? reviews.map((avis) => ({ avis, copie: false }))
+  : [
+      ...reviews.map((avis) => ({ avis, copie: false })),
+      ...reviews.map((avis) => ({ avis, copie: true })),
+    ];
 ---
 
+{reviews.length > 0 && (
 <section class="py-12 bg-secondary/30 rounded-2xl" aria-labelledby="titre-avis">
   <div class="container mx-auto px-4">
     <h2 id="titre-avis" class="text-3xl font-serif font-bold text-center text-primary mb-12" data-aos="fade-up">
-      Ce qu'on en dit
+      {titre}
     </h2>
 
-    <div class="marquee relative overflow-hidden mask-gradient" data-marquee>
+    <div class:list={["marquee relative overflow-hidden mask-gradient", { immobile: statique }]} data-marquee>
       <ul class="flex gap-8 w-max animate-scroll list-none m-0 p-0" data-piste>
         {defilement.map(({ avis, copie }) => (
           <li
@@ -41,6 +58,7 @@ const defilement = [
       </ul>
     </div>
 
+    {!statique && (
     <div class="flex justify-center mt-6" data-commande-pause>
       <button
         type="button"
@@ -57,8 +75,10 @@ const defilement = [
         <span data-libelle>Mettre en pause</span>
       </button>
     </div>
+    )}
   </div>
 </section>
+)}
 
 <script>
   const bloc = document.querySelector('[data-marquee]');

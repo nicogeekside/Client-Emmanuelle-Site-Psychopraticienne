@@ -1,12 +1,12 @@
 ---
 import { Image } from 'astro:assets';
-import emdrHeroImg from '../../assets/images/emdr.webp';
 import seanceEmdrImg from '../../assets/images/seance-emdr.webp';
 import MainLayout from '../../layouts/MainLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Button from '../../components/Button.astro';
 import FaqSection from '../../components/FaqSection.astro';
+import Reviews from '../../components/Reviews.astro';
 
 import Icon from '../../components/Icon.astro';---
 
@@ -45,7 +45,7 @@ import Icon from '../../components/Icon.astro';---
               </div>
             </div>
             <div class="w-40 h-40 rounded-2xl overflow-hidden shadow-xl flex-shrink-0 border-2 border-white/20" data-aos="fade-left">
-              <Image src={emdrHeroImg} alt="EMDR" class="w-full h-full object-cover" width={200} />
+              <Image src={seanceEmdrImg} alt="Séance EMDR : exercice de mouvement oculaire" class="w-full h-full object-cover" width={200} />
             </div>
           </div>
         </div>
@@ -152,6 +152,10 @@ import Icon from '../../components/Icon.astro';---
         </div>
       </div>
     </section>
+
+    <div class="container mx-auto px-4 py-16">
+      <Reviews tags={["EMDR"]} titre="Ce qu'on en dit de l'EMDR" />
+    </div>
 
     <!-- CTA -->
     <section class="py-16 bg-primary text-center">
