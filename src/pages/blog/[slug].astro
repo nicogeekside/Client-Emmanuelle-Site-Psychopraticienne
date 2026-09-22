@@ -2,6 +2,7 @@
 import MainLayout from '../../layouts/MainLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import UploadImage from '../../components/UploadImage.astro';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -45,7 +46,7 @@ const { Content } = await entry.render();
       <!-- Image de couverture (optionnelle) -->
       {entry.data.image && (
         <div class="mb-12 rounded-2xl overflow-hidden shadow-lg">
-          <img src={entry.data.image} alt={entry.data.title} class="w-full h-auto rounded-xl shadow-md" />
+          <UploadImage src={entry.data.image} alt={entry.data.title} class="w-full h-auto rounded-xl shadow-md" loading="eager" />
         </div>
       )}
 
