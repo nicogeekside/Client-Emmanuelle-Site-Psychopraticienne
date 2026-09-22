@@ -4,6 +4,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Button from '../../components/Button.astro';
 import FaqSection from '../../components/FaqSection.astro';
+import PreuveLegitimite from '../../components/PreuveLegitimite.astro';
 import { siteInfo } from '../../data/config';
 import { Image } from 'astro:assets';
 import imgDouceur from '../../assets/images/img-douceur.jpg';
@@ -47,9 +48,12 @@ import Icon from '../../components/Icon.astro';---
           <p class="text-xl text-secondary/90 leading-relaxed mb-8 max-w-2xl">
             Un espace bienveillant pour traverser ensemble les bouleversements de la parentalité. Ouvert aux mamans et aux papas.
           </p>
-          <Button href="/prendre-rendez-vous-saint-nazaire/" variant="white" class="text-lg px-8 py-4 shadow-xl font-bold">
+          <Button href="/prendre-rendez-vous-saint-nazaire/#message" variant="white" class="text-lg px-8 py-4 shadow-xl font-bold">
             Je veux rejoindre le groupe
           </Button>
+          <a href="/seance-decouverte-therapie-psychocorporelle-saint-nazaire/" class="flex items-center gap-1.5 mt-4 text-sm font-semibold text-white/90 hover:text-white transition-colors">
+            Vous préférez un premier échange individuel ? Séance découverte offerte
+          </a>
         </div>
       </div>
     </section>
@@ -96,7 +100,14 @@ import Icon from '../../components/Icon.astro';---
                 <Icon name="calendar-days" size={24} />
                 <div>
                   <p class="font-bold text-primary-dark text-sm">Fréquence</p>
-                  <p class="text-text-main/75 text-sm">Rassemblement mensuel — dates à confirmer</p>
+                  <p class="text-text-main/75 text-sm">Une fois par mois, 2 heures — dates à confirmer</p>
+                </div>
+              </div>
+              <div class="flex gap-3 items-center p-4 bg-accent-dark/10 rounded-xl border border-accent-dark/30">
+                <Icon name="sparkles" size={24} class="text-accent-dark" />
+                <div>
+                  <p class="font-bold text-accent-dark text-sm">Gratuit</p>
+                  <p class="text-text-main/75 text-sm">Participation entièrement gratuite</p>
                 </div>
               </div>
               <div class="flex gap-3 items-center p-4 bg-background rounded-xl border border-secondary">
@@ -110,14 +121,7 @@ import Icon from '../../components/Icon.astro';---
                 <Icon name="map-pin" size={24} />
                 <div>
                   <p class="font-bold text-primary-dark text-sm">Lieu</p>
-                  <p class="text-text-main/75 text-sm">En extérieur ou à mon domicile (Saint-Nazaire)</p>
-                </div>
-              </div>
-              <div class="flex gap-3 items-center p-4 bg-background rounded-xl border border-secondary">
-                <Icon name="hourglass" size={24} />
-                <div>
-                  <p class="font-bold text-primary-dark text-sm">Durée & Fréquence</p>
-                  <p class="text-text-main/75 text-sm">Une fois par mois pendant 2 heures</p>
+                  <p class="text-text-main/75 text-sm">En extérieur ou dans un lieu convivial à Saint-Nazaire, précisé à l'inscription</p>
                 </div>
               </div>
               <div class="flex gap-3 items-center p-4 bg-background rounded-xl border border-secondary">
@@ -125,13 +129,6 @@ import Icon from '../../components/Icon.astro';---
                 <div>
                   <p class="font-bold text-primary-dark text-sm">Groupe limité</p>
                   <p class="text-text-main/75 text-sm">6 participants maximum par date</p>
-                </div>
-              </div>
-              <div class="flex gap-3 items-center p-4 bg-background rounded-xl border border-secondary">
-                <Icon name="sparkles" size={24} />
-                <div>
-                  <p class="font-bold text-primary-dark text-sm">Gratuit</p>
-                  <p class="text-text-main/75 text-sm">Participation entièrement gratuite</p>
                 </div>
               </div>
             </div>
@@ -203,6 +200,8 @@ import Icon from '../../components/Icon.astro';---
       </div>
     </section>
 
+    <PreuveLegitimite />
+
     <!-- CTA -->
     <section class="py-20 bg-primary text-secondary text-center relative overflow-hidden">
       <div class="absolute inset-0 pointer-events-none">
@@ -216,7 +215,7 @@ import Icon from '../../components/Icon.astro';---
           Laissez-moi vos coordonnées — je vous enverrai les informations sur les prochaines dates dès qu'elles seront confirmées.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button href="/prendre-rendez-vous-saint-nazaire/" variant="white" class="text-lg px-10 py-4 shadow-xl font-bold">
+          <Button href="/prendre-rendez-vous-saint-nazaire/#message" variant="white" class="text-lg px-10 py-4 shadow-xl font-bold">
             Je veux être informé(e)
           </Button>
           <a href={`tel:${siteInfo.phone.replace(/\s/g, '')}`} class="inline-flex items-center justify-center gap-2 text-lg px-8 py-4 border-2 border-white/30 rounded-xl text-white hover:bg-white/10 transition-all">
@@ -224,7 +223,7 @@ import Icon from '../../components/Icon.astro';---
             Appeler
           </a>
         </div>
-        <p class="mt-5 text-sm text-white">Vous avez aussi la possibilité d'un suivi individuel en cabinet ou en visio si vous le souhaitez.</p>
+        <p class="mt-5 text-sm text-white">Vous avez aussi la possibilité d'un <a href="/seance-decouverte-therapie-psychocorporelle-saint-nazaire/" class="underline underline-offset-2 hover:text-white/80">suivi individuel, avec une séance découverte offerte</a>.</p>
       </div>
     </section>
   </main>

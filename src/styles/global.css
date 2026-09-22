@@ -50,13 +50,3 @@
     transition: none !important;
   }
 }
-
-/* Invitation a descendre vers le calendrier : trois rebonds, puis immobile.
-   animate-bounce boucle sans fin ; le critere WCAG 2.2.2 vise le mouvement
-   qui dure au-dela de cinq secondes sans moyen de l'arreter. Le bloc
-   prefers-reduced-motion plus haut la neutralise completement. */
-@keyframes rebond-limite {
-  0%, 100% { transform: translateY(-25%); animation-timing-function: cubic-bezier(0.8, 0, 1, 1); }
-  50%      { transform: none;             animation-timing-function: cubic-bezier(0, 0, 0.2, 1); }
-}
-.rebond-limite { animation: rebond-limite 1s infinite; animation-iteration-count: 3; }

@@ -94,11 +94,15 @@ export const formats = [
     }
 ];
 
+// href optionnel : seul un motif qui a une vraie page de destination en
+// porte un (E9 du backlog — 15 puces avaient toutes les affordances d'un
+// lien, hover compris, et ne menaient nulle part).
 export const epreuves = [
-    "Traumatismes", "Deuil", "Anxiété", "Périnatalité",
-    "Phobies", "Stress", "Confiance en soi", "Douleurs chroniques",
-    "Post-Partum", "Burn-out", "Trouble du sommeil", "Séparation",
-    "Schémas répétitifs", "Gestion des émotions", "Blocages émotionnels"
+    { label: "Traumatismes" }, { label: "Deuil" }, { label: "Anxiété" }, { label: "Périnatalité" },
+    { label: "Phobies" }, { label: "Stress" }, { label: "Confiance en soi" }, { label: "Douleurs chroniques" },
+    { label: "Post-Partum", href: "/espace-soutien-post-partum/" },
+    { label: "Burn-out" }, { label: "Trouble du sommeil" }, { label: "Séparation" },
+    { label: "Schémas répétitifs" }, { label: "Gestion des émotions" }, { label: "Blocages émotionnels" }
 ];
 
 export const reviews = [

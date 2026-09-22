@@ -3,6 +3,7 @@ import MainLayout from '../../layouts/MainLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { siteInfo } from '../../data/config';
+import Button from '../../components/Button.astro';
 ---
 
 <MainLayout 
@@ -20,7 +21,27 @@ import { siteInfo } from '../../data/config';
                 En tant que praticienne certifiée, je m'engage à respecter scrupuleusement la charte éthique de l'IFPEC, garantissant ainsi un accompagnement professionnel, bienveillant et respectueux de votre intégrité.
             </p>
         </div>
-        
+
+        <!-- E13 : la page decrivait la preuve sans jamais l'apporter — ni la
+             certification d'Emmanuelle, ni sa date, ni son adhesion a
+             l'annuaire, alors que la charte elle-meme (regle a, plus bas)
+             dit que seuls les membres l'ayant approuvee y figurent. Et
+             l'engagement le plus rassurant pour un parcours de soin lourd
+             (regle d) etait noye dans une liste a puces. -->
+        <div class="grid sm:grid-cols-2 gap-4 mb-10">
+            <div class="p-5 bg-primary/10 rounded-xl border border-primary/20">
+                <p class="text-sm font-bold text-primary-dark mb-1">Mon adhésion</p>
+                <p class="text-sm text-text-main/75">Certifiée IFPEC — EFT Clinique, octobre 2025. Membre effective ayant approuvé cette charte.</p>
+            </div>
+            <div class="p-5 bg-accent-dark/10 rounded-xl border border-accent-dark/30">
+                <p class="text-sm font-bold text-accent-dark mb-1">Un engagement clé</p>
+                <p class="text-sm text-text-main/75">Je ne vous suggérerai jamais d'interrompre un traitement prescrit par un médecin.</p>
+            </div>
+        </div>
+        <p class="text-center mb-10">
+            <a href="/a-propos-emmanuelle/" class="text-sm font-semibold text-accent-dark hover:text-primary-dark transition-colors">Découvrir mon parcours et mes certifications →</a>
+        </p>
+
         <div class="bg-white p-8 md:p-14 rounded-2xl shadow-sm border border-secondary/50 text-text-main/80 leading-relaxed space-y-10">
             
             <div class="prose max-w-none prose-h2:text-2xl prose-h2:font-serif prose-h2:text-primary prose-h3:text-xl prose-h3:font-bold prose-h3:text-primary prose-p:mb-4 prose-li:mb-2">
@@ -61,7 +82,16 @@ import { siteInfo } from '../../data/config';
                     Pour consulter le document complet, <a href="https://www.ifpec.org" target="_blank" rel="noopener noreferrer" class="text-accent-dark hover:underline">visitez le site de l'IFPEC</a>.
                 </p>
             </div>
-            
+
+        </div>
+
+        <p class="mt-4 text-sm text-text-main/50 text-center">Dernière mise à jour de cette page : 22 septembre 2026.</p>
+
+        <div class="text-center mt-14">
+            <p class="text-lg text-text-main/80 mb-5">Cette charte est un engagement, pas juste une page légale.</p>
+            <Button href="/seance-decouverte-therapie-psychocorporelle-saint-nazaire/" variant="accent" class="text-lg px-8 py-4 shadow-lg">
+                Séance découverte — 45 min offertes
+            </Button>
         </div>
     </div>
   </main>

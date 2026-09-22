@@ -7,7 +7,8 @@ import lieuPhoto1 from '../../assets/images/photo-20260601.jpg';
 import lieuPhoto2 from '../../assets/images/photo-20260404.jpg';
 import portraitEmma from '../../assets/images/portrait-emma-interieur.jpg';
 
-import Icon from '../../components/Icon.astro';---
+import Icon from '../../components/Icon.astro';
+import Button from '../../components/Button.astro';---
 
 <MainLayout 
   title="À propos d'Emmanuelle Demeulemeester | Psychopraticienne Saint-Nazaire"
@@ -77,6 +78,7 @@ import Icon from '../../components/Icon.astro';---
                         <p class="text-xs font-bold uppercase tracking-wider text-accent-dark mb-1">IFPEC — Octobre 2025</p>
                         <p class="font-bold text-primary-dark text-sm">Psycho-Praticienne en Techniques Énergétiques et Psycho-Corporelles</p>
                         <p class="text-sm text-text-main/75 mt-1">Option EFT Clinique · 360h de formation · Institut Francophone de Psychologie Énergétique Clinique</p>
+                        <a href="/charte-deontologique/" class="text-sm font-semibold text-accent-dark hover:text-primary-dark transition-colors mt-2 inline-block">Voir ma charte déontologique →</a>
                     </div>
                 </div>
                 <div class="flex gap-4 p-5 rounded-xl border border-primary/10 bg-primary/10 hover:shadow-md transition-all">
@@ -93,22 +95,36 @@ import Icon from '../../components/Icon.astro';---
 
             <hr class="border-secondary my-8"/>
             
-            <h2 class="text-2xl font-serif font-bold text-accent-display mb-6">Mes Valeurs</h2>
+            <h2 class="text-2xl font-serif font-bold text-accent-display mb-6">Ce qui fonde mon accompagnement</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
                 <div class="p-4">
-                    <Icon name="ear" size={34} class="mx-auto mb-4" />
-                    <h3 class="font-bold text-primary mb-2">Écoute Active</h3>
-                    <p class="text-sm text-text-main/70">Un espace où votre parole est libre et entendue.</p>
+                    <Icon name="briefcase-medical" size={34} class="mx-auto mb-4 text-primary-dark" />
+                    <h3 class="font-bold text-primary mb-2">25 ans dans le soin</h3>
+                    <p class="text-sm text-text-main/70">Une carrière entière dans le domaine médical, avant cette reconversion.</p>
                 </div>
                  <div class="p-4">
-                    <Icon name="handshake" size={34} class="mx-auto mb-4" />
-                    <h3 class="font-bold text-primary mb-2">Non-Jugement</h3>
-                    <p class="text-sm text-text-main/70">Accueil inconditionnel de ce que vous êtes.</p>
+                    <Icon name="heart-handshake" size={34} class="mx-auto mb-4 text-primary-dark" />
+                    <h3 class="font-bold text-primary mb-2">Un vécu personnel</h3>
+                    <p class="text-sm text-text-main/70">Un post-partum difficile et une maladie éprouvante, traversés puis dépassés.</p>
                 </div>
                  <div class="p-4">
-                    <Icon name="sprout" size={34} class="mx-auto mb-4" />
-                    <h3 class="font-bold text-primary mb-2">Autonomie</h3>
-                    <p class="text-sm text-text-main/70">Vous donner les outils pour avancer seul(e).</p>
+                    <Icon name="badge-check" size={34} class="mx-auto mb-4 text-primary-dark" />
+                    <h3 class="font-bold text-primary mb-2">Deux certifications</h3>
+                    <p class="text-sm text-text-main/70">IFPEC et AHTMA, obtenues en octobre 2025, listées ci-dessus.</p>
+                </div>
+            </div>
+
+            <!-- E5 : la page ou se decide la confiance se terminait sur deux
+                 photos et le pied de page, sans aucune invitation a agir. -->
+            <div class="mt-12 pt-10 border-t border-secondary text-center">
+                <p class="text-lg text-text-main/80 mb-5">Envie d'échanger avant de vous engager ?</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <Button href="/seance-decouverte-therapie-psychocorporelle-saint-nazaire/" variant="accent" class="text-lg px-8 py-4 shadow-lg">
+                        Séance découverte — 45 min offertes
+                    </Button>
+                    <Button href="/prendre-rendez-vous-saint-nazaire/" variant="outline" class="text-lg px-8 py-4">
+                        Prendre rendez-vous
+                    </Button>
                 </div>
             </div>
         </div>

@@ -19,17 +19,57 @@ import Icon from '../../components/Icon.astro';---
     <section class="py-20 bg-secondary/30">
       <div class="container mx-auto px-4">
         <h1 class="text-4xl font-serif font-bold text-primary mb-6 text-center" data-aos="fade-up">Prendre Rendez-vous</h1>
-        
-        <!-- Indicateur pour le calendrier -->
-        <div class="flex flex-col items-center justify-center mb-12 rebond-limite cursor-pointer group" onclick="document.getElementById('rdv-en-ligne').scrollIntoView({behavior: 'smooth'})" data-aos="fade-up" data-aos-delay="100">
-            <span class="text-sm font-bold text-accent-dark mb-2 group-hover:text-primary transition-colors">Voir le calendrier en ligne ci-dessous</span>
-            <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent/10 transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-accent-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-              </svg>
+        <p class="text-center text-text-main/70 mb-10 max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+          Réservez directement un créneau ci-dessous — c'est le moyen le plus rapide. Vous préférez m'écrire d'abord ? Le formulaire est juste après.
+        </p>
+
+        <!-- CALENDLY — canal prioritaire (E3) : c'était la derniere section
+             de la page, la moins visible ; c'est desormais la premiere chose
+             que le visiteur rencontre. -->
+        <div class="max-w-4xl mx-auto mb-16" id="rdv-en-ligne">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden min-h-[600px] flex items-center justify-center relative border border-secondary" data-aos="zoom-in">
+
+                <!-- Calendly inline widget begin -->
+                <!-- Etat de repli (E2). Premiere version : place a l'INTERIEUR
+                     du div que Calendly cible, en supposant qu'il vide ce
+                     div avant d'y injecter son iframe. Faux — verifie en
+                     conditions reelles : Calendly AJOUTE son iframe APRES
+                     le contenu existant sans le retirer. Le repli, en
+                     h-full, poussait alors le vrai calendrier sous le pli,
+                     invisible en permanence, widget charge ou non.
+                     Le widget reste donc vide, exactement comme l'attend
+                     Calendly ; le repli est un frere positionne par-dessus,
+                     retire des qu'un iframe apparait dans le widget. -->
+                <div id="calendly-repli" class="absolute inset-0 z-10 flex flex-col items-center justify-center h-full text-center px-6 py-12 gap-3 bg-white">
+                    <p class="text-text-main/70">Chargement du calendrier…</p>
+                    <a href="https://calendly.com/emma-psychopraticienne" target="_blank" rel="noopener" class="font-semibold text-accent-dark underline underline-offset-2 hover:text-primary-dark transition-colors">
+                        Ouvrir le calendrier dans un nouvel onglet
+                    </a>
+                    <p class="text-sm text-text-main/60">Ou appelez-moi directement : <a href={`tel:${siteInfo.phone.replace(/\s/g, '')}`} class="font-semibold text-accent-dark hover:underline">{siteInfo.phone}</a></p>
+                </div>
+                <div class="calendly-inline-widget w-full h-full min-h-[700px]" data-url="https://calendly.com/emma-psychopraticienne?hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
+                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                <script type="text/javascript">
+                    (function () {
+                        var widget = document.querySelector('.calendly-inline-widget');
+                        var repli = document.getElementById('calendly-repli');
+                        if (!widget || !repli) return;
+                        var observateur = new MutationObserver(function () {
+                            if (widget.querySelector('iframe')) {
+                                repli.remove();
+                                observateur.disconnect();
+                            }
+                        });
+                        observateur.observe(widget, { childList: true });
+                    })();
+                </script>
+                <!-- Calendly inline widget end -->
+
             </div>
         </div>
-        
+
+        <h2 class="text-2xl font-serif font-bold text-primary mb-10 text-center" data-aos="fade-up">Vous préférez m'écrire ?</h2>
+
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto mb-16">
             
             <!-- Coordonnées & Infos Pratiques -->
@@ -89,7 +129,7 @@ import Icon from '../../components/Icon.astro';---
             </div>
             
             <!-- Formulaire de Contact SIMPLE -->
-            <div data-aos="fade-left">
+            <div data-aos="fade-left" id="message">
                 <div class="bg-white p-8 rounded-xl shadow-sm h-full">
                     <h2 class="text-2xl font-serif font-bold text-primary mb-6">M'envoyer un message</h2>
                     
@@ -137,22 +177,6 @@ import Icon from '../../components/Icon.astro';---
                 </div>
             </div>
         </div>
-        
-        <!-- CALENDLY Section -->
-        <div class="max-w-4xl mx-auto" id="rdv-en-ligne">
-            <h2 class="text-2xl font-serif font-bold text-primary mb-8 text-center" data-aos="fade-up">Réserver un créneau en ligne</h2>
-            
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden min-h-[600px] flex items-center justify-center relative border border-secondary" data-aos="zoom-in">
-                
-                <!-- Calendly inline widget begin -->
-                <div class="calendly-inline-widget w-full h-full min-h-[700px]" data-url="https://calendly.com/emma-psychopraticienne?hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
-                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-                <!-- Calendly inline widget end -->
-
-            </div>
-        </div>
-        
-
         
       </div>
     </section>
