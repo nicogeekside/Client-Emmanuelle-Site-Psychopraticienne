@@ -1,6 +1,6 @@
 # État des travaux — à lire en premier
 
-> **Dernière mise à jour : 22 septembre 2026 — lots 1 à 6 et la 1re partie du lot 7 fusionnés sur `dev`. Prochaine étape : relecture, puis lot 7b (blog) ou relance d'Emmanuelle.**
+> **Dernière mise à jour : 22 septembre 2026 — lots 1 à 6, 1re partie du lot 7, et lot 8 (retours de Nicolas) fusionnés sur `dev`. Prochaine étape : lot 7b (blog) ou relance d'Emmanuelle.**
 > Ce fichier est le point d'entrée pour reprendre le travail. Le détail des
 > constats est dans [BACKLOG-QUALITE.md](BACKLOG-QUALITE.md).
 
