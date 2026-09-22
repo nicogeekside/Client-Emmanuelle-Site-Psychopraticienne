@@ -2,6 +2,7 @@
 import MainLayout from '../../layouts/MainLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import UploadImage from '../../components/UploadImage.astro';
 import { getCollection } from 'astro:content';
 
 // Récupérer tous les articles du blog et les trier par date décroissante
@@ -35,9 +36,9 @@ const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
             <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-primary/10 flex flex-col group">
               {post.data.image && (
                 <a href={`/blog/${post.slug}`} class="block aspect-video overflow-hidden">
-                  <img 
-                    src={post.data.image} 
-                    alt={post.data.title} 
+                  <UploadImage
+                    src={post.data.image}
+                    alt={post.data.title}
                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </a>

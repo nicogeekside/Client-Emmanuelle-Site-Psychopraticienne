@@ -2,6 +2,8 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import fs from 'node:fs';
+import optimiserImagesUploadees from './scripts/optimiser-images-uploadees.mjs';
+import rehypeWebpUploads from './scripts/rehype-webp-uploads.mjs';
 
 // Le serveur de production force le domaine sans www (www -> 301 -> non-www).
 // Tout doit s'aligner dessus : sitemap, canonical, og:url, robots.txt.
@@ -30,8 +32,16 @@ const datesArticles = datesDesArticles();
 
 export default defineConfig({
   site: SITE,
+  markdown: {
+    // Bascule les images du corps des articles sur un jumeau WebP —
+    // voir scripts/rehype-webp-uploads.mjs.
+    rehypePlugins: [rehypeWebpUploads],
+  },
   integrations: [
     tailwind({ applyBaseStyles: false }),
+    // Compresse les uploads Decap à chaque build — voir le fichier pour
+    // le diagnostic complet et pourquoi rien ne touche à public/.
+    optimiserImagesUploadees(),
     sitemap({
       // /merci/ est une confirmation, /admin/ est le back-office : ni l'une ni
       // l'autre n'a vocation a etre indexee ou proposee dans Google.
