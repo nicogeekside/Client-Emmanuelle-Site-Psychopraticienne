@@ -18,7 +18,7 @@ import Icon from '../../components/Icon.astro';---
   
   <main>
     <!-- HERO -->
-    <section class="relative min-h-[60vh] lg:min-h-[65vh] flex flex-col justify-end overflow-hidden">
+    <section class="relative min-h-[60vh] lg:min-h-[65vh] flex flex-col justify-end bg-primary overflow-hidden">
       <div class="absolute inset-0 z-0">
         <Image 
           src={imgDouceur}
@@ -27,7 +27,7 @@ import Icon from '../../components/Icon.astro';---
           width={1400}
           loading="eager"
         />
-        <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-secondary/30"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/70 to-primary/30"></div>
       </div>
 
       <div class="container mx-auto px-6 lg:px-8 pb-16 pt-32 relative z-10 text-secondary">
@@ -37,9 +37,9 @@ import Icon from '../../components/Icon.astro';---
           <span class="text-white">Espace Post-Partum</span>
         </nav>
         <div class="max-w-3xl">
-          <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
-            <Icon name="baby" size={24} />
-            <span class="text-sm font-medium text-white">Rassemblement mensuel · Mamans & Papas bienvenus</span>
+          <div class="inline-flex items-center gap-2 mb-6 pb-2.5 border-b border-white/30">
+            <Icon name="baby" size={16} />
+            <span class="text-sm font-bold uppercase tracking-[0.12em] text-white">Rassemblement mensuel · Mamans & Papas bienvenus</span>
           </div>
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 leading-[1.1]">
             Espace de Parole<br/>Post-Partum
@@ -79,7 +79,7 @@ import Icon from '../../components/Icon.astro';---
             <h2 class="text-3xl font-serif font-bold text-primary mb-6">Un rassemblement mensuel de parole</h2>
             
             <!-- Description par Emmanuelle -->
-            <div class="prose prose-primary mb-8">
+            <div class="prose mb-8">
               <p class="text-text-main/80 leading-relaxed mb-4">
                 Un espace de parole et de soutien post-partum est un lieu d'échange bienveillant où les parents peuvent partager librement leur vécu après l'arrivée de leur bébé.
               </p>

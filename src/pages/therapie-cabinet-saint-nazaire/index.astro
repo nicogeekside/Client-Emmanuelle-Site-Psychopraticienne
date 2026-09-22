@@ -44,9 +44,9 @@ import Icon from '../../components/Icon.astro';---
           <span class="text-white">Thérapie en cabinet</span>
         </nav>
         <div class="max-w-3xl">
-          <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
-            <Icon name="armchair" size={24} />
-            <span class="text-sm font-medium text-white">Cabinet · Saint-Nazaire · Parking gratuit</span>
+          <div class="inline-flex items-center gap-2 mb-6 pb-2.5 border-b border-white/30">
+            <Icon name="armchair" size={16} />
+            <span class="text-sm font-bold uppercase tracking-[0.12em] text-white">Cabinet · Saint-Nazaire · Parking gratuit</span>
           </div>
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 leading-[1.1]">
             Thérapie en cabinet
@@ -153,9 +153,9 @@ import Icon from '../../components/Icon.astro';---
             { icon: "sprout", title: "Suivi thérapeutique", text: "Accompagnement sur plusieurs mois avec un plan adapté à votre évolution." },
             { icon: "baby", title: "Post-Partum & Périnatalité", text: "Soutien spécialisé pour les bouleversements de la parentalité." },
           ].map((item, i) => (
-            <div class="bg-rose-50/40 rounded-xl p-6 border border-rose-100 hover:border-rose-300 hover:shadow-md transition-all duration-300" data-aos="fade-up" data-aos-delay={i * 70}>
+            <div class="bg-accent-dark/10 rounded-xl p-6 border border-accent-dark/30 hover:border-accent-dark/50 hover:shadow-md transition-all duration-300" data-aos="fade-up" data-aos-delay={i * 70}>
               <Icon name={item.icon} size={28} class="mb-3 text-accent-dark" />
-              <h3 class="font-bold text-rose-900 mb-2">{item.title}</h3>
+              <h3 class="font-bold text-text-main mb-2">{item.title}</h3>
               <p class="text-sm text-text-main/80 leading-relaxed">{item.text}</p>
             </div>
           ))}

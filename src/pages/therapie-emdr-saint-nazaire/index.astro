@@ -1,6 +1,5 @@
 ---
 import { Image } from 'astro:assets';
-import illustrationEmdr from '../../assets/images/illustration-emdr.jpg';
 import emdrHeroImg from '../../assets/images/emdr.webp';
 import seanceEmdrImg from '../../assets/images/seance-emdr.webp';
 import MainLayout from '../../layouts/MainLayout.astro';
@@ -29,9 +28,9 @@ import Icon from '../../components/Icon.astro';---
           <span class="text-white">EMDR</span>
         </nav>
         <div class="max-w-3xl">
-          <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
-            <Icon name="brain" size={24} />
-            <span class="text-sm font-medium text-white">Outil thérapeutique · Certifiée AHTMA Niveau 2</span>
+          <div class="inline-flex items-center gap-2 mb-6 pb-2.5 border-b border-white/30">
+            <Icon name="brain" size={16} />
+            <span class="text-sm font-bold uppercase tracking-[0.12em] text-white">Outil thérapeutique · Certifiée AHTMA Niveau 2</span>
           </div>
           <div class="flex flex-col md:flex-row gap-8 items-start mb-6">
             <div class="flex-1">
@@ -127,7 +126,7 @@ import Icon from '../../components/Icon.astro';---
           <p class="text-lg text-text-main/80 mb-4">
             Une séance dure généralement entre 45min et 1h. Nous commençons toujours par une phase de préparation et de mise en confiance (installation de ressources positives) avant d'aborder les souvenirs difficiles.
           </p>
-          <div class="bg-gray-100 p-6 rounded-lg border-l-4 border-accent mt-6">
+          <div class="bg-secondary/30 p-6 rounded-lg border-l border-accent mt-6">
             <p class="font-bold text-primary mb-2">Praticienne Certifiée AHTMA</p>
             <p class="text-sm text-text-main/75">Certification : Praticienne en EMDR-DSA — Niveau 2<br/><span class="text-sm text-text-main/75">Délivrée par AHTMA Formation — Octobre 2025</span></p>
             <p class="text-sm text-text-main/70">La certification AHTMA (Niveau 2) garantit une pratique rigoureuse et sécurisée, respectueuse des protocoles officiels de l'EMDR-DSA.</p>
