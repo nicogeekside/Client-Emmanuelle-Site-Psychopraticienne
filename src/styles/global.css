@@ -50,3 +50,10 @@
     transition: none !important;
   }
 }
+
+/* Contour organique — d'abord pour le portrait sur la page À propos,
+   repris pour les photos de hero EMDR/EFT (page-specific auparavant,
+   centralisé ici pour ne pas dupliquer la règle une 3e fois). */
+.morph-blob {
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+}
