@@ -6,6 +6,14 @@
    VARIABLES CSS PERSONNALISÉES
    Correspondent exactement à tailwind.config.mjs
    ============================================ */
+/* Les éléments data-aos="fade-left/right" sont translatés hors-cadre avant leur
+   animation d'entrée : sans ce garde-fou, cette translation élargit la largeur
+   de scroll de la page entière (même au-dessus du pli) et autorise un scroll
+   horizontal accidentel sur mobile. */
+html, body {
+  overflow-x: hidden;
+}
+
 :root {
   --color-primary: #5C7A62;
   --color-primary-light: #829A86;
