@@ -244,32 +244,46 @@ const pageDescription = "Emmanuelle Demeulemeester, psychopraticienne à Saint-N
         <p class="text-text-main/60 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
           EMDR et EFT sont des outils reconnus et efficaces. Je les utilise selon ce qui est le plus adapté à votre profil, jamais par défaut.
         </p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-          <!-- EMDR -->
-          <a href="/therapie-emdr-saint-nazaire/" class="group bg-primary/10 rounded-2xl p-8 border border-primary/30 hover:border-primary/50 hover:shadow-xl transition-all duration-300 text-left hover:-translate-y-1" data-aos="fade-up">
-            <Icon name="brain" size={28} class="mb-4 text-primary-dark" />
-            <h3 class="text-xl font-serif font-bold text-primary-dark mb-2 group-hover:text-primary transition-colors">Thérapie EMDR</h3>
-            <p class="text-text-main/75 text-sm leading-relaxed mb-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <!-- EMDR — coins asymetriques (galet-emdr) plutot qu'un rectangle
+               a coins uniformes : la meme idee « faite main » que le
+               morph-blob du portrait sur la page A propos, mais adoucie
+               pour rester lisible avec du texte pres des bords. -->
+          <a href="/therapie-emdr-saint-nazaire/" class="galet-emdr group relative overflow-hidden bg-primary/10 p-9 border border-primary/30 hover:border-primary/50 hover:shadow-xl transition-all duration-300 text-left hover:-translate-y-1" data-aos="fade-up">
+            <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-primary/10 rounded-full blur-2xl pointer-events-none"></div>
+            <Icon name="brain" size={30} class="relative mb-4 text-primary-dark" />
+            <h3 class="relative text-xl font-serif font-bold text-primary-dark mb-2 group-hover:text-primary transition-colors">Thérapie EMDR</h3>
+            <p class="relative text-text-main/75 text-sm leading-relaxed mb-4">
               Pour le traitement des traumatismes, chocs émotionnels, phobies et deuils bloqués. Une thérapie recommandée par la Haute Autorité de Santé et l'OMS dans le stress post-traumatique.
             </p>
-            <span class="text-primary-dark text-sm font-semibold flex items-center gap-1">
+            <span class="relative text-primary-dark text-sm font-semibold flex items-center gap-1">
               En savoir plus
               <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
             </span>
           </a>
-          <!-- EFT -->
-          <a href="/seance-eft-gestion-emotions/" class="group bg-accent/10 rounded-2xl p-8 border border-accent/30 hover:border-accent/50 hover:shadow-xl transition-all duration-300 text-left hover:-translate-y-1" data-aos="fade-up" data-aos-delay="100">
-            <Icon name="hand" size={28} class="mb-4 text-accent-dark" />
-            <h3 class="text-xl font-serif font-bold text-accent-dark mb-2 group-hover:text-accent-display transition-colors">Séances EFT</h3>
-            <p class="text-text-main/75 text-sm leading-relaxed mb-4">
+          <!-- EFT — meme principe, coins inverses pour que les deux cartes
+               ne se lisent pas comme un simple duplicata l'une de l'autre. -->
+          <a href="/seance-eft-gestion-emotions/" class="galet-eft group relative overflow-hidden bg-accent/10 p-9 border border-accent/30 hover:border-accent/50 hover:shadow-xl transition-all duration-300 text-left hover:-translate-y-1" data-aos="fade-up" data-aos-delay="100">
+            <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-accent/10 rounded-full blur-2xl pointer-events-none"></div>
+            <Icon name="hand" size={30} class="relative mb-4 text-accent-dark" />
+            <h3 class="relative text-xl font-serif font-bold text-accent-dark mb-2 group-hover:text-accent-display transition-colors">Séances EFT</h3>
+            <p class="relative text-text-main/75 text-sm leading-relaxed mb-4">
               Technique psycho-corporelle douce pour libérer stress, anxiété et émotions négatives. Utilisable en autonomie au quotidien.
             </p>
-            <span class="text-accent-dark text-sm font-semibold flex items-center gap-1">
+            <span class="relative text-accent-dark text-sm font-semibold flex items-center gap-1">
               En savoir plus
               <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
             </span>
           </a>
         </div>
+
+        <style>
+          /* Rayons tres inegaux, a l'oppose l'une de l'autre pour ne pas
+             lire comme deux copies. Restent assez doux (min 1rem) pour ne
+             jamais couper une lettre pres d'un coin. */
+          .galet-emdr { border-radius: 3rem 1.25rem 3rem 1.25rem / 3.5rem 1.5rem 3.5rem 1.5rem; }
+          .galet-eft  { border-radius: 1.25rem 3rem 1.25rem 3rem / 1.5rem 3.5rem 1.5rem 3.5rem; }
+        </style>
       </div>
     </section>
 
