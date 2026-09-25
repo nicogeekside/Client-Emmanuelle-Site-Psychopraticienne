@@ -6,7 +6,8 @@ import Button from '../../components/Button.astro';
 import { siteInfo } from '../../data/config';
 import { Image } from 'astro:assets';
 import portraitEmma from '../../assets/images/photo-portrait-exterieur.jpg';
----
+
+import Icon from '../../components/Icon.astro';---
 
 <MainLayout 
   title="Prendre Rendez-vous | Psychopraticienne Saint-Nazaire"
@@ -18,17 +19,57 @@ import portraitEmma from '../../assets/images/photo-portrait-exterieur.jpg';
     <section class="py-20 bg-secondary/30">
       <div class="container mx-auto px-4">
         <h1 class="text-4xl font-serif font-bold text-primary mb-6 text-center" data-aos="fade-up">Prendre Rendez-vous</h1>
-        
-        <!-- Indicateur pour le calendrier -->
-        <div class="flex flex-col items-center justify-center mb-12 animate-bounce cursor-pointer group" onclick="document.getElementById('rdv-en-ligne').scrollIntoView({behavior: 'smooth'})" data-aos="fade-up" data-aos-delay="100">
-            <span class="text-sm font-bold text-accent mb-2 group-hover:text-primary transition-colors">Voir le calendrier en ligne ci-dessous</span>
-            <div class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-              </svg>
+        <p class="text-center text-text-main/70 mb-10 max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+          Réservez directement un créneau ci-dessous — c'est le moyen le plus rapide. Vous préférez m'écrire d'abord ? Le formulaire est juste après.
+        </p>
+
+        <!-- CALENDLY — canal prioritaire (E3) : c'était la derniere section
+             de la page, la moins visible ; c'est desormais la premiere chose
+             que le visiteur rencontre. -->
+        <div class="max-w-4xl mx-auto mb-16" id="rdv-en-ligne">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden min-h-[600px] flex items-center justify-center relative border border-secondary" data-aos="zoom-in">
+
+                <!-- Calendly inline widget begin -->
+                <!-- Etat de repli (E2). Premiere version : place a l'INTERIEUR
+                     du div que Calendly cible, en supposant qu'il vide ce
+                     div avant d'y injecter son iframe. Faux — verifie en
+                     conditions reelles : Calendly AJOUTE son iframe APRES
+                     le contenu existant sans le retirer. Le repli, en
+                     h-full, poussait alors le vrai calendrier sous le pli,
+                     invisible en permanence, widget charge ou non.
+                     Le widget reste donc vide, exactement comme l'attend
+                     Calendly ; le repli est un frere positionne par-dessus,
+                     retire des qu'un iframe apparait dans le widget. -->
+                <div id="calendly-repli" class="absolute inset-0 z-10 flex flex-col items-center justify-center h-full text-center px-6 py-12 gap-3 bg-white">
+                    <p class="text-text-main/70">Chargement du calendrier…</p>
+                    <a href="https://calendly.com/emma-psychopraticienne" target="_blank" rel="noopener" class="font-semibold text-accent-dark underline underline-offset-2 hover:text-primary-dark transition-colors">
+                        Ouvrir le calendrier dans un nouvel onglet
+                    </a>
+                    <p class="text-sm text-text-main/60">Ou appelez-moi directement : <a href={`tel:${siteInfo.phone.replace(/\s/g, '')}`} class="font-semibold text-accent-dark hover:underline">{siteInfo.phone}</a></p>
+                </div>
+                <div class="calendly-inline-widget w-full h-full min-h-[700px]" data-url="https://calendly.com/emma-psychopraticienne?hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
+                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                <script type="text/javascript">
+                    (function () {
+                        var widget = document.querySelector('.calendly-inline-widget');
+                        var repli = document.getElementById('calendly-repli');
+                        if (!widget || !repli) return;
+                        var observateur = new MutationObserver(function () {
+                            if (widget.querySelector('iframe')) {
+                                repli.remove();
+                                observateur.disconnect();
+                            }
+                        });
+                        observateur.observe(widget, { childList: true });
+                    })();
+                </script>
+                <!-- Calendly inline widget end -->
+
             </div>
         </div>
-        
+
+        <h2 class="text-2xl font-serif font-bold text-primary mb-10 text-center" data-aos="fade-up">Vous préférez m'écrire ?</h2>
+
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto mb-16">
             
             <!-- Coordonnées & Infos Pratiques -->
@@ -55,29 +96,29 @@ import portraitEmma from '../../assets/images/photo-portrait-exterieur.jpg';
                             Pour les séances suivantes, vous avez la possibilité de choisir entre une séance en présentiel au cabinet, une séance en visio ou une séance en extérieur (marche) pour un tarif de <strong>60 euros pour 1h</strong>.
                         </p>
                         <p>
-                            Je propose un <strong>tarif réduit à 50 euros pour 1h</strong> pour les étudiants et les demandeurs d'emplois. Il vous sera demandé un justificatif.
+                            Je propose un <strong>tarif réduit à 50 euros pour 1h</strong> pour les étudiants et les demandeurs d'emploi. Il vous sera demandé un justificatif.
                         </p>
                         <p>
                             Je propose une <strong>séance découverte gratuite</strong> de la thérapie énergétique et psychocorporelle. La séance dure 45 minutes et peut se dérouler au cabinet, en visio ou en marchant autour du bois Joalland. Je vous présente mon approche et mes outils thérapeutiques et nous testons l'EFT ou l'EMDR sur le sujet de votre choix.
                         </p>
-                        <div class="p-4 bg-secondary/30 rounded-lg border border-secondary/60">
+                        <div class="p-4 bg-secondary/30 rounded-lg border border-secondary/50">
                             <h3 class="font-bold text-primary mb-2">Paiement & Annulation</h3>
                             <p class="mb-2">Les paiements se font par <strong>espèces, chèque ou virement bancaire</strong>, offrant ainsi une flexibilité dans les modalités de règlement.</p>
                             <p>Les rendez-vous peuvent être pris par téléphone ou via le formulaire de prise de RDV de mon site internet. Je vous remercie de vous présenter à l'heure pour chaque séance, par respect pour le temps réservé. En cas d'annulation ou de report, je vous prie de bien vouloir me prévenir <strong>au moins 48 heures à l'avance</strong>, afin de permettre à une autre personne de bénéficier de ce créneau.</p>
                         </div>
                         <div>
-                             <h3 class="font-bold text-accent mb-2">Horaires</h3>
+                             <h3 class="font-bold text-accent-dark mb-2">Horaires</h3>
                              <p>
                                 <strong>Au cabinet :</strong> Lundi & Mardi, 9h – 20h.<br/>
-                                <strong>Visio & Extérieur (Bois Jolland) :</strong> Jeudi & Vendredi 9h – 18h, Samedi 9h – 13h.
+                                <strong>Visio & Extérieur (Bois Joalland) :</strong> Jeudi & Vendredi 9h – 18h, Samedi 9h – 13h.
                              </p>
                         </div>
                          <div>
-                             <h3 class="font-bold text-accent mb-2">Contact & Accès</h3>
+                             <h3 class="font-bold text-accent-dark mb-2">Contact & Accès</h3>
                              <p>Tél : {siteInfo.phone}<br/>Email : {siteInfo.email}</p>
                              <p class="mt-2">
                                  {siteInfo.address.street}, {siteInfo.address.zip} {siteInfo.address.city}<br/>
-                                 <span class="text-xs">🅿️ Parking gratuit à proximité</span>
+                                 <span class="text-sm inline-flex items-center gap-1.5"><Icon name="circle-parking" size={15} /> Parking gratuit à proximité</span>
                              </p>
                         </div>
                         <p class="italic text-primary/80 mt-4">
@@ -88,7 +129,7 @@ import portraitEmma from '../../assets/images/photo-portrait-exterieur.jpg';
             </div>
             
             <!-- Formulaire de Contact SIMPLE -->
-            <div data-aos="fade-left">
+            <div data-aos="fade-left" id="message">
                 <div class="bg-white p-8 rounded-xl shadow-sm h-full">
                     <h2 class="text-2xl font-serif font-bold text-primary mb-6">M'envoyer un message</h2>
                     
@@ -96,7 +137,7 @@ import portraitEmma from '../../assets/images/photo-portrait-exterieur.jpg';
                         class="space-y-4"
                         name="contact"
                         method="POST"
-                        action="/merci/"
+                        action="/merci"
                         data-netlify="true"
                         netlify-honeypot="bot-field"
                     >
@@ -111,47 +152,31 @@ import portraitEmma from '../../assets/images/photo-portrait-exterieur.jpg';
 
                         <div>
                             <label for="name" class="block text-sm font-medium text-text-main mb-1">Nom et Prénom</label>
-                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" required placeholder="Votre nom" />
+                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-text-muted rounded-lg placeholder:text-text-main/75 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" required placeholder="Votre nom" />
                         </div>
                         
                         <div>
                             <label for="email" class="block text-sm font-medium text-text-main mb-1">Email</label>
-                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" required placeholder="votre@email.com" />
+                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-text-muted rounded-lg placeholder:text-text-main/75 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" required placeholder="votre@email.com" />
                         </div>
                         
                          <div>
                             <label for="phone" class="block text-sm font-medium text-text-main mb-1">Téléphone</label>
-                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="06 00 00 00 00" />
+                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-text-muted rounded-lg placeholder:text-text-main/75 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="06 00 00 00 00" />
                         </div>
                         
                         <div>
                              <label for="message" class="block text-sm font-medium text-text-main mb-1">Message</label>
-                             <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" required placeholder="Bonjour, je souhaite prendre rendez-vous pour..."></textarea>
+                             <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-text-muted rounded-lg placeholder:text-text-main/75 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" required placeholder="Bonjour, je souhaite prendre rendez-vous pour..."></textarea>
                         </div>
                         
-                        <button type="submit" class="w-full bg-accent text-white font-bold py-3 rounded-lg hover:bg-opacity-90 transition-colors shadow-md">
+                        <button type="submit" class="w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-dark focus-visible:ring-offset-2 bg-accent-dark text-white font-bold py-3 rounded-lg hover:bg-accent-dark/90 transition-colors shadow-md">
                             Envoyer le message
                         </button>
                     </form>
                 </div>
             </div>
         </div>
-        
-        <!-- CALENDLY Section -->
-        <div class="max-w-4xl mx-auto" id="rdv-en-ligne">
-            <h2 class="text-2xl font-serif font-bold text-primary mb-8 text-center" data-aos="fade-up">Réserver un créneau en ligne</h2>
-            
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden min-h-[600px] flex items-center justify-center relative border border-secondary" data-aos="zoom-in">
-                
-                <!-- Calendly inline widget begin -->
-                <div class="calendly-inline-widget w-full h-full min-h-[700px]" data-url="https://calendly.com/emma-psychopraticienne?hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
-                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-                <!-- Calendly inline widget end -->
-
-            </div>
-        </div>
-        
-
         
       </div>
     </section>

@@ -1,12 +1,15 @@
 ---
 import { Image } from 'astro:assets';
-import illustrationEft from '../../assets/images/seance-guerison-eft.png';
+import illustrationEft from '../../assets/images/pexels-eft-sourcils-7608086.jpg';
+import illustrationEftTapping from '../../assets/images/seance-guerison-eft.png';
 import MainLayout from '../../layouts/MainLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Button from '../../components/Button.astro';
 import FaqSection from '../../components/FaqSection.astro';
----
+import Reviews from '../../components/Reviews.astro';
+
+import Icon from '../../components/Icon.astro';---
 
 <MainLayout 
   title="Séances EFT à Saint-Nazaire | Emmanuelle Demeulemeester, Psychopraticienne"
@@ -16,28 +19,43 @@ import FaqSection from '../../components/FaqSection.astro';
   
   <main>
     <!-- Hero -->
-    <section class="bg-secondary text-primary py-16 lg:py-24 relative overflow-hidden min-h-[60vh] flex flex-col justify-center">
-        <div class="absolute top-0 right-0 w-64 h-64 bg-white/20 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
-      <div class="container mx-auto px-6 lg:px-4 z-10 relative pt-24 lg:pt-12">
-        <nav class="text-sm text-text-main/40 mb-6 flex items-center gap-2" aria-label="Fil d'Ariane">
-          <a href="/" class="hover:text-accent transition-colors">Accueil</a>
+    <section class="relative min-h-[60vh] lg:min-h-[65vh] flex items-center overflow-hidden bg-primary">
+      <div class="absolute inset-0 z-0 flex justify-end">
+        <div class="w-full lg:w-3/5 h-full relative">
+          <Image
+            src={illustrationEft}
+            alt="Point EFT au niveau des sourcils"
+            class="w-full h-full object-cover object-[45%_35%] opacity-85"
+            style="-webkit-mask-image: linear-gradient(to right, transparent 0%, black 35%, black 100%); mask-image: linear-gradient(to right, transparent 0%, black 35%, black 100%);"
+            width={1400}
+            loading="eager"
+          />
+        </div>
+      </div>
+      <div class="absolute inset-0 z-0 bg-gradient-to-r from-primary/10 via-transparent to-primary/20"></div>
+      <div class="absolute inset-0 z-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent"></div>
+      <div class="absolute inset-0 z-0 bg-gradient-to-t from-primary via-primary/85 to-primary/40 lg:hidden"></div>
+
+      <div class="container mx-auto px-6 lg:px-8 py-20 lg:py-32 relative z-10 text-secondary">
+        <nav class="text-sm text-white mb-6 flex items-center gap-2" aria-label="Fil d'Ariane">
+          <a href="/" class="hover:text-white transition-colors">Accueil</a>
           <span>/</span>
-          <a href="/#services" class="hover:text-accent transition-colors">Approches thérapeutiques</a>
+          <a href="/#services" class="hover:text-white transition-colors">Approches thérapeutiques</a>
           <span>/</span>
-          <span class="text-primary">EFT</span>
+          <span class="text-white">EFT</span>
         </nav>
         <div class="max-w-3xl">
-          <div class="inline-flex items-center gap-2 bg-primary/5 border border-primary/10 rounded-full px-4 py-2 mb-6">
-            <span class="text-2xl leading-none">✋</span>
-            <span class="text-sm font-medium text-primary">Outil thérapeutique · Technique Tapping</span>
+          <div class="inline-flex items-center gap-2 mb-6 pb-2.5 border-b border-white/30">
+            <Icon name="hand" size={16} />
+            <span class="text-sm font-bold uppercase tracking-[0.12em] text-white">Outil thérapeutique · Technique Tapping</span>
           </div>
           <h1 class="text-3xl md:text-5xl lg:text-6xl font-serif font-bold mb-6" data-aos="fade-up">Praticienne EFT à Saint-Nazaire</h1>
-          <p class="text-lg md:text-xl max-w-2xl text-text-main/80 leading-relaxed mb-6" data-aos="fade-up" data-aos-delay="100">
-            Libérez vos émotions et retrouvez votre calme intérieur grâce à l'EFT (Techniques de libération Emotionnelle).
+          <p class="text-lg md:text-xl max-w-2xl opacity-90 leading-relaxed mb-6" data-aos="fade-up" data-aos-delay="100">
+            Libérez vos émotions et retrouvez votre calme intérieur grâce à l'EFT (Techniques de libération Émotionnelle).
           </p>
-          <div class="bg-primary/5 border border-primary/10 rounded-xl p-4 max-w-2xl" data-aos="fade-up" data-aos-delay="200">
-            <p class="text-sm text-text-main/80 leading-relaxed">
-              <strong class="text-primary">Comment ça fonctionne chez Emmanuelle :</strong> L'EFT est l'un des outils que j'utilise selon votre profil. Lors de notre premier échange, on détermine ensemble si c'est l'approche la plus adaptée — vous n'avez pas à choisir avant de venir.
+          <div class="bg-white/10 border border-white/20 rounded-xl p-4 max-w-2xl" data-aos="fade-up" data-aos-delay="200">
+            <p class="text-sm text-secondary/90 leading-relaxed">
+              <strong class="text-white">Comment ça fonctionne chez Emmanuelle :</strong> L'EFT est l'un des outils que j'utilise selon votre profil. Lors de notre premier échange, on détermine ensemble si c'est l'approche la plus adaptée — vous n'avez pas à choisir avant de venir.
             </p>
           </div>
         </div>
@@ -48,8 +66,8 @@ import FaqSection from '../../components/FaqSection.astro';
     <section class="py-6 bg-white border-b border-secondary/50">
       <div class="container mx-auto px-4 flex flex-wrap gap-3 items-center justify-center text-sm">
         <span class="text-text-main/60">Une séance EFT peut se faire :</span>
-        <a href="/therapie-cabinet-saint-nazaire/" class="inline-flex items-center gap-1 px-4 py-1.5 bg-secondary rounded-full border border-secondary shadow-sm hover:border-primary/30 hover:shadow-md transition-all text-primary font-medium">🛋️ En cabinet</a>
-        <a href="/therapie-en-ligne-visio/" class="inline-flex items-center gap-1 px-4 py-1.5 bg-secondary rounded-full border border-secondary shadow-sm hover:border-primary/30 hover:shadow-md transition-all text-primary font-medium">💻 En visio</a>
+        <a href="/therapie-cabinet-saint-nazaire/" class="inline-flex items-center gap-1 px-4 py-1.5 bg-secondary rounded-full border border-secondary shadow-sm hover:border-primary/30 hover:shadow-md transition-all text-primary font-medium"><Icon name="armchair" size={16} /> En cabinet</a>
+        <a href="/therapie-en-ligne-visio/" class="inline-flex items-center gap-1 px-4 py-1.5 bg-secondary rounded-full border border-secondary shadow-sm hover:border-primary/30 hover:shadow-md transition-all text-primary font-medium"><Icon name="monitor" size={16} /> En visio</a>
         <span class="text-text-main/40 italic text-xs">(protocole complet, moins adapté en marchant)</span>
       </div>
     </section>
@@ -59,9 +77,9 @@ import FaqSection from '../../components/FaqSection.astro';
       <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <div data-aos="fade-right">
              <div class="aspect-video rounded-xl overflow-hidden shadow-lg mb-4">
-                 <Image 
-                  src={illustrationEft} 
-                  alt="Illustration séance EFT / Tapping" 
+                 <Image
+                  src={illustrationEftTapping}
+                  alt="Illustration séance EFT / Tapping"
                   class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
                   width={800}
                   loading="eager"
@@ -81,27 +99,27 @@ import FaqSection from '../../components/FaqSection.astro';
     </section>
 
     <!-- Applications -->
-    <section class="py-16 bg-primary/5">
+    <section class="py-16 bg-primary/10">
       <div class="container mx-auto px-4 max-w-4xl">
         <h2 class="text-3xl font-serif font-bold text-primary mb-8 text-center">Pour quelles situations ?</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <ul class="space-y-4">
             <li class="flex items-start">
-              <svg class="w-6 h-6 text-accent mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <svg class="w-6 h-6 text-accent-dark mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
               <span class="text-lg text-text-main"><strong>Stress & Anxiété</strong> : Crises d'angoisse, stress professionnel, peur des examens.</span>
             </li>
             <li class="flex items-start">
-              <svg class="w-6 h-6 text-accent mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <svg class="w-6 h-6 text-accent-dark mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
               <span class="text-lg text-text-main"><strong>Phobies</strong> : Peurs irrationnelles (avion, animaux, foule).</span>
             </li>
           </ul>
           <ul class="space-y-4">
             <li class="flex items-start">
-              <svg class="w-6 h-6 text-accent mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <svg class="w-6 h-6 text-accent-dark mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
               <span class="text-lg text-text-main"><strong>Douleurs Somatiques</strong> : Maux de tête, tensions musculaires liées au stress.</span>
             </li>
             <li class="flex items-start">
-              <svg class="w-6 h-6 text-accent mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <svg class="w-6 h-6 text-accent-dark mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
               <span class="text-lg text-text-main"><strong>Gestion des émotions</strong> : Colère, tristesse, irritabilité.</span>
             </li>
           </ul>
@@ -110,24 +128,27 @@ import FaqSection from '../../components/FaqSection.astro';
     </section>
 
 
-    <!-- Témoignage Spécifique -->
+    <!-- Comment se deroule + FAQ, fusionnes sous un seul titre : meme
+         structure que la page EMDR. Le temoignage isole qui vivait ici
+         (avisEft) faisait doublon avec le carrousel d'avis EFT juste plus
+         bas — retire. -->
     <section class="py-16 bg-white">
-        <div class="container mx-auto px-4 max-w-3xl">
-            <div class="bg-secondary/30 p-8 rounded-2xl relative">
-                <div class="text-6xl text-accent opacity-20 absolute top-4 left-4 font-serif">"</div>
-                <p class="text-xl text-text-main italic relative z-10 mb-6 text-center">
-                    "Je souffrais d'anxiété généralisée depuis des années. L'EFT m'a donné un outil concret que je peux utiliser seule chez moi dès que je sens le stress monter. C'est une vraie libération."
-                </p>
-                <p class="text-center font-bold text-primary">— Sandrine T., après 4 séances.</p>
-            </div>
+      <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+        <div>
+          <h2 class="text-3xl font-serif font-bold text-primary mb-6">Comment se déroule une séance EFT ?</h2>
+          <p class="text-lg text-text-main/80 mb-4">
+            Une séance dure généralement 1h. Nous commençons par identifier ensemble l'émotion ou la situation à travailler, puis nous appliquons le protocole de tapping sur les points méridiens jusqu'à ce que son intensité redescende.
+          </p>
+          <div class="bg-secondary/30 p-6 rounded-lg border-l border-accent mt-6">
+            <p class="font-bold text-primary mb-2">Praticienne Certifiée IFPEC</p>
+            <p class="text-sm text-text-main/75">Certification : Psycho-Praticienne en Techniques Énergétiques et Psycho-Corporelles, option EFT Clinique — 360h de formation<br/><span class="text-sm text-text-main/75">Délivrée par l'Institut Francophone de Psychologie Énergétique Clinique — Octobre 2025</span></p>
+            <p class="text-sm text-text-main/70">Cette certification garantit une pratique du tapping rigoureuse et encadrée par la charte déontologique IFPEC.</p>
+          </div>
         </div>
-    </section>
 
-    <!-- FAQ EFT -->
-    <section class="py-16 bg-gray-50">
-      <div class="container mx-auto px-4 max-w-3xl">
-        <h2 class="text-3xl font-serif font-bold text-primary mb-8 text-center">Questions fréquentes sur l'EFT</h2>
-        <FaqSection items={[
+        <div class="bg-secondary/10 p-8 rounded-xl">
+          <h3 class="text-2xl font-serif font-bold text-primary mb-6">Questions Fréquentes (FAQ)</h3>
+          <FaqSection items={[
             {
               question: "Quelle est la différence entre l'EFT et une psychothérapie classique ?",
               answer: "L'EFT est une thérapie <strong>psycho-corporelle</strong>. On ne fait pas que 'parler' du problème, on agit physiquement sur le corps (via les points méridiens) pour désactiver la réponse de stress. C'est souvent plus rapide pour apaiser l'intensité émotionnelle."
@@ -141,12 +162,17 @@ import FaqSection from '../../components/FaqSection.astro';
               answer: "Absolument. Les enfants sont très réceptifs car ils n'ont pas de barrières mentales. C'est très ludique ('la technique du super-héros') et efficace pour les peurs nocturnes, l'anxiété scolaire ou la colère."
             }
           ]} />
+        </div>
       </div>
     </section>
 
+    <div class="container mx-auto px-4 py-16">
+      <Reviews tags={["EFT"]} titre="Ce qu'on en dit de l'EFT" />
+    </div>
+
     <!-- CTA -->
-    <section class="py-16 bg-white text-center border-t border-gray-100">
-        <h2 class="text-2xl font-serif font-bold text-primary mb-8">Envie d'essayer le Tapping ?</h2>
+    <section class="py-16 bg-white text-center border-t border-secondary">
+        <h2 class="text-2xl font-serif font-bold text-primary mb-8">Envie d'essayer l'EFT ?</h2>
         <Button href="/prendre-rendez-vous-saint-nazaire/" variant="primary" class="shadow-lg w-full sm:w-auto active:scale-95 transition-transform">
           Prendre un premier rendez-vous
         </Button>

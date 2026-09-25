@@ -6,6 +6,14 @@
    VARIABLES CSS PERSONNALISÉES
    Correspondent exactement à tailwind.config.mjs
    ============================================ */
+/* Les éléments data-aos="fade-left/right" sont translatés hors-cadre avant leur
+   animation d'entrée : sans ce garde-fou, cette translation élargit la largeur
+   de scroll de la page entière (même au-dessus du pli) et autorise un scroll
+   horizontal accidentel sur mobile. */
+html, body {
+  overflow-x: hidden;
+}
+
 :root {
   --color-primary: #5C7A62;
   --color-primary-light: #829A86;
@@ -14,4 +22,46 @@
   --color-accent: #C88D7D;
   --color-text-main: #2C3E50;
   --color-text-muted: #85827D;
+
+  /* Déclinaisons accessibles des deux teintes de marque.
+     L'identité imprimée (#5C7A62, #C88D7D) reste la référence ; ces variantes
+     existent parce que le terracotta ne porte pas de texte blanc (2,78:1). */
+  --color-primary-dark: #3D5A4E;
+  --color-accent-display: #A07164;
+  --color-accent-dark: #9A5849;
+  --color-accent-light: #E8C4B8;
+}
+
+/* ============================================
+   MOUVEMENT RÉDUIT
+   Une partie des visiteurs arrive en détresse émotionnelle ou en
+   épuisement post-partum. Quand le système d'exploitation demande
+   moins de mouvement, le site n'en produit aucun.
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* AOS masque ses éléments avant de les révéler : sans animation pour
+     les dévoiler, il faut les rendre visibles d'emblée. */
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Contour organique — d'abord pour le portrait sur la page À propos,
+   repris pour les photos de hero EMDR/EFT (page-specific auparavant,
+   centralisé ici pour ne pas dupliquer la règle une 3e fois). */
+.morph-blob {
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
 }

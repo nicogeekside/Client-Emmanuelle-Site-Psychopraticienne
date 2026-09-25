@@ -46,59 +46,63 @@ export const navDropdown = {
 export const formats = [
     {
         id: "marchant",
-        icon: "🚶‍♀️",
+        icon: "footprints",
         title: "Thérapie en marchant",
         subtitle: "Thérapie en mouvement",
         description: "Marchez à mes côtés et laissez la parole venir naturellement. Côte à côte, en mouvement, certaines choses se disent plus facilement. Une approche douce et libératrice.",
         note: "Séances en plein air, à votre rythme",
         href: "/therapie-en-marchant-saint-nazaire/",
-        color: "from-emerald-50 to-emerald-100/50",
-        accent: "text-emerald-800",
-        border: "border-emerald-200"
+        color: "from-white to-primary-light/10",
+        accent: "text-primary-dark",
+        border: "border-primary-light"
     },
     {
         id: "visio",
-        icon: "💻",
+        icon: "video",
         title: "Thérapie en visio",
         subtitle: "Depuis chez vous",
         description: "Bénéficiez du même accompagnement de qualité depuis le confort de votre domicile, partout en France. Flexible, confidentiel et efficace.",
         note: "Disponible partout en France",
         href: "/therapie-en-ligne-visio/",
-        color: "from-blue-50 to-indigo-50/50",
-        accent: "text-blue-800",
-        border: "border-blue-200"
+        color: "from-white to-primary/10",
+        accent: "text-primary-dark",
+        border: "border-primary"
     },
     {
         id: "cabinet",
-        icon: "🛋️",
+        icon: "armchair",
         title: "Thérapie en cabinet",
         subtitle: "Un espace sécurisant",
         description: "Venez dans mon cabinet apaisant à Saint-Nazaire. Un cadre chaleureux et confidentiel pensé pour un moment en toute sécurité.",
         note: "Saint-Nazaire — Parking gratuit",
         href: "/therapie-cabinet-saint-nazaire/",
-        color: "from-rose-50 to-orange-50/50",
-        accent: "text-rose-800",
-        border: "border-rose-200"
+        color: "from-white to-accent/10",
+        accent: "text-accent-dark",
+        border: "border-accent"
     },
     {
         id: "post-partum",
-        icon: "🤱",
+        icon: "baby",
         title: "Espace Post-Partum",
         subtitle: "Rassemblement mensuel",
         description: "Un espace de parole bienveillant et sans jugement, ouvert aux mamans et aux papas. Pour traverser ensemble les bouleversements de la parentalité.",
         note: "Groupe mensuel — Hommes & Femmes",
         href: "/espace-soutien-post-partum/",
-        color: "from-purple-50 to-fuchsia-50/50",
-        accent: "text-purple-800",
-        border: "border-purple-200"
+        color: "from-white to-accent-dark/10",
+        accent: "text-accent-dark",
+        border: "border-accent-dark"
     }
 ];
 
+// href optionnel : seul un motif qui a une vraie page de destination en
+// porte un (E9 du backlog — 15 puces avaient toutes les affordances d'un
+// lien, hover compris, et ne menaient nulle part).
 export const epreuves = [
-    "Traumatismes", "Deuil", "Anxiété", "Périnatalité",
-    "Phobies", "Stress", "Confiance en soi", "Douleurs chroniques",
-    "Post-Partum", "Burn-out", "Trouble du sommeil", "Séparation",
-    "Schémas répétitifs", "Gestion des émotions", "Blocages émotionnels"
+    { label: "Traumatismes" }, { label: "Deuil" }, { label: "Anxiété" }, { label: "Périnatalité" },
+    { label: "Phobies" }, { label: "Stress" }, { label: "Confiance en soi" }, { label: "Douleurs chroniques" },
+    { label: "Post-Partum", href: "/espace-soutien-post-partum/" },
+    { label: "Burn-out" }, { label: "Trouble du sommeil" }, { label: "Séparation" },
+    { label: "Schémas répétitifs" }, { label: "Gestion des émotions" }, { label: "Blocages émotionnels" }
 ];
 
 export const reviews = [
@@ -133,3 +137,36 @@ export const reviews = [
         tag: "EFT"
     }
 ];
+
+// Horaires réels du cabinet — source unique de vérité.
+// Alimente aujourd'hui les données structurées envoyées à Google (MainLayout).
+// Les blocs « Disponibilités » des pages les affichent encore en dur : leur
+// branchement sur cette source est prévu au lot 5.
+export const horaires = [
+    {
+        libelle: "Au cabinet",
+        jours: "Lundi & Mardi",
+        creneaux: "9h – 20h",
+        schema: { jours: ["Monday", "Tuesday"], ouvre: "09:00", ferme: "20:00" }
+    },
+    {
+        libelle: "Visio & Extérieur (Bois Joalland)",
+        jours: "Jeudi & Vendredi",
+        creneaux: "9h – 18h",
+        schema: { jours: ["Thursday", "Friday"], ouvre: "09:00", ferme: "18:00" }
+    },
+    {
+        libelle: "Visio & Extérieur (Bois Joalland)",
+        jours: "Samedi",
+        creneaux: "9h – 13h",
+        schema: { jours: ["Saturday"], ouvre: "09:00", ferme: "13:00" }
+    }
+];
+
+// Tarifs — source unique, pas encore consommée : les pages les affichent en dur.
+// À brancher au lot 5, avant qu'ils ne divergent comme les horaires l'ont fait.
+export const tarifs = {
+    seance: { montant: "60 €", duree: "1h", libelle: "Séance" },
+    reduit: { montant: "50 €", duree: "1h", libelle: "Tarif réduit", condition: "Étudiants et demandeurs d'emploi, sur justificatif" },
+    decouverte: { montant: "Offerte", duree: "45 min", libelle: "Séance découverte" }
+};

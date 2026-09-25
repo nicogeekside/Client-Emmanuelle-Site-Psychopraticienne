@@ -4,10 +4,12 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Button from '../../components/Button.astro';
 import FaqSection from '../../components/FaqSection.astro';
+import PreuveLegitimite from '../../components/PreuveLegitimite.astro';
 import { siteInfo } from '../../data/config';
 import { Image } from 'astro:assets';
 import imgDouceur from '../../assets/images/img-douceur.jpg';
----
+
+import Icon from '../../components/Icon.astro';---
 
 <MainLayout 
   title="Espace Soutien Post-Partum à Saint-Nazaire | Emmanuelle Demeulemeester"
@@ -17,7 +19,7 @@ import imgDouceur from '../../assets/images/img-douceur.jpg';
   
   <main>
     <!-- HERO -->
-    <section class="relative min-h-[60vh] lg:min-h-[65vh] flex flex-col justify-end overflow-hidden">
+    <section class="relative min-h-[60vh] lg:min-h-[65vh] flex flex-col justify-end bg-primary overflow-hidden">
       <div class="absolute inset-0 z-0">
         <Image 
           src={imgDouceur}
@@ -26,29 +28,32 @@ import imgDouceur from '../../assets/images/img-douceur.jpg';
           width={1400}
           loading="eager"
         />
-        <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-secondary/30"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/70 to-primary/30"></div>
       </div>
 
       <div class="container mx-auto px-6 lg:px-8 pb-16 pt-32 relative z-10 text-secondary">
-        <nav class="text-sm text-secondary/50 mb-6 flex items-center gap-2" aria-label="Fil d'Ariane">
+        <nav class="text-sm text-white mb-6 flex items-center gap-2" aria-label="Fil d'Ariane">
           <a href="/" class="hover:text-white transition-colors">Accueil</a>
           <span>/</span>
           <span class="text-white">Espace Post-Partum</span>
         </nav>
         <div class="max-w-3xl">
-          <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
-            <span class="text-2xl leading-none">🤱</span>
-            <span class="text-sm font-medium text-white">Rassemblement mensuel · Mamans & Papas bienvenus</span>
+          <div class="inline-flex items-center gap-2 mb-6 pb-2.5 border-b border-white/30">
+            <Icon name="baby" size={16} />
+            <span class="text-sm font-bold uppercase tracking-[0.12em] text-white">Rassemblement mensuel · Mamans & Papas bienvenus</span>
           </div>
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 leading-[1.1]">
             Espace de Parole<br/>Post-Partum
           </h1>
-          <p class="text-xl text-secondary/85 leading-relaxed mb-8 max-w-2xl">
+          <p class="text-xl text-secondary/90 leading-relaxed mb-8 max-w-2xl">
             Un espace bienveillant pour traverser ensemble les bouleversements de la parentalité. Ouvert aux mamans et aux papas.
           </p>
-          <Button href="/prendre-rendez-vous-saint-nazaire/" variant="white" class="text-lg px-8 py-4 shadow-xl font-bold">
+          <Button href="/prendre-rendez-vous-saint-nazaire/#message" variant="white" class="text-lg px-8 py-4 shadow-xl font-bold">
             Je veux rejoindre le groupe
           </Button>
+          <a href="/seance-decouverte-therapie-psychocorporelle-saint-nazaire/" class="flex items-center gap-1.5 mt-4 text-sm font-semibold text-white/90 hover:text-white transition-colors">
+            Vous préférez un premier échange individuel ? Séance découverte offerte
+          </a>
         </div>
       </div>
     </section>
@@ -57,7 +62,7 @@ import imgDouceur from '../../assets/images/img-douceur.jpg';
     <section class="py-20 bg-background">
       <div class="container mx-auto px-6 lg:px-8 max-w-4xl">
         <div class="text-center mb-14" data-aos="fade-up">
-          <span class="text-accent font-bold tracking-wider uppercase text-sm block mb-3">Parce que vous n'êtes pas seul(e)</span>
+          <span class="text-accent-dark font-bold tracking-wider uppercase text-sm block mb-3">Parce que vous n'êtes pas seul(e)</span>
           <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-6 leading-tight">
             Après la naissance, tout change.<br/>
             Et personne n'en parle vraiment.
@@ -70,15 +75,15 @@ import imgDouceur from '../../assets/images/img-douceur.jpg';
     </section>
 
     <!-- CE QUE C'EST -->
-    <section class="py-16 bg-secondary/40">
+    <section class="py-16 bg-secondary/30">
       <div class="container mx-auto px-6 lg:px-8 max-w-5xl">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
           <div data-aos="fade-right">
-            <span class="text-accent font-bold tracking-wider uppercase text-sm block mb-3">Le concept</span>
+            <span class="text-accent-dark font-bold tracking-wider uppercase text-sm block mb-3">Le concept</span>
             <h2 class="text-3xl font-serif font-bold text-primary mb-6">Un rassemblement mensuel de parole</h2>
             
             <!-- Description par Emmanuelle -->
-            <div class="prose prose-primary mb-8">
+            <div class="prose mb-8">
               <p class="text-text-main/80 leading-relaxed mb-4">
                 Un espace de parole et de soutien post-partum est un lieu d'échange bienveillant où les parents peuvent partager librement leur vécu après l'arrivée de leur bébé.
               </p>
@@ -92,53 +97,59 @@ import imgDouceur from '../../assets/images/img-douceur.jpg';
 
             <div class="mt-8 space-y-3">
               <div class="flex gap-3 items-center p-4 bg-background rounded-xl border border-secondary">
-                <span class="text-2xl">📅</span>
+                <Icon name="calendar-days" size={24} />
                 <div>
-                  <p class="font-bold text-primary text-sm">Fréquence</p>
-                  <p class="text-text-muted text-sm">Rassemblement mensuel — dates à confirmer</p>
+                  <p class="font-bold text-primary-dark text-sm">Fréquence</p>
+                  <p class="text-text-main/75 text-sm">Le premier jeudi de chaque mois, 9h30 – 11h30</p>
                 </div>
               </div>
               <div class="flex gap-3 items-center p-4 bg-background rounded-xl border border-secondary">
-                <span class="text-2xl">👥</span>
+                <Icon name="door-open" size={24} />
                 <div>
-                  <p class="font-bold text-primary text-sm">Ouvert à tous</p>
-                  <p class="text-text-muted text-sm">Mamans et papas — seul(e) ou en couple</p>
+                  <p class="font-bold text-primary-dark text-sm">Ouvert à tous</p>
+                  <p class="text-text-main/75 text-sm">Mamans et papas — seul(e) ou en couple</p>
                 </div>
               </div>
               <div class="flex gap-3 items-center p-4 bg-background rounded-xl border border-secondary">
-                <span class="text-2xl">📍</span>
+                <Icon name="map-pin" size={24} />
                 <div>
-                  <p class="font-bold text-primary text-sm">Lieu</p>
-                  <p class="text-text-muted text-sm">En extérieur ou à mon domicile (Saint-Nazaire)</p>
+                  <p class="font-bold text-primary-dark text-sm">Lieu</p>
+                  <p class="text-text-main/75 text-sm">En extérieur ou à mon domicile (Saint-Nazaire) — l'adresse vous est envoyée par un rappel 24h avant</p>
                 </div>
               </div>
               <div class="flex gap-3 items-center p-4 bg-background rounded-xl border border-secondary">
-                <span class="text-2xl">⏳</span>
+                <Icon name="users" size={24} />
                 <div>
-                  <p class="font-bold text-primary text-sm">Durée & Fréquence</p>
-                  <p class="text-text-muted text-sm">Une fois par mois pendant 2 heures</p>
+                  <p class="font-bold text-primary-dark text-sm">Groupe limité</p>
+                  <p class="text-text-main/75 text-sm">6 participants maximum par date</p>
                 </div>
               </div>
-              <div class="flex gap-3 items-center p-4 bg-background rounded-xl border border-secondary">
-                <span class="text-2xl">👥</span>
-                <div>
-                  <p class="font-bold text-primary text-sm">Groupe limité</p>
-                  <p class="text-text-muted text-sm">6 participants maximum par date</p>
-                </div>
+            </div>
+
+            <!-- Les dates : demande explicite d'un encart dedie plutot que
+                 noye dans la liste d'infos pratiques. -->
+            <div class="mt-6 p-6 bg-primary/10 border border-primary/20 rounded-2xl" data-aos="fade-up">
+              <div class="flex items-center gap-2 mb-4">
+                <Icon name="calendar-check" size={22} class="text-primary-dark" />
+                <h3 class="font-bold text-primary-dark">Prochaines dates</h3>
               </div>
-              <div class="flex gap-3 items-center p-4 bg-background rounded-xl border border-secondary">
-                <span class="text-2xl">💚</span>
-                <div>
-                  <p class="font-bold text-primary text-sm">Gratuit</p>
-                  <p class="text-text-muted text-sm">Participation entièrement gratuite</p>
-                </div>
+              <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 text-center">
+                {[
+                  "1er oct.", "5 nov.", "3 déc.", "7 janv.", "4 févr.",
+                  "11 mars", "1er avril", "13 mai", "3 juin", "1er juil.",
+                ].map((date) => (
+                  <div class="bg-white rounded-lg py-2 px-1 border border-primary/10">
+                    <span class="text-sm font-semibold text-primary-dark">{date}</span>
+                  </div>
+                ))}
               </div>
+              <p class="text-sm text-text-main/60 mt-4">9h30 – 11h30 · d'octobre 2026 à juillet 2027</p>
             </div>
           </div>
 
           <!-- Ce qu'on traverse ensemble -->
           <div data-aos="fade-left">
-            <span class="text-accent font-bold tracking-wider uppercase text-sm block mb-3">Les bénéfices</span>
+            <span class="text-accent-dark font-bold tracking-wider uppercase text-sm block mb-3">Les bénéfices</span>
             <h3 class="text-2xl font-serif font-bold text-primary mb-8">Pourquoi participer à cet espace ?</h3>
             <p class="text-text-main/70 mb-6 leading-relaxed">
               Le post-partum est une période de grands changements qui peut susciter autant de joie que de questionnements. Cet espace vous offre un temps pour vous poser et être accueilli(e) avec bienveillance dans ce que vous traversez. Participer, c'est :
@@ -153,7 +164,7 @@ import imgDouceur from '../../assets/images/img-douceur.jpg';
                 "Prendre du recul et renforcer ses ressources pour vivre cette période avec plus de sérénité."
               ].map((item, i) => (
                 <div class="flex items-start gap-3 p-3.5 rounded-xl bg-background border border-secondary hover:border-accent/30 transition-colors" data-aos="fade-up" data-aos-delay={i * 40}>
-                  <span class="text-accent font-bold mt-0.5 flex-shrink-0">♡</span>
+                  <Icon name="heart" size={24} class="text-accent-dark font-bold mt-0.5 flex-shrink-0" />
                   <span class="text-sm text-text-main/80 leading-relaxed">{item}</span>
                 </div>
               ))}
@@ -169,12 +180,12 @@ import imgDouceur from '../../assets/images/img-douceur.jpg';
         <h2 class="text-3xl font-serif font-bold text-primary mb-8 text-center" data-aos="fade-up">Comment se déroule une rencontre ?</h2>
         <div class="bg-secondary/30 rounded-2xl p-8 md:p-10 border border-secondary" data-aos="fade-up">
           <p class="text-lg text-text-main/80 leading-relaxed mb-6">
-            Les rencontres ont lieu <strong>une fois par mois pendant 2 heures</strong>, en extérieur ou à mon domicile. Elles se déroulent dans un cadre chaleureux, confidentiel et respectueux de chacun.
+            Les rencontres ont lieu <strong>le premier jeudi de chaque mois, de 9h30 à 11h30</strong>, en extérieur ou à mon domicile — l'adresse exacte vous est envoyée par un rappel 24h avant. Elles se déroulent dans un cadre chaleureux, confidentiel et respectueux de chacun.
           </p>
           <p class="text-lg text-text-main/80 leading-relaxed mb-6">
             Après un temps d'accueil, les participants sont invités à partager librement leur vécu, leurs questionnements, leurs difficultés ou leurs joies autour de la parentalité et du post-partum. <strong>Les échanges se construisent naturellement en fonction des besoins du groupe, sans thème imposé.</strong> Chacun est libre de prendre la parole ou simplement d'écouter.
           </p>
-          <p class="text-lg text-text-main/80 leading-relaxed font-bold text-primary">
+          <p class="text-lg text-text-main/80 leading-relaxed font-bold text-primary-dark">
             L'objectif est de créer un espace de soutien, d'écoute et de partage, où les parents peuvent se sentir compris, rompre l'isolement et repartir avec le sentiment d'être moins seuls dans cette période de transition.
           </p>
         </div>
@@ -202,6 +213,8 @@ import imgDouceur from '../../assets/images/img-douceur.jpg';
       </div>
     </section>
 
+    <PreuveLegitimite />
+
     <!-- CTA -->
     <section class="py-20 bg-primary text-secondary text-center relative overflow-hidden">
       <div class="absolute inset-0 pointer-events-none">
@@ -209,13 +222,13 @@ import imgDouceur from '../../assets/images/img-douceur.jpg';
         <div class="absolute bottom-0 left-0 w-64 h-64 bg-secondary/10 rounded-full blur-3xl"></div>
       </div>
       <div class="container mx-auto px-4 relative z-10" data-aos="zoom-in">
-        <div class="text-5xl mb-6">🤱</div>
+        <Icon name="baby" size={40} class="mx-auto mb-6" />
         <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4">Vous souhaitez rejoindre le groupe ?</h2>
         <p class="text-lg text-secondary/80 mb-8 max-w-xl mx-auto leading-relaxed">
           Laissez-moi vos coordonnées — je vous enverrai les informations sur les prochaines dates dès qu'elles seront confirmées.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button href="/prendre-rendez-vous-saint-nazaire/" variant="white" class="text-lg px-10 py-4 shadow-xl font-bold">
+          <Button href="/prendre-rendez-vous-saint-nazaire/#message" variant="white" class="text-lg px-10 py-4 shadow-xl font-bold">
             Je veux être informé(e)
           </Button>
           <a href={`tel:${siteInfo.phone.replace(/\s/g, '')}`} class="inline-flex items-center justify-center gap-2 text-lg px-8 py-4 border-2 border-white/30 rounded-xl text-white hover:bg-white/10 transition-all">
@@ -223,7 +236,7 @@ import imgDouceur from '../../assets/images/img-douceur.jpg';
             Appeler
           </a>
         </div>
-        <p class="mt-5 text-sm text-secondary/50">Vous avez aussi la possibilité d'un suivi individuel en cabinet ou en visio si vous le souhaitez.</p>
+        <p class="mt-5 text-sm text-white">Vous avez aussi la possibilité d'un <a href="/seance-decouverte-therapie-psychocorporelle-saint-nazaire/" class="underline underline-offset-2 hover:text-white/80">suivi individuel, avec une séance découverte offerte</a>.</p>
       </div>
     </section>
   </main>

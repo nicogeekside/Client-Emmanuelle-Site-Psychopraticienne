@@ -6,7 +6,9 @@ import { Image } from 'astro:assets';
 import lieuPhoto1 from '../../assets/images/photo-20260601.jpg';
 import lieuPhoto2 from '../../assets/images/photo-20260404.jpg';
 import portraitEmma from '../../assets/images/portrait-emma-interieur.jpg';
----
+
+import Icon from '../../components/Icon.astro';
+import Button from '../../components/Button.astro';---
 
 <MainLayout 
   title="À propos d'Emmanuelle Demeulemeester | Psychopraticienne Saint-Nazaire"
@@ -15,36 +17,36 @@ import portraitEmma from '../../assets/images/portrait-emma-interieur.jpg';
   <Header />
   
   <main>
-    <section class="py-16 lg:py-24 bg-secondary/20">
+    <section class="py-16 lg:py-24 bg-secondary/10">
       <div class="container mx-auto px-6 lg:px-4">
         <nav class="text-sm text-text-main/40 mb-8 flex items-center gap-2" aria-label="Fil d'Ariane">
-          <a href="/" class="hover:text-accent transition-colors">Accueil</a>
+          <a href="/" class="hover:text-accent-dark transition-colors">Accueil</a>
           <span>/</span>
           <span class="text-primary">Qui suis-je ?</span>
         </nav>
         <h1 class="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-primary mb-6 text-center" data-aos="fade-up">Emmanuelle Demeulemeester</h1>
-        <h2 class="text-xl md:text-2xl text-text-main/70 text-center mb-12 font-serif italic" data-aos="fade-up" data-aos-delay="100">Psychopraticienne à Saint-Nazaire • EMDR DSA & EFT</h2>
+        <h2 class="text-xl md:text-2xl text-text-main/70 text-center mb-12 font-serif italic" data-aos="fade-up" data-aos-delay="100">Psychopraticienne à Saint-Nazaire • EMDR DSA et EFT</h2>
         
         <div class="max-w-6xl mx-auto bg-white p-6 md:p-12 rounded-2xl shadow-sm" data-aos="fade-up">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center mb-12">
                  <div class="md:col-span-2 order-2 md:order-1">
-                    <h3 class="text-xl font-bold text-accent mb-3">Du monde médical à la thérapie psycho-corporelle</h3>
+                    <h3 class="text-xl font-bold text-accent-display mb-3">Du monde médical à la thérapie psycho-corporelle</h3>
                     <p class="text-lg text-text-main/80 mb-6 leading-relaxed">
                         Après 25 années d'expérience dans le domaine médical, j'ai choisi de me tourner vers un métier plus en lien avec mes valeurs profondes. J'ai alors suivi deux années de formation en psychothérapie, en me spécialisant dans l'<strong>EFT</strong> (Emotional Freedom Techniques) et l'<strong>EMDR DSA</strong> (Eye Movement Desensitization and Reprocessing), deux méthodes d'une efficacité remarquable pour accompagner et libérer les traumatismes simples ou complexes.
                     </p>
                     
-                    <h3 class="text-xl font-bold text-accent mb-3">Un chemin de guérison personnel</h3>
+                    <h3 class="text-xl font-bold text-accent-display mb-3">Un chemin de guérison personnel</h3>
                     <p class="text-lg text-text-main/80 mb-6 leading-relaxed">
                         Ma pratique s'ancre également dans mon propre vécu. La traversée d'un post-partum difficile et d'une maladie éprouvante m'a permis de me révéler et de guérir en profondeur. De cette métamorphose est née une envie sincère : <strong>vous accompagner sur votre propre chemin</strong>, avec douceur, présence et une profonde humanité.
                     </p>
                     
-                    <h3 class="text-xl font-bold text-accent mb-3">Une approche ancrée et bienveillante</h3>
+                    <h3 class="text-xl font-bold text-accent-display mb-3">Une approche ancrée et bienveillante</h3>
                     <p class="text-lg text-text-main/80 mb-6 leading-relaxed">
                         Je puise mon équilibre dans les bonheurs simples de la vie et dans la nature. Marcher au milieu des arbres m'apaise, régule mon système nerveux et me ressource.
                     </p>
                     
-                    <div class="p-6 bg-secondary/30 border-l-4 border-accent rounded-r-xl mt-8">
-                        <p class="text-lg font-serif italic text-primary leading-relaxed">
+                    <div class="p-6 bg-secondary/30 border-l border-accent rounded-r-xl mt-8">
+                        <p class="text-lg font-serif italic text-primary-dark leading-relaxed">
                             Aujourd'hui, je vous offre un espace de sécurité, d'écoute et de guidance. Mon objectif de psychopraticienne est de vous aider à explorer et dépasser vos blessures émotionnelles pour retrouver une vie apaisée et alignée.
                         </p>
                     </div>
@@ -66,48 +68,63 @@ import portraitEmma from '../../assets/images/portrait-emma-interieur.jpg';
             <hr class="border-secondary my-8"/>
 
             <!-- Certifications officielles -->
-            <h2 class="text-2xl font-serif font-bold text-accent mb-6">Mes Certifications</h2>
+            <h2 class="text-2xl font-serif font-bold text-accent-display mb-6">Mes Certifications</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-                <div class="flex gap-4 p-5 rounded-xl border border-primary/20 bg-primary/5 hover:shadow-md transition-all">
+                <div class="flex gap-4 p-5 rounded-xl border border-primary/10 bg-primary/10 hover:shadow-md transition-all">
                     <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-primary flex items-center justify-center shadow">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                     </div>
                     <div>
-                        <p class="text-xs font-bold uppercase tracking-wider text-accent mb-1">IFPEC — Octobre 2025</p>
-                        <p class="font-bold text-primary text-sm">Psycho-Praticienne en Techniques Énergétiques et Psycho-Corporelles</p>
-                        <p class="text-xs text-text-muted mt-1">Option EFT Clinique · 360h de formation · Institut Francophone de Psychologie Énergétique Clinique</p>
+                        <p class="text-xs font-bold uppercase tracking-wider text-accent-dark mb-1">IFPEC — Octobre 2025</p>
+                        <p class="font-bold text-primary-dark text-sm">Psycho-Praticienne en Techniques Énergétiques et Psycho-Corporelles</p>
+                        <p class="text-sm text-text-main/75 mt-1">Option EFT Clinique · 360h de formation · Institut Francophone de Psychologie Énergétique Clinique</p>
+                        <a href="/charte-deontologique/" class="text-sm font-semibold text-accent-dark hover:text-primary-dark transition-colors mt-2 inline-block">Voir ma charte déontologique →</a>
                     </div>
                 </div>
-                <div class="flex gap-4 p-5 rounded-xl border border-primary/20 bg-primary/5 hover:shadow-md transition-all">
+                <div class="flex gap-4 p-5 rounded-xl border border-primary/10 bg-primary/10 hover:shadow-md transition-all">
                     <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-primary flex items-center justify-center shadow">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                     </div>
                     <div>
-                        <p class="text-xs font-bold uppercase tracking-wider text-accent mb-1">AHTMA — Octobre 2025</p>
-                        <p class="font-bold text-primary text-sm">Praticienne en EMDR-DSA — Niveau 2</p>
-                        <p class="text-xs text-text-muted mt-1">Eye Movement Desensitization and Reprocessing · AHTMA Formation</p>
+                        <p class="text-xs font-bold uppercase tracking-wider text-accent-dark mb-1">AHTMA — Octobre 2025</p>
+                        <p class="font-bold text-primary-dark text-sm">Praticienne en EMDR-DSA — Niveau 2</p>
+                        <p class="text-sm text-text-main/75 mt-1">Eye Movement Desensitization and Reprocessing · AHTMA Formation</p>
                     </div>
                 </div>
             </div>
 
             <hr class="border-secondary my-8"/>
             
-            <h2 class="text-2xl font-serif font-bold text-accent mb-6">Mes Valeurs</h2>
+            <h2 class="text-2xl font-serif font-bold text-accent-display mb-6">Ce qui fonde mon accompagnement</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
                 <div class="p-4">
-                    <div class="text-4xl mb-4">👂</div>
-                    <h3 class="font-bold text-primary mb-2">Écoute Active</h3>
-                    <p class="text-sm text-text-main/70">Un espace où votre parole est libre et entendue.</p>
+                    <Icon name="briefcase-medical" size={34} class="mx-auto mb-4 text-primary-dark" />
+                    <h3 class="font-bold text-primary mb-2">25 ans dans le soin</h3>
+                    <p class="text-sm text-text-main/70">Une carrière entière dans le domaine médical, avant cette reconversion.</p>
                 </div>
                  <div class="p-4">
-                    <div class="text-4xl mb-4">🤝</div>
-                    <h3 class="font-bold text-primary mb-2">Non-Jugement</h3>
-                    <p class="text-sm text-text-main/70">Accueil inconditionnel de ce que vous êtes.</p>
+                    <Icon name="heart-handshake" size={34} class="mx-auto mb-4 text-primary-dark" />
+                    <h3 class="font-bold text-primary mb-2">Un vécu personnel</h3>
+                    <p class="text-sm text-text-main/70">Un post-partum difficile et une maladie éprouvante, traversés puis dépassés.</p>
                 </div>
                  <div class="p-4">
-                    <div class="text-4xl mb-4">🌱</div>
-                    <h3 class="font-bold text-primary mb-2">Autonomie</h3>
-                    <p class="text-sm text-text-main/70">Vous donner les outils pour avancer seul(e).</p>
+                    <Icon name="badge-check" size={34} class="mx-auto mb-4 text-primary-dark" />
+                    <h3 class="font-bold text-primary mb-2">Deux certifications</h3>
+                    <p class="text-sm text-text-main/70">IFPEC et AHTMA, obtenues en octobre 2025, listées ci-dessus.</p>
+                </div>
+            </div>
+
+            <!-- E5 : la page ou se decide la confiance se terminait sur deux
+                 photos et le pied de page, sans aucune invitation a agir. -->
+            <div class="mt-12 pt-10 border-t border-secondary text-center">
+                <p class="text-lg text-text-main/80 mb-5">Envie d'échanger avant de vous engager ?</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <Button href="/seance-decouverte-therapie-psychocorporelle-saint-nazaire/" variant="accent" class="text-lg px-8 py-4 shadow-lg">
+                        Séance découverte — 45 min offertes
+                    </Button>
+                    <Button href="/prendre-rendez-vous-saint-nazaire/" variant="outline" class="text-lg px-8 py-4">
+                        Prendre rendez-vous
+                    </Button>
                 </div>
             </div>
         </div>
@@ -115,12 +132,7 @@ import portraitEmma from '../../assets/images/portrait-emma-interieur.jpg';
       </div>
     </section>
 
-    <style>
-        .morph-blob {
-            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-        }
-    </style>
-    
+
     <!-- Cabinet Photos -->
     <section class="py-20">
          <div class="container mx-auto px-4">

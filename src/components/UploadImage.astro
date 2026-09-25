@@ -1,0 +1,39 @@
+---
+// Une image uploadée via Decap CMS (public/images/uploads/), servie en
+// <picture> avec un jumeau WebP en priorité.
+//
+// Le jumeau .webp est généré à chaque build par
+// scripts/optimiser-images-uploadees.mjs, qui traite les fichiers déjà
+// copiés dans dist/ — les originaux dans public/ (donc dans git, donc ce
+// qu'Emmanuelle voit dans Decap) ne sont jamais touchés. Ce composant se
+// contente de référencer le jumeau : si le build ne l'a pas encore généré
+// (dev local sans avoir lancé `npm run build`), le navigateur retombe
+// simplement sur l'original — rien ne casse.
+//
+// `class="contents"` retire le <picture> du rendu boîte : ses enfants se
+// comportent exactement comme si le <img> d'origine était toujours seul à
+// cet endroit, donc les classes de mise en page (aspect-video, h-full,
+// object-cover...) passées à l'image continuent de s'appliquer sans rien
+// changer à l'appelant.
+interface Props {
+  src: string;
+  alt: string;
+  class?: string;
+  loading?: 'lazy' | 'eager';
+}
+
+const { src, alt, class: className, loading = 'lazy' } = Astro.props;
+// Déjà en .webp (arrivé au moins une fois via Decap) : rien à ajouter, un
+// <picture> ne ferait que dupliquer la même source deux fois.
+const dejaWebp = /\.webp$/i.test(src);
+const webp = dejaWebp ? null : src.replace(/\.(png|jpe?g)$/i, '.webp');
+---
+
+{dejaWebp ? (
+  <img src={src} alt={alt} class={className} loading={loading} />
+) : (
+  <picture class="contents">
+    <source srcset={webp} type="image/webp" />
+    <img src={src} alt={alt} class={className} loading={loading} />
+  </picture>
+)}

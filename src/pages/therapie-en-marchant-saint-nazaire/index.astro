@@ -4,14 +4,16 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Button from '../../components/Button.astro';
 import FaqSection from '../../components/FaqSection.astro';
+import PreuveLegitimite from '../../components/PreuveLegitimite.astro';
 import { siteInfo } from '../../data/config';
 import { Image } from 'astro:assets';
 import imgSoutien from '../../assets/images/photo-therapie-marchant.jpg';
----
+
+import Icon from '../../components/Icon.astro';---
 
 <MainLayout 
-  title="Thérapie en marchant au Bois Jolland — Saint-Nazaire | Emmanuelle Demeulemeester"
-  description="Séances de thérapie en marchant au Bois Jolland et son étang, à Saint-Nazaire. Un cadre naturel apaisant pour avancer à votre rythme, accompagné(e) par Emmanuelle Demeulemeester, psycho-praticienne."
+  title="Thérapie en marchant au Bois Joalland — Saint-Nazaire | Emmanuelle Demeulemeester"
+  description="Séances de thérapie en marchant au Bois Joalland et son étang, à Saint-Nazaire. Un cadre naturel apaisant pour avancer à votre rythme, accompagné(e) par Emmanuelle Demeulemeester, psycho-praticienne."
 >
   <Header />
   
@@ -26,38 +28,37 @@ import imgSoutien from '../../assets/images/photo-therapie-marchant.jpg';
           width={1400}
           loading="eager"
         />
-        <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/70 to-primary/40"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/70 to-primary/30"></div>
       </div>
 
       <div class="container mx-auto px-6 lg:px-8 pb-16 pt-32 relative z-10 text-secondary">
-        <nav class="text-sm text-secondary/50 mb-6 flex items-center gap-2" aria-label="Fil d'Ariane">
+        <nav class="text-sm text-white mb-6 flex items-center gap-2" aria-label="Fil d'Ariane">
           <a href="/" class="hover:text-white transition-colors">Accueil</a>
           <span>/</span>
           <span class="text-white">Thérapie en marchant</span>
         </nav>
         <div class="max-w-3xl">
-          <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
-            <span class="text-2xl leading-none">🚶‍♀️</span>
-            <span class="text-sm font-medium text-white">Bois Jolland &amp; son étang · Saint-Nazaire</span>
+          <div class="inline-flex items-center gap-2 mb-6 pb-2.5 border-b border-white/30">
+            <Icon name="footprints" size={16} />
+            <span class="text-sm font-bold uppercase tracking-[0.12em] text-white">Bois Joalland &amp; son étang · Saint-Nazaire</span>
           </div>
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 leading-[1.1]">
             Thérapie en marchant
           </h1>
-          <p class="text-xl md:text-2xl text-secondary/85 leading-relaxed mb-8 max-w-2xl">
+          <p class="text-xl md:text-2xl text-secondary/90 leading-relaxed mb-8 max-w-2xl">
             Marchez à mes côtés. Côte à côte, en mouvement, certaines choses se disent plus facilement.
           </p>
           <div class="flex flex-col sm:flex-row gap-4 mb-4">
-            <Button href="/prendre-rendez-vous-saint-nazaire/" variant="white" class="text-lg px-8 py-4 shadow-xl">
-              Réserver ma séance
+            <Button href="/seance-decouverte-therapie-psychocorporelle-saint-nazaire/" variant="white" class="text-lg px-8 py-4 shadow-xl">
+              Séance découverte — 45 min offertes
             </Button>
-            <a href={`tel:${siteInfo.phone.replace(/\s/g, '')}`} class="inline-flex items-center justify-center gap-2 text-lg px-8 py-4 border-2 border-white/30 rounded-xl text-white hover:bg-white/10 transition-all">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-              {siteInfo.phone}
+            <a href="#ce-qu-on-fait" class="inline-flex items-center justify-center gap-2 text-lg px-8 py-4 border-2 border-white/30 rounded-xl text-white hover:bg-white/10 transition-all">
+              Ce qu'on fait en marchant
             </a>
           </div>
-          <a href="/seance-decouverte-therapie-psychocorporelle-saint-nazaire/" class="inline-flex items-center gap-2 text-sm font-bold bg-white text-primary px-4 py-2 rounded-full shadow-md hover:bg-secondary/50 transition-colors">
-            <span class="text-accent">✦</span>
-            <span>Séance découverte de 45 min offerte</span>
+          <a href={`tel:${siteInfo.phone.replace(/\s/g, '')}`} class="inline-flex items-center gap-2 text-sm font-bold bg-white text-primary-dark px-4 py-2 rounded-full shadow-md hover:bg-secondary/50 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+            <span>{siteInfo.phone}</span>
           </a>
         </div>
       </div>
@@ -68,7 +69,7 @@ import imgSoutien from '../../assets/images/photo-therapie-marchant.jpg';
       <div class="container mx-auto px-6 lg:px-8 max-w-5xl">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div data-aos="fade-right">
-            <span class="text-accent font-bold tracking-wider uppercase text-sm block mb-3">Une approche différente</span>
+            <span class="text-accent-dark font-bold tracking-wider uppercase text-sm block mb-3">Une approche différente</span>
             <h2 class="text-3xl font-serif font-bold text-primary mb-6">La marche comme espace thérapeutique</h2>
             <p class="text-lg text-text-main/75 mb-5 leading-relaxed">
               La thérapie en marchant — aussi appelée <em>Walk and Talk Therapy</em> — est une approche dans laquelle la séance se déroule en extérieur, en marchant ensemble.
@@ -84,16 +85,16 @@ import imgSoutien from '../../assets/images/photo-therapie-marchant.jpg';
           <!-- Avantages clés -->
           <div class="space-y-4" data-aos="fade-left">
             {[
-              { icon: "🌿", title: "La nature comme alliée", text: "L'environnement naturel réduit le cortisol (hormone du stress) et favorise un état plus calme et réceptif." },
-              { icon: "↔️", title: "Côte à côte, pas face à face", text: "Sans contact visuel direct, il est souvent plus facile d'aborder des sujets sensibles ou douloureux." },
-              { icon: "🚶", title: "Le corps en mouvement", text: "La marche rythme la pensée. Beaucoup de personnes accompagnées trouvent que leurs idées se clarifient naturellement en marchant." },
-              { icon: "🔓", title: "Moins de pression", text: "Sortir du cabinet crée une atmosphère moins formelle, ce qui peut réduire l'appréhension de la séance." },
+              { icon: "leaf", title: "La nature comme alliée", text: "L'environnement naturel réduit le cortisol (hormone du stress) et favorise un état plus calme et réceptif." },
+              { icon: "users", title: "Côte à côte, pas face à face", text: "Sans contact visuel direct, il est souvent plus facile d'aborder des sujets sensibles ou douloureux." },
+              { icon: "footprints", title: "Le corps en mouvement", text: "La marche rythme la pensée. Beaucoup de personnes accompagnées trouvent que leurs idées se clarifient naturellement en marchant." },
+              { icon: "feather", title: "Moins de pression", text: "Sortir du cabinet crée une atmosphère moins formelle, ce qui peut réduire l'appréhension de la séance." },
             ].map((item, i) => (
-              <div class="flex gap-4 p-5 rounded-xl bg-emerald-50/40 border border-emerald-100 hover:border-emerald-300 transition-colors" data-aos="fade-up" data-aos-delay={i * 80}>
-                <div class="text-2xl flex-shrink-0 mt-0.5">{item.icon}</div>
+              <div class="flex gap-4 p-5 rounded-xl bg-primary-light/10 border border-primary-light/30 hover:border-primary-light/50 transition-colors" data-aos="fade-up" data-aos-delay={i * 80}>
+                <Icon name={item.icon} size={24} class="flex-shrink-0 mt-1 text-primary-dark" />
                 <div>
-                  <h3 class="font-bold text-emerald-900 mb-1">{item.title}</h3>
-                  <p class="text-sm text-text-main/70 leading-relaxed">{item.text}</p>
+                  <h3 class="font-bold text-primary-dark mb-1">{item.title}</h3>
+                  <p class="text-sm text-text-main/80 leading-relaxed">{item.text}</p>
                 </div>
               </div>
             ))}
@@ -103,20 +104,20 @@ import imgSoutien from '../../assets/images/photo-therapie-marchant.jpg';
     </section>
 
     <!-- CE QUI EST FAISABLE OU NON -->
-    <section class="py-16 bg-secondary/30">
+    <section id="ce-qu-on-fait" class="py-16 bg-secondary/30">
       <div class="container mx-auto px-6 lg:px-8 max-w-4xl">
         <h2 class="text-3xl font-serif font-bold text-primary mb-10 text-center" data-aos="fade-up">Ce que l'on fait — et ne fait pas — en marchant</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <!-- CE QU'ON FAIT -->
-          <div class="bg-primary/5 border border-primary/20 rounded-2xl p-8" data-aos="fade-right">
-            <h3 class="font-bold text-primary text-lg mb-5 flex items-center gap-2">
+          <div class="bg-primary/10 border border-primary/10 rounded-2xl p-8" data-aos="fade-right">
+            <h3 class="font-bold text-primary-dark text-lg mb-5 flex items-center gap-2">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
               Ce que l'on travaille
             </h3>
             <ul class="space-y-3">
               {["Écoute active et parole libre", "Anxiété, stress, ruminations", "Deuil et accompagnement émotionnel", "Confiance en soi et blocages", "Exploration de problématiques de vie", "Soutien dans les transitions (post-partum, séparation...)", "Thérapies de soutien régulières"].map(item => (
                 <li class="flex items-start gap-2 text-sm text-text-main/80">
-                  <span class="text-primary-light font-bold mt-0.5">✓</span>
+                  <Icon name="check" size={18} stroke={2} class="text-primary-dark shrink-0 mt-1" />
                   {item}
                 </li>
               ))}
@@ -125,7 +126,7 @@ import imgSoutien from '../../assets/images/photo-therapie-marchant.jpg';
           <!-- CE QU'ON NE FAIT PAS -->
           <div class="bg-secondary border border-secondary rounded-2xl p-8" data-aos="fade-left">
             <h3 class="font-bold text-text-main text-lg mb-5 flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-text-main/75" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
               À noter
             </h3>
             <p class="text-sm text-text-main/80 mb-4 leading-relaxed">
@@ -138,12 +139,12 @@ import imgSoutien from '../../assets/images/photo-therapie-marchant.jpg';
                 "Les séances de traitement intensif de trauma",
               ].map(item => (
                 <li class="flex items-start gap-2 text-sm text-text-main/80">
-                  <span class="text-accent font-bold mt-0.5 flex-shrink-0">→</span>
+                  <Icon name="arrow-right" size={24} class="text-accent-dark font-bold mt-0.5 flex-shrink-0" />
                   {item}
                 </li>
               ))}
             </ul>
-            <p class="text-sm text-text-main/70 mt-5 font-medium border-t border-secondary/60 pt-4">
+            <p class="text-sm text-text-main/70 mt-5 font-medium border-t border-secondary/50 pt-4">
               Si votre situation nécessite ces protocoles, je vous proposerai une séance en cabinet ou en visio. C'est moi qui vous guide.
             </p>
           </div>
@@ -156,38 +157,38 @@ import imgSoutien from '../../assets/images/photo-therapie-marchant.jpg';
       <div class="container mx-auto px-6 lg:px-8 max-w-5xl">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div data-aos="fade-right">
-            <span class="text-accent font-bold tracking-wider uppercase text-sm block mb-3">Le lieu de rendez-vous</span>
-            <h2 class="text-3xl font-serif font-bold text-primary mb-6">Le Bois Jolland et son étang</h2>
+            <span class="text-accent-dark font-bold tracking-wider uppercase text-sm block mb-3">Le lieu de rendez-vous</span>
+            <h2 class="text-3xl font-serif font-bold text-primary mb-6">Le Bois Joalland et son étang</h2>
             <p class="text-lg text-text-main/75 mb-5 leading-relaxed">
-              Toutes les séances de thérapie en marchant se déroulent au <strong>Bois Jolland</strong>, un espace naturel paisible situé à Saint-Nazaire, autour de son étang.
+              Toutes les séances de thérapie en marchant se déroulent au <strong>Bois Joalland</strong>, un espace naturel paisible situé à Saint-Nazaire, autour de son étang.
             </p>
             <p class="text-text-main/70 mb-5 leading-relaxed">
               Ce cadre verdoyant, à l'écart de l'agitation, est idéal pour favoriser un état de calme et d'ouverture. L'eau de l'étang, les arbres et le chemin tranquille créent naturellement les conditions d'un échange profond et libéré.
             </p>
             <div class="flex flex-col gap-3 mt-6">
               <div class="flex items-center gap-3 text-sm text-text-main/80">
-                <span class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">📍</span>
-                <span><strong>Bois Jolland</strong>, Saint-Nazaire (44600)</span>
+                <span class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary-dark flex-shrink-0"><Icon name="map-pin" size={16} /></span>
+                <span><strong>Bois Joalland</strong>, Saint-Nazaire (44600)</span>
               </div>
               <div class="flex items-center gap-3 text-sm text-text-main/80">
-                <span class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">🚗</span>
+                <span class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary-dark flex-shrink-0"><Icon name="car" size={16} /></span>
                 <span>Parking disponible à l'entrée du bois</span>
               </div>
               <div class="flex items-center gap-3 text-sm text-text-main/80">
-                <span class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">⏱️</span>
+                <span class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary-dark flex-shrink-0"><Icon name="timer" size={16} /></span>
                 <span>Séances d’environ 1h, au rythme de votre marche</span>
               </div>
             </div>
           </div>
           <div data-aos="fade-left" class="rounded-2xl overflow-hidden shadow-xl aspect-video">
             <iframe
-              src="https://www.google.com/maps?q=Bois+Jolland+Saint-Nazaire+44600&output=embed"
+              src="https://www.google.com/maps?q=Bois+Joalland+Saint-Nazaire+44600&output=embed"
               width="100%"
               height="100%"
               style="border:0;"
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
-              title="Bois Jolland, Saint-Nazaire"
+              title="Bois Joalland, Saint-Nazaire"
             ></iframe>
           </div>
         </div>
@@ -195,7 +196,7 @@ import imgSoutien from '../../assets/images/photo-therapie-marchant.jpg';
     </section>
 
     <!-- POUR QUI -->
-    <section class="py-20 bg-background">
+    <section class="py-20 bg-secondary/30">
       <div class="container mx-auto px-6 lg:px-8 max-w-4xl text-center">
         <h2 class="text-3xl font-serif font-bold text-primary mb-6" data-aos="fade-up">Ce format est fait pour vous si…</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-left mt-10">
@@ -208,7 +209,7 @@ import imgSoutien from '../../assets/images/photo-therapie-marchant.jpg';
             "Vous souhaitez un suivi régulier dans un cadre différent",
           ].map((item, i) => (
             <div class="flex items-start gap-3 p-4 rounded-xl border border-secondary bg-secondary/30" data-aos="fade-up" data-aos-delay={i * 60}>
-              <span class="text-accent font-bold text-lg flex-shrink-0">✓</span>
+              <Icon name="check" size={18} stroke={2} class="text-accent-dark shrink-0 mt-1" />
               <span class="text-text-main/80 text-sm leading-relaxed">{item}</span>
             </div>
           ))}
@@ -219,11 +220,11 @@ import imgSoutien from '../../assets/images/photo-therapie-marchant.jpg';
     <!-- TARIFS & HORAIRES MARCHANT -->
     <section class="py-16 bg-background">
       <div class="container mx-auto px-6 lg:px-8 max-w-3xl text-center">
-        <h2 class="text-3xl font-serif font-bold text-primary mb-10" data-aos="fade-up">Tarifs & Disponibilités</h2>
+        <h2 class="text-3xl font-serif font-bold text-primary mb-10" data-aos="fade-up">Tarifs et Disponibilités</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <!-- Tarifs -->
           <div class="bg-white rounded-2xl p-8 shadow-sm border border-secondary" data-aos="fade-right">
-            <div class="text-3xl mb-4">💳</div>
+            <Icon name="euro" size={28} class="mx-auto mb-4" />
             <h3 class="font-bold text-primary text-xl mb-6">Tarifs</h3>
             <div class="space-y-3">
               <div class="flex justify-between items-center py-3 border-b border-secondary">
@@ -235,30 +236,30 @@ import imgSoutien from '../../assets/images/photo-therapie-marchant.jpg';
                   <span class="text-text-main/80">Tarif réduit (1h)</span>
                   <span class="font-bold text-primary text-xl">50 €</span>
                 </div>
-                <p class="text-xs text-text-muted bg-secondary/40 rounded-lg px-3 py-2">🎓 Réservé aux <strong>étudiants</strong> et <strong>demandeurs d’emploi</strong>. Un justificatif vous sera demandé.</p>
+                <p class="text-sm text-text-main/75 bg-secondary/30 rounded-lg px-3 py-2 inline-flex items-start gap-2 text-left"><Icon name="graduation-cap" size={16} class="mt-0.5 shrink-0" /><span>Réservé aux <strong>étudiants</strong> et <strong>demandeurs d’emploi</strong>. Un justificatif vous sera demandé.</span></p>
               </div>
               <div class="flex justify-between items-center py-3">
                 <span class="text-text-main/80">Séance découverte</span>
-                <span class="font-bold text-accent text-xl">✦ Gratuite</span>
+                <span class="font-bold text-accent-display text-xl inline-flex items-center gap-1.5"><Icon name="sparkles" size={18} /> Gratuite</span>
               </div>
             </div>
-            <p class="text-xs text-text-muted mt-4 border-t border-secondary pt-3">Règlement accepté : virement bancaire, espèces ou chèque.</p>
+            <p class="text-sm text-text-main/75 mt-4 border-t border-secondary pt-3">Règlement accepté : virement bancaire, espèces ou chèque.</p>
           </div>
           <!-- Horaires -->
           <div class="bg-white rounded-2xl p-8 shadow-sm border border-secondary" data-aos="fade-left">
-            <div class="text-3xl mb-4">🗓️</div>
+            <Icon name="calendar-clock" size={28} class="mx-auto mb-4" />
             <h3 class="font-bold text-primary text-xl mb-6">Disponibilités</h3>
             <div class="space-y-3 text-left">
               <div class="bg-secondary/30 rounded-xl px-4 py-3">
                 <p class="font-semibold text-text-main text-sm">Jeudi & Vendredi</p>
-                <p class="text-accent font-bold">9h00 – 18h00</p>
+                <p class="text-accent-dark font-bold">9h00 – 18h00</p>
               </div>
               <div class="bg-secondary/30 rounded-xl px-4 py-3">
                 <p class="font-semibold text-text-main text-sm">Samedi</p>
-                <p class="text-accent font-bold">9h00 – 13h00</p>
+                <p class="text-accent-dark font-bold">9h00 – 13h00</p>
               </div>
             </div>
-            <p class="text-xs text-text-muted mt-4 border-t border-secondary pt-3">Annulation souhaitée au moins 48h à l’avance, par respect du créneau réservé.</p>
+            <p class="text-sm text-text-main/75 mt-4 border-t border-secondary pt-3">Annulation souhaitée au moins 48h à l’avance, par respect du créneau réservé.</p>
           </div>
         </div>
       </div>
@@ -271,7 +272,7 @@ import imgSoutien from '../../assets/images/photo-therapie-marchant.jpg';
         <FaqSection items={[
           {
             question: "Où se déroulent les séances en marchant ?",
-            answer: "Les séances ont lieu exclusivement au Bois Jolland et autour de son étang, à Saint-Nazaire. Ce cadre naturel est choisi pour sa tranquillité et sa beauté, idéals pour favoriser un état de calme et d'ouverture. Un parking est disponible à l'entrée du bois."
+            answer: "Les séances ont lieu exclusivement au Bois Joalland et autour de son étang, à Saint-Nazaire. Ce cadre naturel est choisi pour sa tranquillité et sa beauté, idéals pour favoriser un état de calme et d'ouverture. Un parking est disponible à l'entrée du bois."
           },
           {
             question: "Faut-il être sportif(ve) pour une séance en marchant ?",
@@ -289,19 +290,24 @@ import imgSoutien from '../../assets/images/photo-therapie-marchant.jpg';
       </div>
     </section>
 
+    <PreuveLegitimite />
+
     <!-- CTA -->
     <section class="py-20 bg-primary text-center text-secondary">
       <div class="container mx-auto px-4">
         <h2 class="text-3xl font-serif font-bold mb-4" data-aos="zoom-in">Envie d'essayer la thérapie en marchant ?</h2>
         <p class="text-lg opacity-80 mb-8 max-w-xl mx-auto">Prenez contact — ensemble on verra si ce format est adapté à ce que vous traversez.</p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button href="/prendre-rendez-vous-saint-nazaire/" variant="white" class="text-lg px-10 py-4 shadow-xl">
-          Prendre rendez-vous
-        </Button>
-          <a href="/therapie-en-ligne-visio/" class="inline-flex items-center justify-center text-lg px-10 py-4 border-2 border-white/30 rounded-xl text-white hover:bg-white/10 transition-all">
-            Voir la thérapie en visio →
+          <Button href="/seance-decouverte-therapie-psychocorporelle-saint-nazaire/" variant="white" class="text-lg px-10 py-4 shadow-xl">
+            Séance découverte — 45 min offertes
+          </Button>
+          <a href="/prendre-rendez-vous-saint-nazaire/" class="inline-flex items-center justify-center text-lg px-10 py-4 border-2 border-white/30 rounded-xl text-white hover:bg-white/10 transition-all">
+            Prendre rendez-vous
           </a>
         </div>
+        <a href="/therapie-en-ligne-visio/" class="inline-flex items-center gap-1.5 mt-5 text-sm font-semibold text-secondary/80 hover:text-white transition-colors">
+          Voir la thérapie en visio
+        </a>
       </div>
     </section>
   </main>
