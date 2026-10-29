@@ -8,7 +8,25 @@ pubDate: 2026-10-29T16:32:00.000+01:00
 image: /images/uploads/dsc_2020_6011.jpg
 author: Emmanuelle Demeulemeester
 ---
-ains souvenirs difficiles afin que ceux-ci provoquent moins de détresse émotionnelle.
+# EMDR à Saint-Nazaire : comprendre cette méthode pour apaiser les souvenirs douloureux
+
+Vous avez vécu un événement difficile qui continue de vous affecter aujourd'hui ? Vous ressentez une peur que vous n'arrivez pas à expliquer, une émotion qui vous submerge ou un souvenir qui revient régulièrement malgré le temps qui passe ?
+
+Parfois, nous avons beau essayer de tourner la page, certaines expériences continuent de peser sur notre quotidien. Elles peuvent influencer nos réactions, nos relations, notre confiance en nous ou notre sentiment de sécurité.
+
+L'EMDR est une approche thérapeutique qui vise notamment à aider les personnes à diminuer la charge émotionnelle associée à certains souvenirs difficiles.
+
+Mais comment fonctionne cette méthode ? Pour quelles difficultés peut-elle être envisagée ? Comment se déroule une séance d'EMDR ?
+
+En tant que psychopraticienne à Saint-Nazaire, spécialisée dans la libération de la parole et l'accompagnement des traumatismes, je vous propose de découvrir cette approche simplement, sans jargon ni promesse miracle.
+
+## Qu'est-ce que l'EMDR ?
+
+EMDR signifie *Eye Movement Desensitization and Reprocessing*, que l'on traduit en français par « désensibilisation et retraitement par les mouvements oculaires ».
+
+Cette approche utilise des stimulations alternées entre le côté droit et le côté gauche. Il peut s'agir de mouvements des yeux, de sons ou de tapotements, selon le protocole utilisé.
+
+L'objectif est d'aider la personne à retraiter certains souvenirs difficiles afin que ceux-ci provoquent moins de détresse émotionnelle.
 
 ### Pourquoi certains souvenirs continuent-ils à nous faire souffrir ?
 
