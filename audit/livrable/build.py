@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 """Génère rapport.html (stdlib seule). Lancer : python3 -I audit/livrable/build.py
-Pronoms d'adresse : changer PRON pour passer au tutoiement (les verbes conjugués
-sont écrits à la 3e personne ou à l'impératif impersonnel quand c'est possible)."""
+Le rapport s'adresse à Emmanuelle en la tutoyant (PRON ne sert plus qu'au cas où un
+marqueur [[…]] resterait dans le texte). Les chiffres avant/après viennent de
+audit/analyses/gsc-periodes.csv (produit par scripts/gsc_periodes.py)."""
 import csv, os
 HERE = os.path.dirname(os.path.abspath(__file__))
 AN = os.path.join(HERE, "..", "analyses")
 
-PRON = {  # vouvoiement provisoire
-    "[[Vous]]": "Vous", "[[vous]]": "vous", "[[votre]]": "votre", "[[Votre]]": "Votre",
-    "[[vos]]": "vos", "[[Vos]]": "Vos", "[[vous-meme]]": "vous-même",
+PRON = {  # tutoiement (décision du 1er nov. 2026) ; les verbes sont écrits à la main dans le texte
+    "[[Vous]]": "Tu", "[[vous]]": "tu", "[[votre]]": "ton", "[[Votre]]": "Ton",
+    "[[vos]]": "tes", "[[Vos]]": "Tes", "[[vous-meme]]": "toi-même",
 }
-# Tutoiement : {"[[Vous]]":"Tu","[[vous]]":"tu","[[votre]]":"ton","[[Votre]]":"Ton","[[vos]]":"tes","[[Vos]]":"Tes","[[vous-meme]]":"toi-même"}
 
 def rows(name):
     with open(os.path.join(AN, name), encoding="utf-8") as f:
@@ -54,6 +54,41 @@ def line_chart(data, key, title, color, ymax_step, W=400, H=300, step=3, fs=13):
     s.append('</svg>')
     return "".join(s)
 
+def fr(n, d=0):
+    return f"{n:,.{d}f}".replace(",", "\u00a0").replace(".", ",")
+PER = {}
+for r in rows("gsc-periodes.csv"):  # produit par scripts/gsc_periodes.py
+    def trio(p):
+        return None if r[p + "_clics"] == "" else (int(r[p + "_clics"]), int(r[p + "_impr"]), float(r[p + "_pos"]) if r[p + "_pos"] else None)
+    PER[r["cle"]] = (trio("avant"), trio("apres"))
+def cl(n): return f"{n} clic" + ("s" if n > 1 else "")
+def cell(x, note="", ap="appar."):
+    """cellule avant / après : clics en gras, puis apparitions et place"""
+    if x is None: return f'<td>—{(" <span class=note>" + note + "</span>") if note else ""}</td>'
+    sub = f"{fr(x[1])} {ap}" + (f" · place {fr(x[2], 1)}" if x[2] is not None else "")
+    return f'<td><b>{cl(x[0])}</b><br><span class="note">{sub}</span></td>'
+def evo(a, b, plain=False):
+    if a is None or b is None: return "<td>—</td>"
+    d = b[0] - a[0]
+    if d == 0: return "<td>0 clic de plus ou de moins</td>" if a[0] else "<td>0 clic des deux côtés</td>"
+    txt = f"{d:+d} clic" + ("s" if abs(d) > 1 else "")
+    txt = txt.replace("-", "\u2212")
+    return f'<td class="pos"><b>{txt}</b></td>' if d > 0 else f"<td>{txt}</td>"
+def ligne(lib, k, seize="", note_a="", note_b=""):
+    a, b = PER[k]
+    return f"<tr><td>{lib}</td>" + (f"<td>{seize}</td>" if seize != "" else "") + cell(a, note_a) + cell(b, note_b) + evo(a, b) + "</tr>"
+def pos_ev(a, b):
+    d = a[2] - b[2]
+    if abs(d) < 0.05: return "<td>stable</td>"
+    return f'<td class="pos"><b>{fr(d, 1)} place{"s" if d >= 2 else ""} gagnée{"s" if d >= 2 else ""}</b></td>' if d > 0 else f"<td>{fr(-d, 1)} place{'s' if -d >= 2 else ''} perdue{'s' if -d >= 2 else ''}</td>"
+def ligne_pos(lib, k, extra=""):
+    a, b = PER[k]
+    return f"<tr><td>{lib}</td><td><b>{fr(a[2], 1)}</b><br><span class=\"note\">{cl(a[0])} · {fr(a[1])} appar.</span></td><td><b>{fr(b[2], 1)}</b><br><span class=\"note\">{cl(b[0])} · {fr(b[1])} appar.</span></td>{pos_ev(a, b)}</tr>"
+TA, TB = PER["tot"]
+ACC_A, ACC_B = PER["page:Accueil"]
+PART_A, PART_B = round(ACC_A[0] / TA[0] * 100), round(ACC_B[0] / TB[0] * 100)
+QV_A, QV_B = PER["qvis"]
+MA, MB = PER["dev:Mobile"]; OA, OB = PER["dev:Ordinateur"]
 mois = rows("gsc-par-mois.csv")
 cal = rows("gsc-vs-calendly-par-mois.csv")
 
@@ -132,15 +167,16 @@ dl {{ margin:0; }} dt {{ font-family:'Playfair Display',serif; font-weight:600; 
 .pg .why {{ margin:.3em 0 0; font-size:9.3pt; color:#4a5a68; }}
 .next .card {{ padding:12px 14px; }} .next .card h3 {{ font-size:11.5pt; }}
 .pg li {{ font-size:10.2pt; }}
+#questions .q {{ break-inside:auto; }} #questions .q b.t, #questions .kpi {{ break-after:avoid; }} thead {{ display:table-header-group; }}
 '''
 
 BODY = f'''
 <div class="cover">
 <div class="kick">Emmanuelle Demeulemeester · Saint-Nazaire</div>
-<h1>Audit de visibilité de [[votre]] site</h1>
+<h1>Audit de visibilité de ton site</h1>
 <div class="rule"></div>
 <p class="lead">Emmanuelle Demeulemeester, psychopraticienne à Saint-Nazaire. Relevés du 1er novembre 2026. Objectif du site : que des personnes réservent la séance découverte offerte de 45 minutes.</p>
-<div class="bandeau">BROUILLON — en attente des exports Google par période</div>
+<div class="bandeau">BROUILLON — volumes de recherche mensuels à venir</div>
 </div>
 
 <section id="verdict" class="verdict">
@@ -148,23 +184,23 @@ BODY = f'''
 <div class="cols">
  <div>
   <p class="colh">Trois bonnes nouvelles</p>
-  <div class="card good"><h3>1. Google [[vous]] montre un peu plus</h3><p>Depuis le nouveau site : <b>202 clics</b> venus de Google, contre <b>133</b> avant (mêmes durées de 142 jours). C'est une tendance, pas une preuve : les volumes sont petits.</p></div>
-  <div class="card good"><h3>2. [[Vous]] êtes n°1 sur Google Maps</h3><p>Pour « psychopraticienne Saint-Nazaire », [[votre]] fiche est première : <b>5,0 sur 5 (20 avis)</b>. Elle est aussi première du bloc « carte » pour « EFT Saint-Nazaire ».</p></div>
-  <div class="card good"><h3>3. [[Votre]] site se distingue</h3><p>Sur les 4 praticiennes comparées, [[vous]] êtes la seule à avoir un blog, une séance découverte offerte et une page par méthode.</p></div>
+  <div class="card good"><h3>1. Google te montre un peu plus</h3><p>Depuis le nouveau site : <b>202 clics</b> venus de Google, contre <b>133</b> avant (mêmes durées de 142 jours). C'est une tendance, pas une preuve : les volumes sont petits.</p></div>
+  <div class="card good"><h3>2. Tu es n°1 sur Google Maps</h3><p>Pour « psychopraticienne Saint-Nazaire », ta fiche est première : <b>5,0 sur 5 (20 avis)</b>. Elle est aussi première du bloc « carte » pour « EFT Saint-Nazaire ».</p></div>
+  <div class="card good"><h3>3. Ton site se distingue</h3><p>Sur les 4 praticiennes comparées, tu es la seule à avoir un blog, une séance découverte offerte et une page par méthode.</p></div>
  </div>
  <div>
   <p class="colh warm">Trois points d'attention</p>
-  <div class="card bad"><h3>1. L'EMDR est un point faible</h3><p>Pour « EMDR Saint-Nazaire », le site n'est pas sur la 1re page de Google classique (place moyenne 8,7 selon Google Search Console) et [[vous]] n'apparaissez pas dans le résumé que Google affiche en haut. [[Votre]] fiche Maps est 3e.</p></div>
+  <div class="card bad"><h3>1. L'EMDR est un point faible</h3><p>Pour « EMDR Saint-Nazaire », le site n'est pas sur la 1re page de Google classique (place moyenne 8,7 selon Google Search Console) et tu n'apparais pas dans le résumé que Google affiche en haut. Ta fiche Maps est 3e.</p></div>
   <div class="card bad"><h3>2. L'EFT est vue, mais peu cliquée</h3><p>La page EFT apparaît 881 fois dans Google mais ne reçoit que 10 clics ; les recherches contenant « EFT » ne rapportent qu'1 clic en tout.</p></div>
-  <div class="card bad"><h3>3. Les concurrentes réservent plus vite</h3><p>Chez elles, un seul clic suffit pour réserver, avec le prix affiché. Chez [[vous]], il en faut 2 depuis l'accueil.</p></div>
+  <div class="card bad"><h3>3. Les concurrentes réservent plus vite</h3><p>Chez elles, un seul clic suffit pour réserver, avec le prix affiché. Chez toi, il en faut 2 depuis l'accueil.</p></div>
  </div>
 </div>
 <p class="note" style="margin-top:14mm">Les chiffres de clics viennent de Google seulement (voir page suivante). Les points marqués « à confirmer » n'ont pas pu être vérifiés.</p>
 </section>
 
 <section id="questions">
-<h2>[[Vos]] 5 questions, réponses simples</h2>
-<p class="note">Avant = 17 janv. → 7 juin 2026 ; après = 8 juin → 27 oct. 2026 (142 jours chacun). « À venir » : l'export Google par période n'est pas encore reçu.</p>
+<h2>Tes 5 questions, réponses simples</h2>
+<p class="note">Avant = 17 janv. → 7 juin 2026 ; après = 8 juin → 27 oct. 2026 (142 jours chacun). « — » : la donnée n'existe pas dans l'export Google de cette période. Les petits chiffres (quelques clics) sont des tendances, pas des preuves.</p>
 <div class="q"><b class="t">1. Combien de vues sur le site ?</b>
 <div class="kpi"><div class="v old">133</div><div class="arr">→</div><div class="v">202</div><div class="lbl">clics depuis Google<br>avant → après</div><div class="up">+52 %</div></div>
 <table><tr><th></th><th>Avant</th><th>Après</th><th>Évolution</th></tr>
@@ -172,52 +208,60 @@ BODY = f'''
 <tr><td>Apparitions dans Google (impressions)</td><td>2 550</td><td>3 364</td><td><b>+814 (+32 %)</b></td></tr>
 <tr><td>Part des apparitions qui donnent un clic</td><td>5,2 %</td><td>6,0 %</td><td>+0,8 point</td></tr>
 <tr><td>Place moyenne dans Google</td><td>15,6</td><td>13,3</td><td>2,3 places gagnées</td></tr></table>
-<p><b>On ne sait mesurer que ce qui vient de Google.</b> Il n'y a pas de compteur de visites sur le site : on ne mesure que ce qui vient de Google. Les visites directes, par Bing ou par les réseaux sociaux ne sont donc pas comptées.</p>
-<p class="note">Sur les 16 mois (1er juil. 2025 → 30 oct. 2026) : 7 513 apparitions, 441 clics (5,9 %). 97 % des clics viennent de France ; 304 sur mobile, 128 sur ordinateur.</p></div>
+<p><b>On ne sait mesurer que ce qui vient de Google.</b> Il n'y a pas de compteur de visites sur le site : les visites directes, par Bing ou par les réseaux sociaux ne sont donc pas comptées.</p>
+<p class="note">Avant → après : {MA[0]} → {MB[0]} clics sur mobile, {OA[0]} → {OB[0]} sur ordinateur. Sur les 16 mois (1er juil. 2025 → 30 oct. 2026) : 7 513 apparitions, 441 clics (5,9 %) ; 97 % des clics viennent de France ; 304 sur mobile, 128 sur ordinateur.</p></div>
 <div class="q"><b class="t">2. Quelles pages sont vues ?</b>
-<div class="kpi"><div class="v">69 %</div><div class="lbl">des clics (303 sur 441) vont à l'accueil</div></div>
+<div class="kpi"><div class="v">69 %</div><div class="lbl">des clics (303 sur 441, sur 16 mois) vont à l'accueil</div></div>
 <table><tr><th>Page</th><th>Clics sur 16 mois</th><th>Avant</th><th>Après</th><th>Évolution</th></tr>
-<tr><td>Accueil</td><td>303 sur 441 (69 %)</td><td>à venir</td><td>à venir</td><td>à venir</td></tr>
-<tr><td>Tarifs et modalités</td><td>30</td><td>à venir</td><td>à venir</td><td>à venir</td></tr>
-<tr><td>Cercle de parole</td><td>19</td><td>à venir</td><td>à venir</td><td>à venir</td></tr>
-<tr><td>Préménopause</td><td>13</td><td>à venir</td><td>à venir</td><td>à venir</td></tr>
-<tr><td>Injonctions faites aux femmes</td><td>12</td><td>à venir</td><td>à venir</td><td>à venir</td></tr>
-<tr><td>Contact</td><td>12</td><td>à venir</td><td>à venir</td><td>à venir</td></tr>
-<tr><td>Thérapie IFS</td><td>11</td><td>à venir</td><td>à venir</td><td>à venir</td></tr>
-<tr><td>EFT (ancienne page)</td><td>10 (881 apparitions)</td><td>à venir</td><td>à venir</td><td>à venir</td></tr>
-<tr><td>EMDR (ancienne page)</td><td>4 (637 apparitions)</td><td>à venir</td><td>à venir</td><td>à venir</td></tr></table>
-<p class="note">Les pages EFT et EMDR sont très vues dans Google mais très peu cliquées.</p></div>
-<div class="q"><b class="t">3. Quels mots tape-t-on pour [[vous]] trouver ?</b>
-<div class="kpi"><div class="v">19 %</div><div class="lbl">des clics (82 sur 441) ont un mot visible</div></div>
+{ligne("Accueil", "page:Accueil", "303 sur 441 (69 %)")}
+{ligne("Tarifs et modalités", "page:Tarifs et modalités", "30")}
+{ligne("Cercle de parole", "page:Cercle de parole", "19")}
+{ligne("Préménopause", "page:Préménopause (page)", "13")}
+{ligne("Injonctions faites aux femmes", "page:Injonctions faites aux femmes", "12")}
+{ligne("Contact", "page:Contact", "12")}
+{ligne("Thérapie IFS", "page:Thérapie IFS (page)", "11")}
+{ligne("EFT (ancienne page + nouvelle page)", "page:EFT (ancienne → nouvelle page)", "10 (881 apparitions)")}
+{ligne("EMDR (ancienne page + nouvelle page)", "page:EMDR (ancienne → nouvelle page)", "4 (637 apparitions)")}</table>
+<p class="note">Part de l'accueil dans les clics : {PART_A} % avant, {PART_B} % après. Les lignes EFT et EMDR regroupent l'ancienne adresse WordPress et la nouvelle adresse du même sujet (EMDR : /emdr-saint-nazaire/, /emdr/ et /therapie-emdr-saint-nazaire/ ; EFT : /eft-saint-nazaire/, /eft/ et /seance-eft-gestion-emotions/). La colonne « 16 mois » couvre plus de jours que « avant » + « après » : on ne peut pas additionner. Les pages EFT et EMDR sont très vues dans Google mais très peu cliquées, avant comme après.</p></div>
+<div class="q"><b class="t">3. Quels mots tape-t-on pour te trouver ?</b>
+<div class="kpi"><div class="v">19 %</div><div class="lbl">des clics (82 sur 441, sur 16 mois) ont un mot visible</div></div>
 <table><tr><th>Recherche</th><th>Clics sur 16 mois</th><th>Avant</th><th>Après</th><th>Évolution</th></tr>
-<tr><td>« emmanuelle demeulemeester » (1re ou 2e place)</td><td>35</td><td>à venir</td><td>à venir</td><td>à venir</td></tr>
-<tr><td>« emdr saint nazaire » (place moyenne 8,7 ; 652 apparitions)</td><td>17</td><td>à venir</td><td>à venir</td><td>à venir</td></tr>
-<tr><td>« emdr st nazaire »</td><td>4</td><td>à venir</td><td>à venir</td><td>à venir</td></tr>
-<tr><td>Recherches « EFT » (souvent hors secteur : Saumur, Chinon, Ancenis…)</td><td>1</td><td>à venir</td><td>à venir</td><td>à venir</td></tr>
-<tr><td>« psychopraticien(ne) »</td><td>0</td><td>à venir</td><td>à venir</td><td>à venir</td></tr></table>
-<p class="note">Les gens qui tapent [[votre]] nom [[vous]] connaissent déjà. Google cache les mots peu fréquents : seuls 82 clics sur 441 (19 %) ont un mot visible.</p></div>
+{ligne("« emmanuelle demeulemeester » (1re ou 2e place)", "req:emmanuelle demeulemeester", "35", "absente de la liste")}
+{ligne("Toutes les variantes de ton nom (demeulemeester, emmanuelle…)", "fam:nom (demeul…, emmanuel…)", "42")}
+{ligne("« emdr saint nazaire »", "req:emdr saint nazaire", "17 (652 apparitions, place 8,7)")}
+{ligne("« emdr st nazaire »", "req:emdr st nazaire", "4")}
+{ligne("Recherches « EFT » (souvent hors secteur : Saumur, Chinon, Ancenis…)", "fam:eft", "1")}
+{ligne("« psychopraticien(ne) »", "fam:psychopraticien(ne)", "0")}</table>
+<p class="note">Les gens qui tapent ton nom te connaissent déjà. Google cache les mots peu fréquents : seuls 82 clics sur 441 (19 %) ont un mot visible sur 16 mois ; par période, {QV_A[0]} clics sur {TA[0]} avant, {QV_B[0]} sur {TB[0]} après. La hausse des clics « nom » est donc en partie un effet de visibilité de l'export. « emmanuelle demeulemeester » n'est pas dans la liste « avant » (masquée ou trop rare).</p></div>
 <div class="q"><b class="t">4. Quels articles du blog sont les plus vus ?</b>
-<div class="kpi"><div class="v">1</div><div class="lbl">clic, au mieux, par article sur 16 mois</div></div>
+<div class="kpi"><div class="v">1</div><div class="lbl">clic, au mieux, par article sous /blog/ sur 16 mois</div></div>
 <table><tr><th>Article</th><th>Clics sur 16 mois</th><th>Avant</th><th>Après</th><th>Évolution</th></tr>
-<tr><td>Contrôle coercitif ; thérapie IFS ; comprendre l'EMDR ; psychocorporel (+1 autre)</td><td>1 chacun</td><td>à venir</td><td>à venir</td><td>à venir</td></tr>
-<tr><td>Thérapie en marchant</td><td>0 (41 apparitions)</td><td>à venir</td><td>à venir</td><td>à venir</td></tr>
-<tr><td>Lien d'attachement ; « Quand parler ne suffit plus… »</td><td>0 : jamais vus</td><td>à venir</td><td>à venir</td><td>à venir</td></tr></table>
-<p class="note">Aucun article ne se détache : le blog attire encore très peu.</p></div>
-<div class="q"><b class="t">5. Quelle est [[votre]] place sur l'EFT et l'EMDR à Saint-Nazaire ?</b>
+{ligne("Contrôle coercitif", "art:le-controle-coercitif", "1", "pas encore dans la liste")}
+{ligne("Thérapie IFS (article)", "art:la-therapie-ifs", "1", "pas encore dans la liste")}
+{ligne("Comprendre l'EMDR", "art:comprendre-la-therapie-emdr-saint-nazaire", "1")}
+{ligne("Thérapie psychocorporelle (article)", "art:la-therapie-psychocorporelle-saint-nazaire", "1")}
+{ligne("Thérapie en marchant", "art:la-therapie-en-marchant-saint-nazaire", "0 (41 apparitions)")}
+{ligne("Lien d'attachement (vu surtout via l'ancienne adresse WordPress)", "art:comprendre-le-lien-d-attachement-et-ses-blessures-durables", "0 sous /blog/ ; 8 via l'ancienne adresse")}
+{ligne("« Quand parler ne suffit plus… »", "art:psychotraumatismes-saint-nazaire", "0 : jamais vu", "aucune ligne", "aucune ligne")}</table>
+<p class="note">Chaque article regroupe son adresse /blog/ et, quand le sujet est évident, l'ancienne adresse WordPress du même texte. Le peu de trafic « blog » passe encore par les anciennes adresses (préménopause : {PER["art:la-premenopause-entre-40-et-50-ans"][0][0] + PER["art:la-premenopause-entre-40-et-50-ans"][1][0]} clics sur les deux périodes ; lien d'attachement : {PER["art:comprendre-le-lien-d-attachement-et-ses-blessures-durables"][0][0] + PER["art:comprendre-le-lien-d-attachement-et-ses-blessures-durables"][1][0]}). Aucun article ne se détache : le blog attire encore très peu.</p></div>
+<div class="q"><b class="t">5. Quelle est ta place sur l'EFT et l'EMDR à Saint-Nazaire ?</b>
 <div class="kpi"><div class="v old">15,6</div><div class="arr">→</div><div class="v">13,3</div><div class="lbl">place moyenne dans Google<br>avant → après</div><div class="up">2,3 places gagnées</div></div>
 <table><tr><th>Place moyenne dans Google (Search Console)</th><th>Avant</th><th>Après</th><th>Évolution</th></tr>
-<tr><td>Ensemble du site</td><td>15,6</td><td>13,3</td><td>2,3 places gagnées</td></tr>
-<tr><td>« emdr saint nazaire » (8,7 sur 16 mois, référence)</td><td>à venir</td><td>à venir</td><td>à venir</td></tr></table>
-<p class="note">Relevé du jour (1er nov. 2026, après la refonte) depuis Saint-Nazaire ; la place change selon l'appareil et le lieu.</p>
+<tr><td>Ensemble du site</td><td><b>15,6</b></td><td><b>13,3</b></td><td class="pos"><b>2,3 places gagnées</b></td></tr>
+{ligne_pos("« emdr saint nazaire » (8,7 sur 16 mois)", "req:emdr saint nazaire")}
+{ligne_pos("Pages EMDR (ancienne + nouvelle)", "page:EMDR (ancienne → nouvelle page)")}
+{ligne_pos("Pages EFT (ancienne + nouvelle)", "page:EFT (ancienne → nouvelle page)")}
+<tr><td>« eft saint nazaire »</td><td>—</td><td>—</td><td>—</td></tr></table>
+<p class="note">« eft saint nazaire » n'est dans aucune des deux listes de Google (recherche trop rare ou masquée). La place des pages EFT et EMDR est une moyenne sur toutes les recherches qui les font apparaître, pas seulement celles de Saint-Nazaire. Le relevé du jour ci-dessous (1er nov. 2026, après la refonte, depuis Saint-Nazaire) change selon l'appareil et le lieu.</p>
 <table><tr><th>Recherche</th><th>Google classique</th><th>Carte Google (Maps)</th><th>Résumé affiché en haut de Google</th></tr>
-<tr><td>« EMDR Saint-Nazaire »</td><td>Absente de la 1re page</td><td>3e (derrière Morgane Houarner et le cabinet Hypnose &amp; EMDR-DSA)</td><td>[[Vous]] n'y êtes pas citée</td></tr>
+<tr><td>« EMDR Saint-Nazaire »</td><td>Absente de la 1re page</td><td>3e (derrière Morgane Houarner et le cabinet Hypnose &amp; EMDR-DSA)</td><td>Tu n'y es pas citée</td></tr>
 <tr><td>« EFT Saint-Nazaire »</td><td>2e (après Resalib)</td><td><b>1re</b></td><td>Pas de résumé relevé</td></tr>
 <tr><td>« Psychopraticienne Saint-Nazaire »</td><td>3e (après psychopraticienne-saint-nazaire.com et Resalib)</td><td><b>1re</b> (carte Maps) ; absente du bloc local de la page Google</td><td>Non lu (à revérifier)</td></tr></table>
 <p class="note">Les relevés Maps et Google du jour n'existent pas « avant » : seule la colonne Search Console permet la comparaison.</p></div>
 <div class="gloss"><h2>Mots utilisés</h2>
 <dl>
-<dt>Impression</dt><dd>Une fois où [[votre]] site s'affiche dans les résultats de Google, que la personne clique ou non.</dd>
-<dt>Clic</dt><dd>Une personne qui clique sur [[votre]] site dans les résultats Google. C'est la seule « visite » que nous mesurons.</dd>
+<dt>Impression</dt><dd>Une fois où ton site s'affiche dans les résultats de Google, que la personne clique ou non.</dd>
+<dt>Clic</dt><dd>Une personne qui clique sur ton site dans les résultats Google. C'est la seule « visite » que nous mesurons.</dd>
 <dt>Place moyenne</dt><dd>La position moyenne du site dans les résultats Google (1 = tout en haut), selon Google Search Console.</dd>
 <dt>Pack local</dt><dd>Les 3 fiches avec carte qui s'affichent en haut de Google pour une recherche près de chez soi (Google Maps).</dd>
 </dl>
@@ -247,7 +291,7 @@ Cela ne dit rien sur le site : ce sont de petits chiffres, et les rendez-vous on
 <section id="concurrentes">
 <h2>Face aux 4 autres praticiennes</h2>
 <table>
-<tr><th>Critère</th><th class="me">[[Vous]]</th><th>Morgane Houarner</th><th>Laurence Martin</th><th>M.-N. Guégan-Leblanc</th><th>Laure Sablé</th></tr>
+<tr><th>Critère</th><th class="me">Toi</th><th>Morgane Houarner</th><th>Laurence Martin</th><th>M.-N. Guégan-Leblanc</th><th>Laure Sablé</th></tr>
 <tr><td>Métier affiché</td><td class="me">Psychopraticienne</td><td>Psychopraticienne EMDR</td><td>Hypnothérapeute</td><td>Psychologue clinicienne</td><td>Psychothérapeute (Guérande et Saint-Nazaire)</td></tr>
 <tr><td>Fiche Google</td><td class="me"><b>5,0 (20 avis)</b></td><td>4,9 (40 avis)</td><td colspan="3">non relevé</td></tr>
 <tr><td>Blog</td><td class="me"><b>~20 articles</b></td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -261,7 +305,7 @@ Cela ne dit rien sur le site : ce sont de petits chiffres, et les rendez-vous on
 <ol class="small" style="margin:.2em 0 0 1.2em;padding:0">
 <li><b>Réservation en 1 clic</b> depuis l'accueil, avec un bouton répété dans la page.</li>
 <li><b>Le prix à côté du bouton</b> (Laure Sablé affiche 3 lignes de prix juste avant « prendre rendez-vous »).</li>
-<li><b>Un lien « voir les avis Google »</b> bien visible (Laurence Martin). [[Vous]] avez 20 avis sur Google mais le site n'y renvoie pas.</li>
+<li><b>Un lien « voir les avis Google »</b> bien visible (Laurence Martin). Tu as 20 avis sur Google mais le site n'y renvoie pas.</li>
 <li><b>La fiche Google comme porte de réservation</b> (Morgane Houarner).</li>
 <li><b>Une présence dans les annuaires</b> où l'on compare les praticiennes (Doctolib, Resalib, etc.).</li>
 <li><b>Une FAQ sur l'accueil</b> pour lever la peur du premier pas (« dois-je tout raconter ? »).</li>
@@ -271,12 +315,12 @@ Cela ne dit rien sur le site : ce sont de petits chiffres, et les rendez-vous on
 
 <section id="morgane" class="pg">
 <h2>Pourquoi Morgane Houarner apparaît partout</h2>
-<p>Sur 24 recherches locales relevées le 1er nov. 2026, Morgane Houarner est très visible. Voici pourquoi, et ce que cela change pour [[vous]]. Elle est une consœur sérieuse : il s'agit seulement de comprendre ce qui joue.</p>
+<p>Sur 24 recherches locales relevées le 1er nov. 2026, Morgane Houarner est très visible. Voici pourquoi, et ce que cela change pour toi. Elle est une consœur sérieuse : il s'agit seulement de comprendre ce qui joue.</p>
 <div class="card bad"><h3>1. Elle paie de la publicité Google</h3><p>Une annonce « sponsorisée » de Morgane Houarner s'affiche sur <b>8 recherches sur 24</b>, tout en haut de la page. Elle <b>paie</b> pour cette place : cela ne veut pas dire que son site est meilleur, et cela ne la fait pas monter dans les résultats « naturels ».</p></div>
-<div class="card bad"><h3>2. Sa fiche Google a deux fois plus d'avis</h3><p><b>40 avis</b> (note 4,9) contre <b>20</b> (note 5,0) pour [[vous]], et elle répond à chacun des avis récents relevés. Dans le bloc des 3 fiches avec carte, elle est présente sur 4 recherches sur 24, [[vous]] sur 3 (n°1 sur « EFT » et « psychopraticienne »). L'écart est donc faible.</p></div>
-<div class="card bad"><h3>3. Elle est dans deux annuaires où [[vous]] n'êtes pas</h3><p><b>Crénolibre</b> et <b>Psychologue.net</b> : sa fiche Crénolibre sort 2e sur « psychopraticien Saint-Nazaire ». Ces annuaires sont aussi souvent cités par les assistants IA (Crénolibre 6 fois, Psychologue.net 8 fois dans nos tests). [[Vous]] n'y êtes pas, mais [[vous]] êtes sur Resalib (5,0).</p></div>
-<div class="card good"><h3>Ce qui n'explique pas son avance</h3><p><b>L'ancienneté :</b> les deux sites sont jeunes (premiers passages archivés en sept. 2023 pour elle, oct. 2024 pour [[vous]]).<br><b>Son site :</b> il n'est dans les 10 premiers résultats sur <b>aucune</b> des 24 recherches. <b>Le contenu :</b> [[votre]] site est plus complet (accueil d'environ 1 200 mots contre 130, une vingtaine d'articles, une FAQ).</p></div>
-<h3>Ce que [[vous]] pouvez rattraper</h3>
+<div class="card bad"><h3>2. Sa fiche Google a deux fois plus d'avis</h3><p><b>40 avis</b> (note 4,9) contre <b>20</b> (note 5,0) pour toi, et elle répond à chacun des avis récents relevés. Dans le bloc des 3 fiches avec carte, elle est présente sur 4 recherches sur 24, toi sur 3 (n°1 sur « EFT » et « psychopraticienne »). L'écart est donc faible.</p></div>
+<div class="card bad"><h3>3. Elle est dans deux annuaires où tu n'es pas</h3><p><b>Crénolibre</b> et <b>Psychologue.net</b> : sa fiche Crénolibre sort 2e sur « psychopraticien Saint-Nazaire ». Ces annuaires sont aussi souvent cités par les assistants IA (Crénolibre 6 fois, Psychologue.net 8 fois dans nos tests). Tu n'y es pas, mais tu es sur Resalib (5,0).</p></div>
+<div class="card good"><h3>Ce qui n'explique pas son avance</h3><p><b>L'ancienneté :</b> les deux sites sont jeunes (premiers passages archivés en sept. 2023 pour elle, oct. 2024 pour toi).<br><b>Son site :</b> il n'est dans les 10 premiers résultats sur <b>aucune</b> des 24 recherches. <b>Le contenu :</b> ton site est plus complet (accueil d'environ 1 200 mots contre 130, une vingtaine d'articles, une FAQ).</p></div>
+<h3>Ce que tu peux rattraper</h3>
 <table>
 <tr><th>Levier</th><th>Rattrapable ?</th><th>Coût</th></tr>
 <tr><td>Avis Google (de 20 vers 40) et publications sur la fiche</td><td><b>Oui</b></td><td>Gratuit</td></tr>
@@ -286,7 +330,7 @@ Cela ne dit rien sur le site : ce sont de petits chiffres, et les rendez-vous on
 </section>
 
 <section id="recherches" class="pg">
-<h2>[[Vos]] recherches : où [[vous]] êtes, où mettre le paquet</h2>
+<h2>Tes recherches : où tu en es, où mettre le paquet</h2>
 <p class="note">Relevé du 1er nov. 2026 depuis Saint-Nazaire, sur 24 recherches, <b>page 1 de Google seulement</b> (les places 11 à 20 n'ont pas été lues). Cela bouge d'un jour à l'autre.</p>
 <div class="cols">
 <div>
@@ -299,8 +343,8 @@ Cela ne dit rien sur le site : ce sont de petits chiffres, et les rendez-vous on
 </div>
 <div>
  <p class="colh mid">À portée de main</p>
- <div class="card mid-c"><h3>EMDR Saint-Nazaire</h3><p>[[Votre]] fiche Google est <b>3e</b> du bloc des 3 fiches, et la place moyenne du site est de <b>8,7</b> (Search Console, 16 mois). Mais au relevé du 1er nov., le site n'est pas dans les 10 premiers résultats.</p><p class="why">110 recherches par mois (Semrush).</p></div>
- <div class="card mid-c"><h3>Psychopraticien, thérapie brève, anxiété, EMDR Pornichet</h3><p>[[Votre]] site apparaît dans le bloc « sites web associés », sous les fiches, mais pas dans les 10 premiers résultats.</p></div>
+ <div class="card mid-c"><h3>EMDR Saint-Nazaire</h3><p>Ta fiche Google est <b>3e</b> du bloc des 3 fiches, et la place moyenne du site est de <b>8,7</b> (Search Console, 16 mois). Mais au relevé du 1er nov., le site n'est pas dans les 10 premiers résultats.</p><p class="why">110 recherches par mois (Semrush).</p></div>
+ <div class="card mid-c"><h3>Psychopraticien, thérapie brève, anxiété, EMDR Pornichet</h3><p>Ton site apparaît dans le bloc « sites web associés », sous les fiches, mais pas dans les 10 premiers résultats.</p></div>
 </div>
 <div>
  <p class="colh grey">Pas encore présente</p>
@@ -308,7 +352,7 @@ Cela ne dit rien sur le site : ce sont de petits chiffres, et les rendez-vous on
  <div class="card grey-c"><h3>Les autres thèmes</h3><p>Traumatisme, burn-out, couple, hypnose, thérapie en visio, et les mots très généraux (« psy », « psychologue », « thérapeute »).</p></div>
 </div>
 </div>
-<div class="warn"><b>Priorité n°1 : l'EMDR.</b> C'est la recherche où [[vous]] avez déjà un pied dans la porte : [[votre]] fiche Google est dans le bloc des 3 fiches, et l’ancienne page EMDR est apparue 637 fois dans Google sur 16 mois. Mais elle n’a reçu que 4 clics, et [[votre]] site n'est pas sur la 1re page. En la renforçant, [[vous]] pouvez passer de « visible » à « choisie ». Les concurrentes y sont très présentes : c'est là que l'effort rapporte le plus.</div>
+<div class="warn"><b>Priorité n°1 : l'EMDR.</b> C'est la recherche où tu as déjà un pied dans la porte : ta fiche Google est dans le bloc des 3 fiches, et l’ancienne page EMDR est apparue 637 fois dans Google sur 16 mois. Mais elle n’a reçu que 4 clics, et ton site n'est pas sur la 1re page. En la renforçant, tu peux passer de « visible » à « choisie ». Les concurrentes y sont très présentes : c'est là que l'effort rapporte le plus.</div>
 <p class="note">Volumes de recherche par mois : <span class="venir">à venir</span> pour la plupart des recherches ; seule « emdr saint nazaire » est connue : 110 par mois (Semrush).</p>
 </section>
 
@@ -316,10 +360,10 @@ Cela ne dit rien sur le site : ce sont de petits chiffres, et les rendez-vous on
 <h2>Et maintenant ?</h2>
 <div class="cols">
 <div>
- <p class="colh">Ce que [[vous]] pouvez faire (sans technique)</p>
+ <p class="colh">Ce que tu peux faire (sans technique)</p>
  <div class="card good"><h3>Demander des avis Google</h3><p>Proposer aux patientes satisfaites de laisser un avis, et répondre à chacun. Passer de 20 à 40 avis est le levier le plus simple.</p></div>
  <div class="card good"><h3>Publier sur la fiche Google</h3><p>Une courte publication de temps en temps (une actualité, un atelier, un thème).</p></div>
- <div class="card good"><h3>Créer deux fiches d'annuaire</h3><p>Crénolibre et Psychologue.net, où est Morgane Houarner. <b>Vérifier le coût avant</b> de [[vous]] inscrire.</p></div>
+ <div class="card good"><h3>Créer deux fiches d'annuaire</h3><p>Crénolibre et Psychologue.net, où est Morgane Houarner. <b>Vérifier le coût avant</b> de t'inscrire.</p></div>
  <div class="card good"><h3>Compléter la fiche Resalib</h3><p>Ajouter l'EMDR comme spécialité et recueillir des avis.</p></div>
 </div>
 <div>
@@ -343,6 +387,7 @@ Cela ne dit rien sur le site : ce sont de petits chiffres, et les rendez-vous on
 <h2>Sources</h2>
 <p class="note">Chaque chiffre vient de ces fichiers du dossier d'audit (fichiers bruts non joints au rapport). Ce qui n'a pas pu être vérifié est écrit « à confirmer ».</p>
 <ul class="small">
+<li><b>audit/analyses/05-gsc-avant-apres.md</b>, <b>gsc-periodes.csv</b>, <b>audit/data/gsc/avant/</b> et <b>audit/data/gsc/apres/</b> (Pages, Requêtes, Appareils, Graphique) : pages, mots tapés, articles, appareils et place moyenne avant / après (exports Google Search Console par période, 142 jours chacune).</li>
 <li><b>audit/analyses/01-gsc.md</b>, <b>gsc-par-mois.csv</b>, <b>gsc-vs-calendly-par-mois.csv</b>, <b>audit/data/calendly/rdv-par-mois-anonyme.csv</b> : clics, impressions, pages, mots tapés, avant/après, Calendly (exports Google Search Console, 16 mois, et comptes Calendly anonymes).</li>
 <li><b>audit/analyses/03-concurrents.md</b> : comparaison des 4 praticiennes (lecture de leurs sites publics).</li>
 <li><b>audit/analyses/04-blog.md</b>, <b>blog-stats.csv</b> : état des 20 articles (lecture seule).</li>
@@ -352,7 +397,7 @@ Cela ne dit rien sur le site : ce sont de petits chiffres, et les rendez-vous on
 </ul>
 <h3>Reste à confirmer</h3>
 <ul class="small">
-<li>Pages et mots tapés avant / après : exports Google par période à recevoir.</li>
+<li>Volumes de recherche mensuels : à venir (« emdr saint nazaire » seule est connue). Ils ne viennent pas de Search Console.</li>
 <li>Tarif du 1er RDV d'1 h : à confirmer.</li>
 <li>Origine des réservations Calendly : à confirmer auprès des patientes.</li>
 <li>Fiche Google des 3 autres concurrentes : non relevée.</li>
@@ -363,6 +408,7 @@ Cela ne dit rien sur le site : ce sont de petits chiffres, et les rendez-vous on
 
 import re
 BODY = BODY.replace('<td>à venir</td>', '<td class="av"><span class="venir">à venir</span></td>')
+BODY = re.sub(r'<table([^>]*)><tr>(<th.*?</tr>)', r'<table\1><thead><tr>\2</thead>', BODY, flags=re.S)
 BODY = re.sub(r'<td><b>(\+\d)', r'<td class="pos"><b>\1', BODY)
 for k, v in PRON.items():
     BODY = BODY.replace(k, v)

@@ -1,0 +1,52 @@
+cle,libelle,avant_clics,avant_impr,avant_pos,apres_clics,apres_impr,apres_pos
+page:Accueil,Accueil,76,1507,9.07,139,2146,9.70
+page:Tarifs et modalités,Tarifs et modalités,13,131,7.38,17,260,7.67
+page:Cercle de parole,Cercle de parole,8,39,5.28,11,74,6.36
+page:Préménopause (page),Préménopause (page),8,82,10.73,4,68,13.57
+page:Injonctions faites aux femmes,Injonctions faites aux femmes,6,67,9.61,6,105,8.93
+page:Contact,Contact,2,54,7.46,7,69,4.97
+page:Thérapie IFS (page),Thérapie IFS (page),5,55,14.38,5,79,13.54
+page:EFT (ancienne → nouvelle page),EFT (ancienne → nouvelle page),5,512,37.22,4,313,17.22
+page:EMDR (ancienne → nouvelle page),EMDR (ancienne → nouvelle page),4,359,10.28,0,273,12.94
+page:Séance découverte psychocorporelle (renommée),Séance découverte psychocorporelle (renommée),0,58,35.53,1,20,21.65
+page:Thérapie en marchant (page),Thérapie en marchant (page),0,7,39.14,0,8,7.62
+page:Post-partum (page),Post-partum (page),0,5,9.40,0,12,33.08
+page:Prendre rendez-vous,Prendre rendez-vous,,,,1,33,4.09
+page:Index du blog,Index du blog,0,29,7.76,2,115,2.97
+art:comprendre-le-lien-d-attachement-et-ses-blessures-durables,Comprendre le lien d’attachement et ses blessures durables,2,64,10.28,5,225,39.93
+art:la-liberation-de-la-parole-saint-nazaire,La libération de la parole à Saint-Nazaire : un chemin vers le mieux être,,,,0,4,25.00
+art:la-therapie-en-marchant-saint-nazaire,La thérapie en marchant sur Saint-Nazaire,0,7,39.14,0,41,2.59
+art:stress-et-cancer-a-saint-nazaire,Stress et cancer à Saint-Nazaire : les bienfaits d'une prise en charge,1,10,17.30,0,1,69.00
+art:la-sante-mentale-a-saint-nazaire,"La santé mentale n'est pas un luxe, c'est une nécessité",,,,0,3,23.00
+art:les-croyances-limitantes,les croyances limitantes,1,20,8.95,0,20,3.50
+art:la-premenopause-entre-40-et-50-ans,"Préménopause chez la femme entre 40 et 50 ans : symptômes, émotions et",8,82,10.73,4,74,12.89
+art:cancer-et-therapie-psychocorporelle,Témoignage d'une cliente en parcours de soin en cancérologie et son,0,4,5.75,0,3,4.33
+art:espace-de-parole-post-partum-saint-nazaire,Espace de parole post-partum à Saint-Nazaire | Soutien et écoute pour les,,,,0,1,6.00
+art:la-therapie-psychocorporelle-saint-nazaire,La thérapie psychocorporelle,0,8,13.75,1,13,8.62
+art:le-therapeute-energetique,Le thérapeute énergétique,0,16,10.88,0,14,6.15
+art:les-therapies-breves,Les thérapies brèves,0,5,10.80,0,40,19.40
+art:psychotraumatismes-saint-nazaire,Quand parler ne suffit plus... des approchent qui reparent le corp et l'esprit,,,,,,
+art:douleur-chronique-et-therapie-psychocorporelle,Soulager la douleur chronique avec la psychologie énergétique et,0,1,12.00,0,1,6.00
+art:la-psychologie-energetique,C'est quoi la psychologie énergétique?,0,2,7.00,0,6,14.17
+art:la-therapie-ifs,La thérapie IFS,,,,1,12,5.17
+art:le-controle-coercitif,Comment savoir si je suis victime de contrôle coercitif ?,,,,1,40,13.72
+art:post-partum-saint-nazaire,Post Partum à Saint-Nazaire : espace de parole et de soutien,0,5,9.40,0,3,24.33
+art:comprendre-la-therapie-emdr-saint-nazaire,Comprendre l'EMDR : Comment cette thérapie traite les traumatismes,,,,1,10,10.40
+art:le-post-partum,Post-partum : la traversée émotionnelle dont personne ne parle,,,,0,6,5.17
+req:emmanuelle demeulemeester,emmanuelle demeulemeester,,,,20,39,1.00
+req:emdr saint nazaire,emdr saint nazaire,6,274,9.58,10,288,9.31
+req:emdr st nazaire,emdr st nazaire,2,49,9.22,1,61,7.43
+req:eft saint nazaire,eft saint nazaire,,,,,,
+req:psychopraticienne,psychopraticienne,,,,0,4,2.75
+req:psychopraticien saint nazaire,psychopraticien saint nazaire,,,,0,34,22.24
+"fam:nom (demeul…, emmanuel…)","nom (demeul…, emmanuel…)",2,52,4.90,21,128,3.24
+fam:emdr,emdr,9,374,9.83,13,538,9.81
+fam:eft,eft,0,182,58.15,0,31,16.62
+fam:psychopraticien(ne),psychopraticien(ne),0,4,9.25,0,47,18.56
+fam:saint nazaire / st nazaire,saint nazaire / st nazaire,8,439,13.83,14,731,16.92
+fam:autres,autres,2,132,43.02,9,380,34.42
+dev:Mobile,Mobile,93,1482,7.20,136,2024,7.68
+dev:Ordinateur,Ordinateur,38,1040,27.75,62,1299,22.24
+dev:Tablette,Tablette,2,28,6.18,4,41,9.29
+tot,Ensemble du site,133,2550,15.57,202,3364,13.32
+qvis,Requêtes visibles (somme),13,827,,44,1346,
