@@ -108,6 +108,61 @@ ul.vl b { font-family:'Playfair Display',serif; color:#3D5A4E; font-size:11pt; w
 .topics td:nth-child(2), .topics th:nth-child(2) { text-align:right; white-space:nowrap; }
 .topics td.big { font-family:'Playfair Display',serif; font-weight:600; color:#3D5A4E; font-size:11.5pt; }
 #questions .q { break-inside:auto; } #questions .q b.t, #questions .kpi { break-after:avoid; } thead { display:table-header-group; }
+
+b.big { font-size:11pt; color:#2C3E50; }
+.pill { display:inline-block; padding:1px 9px; border-radius:10px; font-size:8.6pt; font-weight:700; white-space:nowrap; line-height:1.5; }
+.pill.ok { background:#dfe9e1; color:#3D5A4E; } .pill.no { background:#f6ebe5; color:#9A5849; } .pill.na { background:#eee8df; color:#566672; } .pill.mid { background:#f6ecd2; color:#7a5c12; }
+.band { display:flex; gap:10px; margin:6px 0 16px; }
+.tile { flex:1; text-align:center; border-radius:12px; padding:14px 8px 11px; }
+.tile .n { display:block; font-family:'Playfair Display',serif; font-size:25pt; line-height:1; font-weight:600; color:#3D5A4E; }
+.tile .l { display:block; font-size:8.8pt; line-height:1.35; margin-top:6px; color:#3b4b58; }
+.tile.t1 { background:#EBDCCC; } .tile.t2 { background:#dfe9e1; } .tile.t3 { background:#f4e6df; } .tile.t3 .n { color:#9A5849; } .tile.t4 { background:#fff; border:1px solid #eadfd2; }
+.il { display:flex; gap:12px; align-items:flex-start; padding:11px 0; border-bottom:1px solid #efe6db; break-inside:avoid; }
+.il:last-child { border-bottom:0; }
+.il .ic { flex:0 0 28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:#dfe9e1; }
+.il.w .ic { background:#f4e6df; }
+.il h3 { margin:0 0 2px; font-size:12pt; text-align:left; } .il p { margin:0; font-size:10.4pt; line-height:1.55; }
+.panel { background:#fff; border:1px solid #eadfd2; border-radius:12px; padding:6px 18px; }
+.ph { font-family:'Playfair Display',serif; font-weight:600; font-size:13.5pt; color:#3D5A4E; margin:0 0 6px; text-align:center; }
+.ph.warm { color:#9A5849; }
+.vs { display:grid; grid-template-columns:1fr auto 1fr; gap:8px 10px; align-items:stretch; margin:6px 0 14px; }
+.vs .hd { text-align:center; font-family:'Playfair Display',serif; font-weight:600; font-size:13pt; color:#3D5A4E; padding:8px 6px; border-radius:10px 10px 0 0; }
+.vs .hd small { display:block; font:400 8.6pt Lato,sans-serif; color:#4a5a68; }
+.vs .hd.a, .vs .a { background:#EBDCCC; } .vs .hd.b, .vs .b { background:#dfe9e1; }
+.vs .c { border-radius:8px; text-align:center; padding:9px 6px; }
+.vs .c .n { font-family:'Playfair Display',serif; font-size:24pt; line-height:1; font-weight:600; color:#3D5A4E; }
+.vs .c .l { display:block; font-size:8.8pt; color:#3b4b58; margin-top:3px; }
+.vs .m { display:flex; align-items:center; justify-content:center; min-width:34mm; }
+.enc { background:#f3eadf; border-radius:12px; padding:14px 22px; margin:14px 0; break-inside:avoid; }
+.enc.rose { background:#f8ece6; } .enc.vert { background:#e9f0ea; }
+.enc h3 { margin:0 0 6px; text-align:left; font-size:12.5pt; display:flex; align-items:center; gap:9px; }
+.enc p { margin:.3em 0; font-size:10pt; } .enc ul { margin:.3em 0 .3em 1.1em; font-size:10pt; }
+.enc table { background:transparent; } .enc td, .enc th { border-bottom-color:#e2d5c4; }
+.enc .quote { font-family:'Playfair Display',serif; font-size:12.5pt; line-height:1.45; color:#3D5A4E; text-align:center; margin:.2em 0; }
+.grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:8px 0; }
+.gt { background:#fff; border:1px solid #eadfd2; border-radius:12px; padding:12px 14px; break-inside:avoid; }
+.gt .gi { width:34px; height:34px; border-radius:10px; background:#dfe9e1; display:flex; align-items:center; justify-content:center; margin-bottom:7px; }
+.gt b { display:block; font-size:10.4pt; color:#3D5A4E; margin-bottom:3px; } .gt span { font-size:9.2pt; line-height:1.45; color:#3b4b58; }
+.tri { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:10px 0; }
+.tri > div { background:#fff; border-radius:12px; padding:14px 14px 12px; border:1px solid #eadfd2; break-inside:avoid; }
+.tri .no { font-family:'Playfair Display',serif; font-size:30pt; line-height:1; color:#C88D7D; font-weight:600; }
+.tri h3 { margin:4px 0 6px; font-size:12pt; text-align:left; } .tri p { margin:.3em 0; font-size:9.8pt; line-height:1.5; }
+.road { margin:10px 0 6px; }
+.step { display:flex; gap:16px; position:relative; padding-bottom:11px; break-inside:avoid; }
+.step:not(:last-child)::before { content:""; position:absolute; left:17px; top:38px; bottom:2px; width:2px; background:#EBDCCC; }
+.step .num { flex:0 0 36px; height:36px; border-radius:50%; background:#3D5A4E; color:#fff; font-family:'Playfair Display',serif; font-size:15pt; font-weight:600; display:flex; align-items:center; justify-content:center; position:relative; z-index:1; }
+.step .num.s2 { background:#5C7A62; } .step .num.s3 { background:#9A5849; }
+.step .bd { flex:1; background:#fff; border:1px solid #eadfd2; border-radius:12px; padding:11px 16px 9px; }
+.step .bd h3 { margin:0; font-size:13pt; text-align:left; } .step .bd .who { font-size:8.8pt; color:#566672; letter-spacing:.04em; text-transform:uppercase; font-weight:700; margin:1px 0 5px; }
+ul.chk { list-style:none; margin:.2em 0 .3em; padding:0; }
+ul.chk li { position:relative; padding-left:26px; margin:0 0 6px; font-size:10pt; line-height:1.5; }
+ul.chk li::before { content:""; position:absolute; left:2px; top:3px; width:13px; height:13px; border:2px solid #3D5A4E; border-radius:3px; background:#fff; }
+ul.chk li small { color:#566672; font-size:8.8pt; }
+.sign { text-align:center; font-size:9.4pt; color:#4a5a68; margin:6px 0; }
+.tbl-pill td { vertical-align:middle; }
+#concurrentes table { table-layout:fixed; font-size:8.8pt; } #concurrentes td, #concurrentes th { padding:6px 5px; word-wrap:break-word; }
+#concurrentes th:first-child { width:15%; } #concurrentes .pill { white-space:normal; padding:1px 7px; font-size:8pt; }
+.pb { break-before:page; } #questions .q td:first-child, #questions .q th:first-child { width:40%; } #maintenant .enc { margin:6px 0; }
 </style></head><body>
 <div class="cover">
 <div class="kick">Emmanuelle Demeulemeester · Saint-Nazaire</div>
@@ -123,27 +178,32 @@ ul.vl b { font-family:'Playfair Display',serif; color:#3D5A4E; font-size:11pt; w
 
 <section id="verdict" class="verdict">
 <h2>Le verdict en une page</h2>
+<div class="band">
+ <div class="tile t1"><span class="n">202</span><span class="l">clics depuis Google après la mise en ligne<br>(contre 133 avant)</span></div>
+ <div class="tile t2"><span class="n">5,0</span><span class="l">note de la fiche Google<br>(20 avis)</span></div>
+ <div class="tile t3"><span class="n">9,3</span><span class="l">place moyenne de « emdr saint nazaire » après (9,6 avant)</span></div>
+ <div class="tile t4"><span class="n">9</span><span class="l">clics pour 825 apparitions de la page EFT (avant + après)</span></div>
+</div>
 <div class="cols">
- <div>
-  <p class="colh">Trois bonnes nouvelles</p>
-  <div class="card good"><h3>1. Le site apparaît un peu plus sur Google</h3><p><b>202 clics</b> venus de Google, contre <b>133</b> avant (142 jours chacun).<br>C'est une tendance, pas une preuve.</p></div>
-  <div class="card good"><h3>2. La fiche Google est n°1 sur Maps</h3><p><b>5,0 sur 5 (20 avis)</b>.<br>Première pour « psychopraticienne Saint-Nazaire », et première du bloc « carte » pour « EFT Saint-Nazaire ».</p></div>
-  <div class="card good"><h3>3. Le site se distingue</h3><p>Sur 4 praticiennes comparées, aucune autre ne cumule blog, séance découverte offerte et page par méthode.</p></div>
+ <div class="panel">
+  <p class="ph">Trois bonnes nouvelles</p>
+  <div class="il"><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3D5A4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div><div><h3>Le site apparaît un peu plus sur Google</h3><p><b>202 clics</b> après, contre <b>133</b> avant (142 jours chacun). C'est une tendance, pas une preuve.</p></div></div>
+  <div class="il"><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3D5A4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div><div><h3>La fiche Google est solide</h3><p><b>5,0 sur 5 (20 avis)</b>. Première de la carte pour « psychopraticienne Saint-Nazaire » et pour « praticienne EFT Saint-Nazaire ».</p></div></div>
+  <div class="il"><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3D5A4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div><div><h3>Le site se distingue</h3><p>Sur 4 praticiennes comparées, aucune autre ne cumule blog, séance découverte offerte et page par méthode.</p></div></div>
  </div>
- <div>
-  <p class="colh warm">Trois points d'attention</p>
-  <div class="card bad"><h3>1. L'EMDR est un point faible</h3><p>Pour « EMDR Saint-Nazaire » : place moyenne <b>8,7</b> (Search Console), hors de la 1re page.<br>Le site n'est pas dans le résumé affiché en haut. La fiche Maps est 3e.</p></div>
-  <div class="card bad"><h3>2. L'EFT est vue, mais peu cliquée</h3><p>La page EFT apparaît <b>881</b> fois dans Google, pour <b>10</b> clics.<br>Les recherches contenant « EFT » ne rapportent qu'1 clic en tout.</p></div>
-  <div class="card bad"><h3>3. Les concurrentes réservent plus vite</h3><p>Chez elles, 1 clic suffit pour réserver, prix affiché.<br>Sur le site, il en faut 2 depuis l'accueil.</p></div>
+ <div class="panel">
+  <p class="ph warm">Deux points d'attention</p>
+  <div class="il w"><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9A5849" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v6M12 17v.5"/></svg></div><div><h3>L'EMDR est un point faible</h3><p>Pour « EMDR Saint-Nazaire » : place moyenne <b>9,3</b> (Search Console), et hors des 10 premiers résultats au relevé du 1er nov.<br>Le site n'est pas dans le résumé affiché en haut. La fiche Google est 3e du bloc carte.</p></div></div>
+  <div class="il w"><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9A5849" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v6M12 17v.5"/></svg></div><div><h3>L'EFT est vue, mais peu cliquée</h3><p>La page EFT apparaît <b>825</b> fois dans Google, pour <b>9</b> clics (avant + après).<br>Les recherches contenant « EFT » ne donnent aucun clic visible, avant comme après.</p></div></div>
  </div>
 </div>
-<p class="meaning" style="margin-top:10mm"><b>Ce que ça veut dire :</b> le site progresse et la fiche Google est solide. Les efforts portent sur l'EMDR et sur la réservation.</p>
-<p class="note intro">Les clics viennent de Google seulement. Les points « à confirmer » n'ont pas pu être vérifiés.</p>
+<p class="meaning" style="margin-top:8mm"><b>Ce que ça veut dire :</b> le site progresse et la fiche Google est solide. Les efforts portent sur l'EMDR, sur la visibilité de l'EFT et sur la présence dans les annuaires.</p>
+<p class="note intro">Les clics viennent de Google seulement. Ce qui n'a pas pu être relevé est indiqué « non relevé » ou « non mesurable ».</p>
 </section>
 
 <section id="questions">
 <h2>Cinq questions, cinq réponses</h2>
-<p class="note intro">Avant = 17 janv. → 7 juin 2026. Après = 8 juin → 27 oct. 2026 (142 jours chacun).<br>« — » : donnée absente de l'export Google. Les petits chiffres sont des tendances, pas des preuves.</p>
+<p class="note intro">Avant = 17 janv. → 7 juin 2026. Après = 8 juin → 27 oct. 2026. <b>Avant et après couvrent chacun 142 jours.</b><br>« — » : donnée absente de l'export Google. Les petits chiffres sont des tendances, pas des preuves.</p>
 <div class="q"><b class="t">1. Combien de vues sur le site ?</b>
 <div class="kpi"><div class="v old">133</div><div class="arr">→</div><div class="v">202</div><div class="lbl">clics depuis Google<br>avant → après</div><div class="up">+52 %</div></div>
 <table><thead><tr><th></th><th>Avant</th><th>Après</th><th>Évolution</th></tr></thead>
@@ -153,59 +213,46 @@ ul.vl b { font-family:'Playfair Display',serif; color:#3D5A4E; font-size:11pt; w
 <tr><td>Place moyenne dans Google</td><td>15,6</td><td>13,3</td><td>2,3 places gagnées</td></tr></table>
 <p><b>Seul ce qui vient de Google est mesuré.</b> Sans compteur de visites, les visites directes, Bing et réseaux sociaux ne sont pas comptés.</p>
 <p class="meaning"><b>Ce que ça veut dire :</b> un peu plus de personnes trouvent le site depuis Google, mais les volumes restent petits.</p>
-<ul class="nl"><li>Avant → après : 93 → 136 clics sur mobile, 38 → 62 sur ordinateur.</li><li>Sur 16 mois (1er juil. 2025 → 30 oct. 2026) : 7 513 apparitions, 441 clics (5,9 %).</li><li>97 % des clics viennent de France ; 304 sur mobile, 128 sur ordinateur.</li></ul></div>
+<ul class="nl"><li>Avant → après : 93 → 136 clics sur mobile, 38 → 62 sur ordinateur.</li></ul></div>
 <div class="q"><b class="t">2. Quelles pages sont vues ?</b>
-<div class="kpi"><div class="v">69 %</div><div class="lbl">des clics (303 sur 441, sur 16 mois) vont à l'accueil</div></div>
-<table><thead><tr><th>Page</th><th>Clics sur 16 mois</th><th>Avant</th><th>Après</th><th>Évolution</th></tr></thead>
-<tr><td>Accueil</td><td>303 sur 441 (69 %)</td><td><b>76 clics</b><br><span class="note">1 507 appar. · place 9,1</span></td><td><b>139 clics</b><br><span class="note">2 146 appar. · place 9,7</span></td><td class="pos"><b>+63 clics</b></td></tr>
-<tr><td>Tarifs et modalités</td><td>30</td><td><b>13 clics</b><br><span class="note">131 appar. · place 7,4</span></td><td><b>17 clics</b><br><span class="note">260 appar. · place 7,7</span></td><td class="pos"><b>+4 clics</b></td></tr>
-<tr><td>Cercle de parole</td><td>19</td><td><b>8 clics</b><br><span class="note">39 appar. · place 5,3</span></td><td><b>11 clics</b><br><span class="note">74 appar. · place 6,4</span></td><td class="pos"><b>+3 clics</b></td></tr>
-<tr><td>Préménopause</td><td>13</td><td><b>8 clics</b><br><span class="note">82 appar. · place 10,7</span></td><td><b>4 clics</b><br><span class="note">68 appar. · place 13,6</span></td><td>−4 clics</td></tr>
-<tr><td>Injonctions faites aux femmes</td><td>12</td><td><b>6 clics</b><br><span class="note">67 appar. · place 9,6</span></td><td><b>6 clics</b><br><span class="note">105 appar. · place 8,9</span></td><td>0 clic de plus ou de moins</td></tr>
-<tr><td>Contact</td><td>12</td><td><b>2 clics</b><br><span class="note">54 appar. · place 7,5</span></td><td><b>7 clics</b><br><span class="note">69 appar. · place 5,0</span></td><td class="pos"><b>+5 clics</b></td></tr>
-<tr><td>Thérapie IFS</td><td>11</td><td><b>5 clics</b><br><span class="note">55 appar. · place 14,4</span></td><td><b>5 clics</b><br><span class="note">79 appar. · place 13,5</span></td><td>0 clic de plus ou de moins</td></tr>
-<tr><td>EFT (ancienne page + nouvelle page)</td><td>10 (881 apparitions)</td><td><b>5 clics</b><br><span class="note">512 appar. · place 37,2</span></td><td><b>4 clics</b><br><span class="note">313 appar. · place 17,2</span></td><td>−1 clic</td></tr>
-<tr><td>EMDR (ancienne page + nouvelle page)</td><td>4 (637 apparitions)</td><td><b>4 clics</b><br><span class="note">359 appar. · place 10,3</span></td><td><b>0 clic</b><br><span class="note">273 appar. · place 12,9</span></td><td>−4 clics</td></tr></table>
-<ul class="nl"><li>Part de l'accueil dans les clics : 57 % avant, 69 % après.</li><li>EFT et EMDR regroupent l'ancienne adresse WordPress et la nouvelle.</li><li>La colonne « 16 mois » couvre plus de jours que « avant » + « après » : ne pas additionner.</li><li>Pages EFT et EMDR : très vues dans Google, très peu cliquées, avant comme après.</li></ul>
+<div class="kpi"><div class="v old">57 %</div><div class="arr">→</div><div class="v">69 %</div><div class="lbl">des clics vont à l'accueil<br>avant → après</div></div>
+<table><thead><tr><th>Page du site</th><th>Avant</th><th>Après</th><th>Évolution</th></tr></thead>
+<tr><td><b>Accueil</b></td><td><b class="big">76 clics</b><br><span class="note">1 507 appar. · place 9,1</span></td><td><b class="big">139 clics</b><br><span class="note">2 146 appar. · place 9,7</span></td><td><span class="pill ok">+63 clics</span></td></tr><tr><td><b>Prendre rendez-vous</b><br><span class="note">anciennes pages « Tarifs et modalités » et « Contact » + nouvelle page</span></td><td><b class="big">15 clics</b><br><span class="note">185 appar. · place 7,4</span></td><td><b class="big">25 clics</b><br><span class="note">362 appar. · place 6,8</span></td><td><span class="pill ok">+10 clics</span></td></tr><tr><td><b>Espace de soutien post-partum</b><br><span class="note">ancien « Cercle de parole » et ancienne page dépression post-partum + nouvelle page</span></td><td><b class="big">9 clics</b><br><span class="note">51 appar. · place 5,9</span></td><td><b class="big">11 clics</b><br><span class="note">86 appar. · place 10,1</span></td><td><span class="pill ok">+2 clics</span></td></tr><tr><td><b>EFT</b><br><span class="note">ancienne + nouvelle adresse</span></td><td><b class="big">5 clics</b><br><span class="note">512 appar. · place 37,2</span></td><td><b class="big">4 clics</b><br><span class="note">313 appar. · place 17,2</span></td><td><span class="pill no">−1 clic</span></td></tr><tr><td><b>Page d'accueil du blog</b><br><span class="note">liste des articles</span></td><td><b class="big">0 clic</b><br><span class="note">29 appar. · place 7,8</span></td><td><b class="big">2 clics</b><br><span class="note">115 appar. · place 3,0</span></td><td><span class="pill ok">+2 clics</span></td></tr><tr><td><b>Séance découverte (psychocorporelle)</b><br><span class="note">ancienne + nouvelle adresse</span></td><td><b class="big">0 clic</b><br><span class="note">58 appar. · place 35,5</span></td><td><b class="big">1 clic</b><br><span class="note">20 appar. · place 21,7</span></td><td><span class="pill ok">+1 clic</span></td></tr><tr><td><b>EMDR</b><br><span class="note">ancienne + nouvelle adresse</span></td><td><b class="big">4 clics</b><br><span class="note">359 appar. · place 10,3</span></td><td><b class="big">0 clic</b><br><span class="note">273 appar. · place 12,9</span></td><td><span class="pill no">−4 clics</span></td></tr><tr><td><b>À propos</b></td><td><span class="note">— absente de l'export</span></td><td><b class="big">0 clic</b><br><span class="note">31 appar. · place 12,7</span></td><td><span class="pill na">—</span></td></tr><tr><td><b>Thérapie en visio</b></td><td><span class="note">— absente de l'export</span></td><td><b class="big">0 clic</b><br><span class="note">28 appar. · place 4,8</span></td><td><span class="pill na">—</span></td></tr><tr><td><b>Thérapie au cabinet</b></td><td><span class="note">— absente de l'export</span></td><td><b class="big">0 clic</b><br><span class="note">21 appar. · place 8,6</span></td><td><span class="pill na">—</span></td></tr><tr><td><b>Pages légales</b><br><span class="note">mentions, confidentialité, cookies, charte</span></td><td><b class="big">0 clic</b><br><span class="note">17 appar. · place 6,4</span></td><td><b class="big">0 clic</b><br><span class="note">18 appar. · place 5,6</span></td><td><span class="pill na">0 des deux côtés</span></td></tr><tr><td><b>Thérapie en marchant</b><br><span class="note">ancienne + nouvelle adresse</span></td><td><b class="big">0 clic</b><br><span class="note">7 appar. · place 39,1</span></td><td><b class="big">0 clic</b><br><span class="note">8 appar. · place 7,6</span></td><td><span class="pill na">0 des deux côtés</span></td></tr></table>
+<ul class="nl"><li>Avant et après couvrent chacun 142 jours.</li><li>Une page regroupée réunit l'ancienne adresse WordPress et la nouvelle, quand le sujet existe encore sur le site.</li><li>Les articles du blog sont dans la question 4, jamais ici.</li><li>Pages EFT et EMDR : très vues dans Google, très peu cliquées, avant comme après.</li></ul>
 <p class="meaning"><b>Ce que ça veut dire :</b> presque toutes les visites passent par l'accueil.</p></div>
 <div class="q"><b class="t">3. Quels mots tape-t-on pour trouver le site ?</b>
-<div class="kpi"><div class="v">19 %</div><div class="lbl">des clics (82 sur 441, sur 16 mois) ont un mot visible</div></div>
-<table><thead><tr><th>Recherche</th><th>Clics sur 16 mois</th><th>Avant</th><th>Après</th><th>Évolution</th></tr></thead>
-<tr><td>« emmanuelle demeulemeester » (1re ou 2e place)</td><td>35</td><td>— <span class=note>absente de la liste</span></td><td><b>20 clics</b><br><span class="note">39 appar. · place 1,0</span></td><td>—</td></tr>
-<tr><td>Toutes les variantes du nom (demeulemeester, emmanuelle…)</td><td>42</td><td><b>2 clics</b><br><span class="note">52 appar. · place 4,9</span></td><td><b>21 clics</b><br><span class="note">128 appar. · place 3,2</span></td><td class="pos"><b>+19 clics</b></td></tr>
-<tr><td>« emdr saint nazaire »</td><td>17 (652 apparitions, place 8,7)</td><td><b>6 clics</b><br><span class="note">274 appar. · place 9,6</span></td><td><b>10 clics</b><br><span class="note">288 appar. · place 9,3</span></td><td class="pos"><b>+4 clics</b></td></tr>
-<tr><td>« emdr st nazaire »</td><td>4</td><td><b>2 clics</b><br><span class="note">49 appar. · place 9,2</span></td><td><b>1 clic</b><br><span class="note">61 appar. · place 7,4</span></td><td>−1 clic</td></tr>
-<tr><td>Recherches « EFT » (souvent hors secteur : Saumur, Chinon, Ancenis…)</td><td>1</td><td><b>0 clic</b><br><span class="note">182 appar. · place 58,1</span></td><td><b>0 clic</b><br><span class="note">31 appar. · place 16,6</span></td><td>0 clic des deux côtés</td></tr>
-<tr><td>« psychopraticien(ne) »</td><td>0</td><td><b>0 clic</b><br><span class="note">4 appar. · place 9,2</span></td><td><b>0 clic</b><br><span class="note">47 appar. · place 18,6</span></td><td>0 clic des deux côtés</td></tr></table>
-<ul class="nl"><li>Qui tape le nom d'Emmanuelle la connaît déjà.</li><li>Google cache les mots peu fréquents : 82 clics sur 441 (19 %) ont un mot visible sur 16 mois.</li><li>Par période : 13 clics sur 133 avant, 44 sur 202 après. La hausse des clics « nom » vient en partie de l'export.</li><li>« emmanuelle demeulemeester » est absente de la liste « avant » (masquée ou trop rare).</li></ul>
+<div class="kpi"><div class="v old">10 %</div><div class="arr">→</div><div class="v">22 %</div><div class="lbl">des clics ont un mot visible<br>avant → après</div></div>
+<table><thead><tr><th>Recherche</th><th>Avant</th><th>Après</th><th>Évolution</th></tr></thead>
+<tr><td>« emmanuelle demeulemeester »</td><td><span class="note">— absente de la liste</span></td><td><b class="big">20 clics</b><br><span class="note">39 appar. · place 1,0</span></td><td><span class="pill na">—</span></td></tr>
+<tr><td>Toutes les variantes du nom (demeulemeester, emmanuelle…)</td><td><b class="big">2 clics</b><br><span class="note">52 appar. · place 4,9</span></td><td><b class="big">21 clics</b><br><span class="note">128 appar. · place 3,2</span></td><td><span class="pill ok">+19 clics</span></td></tr>
+<tr><td>« emdr saint nazaire »</td><td><b class="big">6 clics</b><br><span class="note">274 appar. · place 9,6</span></td><td><b class="big">10 clics</b><br><span class="note">288 appar. · place 9,3</span></td><td><span class="pill ok">+4 clics</span></td></tr>
+<tr><td>« emdr st nazaire »</td><td><b class="big">2 clics</b><br><span class="note">49 appar. · place 9,2</span></td><td><b class="big">1 clic</b><br><span class="note">61 appar. · place 7,4</span></td><td><span class="pill no">−1 clic</span></td></tr>
+<tr><td>Recherches « EFT » (souvent hors secteur : Saumur, Chinon, Ancenis…)</td><td><b class="big">0 clic</b><br><span class="note">182 appar. · place 58,1</span></td><td><b class="big">0 clic</b><br><span class="note">31 appar. · place 16,6</span></td><td><span class="pill na">0 des deux côtés</span></td></tr>
+<tr><td>« psychopraticien(ne) »</td><td><b class="big">0 clic</b><br><span class="note">4 appar. · place 9,2</span></td><td><b class="big">0 clic</b><br><span class="note">47 appar. · place 18,6</span></td><td><span class="pill na">0 des deux côtés</span></td></tr></table>
+<ul class="nl"><li>Avant et après couvrent chacun 142 jours.</li><li>Qui tape le nom d'Emmanuelle la connaît déjà.</li><li>Google masque les mots peu fréquents : 13 clics sur 133 avant, 44 sur 202 après ont un mot visible. La hausse des clics « nom » vient en partie de l'export.</li><li>« emmanuelle demeulemeester » est absente de la liste « avant » (masquée ou trop rare).</li></ul>
 <p class="meaning"><b>Ce que ça veut dire :</b> le nom d'Emmanuelle domine parmi les mots visibles. Les thérapies rapportent peu de clics.</p></div>
 <div class="q"><b class="t">4. Quels articles du blog sont les plus vus ?</b>
-<div class="kpi"><div class="v">1</div><div class="lbl">clic, au mieux, par article sous /blog/ sur 16 mois</div></div>
-<table><thead><tr><th>Article</th><th>Clics sur 16 mois</th><th>Avant</th><th>Après</th><th>Évolution</th></tr></thead>
-<tr><td>Contrôle coercitif</td><td>1</td><td>— <span class=note>pas encore dans la liste</span></td><td><b>1 clic</b><br><span class="note">40 appar. · place 13,7</span></td><td>—</td></tr>
-<tr><td>Thérapie IFS (article)</td><td>1</td><td>— <span class=note>pas encore dans la liste</span></td><td><b>1 clic</b><br><span class="note">12 appar. · place 5,2</span></td><td>—</td></tr>
-<tr><td>Comprendre l'EMDR</td><td>1</td><td>—</td><td><b>1 clic</b><br><span class="note">10 appar. · place 10,4</span></td><td>—</td></tr>
-<tr><td>Thérapie psychocorporelle (article)</td><td>1</td><td><b>0 clic</b><br><span class="note">8 appar. · place 13,8</span></td><td><b>1 clic</b><br><span class="note">13 appar. · place 8,6</span></td><td class="pos"><b>+1 clic</b></td></tr>
-<tr><td>Thérapie en marchant</td><td>0 (41 apparitions)</td><td><b>0 clic</b><br><span class="note">7 appar. · place 39,1</span></td><td><b>0 clic</b><br><span class="note">41 appar. · place 2,6</span></td><td>0 clic des deux côtés</td></tr>
-<tr><td>Lien d'attachement (vu surtout via l'ancienne adresse WordPress)</td><td>0 sous /blog/ ; 8 via l'ancienne adresse</td><td><b>2 clics</b><br><span class="note">64 appar. · place 10,3</span></td><td><b>5 clics</b><br><span class="note">225 appar. · place 39,9</span></td><td class="pos"><b>+3 clics</b></td></tr>
-<tr><td>« Quand parler ne suffit plus… »</td><td>0 : jamais vu</td><td>— <span class=note>aucune ligne</span></td><td>— <span class=note>aucune ligne</span></td><td>—</td></tr></table>
-<ul class="nl"><li>Chaque article regroupe son adresse /blog/ et l'ancienne adresse WordPress du même texte.</li><li>Les rares visites passent encore par les anciennes adresses (préménopause : 12 clics sur les deux périodes ; lien d'attachement : 7).</li><li>Aucun article ne se détache.</li></ul>
-<p class="meaning"><b>Ce que ça veut dire :</b> les articles ne rapportent presque aucune visite.</p></div>
+<div class="kpi"><div class="v old">17</div><div class="arr">→</div><div class="v">18</div><div class="lbl">clics en tout sur les articles actuels<br>avant → après</div></div>
+<table><thead><tr><th>Article</th><th>Avant</th><th>Après</th><th>Évolution</th></tr></thead>
+<tr><td><b>Thérapie IFS</b><br><span class="note">ancienne + nouvelle adresse</span></td><td><b class="big">5 clics</b><br><span class="note">55 appar. · place 14,4</span></td><td><b class="big">6 clics</b><br><span class="note">91 appar. · place 12,4</span></td><td><span class="pill ok">+1 clic</span></td></tr><tr><td><b>Lien d'attachement et blessures durables</b><br><span class="note">ancienne adresse WordPress seulement</span></td><td><b class="big">2 clics</b><br><span class="note">64 appar. · place 10,3</span></td><td><b class="big">5 clics</b><br><span class="note">225 appar. · place 39,9</span></td><td><span class="pill ok">+3 clics</span></td></tr><tr><td><b>Préménopause entre 40 et 50 ans</b><br><span class="note">ancienne + nouvelle adresse</span></td><td><b class="big">8 clics</b><br><span class="note">82 appar. · place 10,7</span></td><td><b class="big">4 clics</b><br><span class="note">74 appar. · place 12,9</span></td><td><span class="pill no">−4 clics</span></td></tr><tr><td><b>Contrôle coercitif</b></td><td><span class="note">— absente de l'export</span></td><td><b class="big">1 clic</b><br><span class="note">40 appar. · place 13,7</span></td><td><span class="pill na">—</span></td></tr><tr><td><b>Thérapie psychocorporelle</b><br><span class="note">ancienne + nouvelle adresse</span></td><td><b class="big">0 clic</b><br><span class="note">8 appar. · place 13,8</span></td><td><b class="big">1 clic</b><br><span class="note">13 appar. · place 8,6</span></td><td><span class="pill ok">+1 clic</span></td></tr><tr><td><b>Comprendre l'EMDR</b></td><td><span class="note">— absente de l'export</span></td><td><b class="big">1 clic</b><br><span class="note">10 appar. · place 10,4</span></td><td><span class="pill na">—</span></td></tr><tr><td><b>Thérapie en marchant (article)</b></td><td><span class="note">— absente de l'export</span></td><td><b class="big">0 clic</b><br><span class="note">41 appar. · place 2,6</span></td><td><span class="pill na">—</span></td></tr><tr><td><b>Thérapies brèves</b><br><span class="note">ancienne + nouvelle adresse</span></td><td><b class="big">0 clic</b><br><span class="note">5 appar. · place 10,8</span></td><td><b class="big">0 clic</b><br><span class="note">40 appar. · place 19,4</span></td><td><span class="pill na">0 des deux côtés</span></td></tr><tr><td><b>Les croyances limitantes</b><br><span class="note">ancienne + nouvelle adresse</span></td><td><b class="big">1 clic</b><br><span class="note">20 appar. · place 8,9</span></td><td><b class="big">0 clic</b><br><span class="note">20 appar. · place 3,5</span></td><td><span class="pill no">−1 clic</span></td></tr><tr><td><b>Le thérapeute énergétique</b><br><span class="note">ancienne + nouvelle adresse</span></td><td><b class="big">0 clic</b><br><span class="note">16 appar. · place 10,9</span></td><td><b class="big">0 clic</b><br><span class="note">14 appar. · place 6,1</span></td><td><span class="pill na">0 des deux côtés</span></td></tr><tr><td><b>Qu'est-ce que la psychologie énergétique</b><br><span class="note">ancienne + nouvelle adresse</span></td><td><b class="big">0 clic</b><br><span class="note">2 appar. · place 7,0</span></td><td><b class="big">0 clic</b><br><span class="note">6 appar. · place 14,2</span></td><td><span class="pill na">0 des deux côtés</span></td></tr><tr><td><b>Post-partum : la traversée émotionnelle</b></td><td><span class="note">— absente de l'export</span></td><td><b class="big">0 clic</b><br><span class="note">6 appar. · place 5,2</span></td><td><span class="pill na">—</span></td></tr><tr><td><b>La libération de la parole</b></td><td><span class="note">— absente de l'export</span></td><td><b class="big">0 clic</b><br><span class="note">4 appar. · place 25,0</span></td><td><span class="pill na">—</span></td></tr><tr><td><b>Post-partum à Saint-Nazaire : espace de parole</b><br><span class="note">ancienne + nouvelle adresse</span></td><td><b class="big">0 clic</b><br><span class="note">5 appar. · place 9,4</span></td><td><b class="big">0 clic</b><br><span class="note">3 appar. · place 24,3</span></td><td><span class="pill na">0 des deux côtés</span></td></tr><tr><td><b>Santé mentale, une nécessité</b><br><span class="note">ancienne + nouvelle adresse</span></td><td><span class="note">— absente de l'export</span></td><td><b class="big">0 clic</b><br><span class="note">3 appar. · place 23,0</span></td><td><span class="pill na">—</span></td></tr><tr><td><b>Témoignage en parcours de soin en cancérologie</b><br><span class="note">ancienne + nouvelle adresse</span></td><td><b class="big">0 clic</b><br><span class="note">4 appar. · place 5,8</span></td><td><b class="big">0 clic</b><br><span class="note">3 appar. · place 4,3</span></td><td><span class="pill na">0 des deux côtés</span></td></tr><tr><td><b>Espace de parole post-partum</b></td><td><span class="note">— absente de l'export</span></td><td><b class="big">0 clic</b><br><span class="note">1 appar. · place 6,0</span></td><td><span class="pill na">—</span></td></tr><tr><td><b>Stress et cancer</b><br><span class="note">ancienne + nouvelle adresse</span></td><td><b class="big">1 clic</b><br><span class="note">10 appar. · place 17,3</span></td><td><b class="big">0 clic</b><br><span class="note">1 appar. · place 69,0</span></td><td><span class="pill no">−1 clic</span></td></tr><tr><td><b>Soulager la douleur chronique</b><br><span class="note">ancienne + nouvelle adresse</span></td><td><b class="big">0 clic</b><br><span class="note">1 appar. · place 12,0</span></td><td><b class="big">0 clic</b><br><span class="note">1 appar. · place 6,0</span></td><td><span class="pill na">0 des deux côtés</span></td></tr><tr><td><b>Les injonctions faites aux femmes</b><br><span class="note">ancien article, plus en ligne</span></td><td><b class="big">6 clics</b><br><span class="note">67 appar. · place 9,6</span></td><td><b class="big">6 clics</b><br><span class="note">105 appar. · place 8,9</span></td><td><span class="pill na">stable</span></td></tr><tr><td><b>Autres anciens articles</b><br><span class="note">poids du silence, estime de soi, phobies, thérapie à domicile, séance thérapie brève</span></td><td><b class="big">1 clic</b><br><span class="note">54 appar. · place 12,6</span></td><td><b class="big">0 clic</b><br><span class="note">21 appar. · place 35,4</span></td><td><span class="pill no">−1 clic</span></td></tr></table>
+<ul class="nl"><li>Avant et après couvrent chacun 142 jours.</li><li>Un article regroupe son adresse /blog/ et l'ancienne adresse WordPress du même texte, signalée sous le titre. Triés par clics après ; les anciens articles sans équivalent actuel sont en fin de liste.</li><li>Sur les deux périodes, 31 clics arrivent par une ancienne adresse WordPress, 4 par une adresse /blog/.</li><li>Aucune apparition dans les deux relevés : Quand parler ne suffit plus….</li></ul>
+<p class="meaning"><b>Ce que ça veut dire :</b> les articles ne rapportent presque aucune visite ; aucun ne se détache.</p></div>
 <div class="q"><b class="t">5. Où en est le site sur l'EFT et l'EMDR à Saint-Nazaire ?</b>
 <div class="kpi"><div class="v old">15,6</div><div class="arr">→</div><div class="v">13,3</div><div class="lbl">place moyenne dans Google<br>avant → après</div><div class="up">2,3 places gagnées</div></div>
 <table style="break-inside:avoid"><thead><tr><th>Place moyenne dans Google (Search Console)</th><th>Avant</th><th>Après</th><th>Évolution</th></tr></thead>
-<tr><td>Ensemble du site</td><td><b>15,6</b></td><td><b>13,3</b></td><td class="pos"><b>2,3 places gagnées</b></td></tr>
-<tr><td>« emdr saint nazaire » (8,7 sur 16 mois)</td><td><b>9,6</b><br><span class="note">6 clics · 274 appar.</span></td><td><b>9,3</b><br><span class="note">10 clics · 288 appar.</span></td><td class="pos"><b>0,3 place gagnée</b></td></tr>
-<tr><td>Pages EMDR (ancienne + nouvelle)</td><td><b>10,3</b><br><span class="note">4 clics · 359 appar.</span></td><td><b>12,9</b><br><span class="note">0 clic · 273 appar.</span></td><td>2,7 places perdues</td></tr>
-<tr><td>Pages EFT (ancienne + nouvelle)</td><td><b>37,2</b><br><span class="note">5 clics · 512 appar.</span></td><td><b>17,2</b><br><span class="note">4 clics · 313 appar.</span></td><td class="pos"><b>20,0 places gagnées</b></td></tr>
+<tr><td>Ensemble du site</td><td><b class="big">15,6</b></td><td><b class="big">13,3</b></td><td><span class="pill ok">2,3 places gagnées</span></td></tr>
+<tr><td>« emdr saint nazaire »</td><td><b class="big">9,6</b><br><span class="note">6 clics · 274 appar.</span></td><td><b class="big">9,3</b><br><span class="note">10 clics · 288 appar.</span></td><td><span class="pill ok">0,3 place gagnée</span></td></tr>
+<tr><td>Pages EMDR (ancienne + nouvelle)</td><td><b class="big">10,3</b><br><span class="note">4 clics · 359 appar.</span></td><td><b class="big">12,9</b><br><span class="note">0 clic · 273 appar.</span></td><td><span class="pill no">2,6 places perdues</span></td></tr>
+<tr><td>Pages EFT (ancienne + nouvelle)</td><td><b class="big">37,2</b><br><span class="note">5 clics · 512 appar.</span></td><td><b class="big">17,2</b><br><span class="note">4 clics · 313 appar.</span></td><td><span class="pill ok">20,0 places gagnées</span></td></tr>
 <tr><td>« eft saint nazaire »</td><td>—</td><td>—</td><td>—</td></tr></table>
 <ul class="nl"><li>« eft saint nazaire » est absente des deux listes de Google (trop rare ou masquée).</li><li>La place des pages EFT et EMDR est une moyenne sur toutes les recherches qui les affichent, pas seulement celles de Saint-Nazaire.</li><li>Le relevé ci-dessous (1er nov. 2026, depuis Saint-Nazaire) change selon l'appareil et le lieu.</li></ul>
 <table style="break-inside:avoid"><thead><tr><th>Recherche</th><th>Google classique</th><th>Carte Google (Maps)</th><th>Résumé affiché en haut de Google</th></tr></thead>
 <tr><td>« EMDR Saint-Nazaire »</td><td>Absente de la 1re page</td><td>3e (derrière Morgane Houarner et le cabinet Hypnose &amp; EMDR-DSA)</td><td>Le site n'y est pas cité</td></tr>
-<tr><td>« EFT Saint-Nazaire »</td><td>2e (après Resalib)</td><td><b>1re</b></td><td>Pas de résumé relevé</td></tr>
-<tr><td>« Psychopraticienne Saint-Nazaire »</td><td>3e (après psychopraticienne-saint-nazaire.com et Resalib)</td><td><b>1re</b> (carte Maps) ; absente du bloc local de la page Google</td><td>Non lu (à revérifier)</td></tr></table>
+<tr><td>« EFT Saint-Nazaire »</td><td>2e (après Resalib)</td><td><b>1re</b> au 1er relevé ; le 1er nov., Google affiche un bloc PagesJaunes à la place</td><td>Non relevé</td></tr>
+<tr><td>« Praticienne EFT Saint-Nazaire »</td><td>2e (page EFT, après Resalib)</td><td><b>1re</b> (5,0 ; 20 avis)</td><td>Non relevé</td></tr>
+<tr><td>« Psychopraticienne Saint-Nazaire »</td><td>3e (après psychopraticienne-saint-nazaire.com et Resalib)</td><td><b>1re</b> (carte Maps) ; absente du bloc local de la page Google</td><td>Non relevé</td></tr></table>
 <p class="note">Ce relevé n'existe pas « avant » : seule la colonne Search Console permet la comparaison.</p>
-<p class="meaning"><b>Ce que ça veut dire :</b> le site reste en retrait sur l'EMDR ; la fiche Google est première sur l'EFT.</p></div>
+<p class="meaning"><b>Ce que ça veut dire :</b> le site reste en retrait sur l'EMDR ; la fiche Google est première sur « praticienne EFT ».</p></div>
 <div class="gloss"><h2>Mots utilisés</h2>
 <dl>
 <dt>Impression</dt><dd>Une fois où le site s'affiche dans les résultats de Google, que la personne clique ou non.</dd>
@@ -219,91 +266,123 @@ ul.vl b { font-family:'Playfair Display',serif; color:#3D5A4E; font-size:11pt; w
 <section id="avant-apres">
 <h2>Avant / après le nouveau site</h2>
 <p class="intro">Le site est passé de WordPress à un nouveau site le <b>8 juin 2026</b>.<br>On compare deux périodes de 142 jours.</p>
-<div class="kpi"><div class="v old">133</div><div class="arr">→</div><div class="v">202</div><div class="lbl">clics depuis Google<br>avant → après</div><div class="up">+52 %</div></div>
-<table style="margin-bottom:6px"><thead><tr><th></th><th>Avant (17 janv. → 7 juin)</th><th>Après (8 juin → 27 oct.)</th><th>Écart</th></tr></thead>
-<tr><td>Clics depuis Google</td><td>133</td><td>202</td><td class="pos"><b>+69 (+52 %)</b></td></tr>
-<tr><td>Apparitions dans Google</td><td>2 550</td><td>3 364</td><td class="pos"><b>+814 (+32 %)</b></td></tr>
-<tr><td>Place moyenne</td><td>15,6</td><td>13,3</td><td>2,3 places gagnées</td></tr></table>
+<div class="vs">
+ <div class="hd a">Avant<small>17 janv. → 7 juin</small></div><div></div><div class="hd b">Après<small>8 juin → 27 oct.</small></div>
+ <div class="c a"><span class="n">133</span><span class="l">clics depuis Google</span></div><div class="m"><span class="pill ok">+69 clics (+52 %)</span></div><div class="c b"><span class="n">202</span><span class="l">clics depuis Google</span></div>
+ <div class="c a"><span class="n">2 550</span><span class="l">apparitions dans Google</span></div><div class="m"><span class="pill ok">+814 (+32 %)</span></div><div class="c b"><span class="n">3 364</span><span class="l">apparitions dans Google</span></div>
+ <div class="c a"><span class="n">15,6</span><span class="l">place moyenne</span></div><div class="m"><span class="pill ok">2,3 places gagnées</span></div><div class="c b"><span class="n">13,3</span><span class="l">place moyenne</span></div>
+</div>
 <div class="cols charts"><div class="chart"><h3>Clics par mois</h3>
 <svg viewBox="0 0 400 200" width="100%" role="img" aria-label="Clics par mois" font-family="Lato, sans-serif"><defs><linearGradient id="gclics" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5C7A62" stop-opacity="0.22"/><stop offset="1" stop-color="#5C7A62" stop-opacity="0"/></linearGradient></defs><rect x="293.7" y="40" width="92.3" height="120" fill="#EBDCCC" opacity="0.5" rx="3"/><line x1="40" x2="386" y1="160.0" y2="160.0" stroke="#e3d9cc" stroke-width="1"/><text x="32" y="164.0" text-anchor="end" font-size="13" fill="#4a5a68">0</text><line x1="40" x2="386" y1="130.0" y2="130.0" stroke="#e3d9cc" stroke-width="0.6"/><text x="32" y="134.0" text-anchor="end" font-size="13" fill="#4a5a68">20</text><line x1="40" x2="386" y1="100.0" y2="100.0" stroke="#e3d9cc" stroke-width="0.6"/><text x="32" y="104.0" text-anchor="end" font-size="13" fill="#4a5a68">40</text><line x1="40" x2="386" y1="70.0" y2="70.0" stroke="#e3d9cc" stroke-width="0.6"/><text x="32" y="74.0" text-anchor="end" font-size="13" fill="#4a5a68">60</text><line x1="40" x2="386" y1="40.0" y2="40.0" stroke="#e3d9cc" stroke-width="0.6"/><text x="32" y="44.0" text-anchor="end" font-size="13" fill="#4a5a68">80</text><polygon points="40.0,160.0 40.0,157.0 63.1,134.5 86.1,134.5 109.2,146.5 132.3,124.0 155.3,134.5 178.4,110.5 201.5,128.5 224.5,113.5 247.6,122.5 270.7,116.5 293.7,122.5 316.8,121.0 339.9,68.5 362.9,65.5 386.0,98.5 386.0,160.0" fill="url(#gclics)"/><line x1="293.7" x2="293.7" y1="28" y2="160" stroke="#9A5849" stroke-width="1.4" stroke-dasharray="4 3"/><rect x="111.7" y="8" width="176" height="21" rx="10.5" fill="#f4e6df"/><text x="199.7" y="22.5" text-anchor="middle" font-size="13" fill="#9A5849" font-weight="700">Nouveau site (juin 2026)</text><polyline points="40.0,157.0 63.1,134.5 86.1,134.5 109.2,146.5 132.3,124.0 155.3,134.5 178.4,110.5 201.5,128.5 224.5,113.5 247.6,122.5 270.7,116.5 293.7,122.5 316.8,121.0 339.9,68.5 362.9,65.5 386.0,98.5" fill="none" stroke="#5C7A62" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round"/><circle cx="40.0" cy="157.0" r="3" fill="#fff" stroke="#5C7A62" stroke-width="2"/><circle cx="63.1" cy="134.5" r="3" fill="#fff" stroke="#5C7A62" stroke-width="2"/><circle cx="86.1" cy="134.5" r="3" fill="#fff" stroke="#5C7A62" stroke-width="2"/><circle cx="109.2" cy="146.5" r="3" fill="#fff" stroke="#5C7A62" stroke-width="2"/><circle cx="132.3" cy="124.0" r="3" fill="#fff" stroke="#5C7A62" stroke-width="2"/><circle cx="155.3" cy="134.5" r="3" fill="#fff" stroke="#5C7A62" stroke-width="2"/><circle cx="178.4" cy="110.5" r="3" fill="#fff" stroke="#5C7A62" stroke-width="2"/><circle cx="201.5" cy="128.5" r="3" fill="#fff" stroke="#5C7A62" stroke-width="2"/><circle cx="224.5" cy="113.5" r="3" fill="#fff" stroke="#5C7A62" stroke-width="2"/><circle cx="247.6" cy="122.5" r="3" fill="#fff" stroke="#5C7A62" stroke-width="2"/><circle cx="270.7" cy="116.5" r="3" fill="#fff" stroke="#5C7A62" stroke-width="2"/><circle cx="293.7" cy="122.5" r="3" fill="#fff" stroke="#5C7A62" stroke-width="2"/><circle cx="316.8" cy="121.0" r="3" fill="#fff" stroke="#5C7A62" stroke-width="2"/><circle cx="339.9" cy="68.5" r="3" fill="#fff" stroke="#5C7A62" stroke-width="2"/><circle cx="362.9" cy="65.5" r="4.4" fill="#5C7A62" stroke="#5C7A62" stroke-width="2"/><circle cx="386.0" cy="98.5" r="3" fill="#fff" stroke="#5C7A62" stroke-width="2"/><text x="40.0" y="180" text-anchor="middle" font-size="12" fill="#4a5a68">juil. 25</text><text x="109.2" y="180" text-anchor="middle" font-size="12" fill="#4a5a68">oct. 25</text><text x="178.4" y="180" text-anchor="middle" font-size="12" fill="#4a5a68">janv. 26</text><text x="247.6" y="180" text-anchor="middle" font-size="12" fill="#4a5a68">avr. 26</text><text x="316.8" y="180" text-anchor="middle" font-size="12" fill="#4a5a68">juil. 26</text><text x="386.0" y="180" text-anchor="middle" font-size="12" fill="#4a5a68">oct. 26</text><text x="362.9" y="54.5" text-anchor="middle" font-size="14" font-weight="700" fill="#3D5A4E">63</text></svg></div>
 <div class="chart"><h3>Apparitions dans Google par mois</h3>
 <svg viewBox="0 0 400 200" width="100%" role="img" aria-label="Impressions par mois" font-family="Lato, sans-serif"><defs><linearGradient id="gimpressions" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3D5A4E" stop-opacity="0.22"/><stop offset="1" stop-color="#3D5A4E" stop-opacity="0"/></linearGradient></defs><rect x="293.7" y="40" width="92.3" height="120" fill="#EBDCCC" opacity="0.5" rx="3"/><line x1="40" x2="386" y1="160.0" y2="160.0" stroke="#e3d9cc" stroke-width="1"/><text x="32" y="164.0" text-anchor="end" font-size="13" fill="#4a5a68">0</text><line x1="40" x2="386" y1="136.0" y2="136.0" stroke="#e3d9cc" stroke-width="0.6"/><text x="32" y="140.0" text-anchor="end" font-size="13" fill="#4a5a68">200</text><line x1="40" x2="386" y1="112.0" y2="112.0" stroke="#e3d9cc" stroke-width="0.6"/><text x="32" y="116.0" text-anchor="end" font-size="13" fill="#4a5a68">400</text><line x1="40" x2="386" y1="88.0" y2="88.0" stroke="#e3d9cc" stroke-width="0.6"/><text x="32" y="92.0" text-anchor="end" font-size="13" fill="#4a5a68">600</text><line x1="40" x2="386" y1="64.0" y2="64.0" stroke="#e3d9cc" stroke-width="0.6"/><text x="32" y="68.0" text-anchor="end" font-size="13" fill="#4a5a68">800</text><line x1="40" x2="386" y1="40.0" y2="40.0" stroke="#e3d9cc" stroke-width="0.6"/><text x="32" y="44.0" text-anchor="end" font-size="13" fill="#4a5a68">1000</text><polygon points="40.0,160.0 40.0,154.2 63.1,144.6 86.1,138.0 109.2,142.8 132.3,108.6 155.3,112.6 178.4,112.2 201.5,98.7 224.5,95.3 247.6,81.8 270.7,93.2 293.7,78.3 316.8,100.0 339.9,48.2 362.9,67.2 386.0,82.6 386.0,160.0" fill="url(#gimpressions)"/><line x1="293.7" x2="293.7" y1="28" y2="160" stroke="#9A5849" stroke-width="1.4" stroke-dasharray="4 3"/><rect x="111.7" y="8" width="176" height="21" rx="10.5" fill="#f4e6df"/><text x="199.7" y="22.5" text-anchor="middle" font-size="13" fill="#9A5849" font-weight="700">Nouveau site (juin 2026)</text><polyline points="40.0,154.2 63.1,144.6 86.1,138.0 109.2,142.8 132.3,108.6 155.3,112.6 178.4,112.2 201.5,98.7 224.5,95.3 247.6,81.8 270.7,93.2 293.7,78.3 316.8,100.0 339.9,48.2 362.9,67.2 386.0,82.6" fill="none" stroke="#3D5A4E" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round"/><circle cx="40.0" cy="154.2" r="3" fill="#fff" stroke="#3D5A4E" stroke-width="2"/><circle cx="63.1" cy="144.6" r="3" fill="#fff" stroke="#3D5A4E" stroke-width="2"/><circle cx="86.1" cy="138.0" r="3" fill="#fff" stroke="#3D5A4E" stroke-width="2"/><circle cx="109.2" cy="142.8" r="3" fill="#fff" stroke="#3D5A4E" stroke-width="2"/><circle cx="132.3" cy="108.6" r="3" fill="#fff" stroke="#3D5A4E" stroke-width="2"/><circle cx="155.3" cy="112.6" r="3" fill="#fff" stroke="#3D5A4E" stroke-width="2"/><circle cx="178.4" cy="112.2" r="3" fill="#fff" stroke="#3D5A4E" stroke-width="2"/><circle cx="201.5" cy="98.7" r="3" fill="#fff" stroke="#3D5A4E" stroke-width="2"/><circle cx="224.5" cy="95.3" r="3" fill="#fff" stroke="#3D5A4E" stroke-width="2"/><circle cx="247.6" cy="81.8" r="3" fill="#fff" stroke="#3D5A4E" stroke-width="2"/><circle cx="270.7" cy="93.2" r="3" fill="#fff" stroke="#3D5A4E" stroke-width="2"/><circle cx="293.7" cy="78.3" r="3" fill="#fff" stroke="#3D5A4E" stroke-width="2"/><circle cx="316.8" cy="100.0" r="3" fill="#fff" stroke="#3D5A4E" stroke-width="2"/><circle cx="339.9" cy="48.2" r="4.4" fill="#3D5A4E" stroke="#3D5A4E" stroke-width="2"/><circle cx="362.9" cy="67.2" r="3" fill="#fff" stroke="#3D5A4E" stroke-width="2"/><circle cx="386.0" cy="82.6" r="3" fill="#fff" stroke="#3D5A4E" stroke-width="2"/><text x="40.0" y="180" text-anchor="middle" font-size="12" fill="#4a5a68">juil. 25</text><text x="109.2" y="180" text-anchor="middle" font-size="12" fill="#4a5a68">oct. 25</text><text x="178.4" y="180" text-anchor="middle" font-size="12" fill="#4a5a68">janv. 26</text><text x="247.6" y="180" text-anchor="middle" font-size="12" fill="#4a5a68">avr. 26</text><text x="316.8" y="180" text-anchor="middle" font-size="12" fill="#4a5a68">juil. 26</text><text x="386.0" y="180" text-anchor="middle" font-size="12" fill="#4a5a68">oct. 26</text><text x="339.9" y="37.2" text-anchor="middle" font-size="14" font-weight="700" fill="#3D5A4E">932</text></svg></div></div>
 <p class="meaning"><b>Ce que ça veut dire :</b> la tendance est positive, sans preuve qu'elle vienne du nouveau site.</p>
-<div class="warn"><b>Mise en garde.</b> Une trentaine de clics par mois : de petits chiffres.<ul class="nl" style="color:inherit;font-size:inherit"><li>Le nouveau site n'est pas forcément la cause : 20 articles ont aussi été publiés.</li><li>Juillet → octobre : 45 clics en 2025, 184 en 2026 (base 2025 minuscule).</li><li>Le pic d'août-septembre 2026 reste inexpliqué.</li><li>Aucune chute au moment de la bascule.</li></ul></div>
-<div class="warn"><b>Bonus : les réservations Calendly.</b> Elles comptent <u>toutes</u> les origines (site, fiche Google, bouche-à-oreille) : impossible de savoir lesquelles viennent du site.<br>Découpage au mois (5 mois chacun) : <b>avant = janv. → mai 2026, après = juin → oct. 2026</b>.
+<div class="enc rose pb"><h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9A5849" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v6M12 17v.5"/></svg> Mise en garde</h3><p>Une trentaine de clics par mois : de petits chiffres.</p><ul><li>Le nouveau site n'est pas forcément la cause : 20 articles ont aussi été publiés.</li><li>Juillet → octobre : 45 clics en 2025, 184 en 2026 (base 2025 minuscule).</li><li>Le pic d'août-septembre 2026 reste inexpliqué.</li><li>Aucune chute au moment de la bascule.</li></ul></div>
+<div class="enc"><h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3D5A4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 7h10M9 12h10M9 17h10M5 7h.5M5 12h.5M5 17h.5"/></svg> Les réservations Calendly</h3>
+<p>Elles comptent <u>toutes</u> les origines (site, fiche Google, bouche-à-oreille) : impossible de savoir lesquelles viennent du site. Découpage au mois (5 mois chacun) : <b>avant = janv. → mai 2026, après = juin → oct. 2026</b>.</p>
 <table style="margin-top:4px"><thead><tr><th></th><th>Avant</th><th>Après</th><th>Évolution</th></tr></thead>
-<tr><td>Réservations maintenues, tous types</td><td>46</td><td>29</td><td>-17</td></tr>
-<tr><td>Dont premiers contacts</td><td>15</td><td>10</td><td>-5</td></tr></table>
-<p style="margin:.6em 0 .4em;font-size:inherit">Cela ne dit rien sur le site : petits chiffres, et rendez-vous renommés en sept. 2026. <span class="tag">à confirmer en demandant aux patientes</span></p></div>
+<tr><td>Réservations maintenues, tous types</td><td><b class="big">46</b></td><td><b class="big">29</b></td><td><span class="pill no">−17</span></td></tr>
+<tr><td>Dont premiers contacts</td><td><b class="big">15</b></td><td><b class="big">10</b></td><td><span class="pill no">−5</span></td></tr></table>
+<p><b>Hypothèse :</b> la période après inclut l'été (juillet-août), habituellement plus calme.</p>
+<p class="note">Cela ne dit rien sur le site : petits chiffres, et rendez-vous renommés en sept. 2026. L'origine des réservations n'est pas mesurable.</p></div>
 </section>
 
 <section id="concurrentes">
 <h2>Face aux 4 autres praticiennes</h2>
-<p class="meaning"><b>Ce que ça veut dire :</b> le site a des atouts rares. L'écart se joue sur la réservation.</p>
-<table>
+<p class="meaning"><b>Ce que ça veut dire :</b> le site a des atouts rares. L'écart se joue sur les avis, les annuaires et la publicité, pas sur le contenu.</p>
+<table class="tbl-pill">
 <tr><th>Critère</th><th class="me">Emmanuelle</th><th>Morgane Houarner</th><th>Laurence Martin</th><th>M.-N. Guégan-Leblanc</th><th>Laure Sablé</th></tr>
 <tr><td>Métier affiché</td><td class="me">Psychopraticienne</td><td>Psychopraticienne EMDR</td><td>Hypnothérapeute</td><td>Psychologue clinicienne</td><td>Psychothérapeute (Guérande et Saint-Nazaire)</td></tr>
-<tr><td>Fiche Google</td><td class="me"><b>5,0 (20 avis)</b></td><td>4,9 (40 avis)</td><td colspan="3">non relevé</td></tr>
+<tr><td>Fiche Google : note (avis)</td><td class="me"><b>5,0 (20)</b></td><td><b>4,9 (40)</b></td><td>non relevé</td><td><b>5,0 (4)</b></td><td>aucune note affichée</td></tr>
+<tr><td>Réponses aux avis</td><td class="me"><span class="pill ok">Oui (3 vus sur 3)</span></td><td><span class="pill ok">Oui (3 vus sur 3)</span></td><td><span class="pill na">Non relevé</span></td><td><span class="pill ok">Oui (3 vues)</span></td><td><span class="pill na">Non relevé</span></td></tr>
+<tr><td>Catégorie de la fiche</td><td class="me">traitée à part</td><td>Psychothérapeute</td><td>Service d'hypnothérapie</td><td>Psychologue</td><td>Psychothérapeute</td></tr>
+<tr><td>Réservation depuis la fiche</td><td class="me">Resalib</td><td>Crénolibre</td><td>non relevé</td><td>Doctolib</td><td>Doctolib</td></tr>
+<tr><td>Réservation sur le site</td><td class="me">Calendly</td><td>aucune (passe par l'annuaire)</td><td>téléphone ou e-mail</td><td>Doctolib</td><td>Doctolib</td></tr>
+<tr><td>Publicité Google (1er nov.)</td><td class="me">aucune annonce vue</td><td><span class="pill no">annonces sur 8 recherches sur 24</span></td><td>aucune annonce vue</td><td>aucune annonce vue</td><td>aucune annonce vue</td></tr>
 <tr><td>Blog</td><td class="me"><b>~20 articles</b></td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-<tr><td>Séance offerte</td><td class="me"><b>Oui (45 min)</b></td><td>Non</td><td>Non</td><td>Non</td><td>Non</td></tr>
+<tr><td>Séance offerte</td><td class="me"><span class="pill ok">Oui (45 min)</span></td><td><span class="pill no">Non</span></td><td><span class="pill no">Non</span></td><td><span class="pill no">Non</span></td><td><span class="pill no">Non</span></td></tr>
 <tr><td>Prix affiché sur le site</td><td class="me">60 € (page RDV) ; 1er RDV d'1 h : <span class="tag">à confirmer</span></td><td>75 €</td><td>80 €</td><td>60 €</td><td>55 €</td></tr>
-<tr><td>Clics pour réserver</td><td class="me">2</td><td>pas de réservation sur le site</td><td>1 (appel)</td><td>1 (Doctolib)</td><td>1 (Doctolib)</td></tr>
 <tr><td>Page par méthode, FAQ</td><td class="me">Oui</td><td>Oui, sans FAQ</td><td>Non, FAQ oui</td><td>Non</td><td>Non</td></tr>
 </table>
-<ul class="nl"><li>Marie-Noëlle Guégan-Leblanc est psychologue (titre protégé) : ne pas l'appeler « psychopraticienne ».</li><li>Morgane Houarner paie aussi des annonces Google sur 3 recherches sur 4 relevées.</li></ul>
+<p class="note">Publicité : observé le 1er nov. sur 24 recherches ; les annonces varient d'un jour à l'autre. La fiche « Confiance et Ressources » (Anaïs Duclos) est une autre praticienne : elle n'entre pas dans ce tableau.</p>
+<ul class="nl"><li>Marie-Noëlle Guégan-Leblanc est psychologue (titre protégé) : ne pas l'appeler « psychopraticienne ».</li></ul>
 <h3>Ce qu'elles font mieux</h3>
-<ol class="small" style="margin:.2em 0 0 1.2em;padding:0">
-<li><b>Réservation en 1 clic</b> depuis l'accueil, bouton répété dans la page.</li>
-<li><b>Prix à côté du bouton</b> (Laure Sablé).</li>
-<li><b>Lien « voir les avis Google »</b> visible (Laurence Martin). Le site n'y renvoie pas, malgré 20 avis.</li>
-<li><b>Fiche Google comme porte de réservation</b> (Morgane Houarner).</li>
-<li><b>Présence dans les annuaires</b> (Doctolib, Resalib, etc.).</li>
-<li><b>FAQ sur l'accueil</b> pour lever la peur du premier pas.</li>
-</ol>
-<ul class="nl"><li>À ne pas copier : les témoignages anonymes.</li><li>Morgane Houarner est de loin la plus visible sur l'EMDR à Saint-Nazaire.</li><li>Place exacte sur Google : relevée pour 4 recherches seulement.</li></ul>
+<div class="grid3">
+ <div class="gt"><div class="gi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3D5A4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 7a6 6 0 100 10M5 10h9M5 14h9"/></svg></div><b>Prix à côté du bouton</b><span>Laure Sablé affiche le tarif près de la réservation.</span></div>
+ <div class="gt"><div class="gi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3D5A4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4l2.4 5 5.4.7-4 3.8 1 5.4L12 16.3 7.2 18.9l1-5.4-4-3.8 5.4-.7z"/></svg></div><b>Lien vers les avis Google</b><span>Laurence Martin : « voir les avis » visible. Le site n'y renvoie pas, malgré 20 avis.</span></div>
+ <div class="gt"><div class="gi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3D5A4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6-5.6-6-10a6 6 0 0112 0c0 4.4-6 10-6 10z"/><circle cx="12" cy="11" r="2"/></svg></div><b>Fiche Google = porte de réservation</b><span>Morgane Houarner : bouton « Réserver en ligne » vers Crénolibre.</span></div>
+ <div class="gt"><div class="gi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3D5A4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 005.7 0l3-3a4 4 0 00-5.7-5.7l-1 1M14 10a4 4 0 00-5.7 0l-3 3a4 4 0 005.7 5.7l1-1"/></svg></div><b>Présence dans les annuaires</b><span>Crénolibre et Psychologue.net pour Morgane Houarner (voir page suivante).</span></div>
+ <div class="gt"><div class="gi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3D5A4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M9.8 9.6a2.3 2.3 0 114 1.5c-.8.6-1.8 1-1.8 2.2M12 16.6v.4"/></svg></div><b>FAQ sur l'accueil</b><span>Elle lève la peur du premier pas.</span></div>
+ <div class="gt" style="background:#f3eadf;border-color:#f3eadf"><div class="gi" style="background:#fff"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9A5849" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v6M12 17v.5"/></svg></div><b>À ne pas copier</b><span>Les témoignages anonymes.</span></div>
+</div>
+<ul class="nl"><li>Morgane Houarner est de loin la plus visible sur l'EMDR à Saint-Nazaire.</li><li>Place exacte sur Google : relevée pour 4 recherches seulement.</li></ul>
 </section>
 
 <section id="morgane" class="pg">
 <h2>Pourquoi Morgane Houarner apparaît partout</h2>
-<p class="intro">Relevé du 1er nov. 2026 sur 24 recherches locales : Morgane Houarner est très visible.<br>Voici ce qui l'explique.</p>
-<p class="meaning"><b>Ce que ça veut dire :</b> son avance vient de la publicité et des avis, pas de son site.</p>
-<div class="card bad"><h3>1. Elle paie de la publicité Google</h3><p>Annonce « sponsorisée » sur <b>8 recherches sur 24</b>, tout en haut de la page.<br>Elle <b>paie</b> cette place : cela ne prouve pas que son site est meilleur.</p></div>
-<div class="card bad"><h3>2. Sa fiche Google a deux fois plus d'avis</h3><p><b>40 avis</b> (note 4,9) contre <b>20</b> (note 5,0), et elle répond à chaque avis récent.<br>Dans le bloc des 3 fiches : présente sur 4 recherches sur 24, contre 3 pour Emmanuelle (n°1 sur « EFT » et « psychopraticienne »). L'écart est faible.</p></div>
-<div class="card bad"><h3>3. Elle est dans deux annuaires où Emmanuelle n'est pas</h3><p><b>Crénolibre</b> et <b>Psychologue.net</b> : sa fiche Crénolibre sort 2e sur « psychopraticien Saint-Nazaire ».<br>Les assistants IA les citent souvent (Crénolibre 6 fois, Psychologue.net 8 fois dans nos tests).<br>Emmanuelle est sur Resalib (5,0), pas sur ces deux-là.</p></div>
-<div class="card good"><h3>Ce qui n'explique pas son avance</h3><p><b>L'ancienneté :</b> les deux sites sont jeunes (archivés en sept. 2023 pour elle, oct. 2024 pour Emmanuelle).<br><b>Son site :</b> dans les 10 premiers résultats sur <b>aucune</b> des 24 recherches.<br><b>Le contenu :</b> celui d'Emmanuelle est plus complet (accueil d'environ 1 200 mots contre 130, une vingtaine d'articles, une FAQ).</p></div>
+<p class="intro">Relevé du 1er nov. 2026 sur 24 recherches locales : Morgane Houarner est très visible.<br>Trois raisons l'expliquent.</p>
+<div class="tri">
+ <div><span class="no">1</span><h3>La publicité Google</h3><p>Annonce « sponsorisée » sur <b>8 recherches sur 24</b>, tout en haut de la page.</p><p>Elle <b>paie</b> cette place : cela ne prouve pas que son site est meilleur.</p></div>
+ <div><span class="no">2</span><h3>Deux fois plus d'avis</h3><p><b>40 avis</b> (note 4,9) contre <b>20</b> (note 5,0) ; elle répond à chaque avis récent.</p><p>Dans le bloc des 3 fiches : présente sur 4 recherches sur 24, contre 3 pour Emmanuelle. L'écart est faible.</p></div>
+ <div><span class="no">3</span><h3>Deux annuaires de plus</h3><p><b>Crénolibre</b> et <b>Psychologue.net</b>, où Emmanuelle n'est pas : sa fiche Crénolibre sort 2e sur « psychopraticien Saint-Nazaire ».</p><p>Les assistants IA les citent souvent (Crénolibre 6 fois, Psychologue.net 8 fois dans nos tests).</p></div>
+</div>
+<div class="enc vert"><h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3D5A4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg> Ce qui n'explique pas son avance</h3>
+<ul><li><b>L'ancienneté :</b> les deux sites sont jeunes (archivés en sept. 2023 pour elle, oct. 2024 pour Emmanuelle).</li><li><b>Son site :</b> dans les 10 premiers résultats sur <b>aucune</b> des 24 recherches.</li><li><b>Le contenu :</b> celui d'Emmanuelle est plus complet (accueil d'environ 1 200 mots contre 130, une vingtaine d'articles, une FAQ).</li></ul></div>
 <h3>Ce qui peut être rattrapé</h3>
-<table>
+<table class="tbl-pill">
 <tr><th>Levier</th><th>Rattrapable ?</th><th>Coût</th></tr>
-<tr><td>Avis Google (de 20 vers 40) et publications sur la fiche</td><td><b>Oui</b></td><td>Gratuit</td></tr>
-<tr><td>Fiches Crénolibre et Psychologue.net</td><td><b>Oui</b></td><td>À vérifier avant</td></tr>
-<tr><td>Fiche Resalib à compléter (EMDR, avis)</td><td><b>Oui</b></td><td>À vérifier</td></tr>
-<tr><td>Publicité Google</td><td>Seulement avec un budget</td><td>Payant : à décider ensemble</td></tr></table>
+<tr><td>Avis Google (de 20 vers 40) et publications sur la fiche</td><td><span class="pill ok">Oui</span></td><td>Gratuit</td></tr>
+<tr><td>Fiches Crénolibre et Psychologue.net</td><td><span class="pill ok">Oui</span></td><td>À vérifier avant</td></tr>
+<tr><td>Fiche Resalib à compléter (EMDR, avis)</td><td><span class="pill ok">Oui</span></td><td>À vérifier</td></tr>
+<tr><td>Publicité Google</td><td><span class="pill mid">Seulement avec un budget</span></td><td>Payant : à décider ensemble</td></tr></table>
+</section>
+
+<section id="annuaires" class="pg">
+<h2>Les annuaires : un levier important</h2>
+<p class="intro">Un annuaire est un site qui liste les praticiens d'une ville.</p>
+<div class="grid3">
+ <div class="gt"><div class="gi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3D5A4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 005.7 0l3-3a4 4 0 00-5.7-5.7l-1 1M14 10a4 4 0 00-5.7 0l-3 3a4 4 0 005.7 5.7l1-1"/></svg></div><b>Une recommandation pour Google</b><span>Chaque inscription avec le lien du site est un « lien entrant » : Google le lit comme une recommandation.</span></div>
+ <div class="gt"><div class="gi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3D5A4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6-5.6-6-10a6 6 0 0112 0c0 4.4-6 10-6 10z"/><circle cx="12" cy="11" r="2"/></svg></div><b>La confiance</b><span>Le même nom, la même adresse et le même téléphone partout rassurent Google sur l'identité du cabinet.</span></div>
+ <div class="gt"><div class="gi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3D5A4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 6h14v9H10l-4 3v-3H5z"/></svg></div><b>Les assistants IA</b><span>Ils citent souvent ces annuaires quand on leur demande un praticien près de chez soi.</span></div>
+</div>
+<table class="tbl-pill">
+<tr><th>Annuaire</th><th>Accepte les psychopraticiennes</th><th>Gratuit ou payant</th><th>Emmanuelle</th><th>Morgane Houarner</th></tr>
+<tr><td><b>Resalib</b></td><td><span class="pill ok">Oui</span></td><td class="note">Freemium ; prix à vérifier</td><td><span class="pill ok">Oui · 5,0 · 3 avis</span></td><td><span class="pill no">Non trouvée</span></td></tr><tr><td><b>Crénolibre</b></td><td><span class="pill ok">Oui</span></td><td class="note">Prix non trouvé</td><td><span class="pill no">Non trouvée</span></td><td><span class="pill ok">Oui</span></td></tr><tr><td><b>Psychologue.net</b></td><td><span class="pill ok">Oui</span></td><td class="note">Payant probable ; prix à vérifier</td><td><span class="pill no">Non trouvée</span></td><td><span class="pill ok">Oui</span></td></tr><tr><td><b>Paralib</b></td><td><span class="pill ok">Oui</span></td><td class="note">Prix non trouvé</td><td><span class="pill ok">Oui</span></td><td><span class="pill ok">Oui</span></td></tr><tr><td><b>lesmedecinesdouces.fr</b></td><td><span class="pill ok">Oui</span></td><td class="note">Prix non trouvé</td><td><span class="pill ok">Oui</span></td><td><span class="pill ok">Oui</span></td></tr><tr><td><b>Consulteo</b></td><td><span class="pill ok">Oui</span></td><td class="note">Prix non trouvé</td><td><span class="pill ok">Oui</span></td><td><span class="pill ok">Oui</span></td></tr><tr><td><b>IFPEC (annuaire de l'école)</b></td><td><span class="pill ok">Oui</span></td><td class="note">Gratuit pour les élèves ; à vérifier</td><td><span class="pill ok">Oui · oct. 2025</span></td><td><span class="pill no">Non trouvée</span></td></tr><tr><td><b>Therapeutes.com</b></td><td><span class="pill ok">Oui</span></td><td class="note">Prix non trouvé</td><td><span class="pill na">Non vérifié</span></td><td><span class="pill na">Non vérifié</span></td></tr><tr><td><b>Priorise</b></td><td><span class="pill ok">Oui</span></td><td class="note">Prix non trouvé</td><td><span class="pill na">Non vérifié</span></td><td><span class="pill na">Non vérifié</span></td></tr><tr><td><b>Médoucine</b></td><td><span class="pill ok">Oui en pratique</span></td><td class="note">Payant ; environ 119 €/mois cités (source ancienne, à vérifier)</td><td><span class="pill no">Non trouvée</span></td><td><span class="pill no">Non trouvée</span></td></tr><tr><td><b>PagesJaunes</b></td><td><span class="pill ok">Oui</span></td><td class="note">Fiche de base gratuite</td><td><span class="pill no">Non trouvée</span></td><td><span class="pill no">Non trouvée</span></td></tr><tr><td><b>Bing Places</b></td><td><span class="pill ok">Oui</span></td><td class="note">Gratuit</td><td><span class="pill na">Non vérifié</span></td><td><span class="pill na">Non vérifié</span></td></tr><tr><td><b>Doctolib</b></td><td><span class="pill no">Non, en pratique</span></td><td class="note">Payant</td><td><span class="pill na">—</span></td><td><span class="pill na">—</span></td></tr><tr><td><b>Annuaire EMDR France</b></td><td><span class="pill mid">Restrictif</span></td><td class="note">Cotisation (montant non lu)</td><td><span class="pill na">—</span></td><td><span class="pill na">—</span></td></tr></table>
+<p class="note">Relevé du 1er nov. 2026. Aucune grille de prix officielle n'a été lue : les montants viennent de sources secondaires, d'où « prix à vérifier ». Doctolib et l'annuaire EMDR France ne sont pas ouverts à ce statut, selon les sources relevées. « Non trouvée » : aucune fiche repérée ; « non vérifié » : pas relevé.</p>
+<div class="enc"><h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3D5A4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg> Les inscriptions à faire</h3>
+<ul class="chk">
+<li><b>Crénolibre</b> : créer la fiche (Morgane Houarner y est). <small>Prix non trouvé : vérifier avant.</small></li>
+<li><b>Psychologue.net</b> : créer la fiche. <small>Payant probable : vérifier avant.</small></li>
+<li><b>Resalib</b> : compléter la fiche (EMDR et EFT en spécialités, lien vers le site, avis).</li>
+<li><b>Therapeutes.com</b> et <b>Priorise</b> : chercher si une fiche existe, sinon la créer (rubrique « Praticien EFT »).</li>
+<li><b>PagesJaunes</b> et <b>Bing Places</b> : même chose. <small>Gratuits.</small></li>
+<li><b>Médoucine</b> : payant. <small>À décider ensemble, après vérification du prix.</small></li>
+</ul>
+<p class="note">Partout : le même nom, la même adresse, le même téléphone et le lien vers le site.</p></div>
 </section>
 
 <section id="recherches" class="pg">
 <h2>Sur quelles recherches le site apparaît</h2>
 <p class="note intro">Relevé du 1er nov. 2026 depuis Saint-Nazaire, 24 recherches, <b>page 1 de Google seulement</b> (places 11 à 20 non lues).<br>Cela bouge d'un jour à l'autre.</p>
-<div class="cols">
-<div>
- <p class="colh">Déjà bien placée</p>
- <div class="card good"><h3><span class="rk">1re</span> thérapie en marchant</h3><p>Site 1er.</p></div>
- <div class="card good"><h3><span class="rk">1re</span> soutien post-partum</h3><p>Site 1er.</p></div>
- <div class="card good"><h3><span class="rk">2e</span> EFT Saint-Nazaire</h3><p>Site 2e ; fiche Google n°1.</p></div>
- <div class="card good"><h3><span class="rk">3e</span> psychopraticienne Saint-Nazaire</h3><p>Site 3e ; fiche Google n°1.</p></div>
- <div class="card good"><h3><span class="rk">3e</span> thérapie psychocorporelle</h3><p>Site 3e.</p></div>
-</div>
-<div>
- <p class="colh mid">À portée de main</p>
- <div class="card mid-c"><h3>EMDR Saint-Nazaire</h3><p>Fiche Google <b>3e</b> du bloc des 3 fiches. Place moyenne du site : <b>8,7</b> (16 mois).<br>Au relevé du 1er nov., hors des 10 premiers résultats.</p><p class="why">110 recherches par mois (Semrush).</p></div>
- <div class="card mid-c"><h3>Psychopraticien, thérapie brève, anxiété, EMDR Pornichet</h3><p>Présent dans le bloc « sites web associés », mais hors des 10 premiers résultats.</p></div>
-</div>
-<div>
- <p class="colh grey">Pas encore visible</p>
- <div class="card grey-c"><h3>Les autres villes</h3><p>La Baule, Guérande, Pornichet : EMDR La Baule, EMDR Guérande, psychopraticienne La Baule et Guérande, thérapeute Pornichet.</p></div>
- <div class="card grey-c"><h3>Les autres thèmes</h3><p>Traumatisme, burn-out, couple, hypnose, thérapie en visio, et les mots très généraux (« psy », « psychologue », « thérapeute »).</p></div>
-</div>
-</div>
-<div class="warn"><b>Priorité n°1 : l'EMDR.</b><ul class="nl" style="color:inherit;font-size:inherit"><li>La fiche Google est dans le bloc des 3 fiches.</li><li>L'ancienne page EMDR est apparue 637 fois en 16 mois, pour 4 clics.</li><li>Renforcer cette page peut faire passer de « visible » à « choisi ».</li></ul></div>
+<table class="tbl-pill">
+<tr><th>Recherche</th><th>Situation</th><th>Détail</th></tr>
+<tr><td>thérapie en marchant</td><td><span class="pill ok">1re</span></td><td>Site 1er.</td></tr>
+<tr><td>soutien post-partum</td><td><span class="pill ok">1re</span></td><td>Site 1er.</td></tr>
+<tr><td>EFT Saint-Nazaire</td><td><span class="pill ok">2e</span></td><td>Site 2e ; fiche Google n°1 sur « praticienne EFT ».</td></tr>
+<tr><td>psychopraticienne Saint-Nazaire</td><td><span class="pill ok">3e</span></td><td>Site 3e ; fiche Google n°1.</td></tr>
+<tr><td>thérapie psychocorporelle</td><td><span class="pill ok">3e</span></td><td>Site 3e.</td></tr>
+<tr><td>EMDR Saint-Nazaire</td><td><span class="pill mid">À portée</span></td><td>Fiche Google 3e du bloc des 3 fiches. Place moyenne du site : <b>9,3</b> après, 9,6 avant. Hors des 10 premiers résultats au relevé du 1er nov. <span class="note">110 recherches par mois (Semrush).</span></td></tr>
+<tr><td>Psychopraticien, thérapie brève, anxiété, EMDR Pornichet</td><td><span class="pill mid">À portée</span></td><td>Présent dans le bloc « sites web associés », mais hors des 10 premiers résultats.</td></tr>
+<tr><td>Les autres villes</td><td><span class="pill na">Pas encore visible</span></td><td>La Baule, Guérande, Pornichet : EMDR La Baule, EMDR Guérande, psychopraticienne La Baule et Guérande, thérapeute Pornichet.</td></tr>
+<tr><td>Les autres thèmes</td><td><span class="pill na">Pas encore visible</span></td><td>Traumatisme, burn-out, couple, hypnose, thérapie en visio, et les mots très généraux (« psy », « psychologue », « thérapeute »).</td></tr></table>
+<div class="enc"><h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3D5A4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6-5.6-6-10a6 6 0 0112 0c0 4.4-6 10-6 10z"/><circle cx="12" cy="11" r="2"/></svg> Pourquoi la fiche ne sort pas toujours sur « EFT »</h3>
+<ul>
+<li>Google range chaque fiche dans une <b>catégorie</b> (une principale, jusqu'à 9 secondaires). <b>Il n'existe pas de catégorie « EFT »</b> : aucune des fiches en tête sur l'EFT ne l'a.</li>
+<li>Sur « <b>praticienne</b> EFT Saint-Nazaire », la fiche est <b>n°1 de la carte</b> (5,0 ; 20 avis), devant Morgane Houarner et le cabinet Confiance et Ressources.</li>
+<li>Sur « <b>praticien</b> EFT Saint-Nazaire » et « EFT Saint-Nazaire », Google affiche à la place un <b>bloc PagesJaunes</b> (3 fiches de praticiens). Le site, lui, reste 2e dans les résultats classiques.</li>
+</ul>
+<p><b>À faire de ton côté :</b> citer l'EFT dans la <b>description</b> de la fiche, dans sa <b>liste des services</b>, et dans tes <b>réponses aux avis</b>. Faute de catégorie « EFT », ce sont ces textes qui permettent à Google de relier la fiche à l'EFT.</p></div>
+<div class="enc rose"><h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9A5849" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v6M12 17v.5"/></svg> Priorité n°1 : l'EMDR</h3><ul><li>La fiche Google est dans le bloc des 3 fiches.</li><li>La page EMDR (ancienne + nouvelle) apparaît 359 fois avant et 273 fois après, pour 4 puis 0 clics.</li><li>Renforcer cette page peut faire passer de « visible » à « choisi ».</li></ul></div>
 </section>
 
 <section id="volumes" class="vol">
@@ -315,7 +394,7 @@ ul.vl b { font-family:'Playfair Display',serif; color:#3D5A4E; font-size:11pt; w
 <div class="fn f3"><span class="n">~2,6</span><span class="t">clics par mois</span></div>
 </div>
 <p class="meaning"><b>Ce que ça veut dire :</b> le site est déjà vu par une bonne part des personnes qui cherchent l'EMDR près de Saint-Nazaire. Très peu cliquent, car il est en bas de la 1re page. Gagner quelques places compte plus que d'être vu davantage.</p>
-<div class="warn"><b>À savoir.</b><ul class="nl" style="color:inherit;font-size:inherit"><li>Les recherches locales sont peu nombreuses : beaucoup de mots sont à 0 ou trop faibles pour être mesurés (dont EFT et psychopraticienne avec une ville).</li><li>Ces chiffres sont des estimations (Semrush) : à lire comme des ordres de grandeur.</li></ul></div>
+<div class="enc rose"><h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9A5849" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v6M12 17v.5"/></svg> À savoir</h3><ul><li>Les recherches locales sont peu nombreuses : beaucoup de mots sont à 0 ou trop faibles pour être mesurés (dont EFT et psychopraticienne avec une ville).</li><li>Ces chiffres sont des estimations (Semrush) : à lire comme des ordres de grandeur.</li></ul></div>
 </section>
 
 <section id="sujets" class="vol">
@@ -334,52 +413,60 @@ ul.vl b { font-family:'Playfair Display',serif; color:#3D5A4E; font-size:11pt; w
 <ul class="nl"><li>Ce sont des recherches dans toute la France.</li><li>Elles amènent des lectrices au blog. Elles deviennent patientes surtout via la visio, ou si elles habitent la région.</li><li>Idée : un article par sujet, qui renvoie vers la séance (cabinet ou visio).</li></ul>
 </section>
 
-<section id="maintenant" class="pg next">
+<section id="maintenant" class="next">
 <h2>Les prochaines étapes</h2>
-<div class="cols">
-<div>
- <p class="colh">À faire de ton côté (sans technique)</p>
- <div class="card good"><h3>Demander des avis Google</h3><p>Proposer aux patientes satisfaites de laisser un avis, puis répondre à chacun.<br>Passer de 20 à 40 avis est le levier le plus simple.</p></div>
- <div class="card good"><h3>Publier sur la fiche Google</h3><p>Une courte publication de temps en temps (une actualité, un atelier, un thème).</p></div>
- <div class="card good"><h3>Créer deux fiches d'annuaire</h3><p>Crénolibre et Psychologue.net, où est Morgane Houarner. <b>Vérifier le coût</b> avant toute inscription.</p></div>
- <div class="card good"><h3>Compléter la fiche Resalib</h3><p>Ajouter l'EMDR comme spécialité et recueillir des avis.</p></div>
+<p class="intro">Une feuille de route en trois temps, du plus simple au plus long.</p>
+<div class="road">
+ <div class="step"><div class="num">1</div><div class="bd"><h3>D'abord</h3><p class="who">À faire de ton côté (sans technique)</p>
+  <ul class="chk">
+  <li><b>Demander des avis Google</b> aux patientes satisfaites et répondre à chacun (de 20 vers 40 avis).</li>
+  <li><b>Fiche Google :</b> citer l'EFT dans la description, dans la liste des services et dans les réponses aux avis.</li>
+  <li><b>Publier</b> de temps en temps sur la fiche (une actualité, un atelier, un thème).</li>
+  <li><b>Annuaires :</b> créer les fiches Crénolibre et Psychologue.net (vérifier le coût avant), compléter Resalib (EMDR, EFT, avis, lien).</li>
+  <li><b>Donner le tarif du 1er rendez-vous d'1 h</b> (information attendue).</li>
+  </ul></div></div>
+ <div class="step"><div class="num s2">2</div><div class="bd"><h3>Ensuite</h3><p class="who">À améliorer sur le site</p>
+  <ul class="chk">
+  <li><b>Renforcer la page EMDR</b>, pour qu'elle sorte sur « EMDR Saint-Nazaire », la recherche prioritaire.</li>
+  <li><b>Afficher le prix</b> à côté du bouton de réservation.</li>
+  <li><b>Retrouver les anciennes pages :</b> les anciennes adresses doivent mener vers les nouvelles. 52 d'entre elles sont encore vues sur Google : 136 clics.</li>
+  <li><b>Relier le blog aux séances :</b> chaque article renverra vers la page de séance qui correspond.</li>
+  </ul></div></div>
+ <div class="step"><div class="num s3">3</div><div class="bd"><h3>Puis</h3><p class="who">Élargir la présence</p>
+  <ul class="chk">
+  <li><b>Autres annuaires :</b> Therapeutes.com, Priorise, PagesJaunes, Bing Places (gratuits ou à vérifier) ; Médoucine, payant, à décider ensemble.</li>
+  <li><b>Écrire sur les sujets les plus recherchés</b> (post-partum, deuil, confiance en soi).</li>
+  <li><b>Point dans 3 mois</b>, avec les mêmes chiffres qu'aujourd'hui (tableau ci-dessous).</li>
+  </ul></div></div>
 </div>
-<div>
- <p class="colh warm">À améliorer sur le site</p>
- <div class="card bad"><h3>Renforcer la page EMDR</h3><p>Pour qu'elle sorte sur « EMDR Saint-Nazaire », la recherche prioritaire.</p></div>
- <div class="card bad"><h3>Réserver plus directement</h3><p>Un seul clic pour prendre rendez-vous, avec le prix visible. <b>Information attendue : le tarif du 1er rendez-vous d'1 h.</b></p></div>
- <div class="card bad"><h3>Retrouver les anciennes pages</h3><p>Les anciennes adresses doivent mener vers les nouvelles.<br>52 d'entre elles sont encore vues sur Google : 136 clics.</p></div>
- <div class="card bad"><h3>Relier le blog aux séances</h3><p>Chaque article renverra vers la page de séance qui correspond.</p></div>
- <div class="card bad"><h3>Écrire sur les sujets les plus recherchés</h3><p>Écrire des articles sur les sujets les plus recherchés (post-partum, deuil, confiance en soi).</p></div>
-</div>
-</div>
-<div class="warn" style="border-left-color:#5C7A62"><b>Point dans 3 mois</b>, avec les mêmes chiffres qu'aujourd'hui.
-<table style="margin-top:6px"><thead><tr><th></th><th>Aujourd'hui</th><th>Dans 3 mois</th></tr></thead>
+<div class="enc vert"><h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3D5A4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg> Point dans 3 mois</h3>
+<table><thead><tr><th></th><th>Aujourd'hui</th><th>Dans 3 mois</th></tr></thead>
 <tr><td>Clics depuis Google (142 jours après la bascule)</td><td>202</td><td>—</td></tr>
 <tr><td>Place moyenne dans Google</td><td>13,3</td><td>—</td></tr>
-<tr><td>Place moyenne de « emdr saint nazaire » (16 mois)</td><td>8,7</td><td>—</td></tr>
+<tr><td>Place moyenne de « emdr saint nazaire » (période après)</td><td>9,3</td><td>—</td></tr>
 <tr><td>« EMDR Saint-Nazaire » : place de la fiche Google</td><td>3e</td><td>—</td></tr>
 <tr><td>Avis Google</td><td>20</td><td>—</td></tr></table></div>
 </section>
 
 <section id="sources">
 <h2>Sources</h2>
-<p class="note">Chaque chiffre vient de ces fichiers du dossier d'audit (fichiers bruts non joints au rapport). Ce qui n'a pas pu être vérifié est écrit « à confirmer ».</p>
+<p class="note">Chaque chiffre vient de ces fichiers du dossier d'audit (fichiers bruts non joints au rapport). Ce qui n'a pas pu être relevé est écrit « non relevé » ou « non mesurable ».</p>
 <ul class="small">
-<li><b>audit/analyses/05-gsc-avant-apres.md</b>, <b>gsc-periodes.csv</b>, <b>audit/data/gsc/avant/</b> et <b>audit/data/gsc/apres/</b> (Pages, Requêtes, Appareils, Graphique) : pages, mots tapés, articles, appareils et place moyenne avant / après (exports Google Search Console par période, 142 jours chacune).</li>
-<li><b>audit/analyses/01-gsc.md</b>, <b>gsc-par-mois.csv</b>, <b>gsc-vs-calendly-par-mois.csv</b>, <b>audit/data/calendly/rdv-par-mois-anonyme.csv</b> : clics, impressions, pages, mots tapés, avant/après, Calendly (exports Google Search Console, 16 mois, et comptes Calendly anonymes).</li>
-<li><b>audit/analyses/03-concurrents.md</b> : comparaison des 4 praticiennes (lecture de leurs sites publics).</li>
+<li><b>audit/analyses/05-gsc-avant-apres.md</b>, <b>gsc-periodes.csv</b>, <b>audit/data/gsc/avant/</b> et <b>audit/data/gsc/apres/</b> (Pages, Requêtes, Appareils, Graphique) : pages, mots tapés, articles, appareils et place moyenne avant / après (exports Google Search Console par période, 142 jours chacune). Les pages et articles regroupés sont recalculés à partir de Pages.csv.</li>
+<li><b>audit/analyses/01-gsc.md</b>, <b>gsc-par-mois.csv</b>, <b>gsc-vs-calendly-par-mois.csv</b>, <b>audit/data/calendly/rdv-par-mois-anonyme.csv</b> : clics, impressions, avant/après, Calendly (exports Google Search Console et comptes Calendly anonymes).</li>
+<li><b>audit/analyses/03-concurrents.md</b>, <b>audit/data/concurrents/fiches-google.md</b> : comparaison des 4 praticiennes (lecture de leurs sites publics) et fiches Google (note, avis, réponses, réservation, publicité).</li>
+<li><b>audit/data/concurrents/annuaires.md</b> : annuaires, tarifs cités, présences d'Emmanuelle et de Morgane Houarner.</li>
 <li><b>audit/analyses/04-blog.md</b>, <b>blog-stats.csv</b> : état des 20 articles (lecture seule).</li>
-<li><b>audit/data/serp/serp.md</b>, <b>matrice-mots-cles.md</b> : relevé Google et Maps du 1er nov. 2026 (4 puis 24 recherches).</li>
+<li><b>audit/data/serp/serp.md</b>, <b>matrice-mots-cles.md</b>, <b>eft-praticien.md</b> : relevés Google et Maps du 1er nov. 2026 (24 recherches, dont les recherches « EFT »).</li>
 <li><b>audit/data/concurrents/morgane-pourquoi.md</b> : pourquoi Morgane Houarner est très visible (annonces, fiche Google, annuaires).</li>
 <li><b>audit/analyses/06-volumes.md</b>, <b>06-volumes.csv</b> : volumes de recherche par mois et sujets les plus recherchés (Semrush, estimations nov. 2026).</li>
 <li><b>audit/data/semrush-ui/semrush-mcp-2026-11-01.md</b>, <b>plan-audit.html</b> : volume de recherche de « emdr saint nazaire » (110 par mois, Semrush).</li>
 </ul>
-<h3>Reste à confirmer</h3>
+<h3>Limites du relevé</h3>
 <ul class="small">
-<li>Tarif du 1er RDV d'1 h : à confirmer.</li>
-<li>Origine des réservations Calendly : à confirmer auprès des patientes.</li>
-<li>Fiche Google des 3 autres concurrentes : non relevée.</li>
+<li>Tarif du 1er RDV d'1 h : à confirmer par Emmanuelle.</li>
+<li>Origine des réservations Calendly : non mesurable.</li>
+<li>Fiche Google de Laurence Martin et de Laure Sablé (avis, réponses, réservation) : non relevées.</li>
 <li>Effet de la panne du site du 28 octobre : non mesuré (hors des périodes comparées).</li>
 </ul>
 </section>
