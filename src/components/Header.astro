@@ -6,11 +6,11 @@ import logoEmma from '../assets/images/logo-emma-couleurs.png';
 
 import Icon from './Icon.astro';---
 
-<header class="fixed w-full top-0 z-50 transition-all duration-300" id="main-header">
+<header class="sticky w-full top-0 z-50 transition-all duration-300" id="main-header">
   <!-- Bandeau : la seance decouverte, sur toutes les pages, au-dessus du
-       menu. Fait partie du header (donc de son fixed top-0) pour rester une
-       seule source de verite sur la hauteur a degager en haut de chaque
-       page — pas 17 pt- a resynchroniser. -->
+       menu. Fait partie du header (sticky : il occupe sa vraie hauteur dans la
+       page, donc aucune page n'a a deviner cette hauteur, qui varie de 110 a
+       170 px selon la largeur quand les textes passent a la ligne). -->
   <a
     href="/seance-decouverte-therapie-psychocorporelle-saint-nazaire/"
     class="relative z-10 flex items-center justify-center gap-2 bg-accent-dark text-white text-sm font-semibold py-2 px-4 text-center hover:bg-primary-dark transition-colors"
