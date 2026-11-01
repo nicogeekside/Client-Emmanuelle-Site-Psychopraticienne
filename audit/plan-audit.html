@@ -1,0 +1,329 @@
+<title>Plan audit SEO GEO</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: une colonne de lecture (~860px), sections séparées par des filets, checklist en tableau dense. */
+:root{
+  --bg:#F4F6F8; --surface:#FFFFFF; --fg:#14202B; --muted:#5A6978; --line:#D8DFE6;
+  --accent:#2E4FD8; --accent-soft:#E4EAFB;
+  --ok:#1F7A4D; --ok-soft:#DDF1E6; --warn:#9A6200; --warn-soft:#FBEBC8; --bad:#B3261E; --bad-soft:#F9DEDB;
+  --f-body:'Instrument Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --f-mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F1720; --surface:#17212C; --fg:#E6ECF2; --muted:#9AA8B6; --line:#2A3846;
+  --accent:#8CA2FF; --accent-soft:#222E52;
+  --ok:#6FD3A0; --ok-soft:#173A29; --warn:#F2C461; --warn-soft:#3D3012; --bad:#FF9C94; --bad-soft:#431D1A; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1720; --surface:#17212C; --fg:#E6ECF2; --muted:#9AA8B6; --line:#2A3846;
+  --accent:#8CA2FF; --accent-soft:#222E52;
+  --ok:#6FD3A0; --ok-soft:#173A29; --warn:#F2C461; --warn-soft:#3D3012; --bad:#FF9C94; --bad-soft:#431D1A; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:16px/1.55 var(--f-body);margin:0;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:32px 72px}
+main{max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:48px}
+h1{font-size:clamp(28px,5vw,40px);line-height:1.1;margin:0;letter-spacing:-.02em;text-wrap:balance}
+h2{font-size:22px;line-height:1.2;margin:0 0 14px;letter-spacing:-.01em;text-wrap:balance}
+h3{font-size:15px;margin:0 0 6px}
+p{margin:0}
+.lede{color:var(--muted);font-size:18px;max-width:62ch;margin-top:12px}
+.eyebrow{font:600 12px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.mono{font-family:var(--f-mono);font-size:.88em}
+.pill{display:inline-block;font:600 11px/1 var(--f-mono);letter-spacing:.04em;text-transform:uppercase;padding:4px 7px;border-radius:4px;white-space:nowrap}
+.p-bad{background:var(--bad-soft);color:var(--bad)} .p-warn{background:var(--warn-soft);color:var(--warn)}
+.p-ok{background:var(--ok-soft);color:var(--ok)} .p-acc{background:var(--accent-soft);color:var(--accent)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:18px 20px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.grid>*{min-width:0}
+.find{display:flex;flex-direction:column;gap:6px}
+.find b{font-size:15px}
+.find span{color:var(--muted);font-size:14px}
+/* frise */
+.tl{display:flex;height:46px;border-radius:6px;overflow:hidden;border:1px solid var(--line);font:600 12px/1.2 var(--f-mono)}
+.tl>div{display:flex;align-items:center;justify-content:center;text-align:center;padding:0 6px;min-width:0}
+.tl .a{flex:142;background:var(--accent-soft);color:var(--accent)}
+.tl .g{flex:6;background:var(--warn-soft);color:var(--warn)}
+.tl .b{flex:142;background:var(--ok-soft);color:var(--ok)}
+.tl .x{flex:4;background:var(--bad-soft);color:var(--bad)}
+.tl-labels{display:flex;justify-content:space-between;font:12px var(--f-mono);color:var(--muted);margin-top:6px;gap:8px;flex-wrap:wrap}
+/* phases */
+.phases{display:flex;flex-direction:column;gap:0;border:1px solid var(--line);border-radius:8px;background:var(--surface);overflow:hidden}
+.phase{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:16px 20px;border-top:1px solid var(--line)}
+.phase:first-child{border-top:0}
+.phase>*{min-width:0}
+.phase .who{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.phase ul{margin:6px 0 0;padding-left:18px;color:var(--muted);font-size:14.5px}
+.phase li{margin:2px 0}
+@media (max-width:620px){.phase{grid-template-columns:1fr;gap:8px}}
+/* checklist */
+.prog{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding:10px 0;display:flex;gap:14px;align-items:center;flex-wrap:wrap;border-bottom:1px solid var(--line)}
+.bar{flex:1;min-width:140px;height:8px;border-radius:4px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--ok);transition:width .2s}
+.grp{margin-top:22px}
+.grp h3{display:flex;gap:10px;align-items:baseline;font-size:16px;margin-bottom:8px}
+.grp .note{color:var(--muted);font-size:14px;margin-bottom:10px}
+.item{display:grid;grid-template-columns:28px 44px 1fr;gap:10px;padding:12px 14px;background:var(--surface);border:1px solid var(--line);border-radius:6px;margin-top:8px}
+.item>*{min-width:0}
+.item input{width:18px;height:18px;margin-top:3px;accent-color:var(--ok)}
+.item .id{font:600 13px/1.6 var(--f-mono);color:var(--accent)}
+.item .t{font-weight:600;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.item .d{color:var(--muted);font-size:14px;margin-top:3px}
+.item .d b{color:var(--fg);font-weight:600}
+.item.done{opacity:.55}
+.item.done .t span.txt{text-decoration:line-through}
+/* geo */
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:600 11px var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.scroll{overflow-x:auto}
+.rules li{margin:4px 0}
+.rules{padding-left:18px;margin:0;color:var(--muted);font-size:15px}
+a{color:var(--accent)}
+.cal{display:grid;grid-template-columns:repeat(14,minmax(0,1fr));gap:6px;align-items:end;height:150px;margin-top:10px;padding-top:18px}
+.cal .c{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:4px;font:11px var(--f-mono);color:var(--muted);position:relative}
+.cal .c i{display:block;width:100%;max-width:28px;background:var(--accent);border-radius:3px 3px 0 0}
+.cal .c.after i{background:var(--ok)}
+.cal .c b{color:var(--fg);font-weight:600}
+.cal .c.split::before{content:"";position:absolute;left:-4px;top:-14px;bottom:0;border-left:2px dashed var(--warn)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+
+<main>
+
+<header>
+  <div class="eyebrow">Site Emmanuelle · audit SEO + GEO · 1 nov. 2026</div>
+  <h1>Plan d'audit : ancien WordPress contre nouveau site</h1>
+  <p class="lede">D'abord les 5 questions d'Emmanuelle, avec des réponses simples. Ensuite ce qu'on ajoute pour un audit complet : avant/après la refonte, concurrents, IA. Ce plan fixe les périodes, ce que je fais seul, et les captures dont j'ai besoin au lancement.</p>
+</header>
+
+<section>
+  <h2>L'essentiel : ce qu'Emmanuelle demande</h2>
+  <div class="scroll"><table>
+    <tr><th>Sa question</th><th>D'où vient la réponse</th><th>Ce qu'il faut savoir</th></tr>
+    <tr><td><b>Combien de vues sur le site ?</b></td><td>Netlify Analytics s'il est activé, sinon GSC</td><td><span class="pill p-warn">attention</span> GSC compte les « vues dans Google » (impressions) et les clics venus de Google, pas toutes les visites. Si aucun outil de visites n'est activé, on le lui dit clairement.</td></tr>
+    <tr><td><b>Quelles pages sont vues ?</b></td><td>GSC, onglet Pages</td><td>Clics par page, avant et après la refonte.</td></tr>
+    <tr><td><b>Quels mots tapés pour la trouver ?</b></td><td>GSC, onglet Requêtes</td><td>Google masque une partie des requêtes rares : la liste sera partielle.</td></tr>
+    <tr><td><b>Quels articles du blog sont les plus vus ?</b></td><td>GSC Pages, filtré sur le blog</td><td>Top 5 des 20 articles, et ceux qui ne sont jamais vus.</td></tr>
+    <tr><td><b>Sa place à Saint-Nazaire sur EFT et EMDR ?</b></td><td>GSC (position moyenne) + Semrush + recherche réelle</td><td>La place change selon le téléphone et le lieu. On donne la moyenne GSC, plus une capture de Google et de Google Maps.</td></tr>
+    <tr><td><b>Et les séances réservées ?</b></td><td>Calendly (connecté)</td><td>Le seul chiffre lié à l'objectif du site. Bonus qu'elle n'a pas demandé.</td></tr>
+  </table></div>
+</section>
+
+<section>
+  <h2>Testé avec les connecteurs le 1er novembre</h2>
+  <p style="color:var(--muted);max-width:68ch;margin-bottom:14px">5 appels : 2 Calendly, 3 Semrush. Les 136 rendez-vous Calendly ont été lus en entier. J'ai seulement compté les rendez-vous, sans lire les noms.</p>
+  <div class="grid">
+    <div class="card find"><span class="pill p-bad">GSC · reçu</span><b>53 pages en erreur 404</b><span>Plus 17 pages explorées mais non indexées. Probablement les anciennes adresses WordPress sans redirection. Piste n°1 de la migration.</span></div>
+    <div class="card find"><span class="pill p-ok">GSC · reçu</span><b>EMDR Saint-Nazaire : 8,7 en moyenne sur 16 mois</b><span>17 clics, 652 impressions. L'accueil fait 303 des 441 clics. Mobile en position 7,2, ordinateur en 24,4.</span></div>
+    <div class="card find"><span class="pill p-ok">Calendly</span><b>Historique complet depuis sept. 2025</b><span>Compte créé le 3 août 2025, 136 rendez-vous. Avant et après la refonte sont donc mesurables. La capture Calendly devient inutile.</span></div>
+    <div class="card find"><span class="pill p-bad">Calendly</span><b>Impossible de savoir qui vient du site</b><span>Les liens Calendly du site n'ont aucun marqueur de provenance (UTM). Une réservation venue de Google, d'Instagram ou du bouche-à-oreille se ressemble. Ce sera une action du rapport.</span></div>
+    <div class="card find"><span class="pill p-warn">Calendly</span><b>Les types de séance ont changé le 3 sept. 2026</b><span>« 1er rendez-vous thérapie brève », puis « Séance découverte gratuite », puis 3 découvertes (cabinet, visio, marche). Je regroupe tout sous « premier contact » pour comparer.</span></div>
+    <div class="card find"><span class="pill p-ok">Semrush</span><b>EMDR Saint-Nazaire : 12e place</b><span>110 recherches par mois. C'est l'accueil qui ressort, pas la page EMDR : signe que la page EMDR est mal ciblée. EFT Saint-Nazaire n'apparaît pas du tout dans les 100 premiers résultats.</span></div>
+    <div class="card find"><span class="pill p-warn">Semrush</span><b>9 mots-clés sur 12 viennent d'un seul article</b><span>L'article sur l'attachement se classe entre la 20e et la 82e place, sur des sujets nationaux. Le site est peu présent sur ses requêtes locales.</span></div>
+    <div class="card find"><span class="pill p-bad">Semrush</span><b>Les appels coûtent cher</b><span>12 mots-clés = 220 unités, la liste des projets = 400 unités. Solde inconnu : capture B0 demandée. Le projet Semrush a déjà Suivi de position et Audit de site activés.</span></div>
+  </div>
+  <h3 style="margin-top:22px">Premiers contacts réservés par mois (découverte + 1er rendez-vous, non annulés)</h3>
+  <div class="cal" role="img" aria-label="Premiers contacts par mois de septembre 2025 à octobre 2026 : 2, 0, 3, 6, 7, 3, 3, 2, 0, 1, 1, 2, 2, 4">
+  </div>
+  <p style="color:var(--muted);font-size:14px;margin-top:8px">Compté par date de séance. Le trait sépare l'ancien site du nouveau. Les volumes sont trop petits pour conclure : c'est une piste à croiser avec GSC, pas un résultat.</p>
+</section>
+
+<section>
+  <h2>Ce que tes 3 captures disent déjà</h2>
+  <div class="grid">
+    <div class="card find"><span class="pill p-acc">Source de vérité</span><b>Search Console gagne sur Semrush</b><span>GSC compte 441 clics sur 16 mois. Semrush estime 0 de trafic. Semrush sous-estime les petites requêtes locales : on s'en sert pour les concurrents et l'audit technique, pas pour les volumes.</span></div>
+    <div class="card find"><span class="pill p-warn">Piste n°1</span><b>Des mots-clés, mais pas de clics</b><span>12 mots-clés contre 9 pour la n°1 des concurrents, mais 0 de trafic contre 44. Position moyenne GSC : 13,7, soit la page 2 de Google. À confirmer avec les exports.</span></div>
+    <div class="card find"><span class="pill p-warn">Piste n°2</span><b>Très peu de liens entrants</b><span>Authority Score 2, 7 domaines référents. Santé technique 93 %, avec 8 erreurs et 34 avertissements à détailler.</span></div>
+    <div class="card find"><span class="pill p-bad">Contradiction</span><b>Visibilité IA : n/a ou « leader » ?</b><span>Le tableau de bord affiche n/a. La liste des concurrents marque Emmanuelle « Leader dans l'IA » avec 1 citation. On tranche par des tests à la main.</span></div>
+    <div class="card find"><span class="pill p-bad">Échéance</span><b>Semrush est un essai</b><span>« Essai en cours » : l'accès va s'arrêter. Les captures Semrush sont à faire en premier.</span></div>
+    <div class="card find"><span class="pill p-warn">Limite</span><b>Petits volumes</b><span>Environ 28 clics par mois. Un écart avant/après peut être du bruit. On le dira dans le rapport : tendance, pas preuve.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Les périodes</h2>
+  <div class="tl" role="img" aria-label="Frise : avant 17 janvier au 7 juin, bascule 8 au 13 juin, après 14 juin au 27 octobre, panne DNS 28 octobre">
+    <div class="a">AVANT · WordPress</div><div class="g"></div><div class="b">APRÈS · Astro / Netlify</div><div class="x"></div>
+  </div>
+  <div class="tl-labels"><span>17 janv. 2026</span><span>7 juin</span><span>8-13 juin : bascule</span><span>27 oct.</span><span>28 oct. : panne DNS</span></div>
+  <div class="grid" style="margin-top:16px">
+    <div class="card find"><b>Avant : 17 janv. → 7 juin (142 j)</b><span>Même durée que l'après, pour que la comparaison soit juste.</span></div>
+    <div class="card find"><b>Après : 8 juin → 27 oct. (142 j)</b><span>On s'arrête avant la panne SSL du 28/10, qui fausserait la fin.</span></div>
+    <div class="card find"><b>Contrôle saisonnier</b><span>1 juil. → 27 oct. 2025 contre la même fenêtre en 2026, pour écarter l'effet été et rentrée.</span></div>
+  </div>
+  <p style="color:var(--muted);font-size:14.5px;margin-top:14px">La date exacte de bascule est une hypothèse tirée de l'historique git (premier gros lot le 8 juin, sitemap et robots le 13 juin). La capture D1 (Netlify) la confirme. Je compare par semaine, pas par jour, et je signale les semaines de transition de la migration.</p>
+</section>
+
+<section>
+  <h2>Déroulé : qui fait quoi</h2>
+  <div class="phases">
+    <div class="phase"><div class="who"><span class="pill p-warn">Toi · ~40 min</span><b>0 · Accès</b></div><div>
+      <p>Tu déposes les captures et exports de la checklist ci-dessous, au minimum les lignes « bloquant ».</p>
+      <ul><li>Tu valides la liste des concurrents et le format du livrable (section plus bas).</li><li>Tu relances Claude Code pour charger le MCP Semrush.</li></ul></div></div>
+    <div class="phase"><div class="who"><span class="pill p-ok">Moi, seul</span><b>1 · Collecte</b></div><div>
+      <p>Je lis les exports GSC, je tire les données Semrush par le MCP, je passe le site au crible.</p>
+      <ul><li>Site en ligne : titres, descriptions, H1, données structurées, maillage interne, robots.txt, sitemap.</li><li>Migration : anciennes URL WordPress retrouvées via les archives web et le rapport Pages de GSC, puis test de leurs redirections 301 une par une.</li><li>Concurrents : lecture de leurs sites publics.</li></ul></div></div>
+    <div class="phase"><div class="who"><span class="pill p-ok">Moi, seul</span><b>2 · Analyses</b></div><div>
+      <p>Avant/après, face aux concurrents, blog, local, GEO.</p>
+      <ul><li>Blog : lecture seule des 20 articles (titres, longueur, structure, doublons de sujet, liens internes). Je n'en modifie aucun.</li><li>GEO : environ 20 questions sur 4 IA, détaillé plus bas.</li></ul></div></div>
+    <div class="phase"><div class="who"><span class="pill p-ok">Moi, seul</span><b>3 · Histoire</b></div><div>
+      <p>Un fil unique : où on est trouvé, où on perd des visiteuses avant la séance découverte, quoi faire en premier. Brouillon du livrable.</p></div></div>
+    <div class="phase"><div class="who"><span class="pill p-warn">Toi</span><b>4 · Relecture</b></div><div>
+      <p>Tu relis, on adapte le ton pour Emmanuelle. Rien n'est envoyé ni mis en ligne sans ton accord.</p></div></div>
+  </div>
+</section>
+
+<section>
+  <h2>Checklist : ce que j'ai besoin que tu me donnes</h2>
+  <p style="color:var(--muted);max-width:68ch">Un export vaut mieux que plusieurs captures : il contient tout, et je le lis sans erreur. Laisse les exports dans <span class="mono">~/Downloads</span> : je les range dans <span class="mono">audit/data/</span>. Les captures vont dans <span class="mono">audit/data/captures/</span>. Les lignes déjà reçues sont cochées.</p>
+  <div class="prog"><b id="count">0 / 0</b><div class="bar"><i id="bar"></i></div><span class="pill p-bad" id="blk">bloquants restants</span></div>
+  <div id="list"></div>
+</section>
+
+<section>
+  <h2>Tests GEO</h2>
+  <p style="color:var(--muted);max-width:68ch;margin-bottom:12px">GEO = être cité dans les réponses des IA. Chaque question est posée 2 fois par IA (les réponses varient). Je note : Emmanuelle est-elle citée, quelle page, quels concurrents, quelles sources.</p>
+  <div class="scroll"><table>
+    <tr><th>Famille</th><th>Questions types (liste finale à valider)</th></tr>
+    <tr><td>Local direct</td><td>psychopraticienne Saint-Nazaire · psychopraticienne La Baule · thérapeute Guérande</td></tr>
+    <tr><td>Méthodes</td><td>EMDR Saint-Nazaire · EFT Saint-Nazaire · thérapie psychocorporelle Loire-Atlantique</td></tr>
+    <tr><td>Formats</td><td>thérapie en marchant Saint-Nazaire · thérapie en visio psychopraticienne</td></tr>
+    <tr><td>Spécialités</td><td>espace de parole post-partum Saint-Nazaire · accompagnement cancer thérapie psychocorporelle</td></tr>
+    <tr><td>Question de client</td><td>« Je cherche quelqu'un pour mes blessures émotionnelles près de Saint-Nazaire, qui conseiller ? »</td></tr>
+  </table></div>
+  <p style="color:var(--muted);font-size:14.5px;margin-top:12px">IA testées : ChatGPT, Perplexity, Gemini, Google (Aperçu IA et Mode IA). Je les pilote dans ton Chrome, sur tes sessions ouvertes. Aucun mot de passe ne passe par moi.</p>
+</section>
+
+<section>
+  <h2>Concurrents : ce qu'ils font de mieux</h2>
+  <p style="color:var(--muted);max-width:68ch;margin-bottom:12px">Gros morceau de l'audit. On retient 4 à 5 praticiens du même secteur, et pour chacun on compare la même grille :</p>
+  <div class="scroll" style="margin-bottom:16px"><table>
+    <tr><th>Critère</th><th>Ce que je regarde</th><th>Source</th></tr>
+    <tr><td>Google</td><td>Place sur « EMDR / EFT / psychopraticienne Saint-Nazaire »</td><td>Semrush + recherche réelle</td></tr>
+    <tr><td>Google Maps</td><td>Présence dans les 3 premiers, nombre d'avis, note</td><td>Recherche réelle</td></tr>
+    <tr><td>Pages</td><td>Une page par méthode et par ville ? Longueur, FAQ, prix affichés</td><td>Lecture de leurs sites</td></tr>
+    <tr><td>Blog</td><td>Nombre d'articles, sujets qui ramènent du trafic</td><td>Semrush + lecture</td></tr>
+    <tr><td>Liens</td><td>Annuaires et sites qui parlent d'eux</td><td>Semrush</td></tr>
+    <tr><td>IA</td><td>Cités par ChatGPT, Perplexity, Gemini ?</td><td>Tests GEO</td></tr>
+  </table></div>
+  <p style="color:var(--muted);max-width:68ch;margin-bottom:12px">Les 4 retenus, choisis pour avoir des thèmes et des statuts différents :</p>
+  <div class="scroll"><table>
+    <tr><th>Nom</th><th>Trafic estimé Semrush</th><th>Profil</th><th>Statut</th></tr>
+    <tr><td>Morgane Houarner</td><td class="mono">44</td><td>Leader SEO, EMDR local</td><td><span class="pill p-ok">retenue</span></td></tr>
+    <tr><td>Laurence Martin</td><td class="mono">30</td><td>EMDR local</td><td><span class="pill p-ok">retenue</span></td></tr>
+    <tr><td>Marie-Noëlle Guégan-Leblanc</td><td class="mono">3</td><td>Recherches locales</td><td><span class="pill p-ok">retenue</span></td></tr>
+    <tr><td>Laure Sablé</td><td class="mono">0</td><td>Zone voisine, Guérande</td><td><span class="pill p-ok">retenue</span></td></tr>
+  </table></div>
+  <p style="color:var(--muted);font-size:14.5px;margin-top:12px">Je vérifie la ville et le statut de chacune avant l'analyse. Zone : Saint-Nazaire d'abord, La Baule et alentours ensuite, visio France en troisième couche.</p>
+</section>
+
+<section>
+  <h2>Le livrable pour Emmanuelle</h2>
+  <div class="grid">
+    <div class="card find"><b>Lectrice</b><span>Psychopraticienne, pas technicienne. Zéro jargon sans traduction. Chaque constat répond à : « qu'est-ce que ça change pour mes séances découverte ? »</span></div>
+    <div class="card find"><b>Structure proposée</b><span>1 page de verdict · avant/après en 2 courbes · face aux autres · ce que disent les IA · 5 actions maximum, classées. Un glossaire de 6 mots à la fin.</span></div>
+    <div class="card find"><span class="pill p-ok">décidé</span><b>PDF aux couleurs du site</b><span>Sauge, beige sable, terracotta, titres en Playfair Display, texte en Lato. Graphiques simples. Je l'écris en HTML et Chrome le convertit en PDF, sans outil supplémentaire.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Règles que je tiens pendant ton absence</h2>
+  <ul class="rules">
+    <li>Aucune modification du code du site ni des 20 articles : c'est un audit, les corrections viendront en lots après ton accord.</li>
+    <li>Semrush et Calendly : nombre d'appels limité. Je fais une liste des appels prévus (environ 15 pour Semrush) avant de les lancer. Ce qui est visible sur une capture ne coûte pas d'appel.</li>
+    <li>Rien sur <span class="mono">main</span>. Aucune nouvelle dépendance ni service sans ton accord. Aucun secret dans le chat ni dans le dépôt.</li>
+    <li>Pas de chiffre inventé : tout nombre du rapport renvoie à un export ou une capture. Ce que je n'ai pas pu vérifier est marqué « non vérifié ».</li>
+    <li>Si un accès manque ou qu'un outil bloque deux fois, je m'arrête et je note la question pour ton retour au lieu de tourner en boucle.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Décisions prises</h2>
+  <div class="grid">
+    <div class="card find"><span class="pill p-ok">décidé</span><b>Concurrents</b><span>Morgane Houarner, Laurence Martin, Marie-Noëlle Guégan-Leblanc, Laure Sablé.</span></div>
+    <div class="card find"><span class="pill p-ok">décidé</span><b>Livrable</b><span>PDF aux couleurs du site, avec des graphiques.</span></div>
+    <div class="card find"><span class="pill p-ok">décidé</span><b>Vitesse du site</b><span>PageSpeed Insights piloté dans Chrome, sur l'URL sans www. Semrush ne coûte pas d'appel pour ça.</span></div>
+    <div class="card find"><span class="pill p-ok">décidé</span><b>Chrome</b><span>Pilotage autorisé pendant ton absence : PageSpeed et tests IA.</span></div>
+    <div class="card find"><span class="pill p-ok">décidé</span><b>Rangement</b><span>Dossier <span class="mono">audit/</span> du projet. Les données brutes sont hors git. Passation : <span class="mono">audit/PLAN-AUDIT.md</span>.</span></div>
+    <div class="card find"><span class="pill p-warn">reste</span><b>Tu ou vous ?</b><span>Le ton du PDF pour Emmanuelle.</span></div>
+  </div>
+</section>
+
+</main>
+
+<script>
+/* g: groupe, p: priorité (b bloquant, u utile, o bonus) */
+var ITEMS=[
+ {g:'A',id:'A1',r:1,p:'b',t:'Export 16 mois, jour par jour',w:'Search Console → Performances → 16 mois → Exporter → Télécharger .csv',d:'Type de recherche : Web. Je recalcule n\'importe quelle période et la courbe par semaine.',n:'GSC-16mois.zip'},
+ {g:'A',id:'A2',p:'b',t:'Export AVANT : 17 janv. → 7 juin 2026',w:'Mêmes réglages, dates en « Personnalisé ».',d:'L\'export contient Requêtes, Pages, Appareils et Pays. Une seule fois suffit.',n:'GSC-avant.zip'},
+ {g:'A',id:'A3',p:'b',t:'Export APRÈS : 8 juin → 27 oct. 2026',w:'Mêmes réglages.',d:'Même contenu que A2.',n:'GSC-apres.zip'},
+ {g:'A',id:'A4',p:'u',t:'Export même saison 2025 : 1 juil. → 27 oct. 2025',w:'Mêmes réglages.',d:'Contrôle de saisonnalité.',n:'GSC-2025.zip'},
+ {g:'A',id:'A5',r:1,p:'b',t:'Indexation → Pages, page entière',w:'Capture + la liste « Pourquoi ces pages ne sont pas indexées » (scroller, une capture par écran).',d:'Repère les anciennes pages WordPress perdues dans la migration.',n:'capture'},
+ {g:'A',id:'A6',r:1,p:'u',t:'Indexation → Sitemaps',w:'Capture de la page.',d:'Vérifie que le bon sitemap est lu et ce qu\'il a trouvé.',n:'capture'},
+ {g:'A',id:'A7',p:'u',t:'Core Web Vitals : mobile et ordinateur',w:'2 captures.',d:'Vitesse réelle vue par les visiteuses.',n:'2 captures'},
+ {g:'A',id:'A8',p:'u',t:'Liens : sites externes + pages les plus liées',w:'2 captures.',d:'Complète les 7 domaines référents de Semrush.',n:'2 captures'},
+ {g:'A',id:'A9',p:'o',t:'Annotation « 1 » sur le graphique, vers le 9 mai 2026',w:'Survole le petit « 1 » sous la courbe, capture avec le texte affiché.',d:'Probable mise à jour Google ou note : explique peut-être un pic.',n:'capture'},
+ {g:'A',id:'A10',p:'o',t:'Rapport « fonctionnalités d\'IA générative »',w:'Bandeau en bas de Performances → « Ouvrir le rapport ».',d:'Si disponible, il dit si Google IA cite le site.',n:'capture'},
+
+ {g:'B',id:'B0',p:'b',t:'Solde d\'unités API Semrush',w:'Semrush → ton profil (E en haut à droite) → Informations d\'abonnement, ligne « API units ».',d:'2 appels ont coûté 620 unités. Sans le solde, je ne peux pas savoir combien d\'appels il reste.',n:'capture'},
+ {g:'B',id:'B1',p:'b',t:'Audit de site : détail des 8 erreurs et 34 avertissements',w:'Semrush → Audit de site → Problèmes, une capture par écran.',d:'Sans le détail, je ne peux pas dire quoi corriger. Inutile si le MCP Semrush est chargé.',n:'captures'},
+ {g:'B',id:'B2',p:'b',t:'Suivi de position : mots-clés suivis et ville',w:'Projet emma-psychopraticienne.fr → Suivi de position. Capture de la liste et du lieu réglé.',d:'L\'outil est activé. S\'il suit déjà « EFT / EMDR Saint-Nazaire » localement, il répond à la question d\'Emmanuelle sans appel coûteux. Les 12 mots-clés, je les ai déjà.',n:'capture'},
+ {g:'B',id:'B3',p:'b',t:'Concurrents : liste complète',w:'Tableau de bord → Analyse → Concurrents, scroller la liste jusqu\'au bout.',d:'Je n\'ai vu que 6 lignes sur plus.',n:'captures'},
+ {g:'B',id:'B4',p:'u',t:'Backlinks : les 7 domaines référents',w:'Clique sur « Domaines réf. » dans le tableau de bord.',d:'Qui fait un lien vers le site, et leur qualité.',n:'capture'},
+ {g:'B',id:'B5',p:'o',t:'Page de l\'outil IA de Semrush',w:'Menu de gauche → IA → vue d\'ensemble.',d:'Pour comparer avec mes tests à la main.',n:'capture'},
+ {g:'B',id:'B6',p:'o',t:'Outil Local, si inclus dans l\'essai',w:'Menu de gauche → Local.',d:'Fiche Google, annuaires, avis.',n:'capture'},
+
+ {g:'C',id:'C1',p:'u',t:'Question à Emmanuelle : d\'où viennent ses patientes ?',w:'Un message suffit : Google, Doctolib ou autre annuaire, bouche-à-oreille, Instagram, médecins ?',d:'Calendly ne le dit pas : le site n\'envoie pas de marqueur de provenance. Sa réponse remplace la donnée manquante.',n:'texte'},
+ {g:'C',id:'C3',p:'b',t:'Google : « EMDR Saint-Nazaire » et « EFT Saint-Nazaire » depuis ton téléphone',w:'Navigation privée, 2 recherches. Capture des résultats + onglet Maps.',d:'Répond à la question d\'Emmanuelle sur sa place, vue comme une vraie patiente.',n:'4 captures'},
+
+ {g:'D',id:'D1',p:'b',t:'Netlify → Deploys : premier déploiement en production en juin',w:'Descendre jusqu\'au plus ancien déploiement « Production ».',d:'Fixe la date de bascule. Tout le reste en dépend.',n:'capture'},
+ {g:'D',id:'D2',p:'u',t:'Netlify → Forms : nombre de messages par mois',w:'Capture de la liste. Masque les noms et les messages avant de la déposer : données de patientes.',d:'Seules les dates et le nombre m\'intéressent.',n:'capture masquée'},
+ {g:'D',id:'D3',p:'b',t:'Netlify Analytics, s\'il est activé',w:'Site → Analytics. Sinon, réponds simplement « pas activé ».',d:'Seule source du « nombre de vues » demandé par Emmanuelle. GSC ne compte que Google.',n:'capture ou texte'},
+ {g:'D',id:'D4',p:'u',t:'Hostinger : le WordPress existe-t-il encore ?',w:'Capture de la liste des sites, avec date de création ou de dernière sauvegarde.',d:'Si oui, je peux relire l\'ancien contenu et ses URL.',n:'capture'},
+
+ {g:'E',id:'E1',p:'b',t:'Fiche Google Business Profile',w:'Existe-t-elle ? Capture de la fiche : nom, catégories, adresse ou zone, nombre d\'avis, note.',d:'Pour une recherche « psychopraticienne Saint-Nazaire », c\'est souvent le premier levier local. Si elle n\'existe pas, dis-le : ce sera une action n°1.',n:'capture ou texte'},
+ {g:'E',id:'E2',p:'u',t:'Google Business : performances sur 6 mois',w:'Vues, appels, itinéraires, clics vers le site.',d:'Compare la voie « fiche Google » et la voie « site ».',n:'capture'},
+ {g:'E',id:'E3',p:'o',t:'Annuaires où Emmanuelle est listée',w:'Liste de noms ou de liens, en texte.',d:'Autres sources de citation pour Google et les IA.',n:'texte'},
+
+ {g:'F',id:'F1',p:'b',t:'Relancer Claude Code pour charger le MCP Semrush',w:'Quitte et relance dans ce dossier, puis écris-moi « semrush ».',d:'Il est connecté à ton compte mais pas encore chargé dans cette session.',n:'action'},
+ {g:'F',id:'F2',p:'b',t:'Chrome ouvert, extension Claude active, ChatGPT, Perplexity et Gemini connectés',w:'Rien à capturer. Laisse l\'ordinateur éveillé pendant ton absence.',d:'Pour les tests GEO en autonomie.',n:'action'}
+];
+var GROUPS={A:['Google Search Console','Le cœur de l\'audit : avant/après, requêtes, pages perdues.'],B:['Semrush','À faire en premier : l\'essai s\'arrête. Les captures économisent les appels du connecteur.'],C:['Provenance et place réelle sur Google','Calendly est déjà lu par le connecteur. Il reste la provenance et la vraie page de résultats.'],D:['Netlify et Hostinger','La date de bascule et les messages du formulaire.'],E:['Google Business Profile','Le levier local.'],F:['Accès à laisser ouverts','Pas de capture, juste des actions.']};
+(function(){
+  var M=['s','o','n','d','j','f','m','a','m','j','j','a','s','o'],V=[2,0,3,6,7,3,3,2,0,1,1,2,2,4],h='';
+  V.forEach(function(v,i){h+='<div class="c'+(i>=9?' after':'')+(i===9?' split':'')+'"><b>'+v+'</b><i style="height:'+(v/7*100)+'px"></i><span>'+M[i]+'</span></div>'});
+  document.querySelector('.cal').innerHTML=h;
+})();
+var PRIO={b:['bloquant','p-bad'],u:['utile','p-warn'],o:['bonus','p-acc']};
+var KEY='audit-seo-geo-checks',state={};
+try{state=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){state={}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+var list=document.getElementById('list'),html='';
+Object.keys(GROUPS).forEach(function(g){
+  html+='<div class="grp"><h3><span class="mono" style="color:var(--accent)">'+g+'</span>'+esc(GROUPS[g][0])+'</h3><p class="note">'+esc(GROUPS[g][1])+'</p>';
+  ITEMS.filter(function(i){return i.g===g}).forEach(function(i){
+    html+='<label class="item" data-id="'+i.id+'"><input type="checkbox" id="chk-'+i.id+'"><span class="id">'+i.id+'</span><span><span class="t"><span class="txt">'+esc(i.t)+'</span><span class="pill '+PRIO[i.p][1]+'">'+PRIO[i.p][0]+'</span></span><span class="d" style="display:block"><b>Où :</b> '+esc(i.w)+'<br>'+esc(i.d)+' <span class="mono">· '+esc(i.n)+'</span></span></span></label>';
+  });
+  html+='</div>';
+});
+list.innerHTML=html;
+function refresh(){
+  var done=0,blk=0;
+  ITEMS.forEach(function(i){
+    var el=document.querySelector('[data-id="'+i.id+'"]');
+    var c=(i.id in state)?!!state[i.id]:!!i.r;
+    el.classList.toggle('done',c);
+    el.querySelector('input').checked=c;
+    if(c)done++; else if(i.p==='b')blk++;
+  });
+  document.getElementById('count').textContent=done+' / '+ITEMS.length;
+  document.getElementById('bar').style.width=(done/ITEMS.length*100)+'%';
+  document.getElementById('blk').textContent=blk+' bloquant'+(blk>1?'s':'')+' restant'+(blk>1?'s':'');
+}
+list.addEventListener('change',function(e){
+  var el=e.target.closest('[data-id]'); if(!el)return;
+  state[el.getAttribute('data-id')]=e.target.checked; save(); refresh();
+});
+refresh();
+</script>
