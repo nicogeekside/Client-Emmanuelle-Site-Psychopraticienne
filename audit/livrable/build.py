@@ -430,7 +430,7 @@ BODY = f'''
 <table><tr><th></th><th>Avant</th><th>Après</th><th>Évolution</th></tr>
 <tr><td>Clics depuis Google</td><td>133</td><td>202</td><td><b>+69 (+52 %)</b></td></tr>
 <tr><td>Apparitions dans Google (impressions)</td><td>2 550</td><td>3 364</td><td><b>+814 (+32 %)</b></td></tr>
-<tr><td>Part des apparitions qui donnent un clic</td><td>5,2 %</td><td>6,0 %</td><td>+0,8 point</td></tr>
+<tr><td>Sur 100 affichages dans Google, combien de clics</td><td>5,2</td><td>6,0</td><td>+0,8 clic</td></tr>
 <tr><td>Place moyenne dans Google</td><td>15,6</td><td>13,3</td><td>2,3 places gagnées</td></tr></table>
 <p><b>Seul ce qui vient de Google est mesuré.</b> Sans compteur de visites, les visites directes, Bing et réseaux sociaux ne sont pas comptés.</p>
 <p class="meaning"><b>Ce que ça veut dire :</b> un peu plus de personnes trouvent le site depuis Google, mais les volumes restent petits.</p>
