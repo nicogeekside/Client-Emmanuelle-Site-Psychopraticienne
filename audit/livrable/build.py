@@ -210,6 +210,8 @@ p {{ margin:.4em 0 .8em; }}
 b {{ font-weight:700; }}
 section {{ break-after: page; }}
 section:last-child {{ break-after: auto; }}
+.act {{ font-size:9pt; letter-spacing:.2em; text-transform:uppercase; color:{TERRA_P}; font-weight:700; text-align:center; margin:0 0 2mm; }}
+.plan {{ margin-top:4mm; line-height:1.7; }}
 .cover {{ height:297mm; padding:30mm 24mm 24mm; display:flex; flex-direction:column; background:{FOND}; position:relative; overflow:hidden; break-after:page; }}
 .cover::before {{ content:""; position:absolute; right:-60mm; top:-50mm; width:150mm; height:150mm; border-radius:50%; background:{SABLE}; opacity:.7; }}
 .cover::after {{ content:""; position:absolute; right:12mm; top:96mm; width:34mm; height:34mm; border-radius:50%; background:{TERRA}; opacity:.55; }}
@@ -394,7 +396,8 @@ BODY = f'''
 <p>L'analyse porte sur <b>284 jours</b>, du 17 janvier au 27 octobre 2026. Le nouveau site a été mis en ligne le <b>8 juin 2026</b>, au milieu de cette période.</p>
 <p>On compare donc <b>142 jours avant</b> (17 janvier → 7 juin) et <b>142 jours après</b> (8 juin → 27 octobre) : même durée des deux côtés, pour une comparaison juste.</p>
 <div class="frise"><div class="seg a"><b>Avant</b><span>142 jours</span><small>17 janv. → 7 juin</small></div><div class="seg b"><b>Après</b><span>142 jours</span><small>8 juin → 27 oct.</small></div><div class="mark">Mise en ligne du nouveau site · 8 juin 2026</div></div>
-<p class="note">Les chiffres viennent de Google (Search Console). Il n'y a pas de compteur de visites sur le site.</p></div>
+<p class="note">Les chiffres viennent de Google (Search Console). Il n'y a pas de compteur de visites sur le site.</p>
+<p class="plan"><b>Le rapport en trois parties :</b><br>1 · Le bilan : ce qui a changé depuis le nouveau site<br>2 · Le terrain : combien de personnes cherchent, où le site apparaît, face à qui<br>3 · Les leviers : annuaires, sujets à écrire, prochaines étapes</p></div>
 </div>
 
 <section id="verdict" class="verdict">
@@ -420,6 +423,31 @@ BODY = f'''
 </div>
 <p class="meaning" style="margin-top:8mm"><b>Ce que ça veut dire :</b> le site progresse et la fiche Google est solide. Les efforts portent sur l'EMDR, sur la visibilité de l'EFT et sur la présence dans les annuaires.</p>
 <p class="note intro">Les clics viennent de Google seulement. Ce qui n'a pas pu être relevé est indiqué « non relevé » ou « non mesurable ».</p>
+</section>
+
+<section id="avant-apres">
+<p class="act">Partie 1 · Le bilan</p>
+<h2>Avant / après le nouveau site</h2>
+<p class="intro">Le site est passé de WordPress à un nouveau site le <b>8 juin 2026</b>.<br>On compare deux périodes de 142 jours.</p>
+<div class="vs">
+ <div class="hd a">Avant<small>17 janv. → 7 juin</small></div><div></div><div class="hd b">Après<small>8 juin → 27 oct.</small></div>
+ <div class="c a"><span class="n">133</span><span class="l">clics depuis Google</span></div><div class="m">{pill("+69 clics (+52 %)")}</div><div class="c b"><span class="n">202</span><span class="l">clics depuis Google</span></div>
+ <div class="c a"><span class="n">2 550</span><span class="l">apparitions dans Google</span></div><div class="m">{pill("+814 (+32 %)")}</div><div class="c b"><span class="n">3 364</span><span class="l">apparitions dans Google</span></div>
+ <div class="c a"><span class="n">15,6</span><span class="l">place moyenne</span></div><div class="m">{pill("2,3 places gagnées")}</div><div class="c b"><span class="n">13,3</span><span class="l">place moyenne</span></div>
+</div>
+<div class="cols charts"><div class="chart"><h3>Clics par mois</h3>
+{line_chart(mois, "clics", "Clics par mois", SAUGE, 20, H=200)}</div>
+<div class="chart"><h3>Apparitions dans Google par mois</h3>
+{line_chart(mois, "impressions", "Impressions par mois", PROF, 200, H=200)}</div></div>
+<p class="meaning"><b>Ce que ça veut dire :</b> la tendance est positive, sans preuve qu'elle vienne du nouveau site.</p>
+<div class="enc rose pb"><h3>{ico("alert", TERRA_P)} Mise en garde</h3><p>Une trentaine de clics par mois : de petits chiffres.</p><ul><li>Le nouveau site n'est pas forcément la cause : 20 articles ont aussi été publiés.</li><li>Juillet → octobre : 45 clics en 2025, 184 en 2026 (base 2025 minuscule).</li><li>Le pic d'août-septembre 2026 reste inexpliqué.</li><li>Aucune chute au moment de la bascule.</li></ul></div>
+<div class="enc"><h3>{ico("list")} Les réservations Calendly</h3>
+<p>Elles comptent <u>toutes</u> les origines (site, fiche Google, bouche-à-oreille) : impossible de savoir lesquelles viennent du site. Découpage au mois (5 mois chacun) : <b>avant = janv. → mai 2026, après = juin → oct. 2026</b>.</p>
+<table style="margin-top:4px"><tr><th></th><th>Avant</th><th>Après</th><th>Évolution</th></tr>
+<tr><td>Réservations maintenues, tous types</td><td><b class="big">46</b></td><td><b class="big">29</b></td><td>{pill("−17", "no")}</td></tr>
+<tr><td>Dont premiers contacts</td><td><b class="big">15</b></td><td><b class="big">10</b></td><td>{pill("−5", "no")}</td></tr></table>
+<p><b>Hypothèse :</b> la période après inclut l'été (juillet-août), habituellement plus calme.</p>
+<p class="note">Cela ne dit rien sur le site : petits chiffres, et rendez-vous renommés en sept. 2026. L'origine des réservations n'est pas mesurable.</p></div>
 </section>
 
 <section id="questions">
@@ -484,102 +512,17 @@ BODY = f'''
 </div>
 </section>
 
-<section id="avant-apres">
-<h2>Avant / après le nouveau site</h2>
-<p class="intro">Le site est passé de WordPress à un nouveau site le <b>8 juin 2026</b>.<br>On compare deux périodes de 142 jours.</p>
-<div class="vs">
- <div class="hd a">Avant<small>17 janv. → 7 juin</small></div><div></div><div class="hd b">Après<small>8 juin → 27 oct.</small></div>
- <div class="c a"><span class="n">133</span><span class="l">clics depuis Google</span></div><div class="m">{pill("+69 clics (+52 %)")}</div><div class="c b"><span class="n">202</span><span class="l">clics depuis Google</span></div>
- <div class="c a"><span class="n">2 550</span><span class="l">apparitions dans Google</span></div><div class="m">{pill("+814 (+32 %)")}</div><div class="c b"><span class="n">3 364</span><span class="l">apparitions dans Google</span></div>
- <div class="c a"><span class="n">15,6</span><span class="l">place moyenne</span></div><div class="m">{pill("2,3 places gagnées")}</div><div class="c b"><span class="n">13,3</span><span class="l">place moyenne</span></div>
+<section id="volumes" class="vol">
+<p class="act">Partie 2 · Le terrain</p>
+<h2>Combien de personnes cherchent ?</h2>
+<p class="note intro">Sur le cœur de l'offre locale : EMDR à Saint-Nazaire, La Baule et Guérande, plus une recherche voisine. Ordre de grandeur, par mois.</p>
+<div class="funnel">
+<div class="fn f1"><span class="n">180</span><span class="t">recherches par mois</span></div><div class="fa">▼</div>
+<div class="fn f2"><span class="n">~97</span><span class="t">apparitions du site sur ces recherches (environ 54 %)</span></div><div class="fa">▼</div>
+<div class="fn f3"><span class="n">~2,6</span><span class="t">clics par mois</span></div>
 </div>
-<div class="cols charts"><div class="chart"><h3>Clics par mois</h3>
-{line_chart(mois, "clics", "Clics par mois", SAUGE, 20, H=200)}</div>
-<div class="chart"><h3>Apparitions dans Google par mois</h3>
-{line_chart(mois, "impressions", "Impressions par mois", PROF, 200, H=200)}</div></div>
-<p class="meaning"><b>Ce que ça veut dire :</b> la tendance est positive, sans preuve qu'elle vienne du nouveau site.</p>
-<div class="enc rose pb"><h3>{ico("alert", TERRA_P)} Mise en garde</h3><p>Une trentaine de clics par mois : de petits chiffres.</p><ul><li>Le nouveau site n'est pas forcément la cause : 20 articles ont aussi été publiés.</li><li>Juillet → octobre : 45 clics en 2025, 184 en 2026 (base 2025 minuscule).</li><li>Le pic d'août-septembre 2026 reste inexpliqué.</li><li>Aucune chute au moment de la bascule.</li></ul></div>
-<div class="enc"><h3>{ico("list")} Les réservations Calendly</h3>
-<p>Elles comptent <u>toutes</u> les origines (site, fiche Google, bouche-à-oreille) : impossible de savoir lesquelles viennent du site. Découpage au mois (5 mois chacun) : <b>avant = janv. → mai 2026, après = juin → oct. 2026</b>.</p>
-<table style="margin-top:4px"><tr><th></th><th>Avant</th><th>Après</th><th>Évolution</th></tr>
-<tr><td>Réservations maintenues, tous types</td><td><b class="big">46</b></td><td><b class="big">29</b></td><td>{pill("−17", "no")}</td></tr>
-<tr><td>Dont premiers contacts</td><td><b class="big">15</b></td><td><b class="big">10</b></td><td>{pill("−5", "no")}</td></tr></table>
-<p><b>Hypothèse :</b> la période après inclut l'été (juillet-août), habituellement plus calme.</p>
-<p class="note">Cela ne dit rien sur le site : petits chiffres, et rendez-vous renommés en sept. 2026. L'origine des réservations n'est pas mesurable.</p></div>
-</section>
-
-<section id="concurrentes">
-<h2>Face aux 4 autres praticiennes</h2>
-<p class="meaning"><b>Ce que ça veut dire :</b> le site a des atouts rares. L'écart se joue sur les avis, les annuaires et la publicité, pas sur le contenu.</p>
-<table class="tbl-pill">
-<tr><th>Critère</th><th class="me">Emmanuelle</th><th>Morgane Houarner</th><th>Laurence Martin</th><th>M.-N. Guégan-Leblanc</th><th>Laure Sablé</th></tr>
-<tr><td>Métier affiché</td><td class="me">Psychopraticienne</td><td>Psychopraticienne EMDR</td><td>Hypnothérapeute</td><td>Psychologue clinicienne</td><td>Psychothérapeute (Guérande et Saint-Nazaire)</td></tr>
-<tr><td>Fiche Google : note (avis)</td><td class="me"><b>5,0 (20)</b></td><td><b>4,9 (40)</b></td><td>non relevé</td><td><b>5,0 (4)</b></td><td>aucune note affichée</td></tr>
-<tr><td>Réponses aux avis</td><td class="me">{oui("Oui (3 vus sur 3)")}</td><td>{oui("Oui (3 vus sur 3)")}</td><td>{nv("Non relevé")}</td><td>{oui("Oui (3 vues)")}</td><td>{nv("Non relevé")}</td></tr>
-<tr><td>Catégorie de la fiche</td><td class="me">traitée à part</td><td>Psychothérapeute</td><td>Service d'hypnothérapie</td><td>Psychologue</td><td>Psychothérapeute</td></tr>
-<tr><td>Réservation depuis la fiche</td><td class="me">Resalib</td><td>Crénolibre</td><td>non relevé</td><td>Doctolib</td><td>Doctolib</td></tr>
-<tr><td>Réservation sur le site</td><td class="me">Calendly</td><td>aucune (passe par l'annuaire)</td><td>téléphone ou e-mail</td><td>Doctolib</td><td>Doctolib</td></tr>
-<tr><td>Publicité Google (1er nov.)</td><td class="me">aucune annonce vue</td><td>{pill("annonces sur 8 recherches sur 24", "no")}</td><td>aucune annonce vue</td><td>aucune annonce vue</td><td>aucune annonce vue</td></tr>
-<tr><td>Blog</td><td class="me"><b>~20 articles</b></td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-<tr><td>Séance offerte</td><td class="me">{oui("Oui (45 min)")}</td><td>{non()}</td><td>{non()}</td><td>{non()}</td><td>{non()}</td></tr>
-<tr><td>Prix affiché sur le site</td><td class="me">60 € (page RDV) ; 1er RDV d'1 h : <span class="tag">à confirmer</span></td><td>75 €</td><td>80 €</td><td>60 €</td><td>55 €</td></tr>
-<tr><td>Page par méthode, FAQ</td><td class="me">Oui</td><td>Oui, sans FAQ</td><td>Non, FAQ oui</td><td>Non</td><td>Non</td></tr>
-</table>
-<p class="note">Publicité : observé le 1er nov. sur 24 recherches ; les annonces varient d'un jour à l'autre. La fiche « Confiance et Ressources » (Anaïs Duclos) est une autre praticienne : elle n'entre pas dans ce tableau.</p>
-<ul class="nl"><li>Marie-Noëlle Guégan-Leblanc est psychologue (titre protégé) : ne pas l'appeler « psychopraticienne ».</li></ul>
-<h3>Ce qu'elles font mieux</h3>
-<div class="grid3">
- <div class="gt"><div class="gi">{ico("euro")}</div><b>Prix à côté du bouton</b><span>Laure Sablé affiche le tarif près de la réservation.</span></div>
- <div class="gt"><div class="gi">{ico("star")}</div><b>Lien vers les avis Google</b><span>Laurence Martin : « voir les avis » visible. Le site n'y renvoie pas, malgré 20 avis.</span></div>
- <div class="gt"><div class="gi">{ico("map")}</div><b>Fiche Google = porte de réservation</b><span>Morgane Houarner : bouton « Réserver en ligne » vers Crénolibre.</span></div>
- <div class="gt"><div class="gi">{ico("link")}</div><b>Présence dans les annuaires</b><span>Crénolibre et Psychologue.net pour Morgane Houarner (voir page suivante).</span></div>
- <div class="gt"><div class="gi">{ico("faq")}</div><b>FAQ sur l'accueil</b><span>Elle lève la peur du premier pas.</span></div>
- <div class="gt" style="background:#f3eadf;border-color:#f3eadf"><div class="gi" style="background:#fff">{ico("alert", TERRA_P)}</div><b>À ne pas copier</b><span>Les témoignages anonymes.</span></div>
-</div>
-<ul class="nl"><li>Morgane Houarner est de loin la plus visible sur l'EMDR à Saint-Nazaire.</li><li>Place exacte sur Google : relevée pour 4 recherches seulement.</li></ul>
-</section>
-
-<section id="morgane" class="pg">
-<h2>Pourquoi Morgane Houarner apparaît partout</h2>
-<p class="intro">Relevé du 1er nov. 2026 sur 24 recherches locales : Morgane Houarner est très visible.<br>Trois raisons l'expliquent.</p>
-<div class="tri">
- <div><span class="no">1</span><h3>La publicité Google</h3><p>Annonce « sponsorisée » sur <b>8 recherches sur 24</b>, tout en haut de la page.</p><p>Elle <b>paie</b> cette place : cela ne prouve pas que son site est meilleur.</p></div>
- <div><span class="no">2</span><h3>Deux fois plus d'avis</h3><p><b>40 avis</b> (note 4,9) contre <b>20</b> (note 5,0) ; elle répond à chaque avis récent.</p><p>Dans le bloc des 3 fiches : présente sur 4 recherches sur 24, contre 3 pour Emmanuelle. L'écart est faible.</p></div>
- <div><span class="no">3</span><h3>Deux annuaires de plus</h3><p><b>Crénolibre</b> et <b>Psychologue.net</b>, où Emmanuelle n'est pas : sa fiche Crénolibre sort 2e sur « psychopraticien Saint-Nazaire ».</p><p>Les assistants IA les citent souvent (Crénolibre 6 fois, Psychologue.net 8 fois dans nos tests).</p></div>
-</div>
-<div class="enc vert"><h3>{ico("check")} Ce qui n'explique pas son avance</h3>
-<ul><li><b>L'ancienneté :</b> les deux sites sont jeunes (archivés en sept. 2023 pour elle, oct. 2024 pour Emmanuelle).</li><li><b>Son site :</b> dans les 10 premiers résultats sur <b>aucune</b> des 24 recherches.</li><li><b>Le contenu :</b> celui d'Emmanuelle est plus complet (accueil d'environ 1 200 mots contre 130, une vingtaine d'articles, une FAQ).</li></ul></div>
-<h3>Ce qui peut être rattrapé</h3>
-<table class="tbl-pill">
-<tr><th>Levier</th><th>Rattrapable ?</th><th>Coût</th></tr>
-<tr><td>Avis Google (de 20 vers 40) et publications sur la fiche</td><td>{oui()}</td><td>Gratuit</td></tr>
-<tr><td>Fiches Crénolibre et Psychologue.net</td><td>{oui()}</td><td>À vérifier avant</td></tr>
-<tr><td>Fiche Resalib à compléter (EMDR, avis)</td><td>{oui()}</td><td>À vérifier</td></tr>
-<tr><td>Publicité Google</td><td>{pill("Seulement avec un budget", "mid")}</td><td>Payant : à décider ensemble</td></tr></table>
-</section>
-
-<section id="annuaires" class="pg">
-<h2>Les annuaires : un levier important</h2>
-<p class="intro">Un annuaire est un site qui liste les praticiens d'une ville.</p>
-<div class="grid3">
- <div class="gt"><div class="gi">{ico("link")}</div><b>Une recommandation pour Google</b><span>Chaque inscription avec le lien du site est un « lien entrant » : Google le lit comme une recommandation.</span></div>
- <div class="gt"><div class="gi">{ico("map")}</div><b>La confiance</b><span>Le même nom, la même adresse et le même téléphone partout rassurent Google sur l'identité du cabinet.</span></div>
- <div class="gt"><div class="gi">{ico("chat")}</div><b>Les assistants IA</b><span>Ils citent souvent ces annuaires quand on leur demande un praticien près de chez soi.</span></div>
-</div>
-<table class="tbl-pill">
-<tr><th>Annuaire</th><th>Accepte les psychopraticiennes</th><th>Gratuit ou payant</th><th>Emmanuelle</th></tr>
-{ANN_ROWS}</table>
-<p class="note">Relevé du 1er nov. 2026. Aucune grille de prix officielle n'a été lue : les montants viennent de sources secondaires, d'où « prix à vérifier ». Doctolib et l'annuaire EMDR France ne sont pas ouverts à ce statut, selon les sources relevées. « Non trouvée » : aucune fiche repérée ; « non vérifié » : pas relevé.</p>
-<div class="enc"><h3>{ico("check")} Les inscriptions à faire</h3>
-<ul class="chk">
-<li><b>Crénolibre</b> : créer la fiche. <small>Prix non trouvé : vérifier avant.</small></li>
-<li><b>Psychologue.net</b> : créer la fiche. <small>Payant probable : vérifier avant.</small></li>
-<li><b>Resalib</b> : compléter la fiche (EMDR et EFT en spécialités, lien vers le site, avis).</li>
-<li><b>Therapeutes.com</b> et <b>Priorise</b> : chercher si une fiche existe, sinon la créer (rubrique « Praticien EFT »).</li>
-<li><b>PagesJaunes</b> et <b>Bing Places</b> : même chose. <small>Gratuits.</small></li>
-<li><b>Médoucine</b> : payant. <small>À décider ensemble, après vérification du prix.</small></li>
-</ul>
-<p class="note">Partout : le même nom, la même adresse, le même téléphone et le lien vers le site.</p></div>
+<p class="meaning"><b>Ce que ça veut dire :</b> le site est déjà vu par une bonne part des personnes qui cherchent l'EMDR près de Saint-Nazaire. Très peu cliquent, car il est en bas de la 1re page. Gagner quelques places compte plus que d'être vu davantage.</p>
+<div class="enc rose"><h3>{ico("alert", TERRA_P)} À savoir</h3><ul><li>Les recherches locales sont peu nombreuses : beaucoup de mots sont à 0 ou trop faibles pour être mesurés (dont EFT et psychopraticienne avec une ville).</li><li>Ces chiffres sont des estimations (Semrush) : à lire comme des ordres de grandeur.</li></ul></div>
 </section>
 
 <section id="recherches" class="pg">
@@ -606,16 +549,78 @@ BODY = f'''
 <div class="enc rose"><h3>{ico("alert", TERRA_P)} Priorité n°1 : l'EMDR</h3><ul><li>La fiche Google est dans le bloc des 3 fiches.</li><li>La page EMDR (ancienne + nouvelle) apparaît {fr(EMA[1])} fois avant et {fr(EMB[1])} fois après, pour {EMA[0]} puis {EMB[0]} clics.</li><li>Renforcer cette page peut faire passer de « visible » à « choisi ».</li></ul></div>
 </section>
 
-<section id="volumes" class="vol">
-<h2>Combien de personnes cherchent ?</h2>
-<p class="note intro">Sur le cœur de l'offre locale : EMDR à Saint-Nazaire, La Baule et Guérande, plus une recherche voisine. Ordre de grandeur, par mois.</p>
-<div class="funnel">
-<div class="fn f1"><span class="n">180</span><span class="t">recherches par mois</span></div><div class="fa">▼</div>
-<div class="fn f2"><span class="n">~97</span><span class="t">apparitions du site sur ces recherches (environ 54 %)</span></div><div class="fa">▼</div>
-<div class="fn f3"><span class="n">~2,6</span><span class="t">clics par mois</span></div>
+<section id="concurrentes">
+<h2>Face aux 4 autres praticiennes</h2>
+<p class="meaning"><b>Ce que ça veut dire :</b> le site a des atouts rares. L'écart se joue sur les avis, les annuaires et la publicité, pas sur le contenu.</p>
+<table class="tbl-pill">
+<tr><th>Critère</th><th class="me">Emmanuelle</th><th>Morgane Houarner</th><th>Laurence Martin</th><th>M.-N. Guégan-Leblanc</th><th>Laure Sablé</th></tr>
+<tr><td>Métier affiché</td><td class="me">Psychopraticienne</td><td>Psychopraticienne EMDR</td><td>Hypnothérapeute</td><td>Psychologue clinicienne</td><td>Psychothérapeute (Guérande et Saint-Nazaire)</td></tr>
+<tr><td>Fiche Google : note (avis)</td><td class="me"><b>5,0 (20)</b></td><td><b>4,9 (40)</b></td><td>non relevé</td><td><b>5,0 (4)</b></td><td>aucune note affichée</td></tr>
+<tr><td>Réponses aux avis</td><td class="me">{oui("Oui (3 vus sur 3)")}</td><td>{oui("Oui (3 vus sur 3)")}</td><td>{nv("Non relevé")}</td><td>{oui("Oui (3 vues)")}</td><td>{nv("Non relevé")}</td></tr>
+<tr><td>Catégorie de la fiche</td><td class="me">traitée à part</td><td>Psychothérapeute</td><td>Service d'hypnothérapie</td><td>Psychologue</td><td>Psychothérapeute</td></tr>
+<tr><td>Réservation depuis la fiche</td><td class="me">Resalib</td><td>Crénolibre</td><td>non relevé</td><td>Doctolib</td><td>Doctolib</td></tr>
+<tr><td>Réservation sur le site</td><td class="me">Calendly</td><td>aucune (passe par l'annuaire)</td><td>téléphone ou e-mail</td><td>Doctolib</td><td>Doctolib</td></tr>
+<tr><td>Publicité Google (1er nov.)</td><td class="me">aucune annonce vue</td><td>{pill("annonces sur 8 recherches sur 24", "no")}</td><td>aucune annonce vue</td><td>aucune annonce vue</td><td>aucune annonce vue</td></tr>
+<tr><td>Blog</td><td class="me"><b>~20 articles</b></td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>Séance offerte</td><td class="me">{oui("Oui (45 min)")}</td><td>{non()}</td><td>{non()}</td><td>{non()}</td><td>{non()}</td></tr>
+<tr><td>Prix affiché sur le site</td><td class="me">60 € (page RDV) ; 1er RDV d'1 h : <span class="tag">à confirmer</span></td><td>75 €</td><td>80 €</td><td>60 €</td><td>55 €</td></tr>
+<tr><td>Page par méthode, FAQ</td><td class="me">Oui</td><td>Oui, sans FAQ</td><td>Non, FAQ oui</td><td>Non</td><td>Non</td></tr>
+</table>
+<p class="note">Publicité : observé le 1er nov. sur 24 recherches ; les annonces varient d'un jour à l'autre. La fiche « Confiance et Ressources » (Anaïs Duclos) est une autre praticienne : elle n'entre pas dans ce tableau.</p>
+<ul class="nl"><li>Marie-Noëlle Guégan-Leblanc est psychologue (titre protégé) : ne pas l'appeler « psychopraticienne ».</li></ul>
+<h3>Ce qu'elles font mieux</h3>
+<div class="grid3">
+ <div class="gt"><div class="gi">{ico("star")}</div><b>Lien vers les avis Google</b><span>Laurence Martin : « voir les avis » visible. Le site n'y renvoie pas, malgré 20 avis.</span></div>
+ <div class="gt"><div class="gi">{ico("map")}</div><b>Fiche Google = porte de réservation</b><span>Morgane Houarner : bouton « Réserver en ligne » vers Crénolibre.</span></div>
+ <div class="gt"><div class="gi">{ico("link")}</div><b>Présence dans les annuaires</b><span>Crénolibre et Psychologue.net pour Morgane Houarner (voir page suivante).</span></div>
+ <div class="gt"><div class="gi">{ico("faq")}</div><b>FAQ sur l'accueil</b><span>Elle lève la peur du premier pas.</span></div>
+ <div class="gt" style="background:#f3eadf;border-color:#f3eadf"><div class="gi" style="background:#fff">{ico("alert", TERRA_P)}</div><b>À ne pas copier</b><span>Les témoignages anonymes.</span></div>
 </div>
-<p class="meaning"><b>Ce que ça veut dire :</b> le site est déjà vu par une bonne part des personnes qui cherchent l'EMDR près de Saint-Nazaire. Très peu cliquent, car il est en bas de la 1re page. Gagner quelques places compte plus que d'être vu davantage.</p>
-<div class="enc rose"><h3>{ico("alert", TERRA_P)} À savoir</h3><ul><li>Les recherches locales sont peu nombreuses : beaucoup de mots sont à 0 ou trop faibles pour être mesurés (dont EFT et psychopraticienne avec une ville).</li><li>Ces chiffres sont des estimations (Semrush) : à lire comme des ordres de grandeur.</li></ul></div>
+<ul class="nl"><li>Morgane Houarner est de loin la plus visible sur l'EMDR à Saint-Nazaire.</li><li>Place exacte sur Google : relevée pour 4 recherches seulement.</li></ul>
+</section>
+
+<section id="morgane" class="pg">
+<h2>Pourquoi Morgane Houarner apparaît partout</h2>
+<p class="intro">Relevé du 1er nov. 2026 sur 24 recherches locales : Morgane Houarner est très visible.<br>Trois raisons l'expliquent.</p>
+<div class="tri">
+ <div><span class="no">1</span><h3>La publicité Google</h3><p>Annonce « sponsorisée » sur <b>8 recherches sur 24</b>, tout en haut de la page.</p><p>Elle <b>paie</b> cette place : cela ne prouve pas que son site est meilleur.</p></div>
+ <div><span class="no">2</span><h3>Deux fois plus d'avis</h3><p><b>40 avis</b> (note 4,9) contre <b>20</b> (note 5,0) ; elle répond à chaque avis récent.</p><p>Dans le bloc des 3 fiches : présente sur 4 recherches sur 24, contre 3 pour Emmanuelle. L'écart est faible.</p></div>
+ <div><span class="no">3</span><h3>Deux annuaires de plus</h3><p><b>Crénolibre</b> et <b>Psychologue.net</b>, où Emmanuelle n'est pas : sa fiche Crénolibre sort 2e sur « psychopraticien Saint-Nazaire ».</p><p>Les assistants IA les citent souvent (Crénolibre 6 fois, Psychologue.net 8 fois dans nos tests).</p></div>
+</div>
+<div class="enc vert"><h3>{ico("check")} Ce qui n'explique pas son avance</h3>
+<ul><li><b>L'ancienneté :</b> les deux sites sont jeunes (archivés en sept. 2023 pour elle, oct. 2024 pour Emmanuelle).</li><li><b>Son site :</b> dans les 10 premiers résultats sur <b>aucune</b> des 24 recherches.</li><li><b>Le contenu :</b> celui d'Emmanuelle est plus complet (accueil d'environ 1 200 mots contre 130, une vingtaine d'articles, une FAQ).</li></ul></div>
+<h3>Ce qui peut être rattrapé</h3>
+<table class="tbl-pill">
+<tr><th>Levier</th><th>Rattrapable ?</th><th>Coût</th></tr>
+<tr><td>Avis Google (de 20 vers 40) et publications sur la fiche</td><td>{oui()}</td><td>Gratuit</td></tr>
+<tr><td>Fiches Crénolibre et Psychologue.net</td><td>{oui()}</td><td>À vérifier avant</td></tr>
+<tr><td>Fiche Resalib à compléter (EMDR, avis)</td><td>{oui()}</td><td>À vérifier</td></tr>
+<tr><td>Publicité Google</td><td>{pill("Seulement avec un budget", "mid")}</td><td>Payant : selon le budget</td></tr></table>
+</section>
+
+<section id="annuaires" class="pg">
+<p class="act">Partie 3 · Les leviers</p>
+<h2>Les annuaires : un levier important</h2>
+<p class="intro">Un annuaire est un site qui liste les praticiens d'une ville.</p>
+<div class="grid3">
+ <div class="gt"><div class="gi">{ico("link")}</div><b>Une recommandation pour Google</b><span>Chaque inscription avec le lien du site est un « lien entrant » : Google le lit comme une recommandation.</span></div>
+ <div class="gt"><div class="gi">{ico("map")}</div><b>La confiance</b><span>Le même nom, la même adresse et le même téléphone partout rassurent Google sur l'identité du cabinet.</span></div>
+ <div class="gt"><div class="gi">{ico("chat")}</div><b>Les assistants IA</b><span>Ils citent souvent ces annuaires quand on leur demande un praticien près de chez soi.</span></div>
+</div>
+<table class="tbl-pill">
+<tr><th>Annuaire</th><th>Accepte les psychopraticiennes</th><th>Gratuit ou payant</th><th>Emmanuelle</th></tr>
+{ANN_ROWS}</table>
+<p class="note">Relevé du 1er nov. 2026. Aucune grille de prix officielle n'a été lue : les montants viennent de sources secondaires, d'où « prix à vérifier ». Doctolib et l'annuaire EMDR France ne sont pas ouverts à ce statut, selon les sources relevées. « Non trouvée » : aucune fiche repérée ; « non vérifié » : pas relevé.</p>
+<div class="enc"><h3>{ico("check")} Les inscriptions à faire</h3>
+<ul class="chk">
+<li><b>Crénolibre</b> : créer la fiche. <small>Prix non trouvé : vérifier avant.</small></li>
+<li><b>Psychologue.net</b> : créer la fiche. <small>Payant probable : vérifier avant.</small></li>
+<li><b>Resalib</b> : compléter la fiche (EMDR et EFT en spécialités, lien vers le site, avis).</li>
+<li><b>Therapeutes.com</b> et <b>Priorise</b> : chercher si une fiche existe, sinon la créer (rubrique « Praticien EFT »).</li>
+<li><b>PagesJaunes</b> et <b>Bing Places</b> : même chose. <small>Gratuits.</small></li>
+<li><b>Médoucine</b> : payant. <small>À décider selon le budget, après vérification du prix.</small></li>
+</ul>
+<p class="note">Partout : le même nom, la même adresse, le même téléphone et le lien vers le site.</p></div>
 </section>
 
 <section id="sujets" class="vol">
@@ -649,13 +654,12 @@ BODY = f'''
  <div class="step"><div class="num s2">2</div><div class="bd"><h3>Ensuite</h3><p class="who">À améliorer sur le site</p>
   <ul class="chk">
   <li><b>Renforcer la page EMDR</b>, pour qu'elle sorte sur « EMDR Saint-Nazaire », la recherche prioritaire.</li>
-  <li><b>Afficher le prix</b> à côté du bouton de réservation.</li>
   <li><b>Retrouver les anciennes pages :</b> les anciennes adresses doivent mener vers les nouvelles. 52 d'entre elles sont encore vues sur Google : 136 clics.</li>
   <li><b>Relier le blog aux séances :</b> chaque article renverra vers la page de séance qui correspond.</li>
   </ul></div></div>
  <div class="step"><div class="num s3">3</div><div class="bd"><h3>Puis</h3><p class="who">Élargir la présence</p>
   <ul class="chk">
-  <li><b>Autres annuaires :</b> Therapeutes.com, Priorise, PagesJaunes, Bing Places (gratuits ou à vérifier) ; Médoucine, payant, à décider ensemble.</li>
+  <li><b>Autres annuaires :</b> Therapeutes.com, Priorise, PagesJaunes, Bing Places (gratuits ou à vérifier) ; Médoucine, payant, à décider selon le budget.</li>
   <li><b>Écrire sur les sujets les plus recherchés</b> (post-partum, deuil, confiance en soi).</li>
   <li><b>Point dans 3 mois</b>, avec les mêmes chiffres qu'aujourd'hui (tableau ci-dessous).</li>
   </ul></div></div>
@@ -669,28 +673,6 @@ BODY = f'''
 <tr><td>Avis Google</td><td>20</td><td>—</td></tr></table></div>
 </section>
 
-<section id="sources">
-<h2>Sources</h2>
-<p class="note">Chaque chiffre vient de ces fichiers du dossier d'audit (fichiers bruts non joints au rapport). Ce qui n'a pas pu être relevé est écrit « non relevé » ou « non mesurable ».</p>
-<ul class="small">
-<li><b>audit/analyses/05-gsc-avant-apres.md</b>, <b>gsc-periodes.csv</b>, <b>audit/data/gsc/avant/</b> et <b>audit/data/gsc/apres/</b> (Pages, Requêtes, Appareils, Graphique) : pages, mots tapés, articles, appareils et place moyenne avant / après (exports Google Search Console par période, 142 jours chacune). Les pages et articles regroupés sont recalculés à partir de Pages.csv.</li>
-<li><b>audit/analyses/01-gsc.md</b>, <b>gsc-par-mois.csv</b>, <b>gsc-vs-calendly-par-mois.csv</b>, <b>audit/data/calendly/rdv-par-mois-anonyme.csv</b> : clics, impressions, avant/après, Calendly (exports Google Search Console et comptes Calendly anonymes).</li>
-<li><b>audit/analyses/03-concurrents.md</b>, <b>audit/data/concurrents/fiches-google.md</b> : comparaison des 4 praticiennes (lecture de leurs sites publics) et fiches Google (note, avis, réponses, réservation, publicité).</li>
-<li><b>audit/data/concurrents/annuaires.md</b> : annuaires, tarifs cités, présences d'Emmanuelle et de Morgane Houarner.</li>
-<li><b>audit/analyses/04-blog.md</b>, <b>blog-stats.csv</b> : état des 20 articles (lecture seule).</li>
-<li><b>audit/data/serp/serp.md</b>, <b>matrice-mots-cles.md</b>, <b>eft-praticien.md</b> : relevés Google et Maps du 1er nov. 2026 (24 recherches, dont les recherches « EFT »).</li>
-<li><b>audit/data/concurrents/morgane-pourquoi.md</b> : pourquoi Morgane Houarner est très visible (annonces, fiche Google, annuaires).</li>
-<li><b>audit/analyses/06-volumes.md</b>, <b>06-volumes.csv</b> : volumes de recherche par mois et sujets les plus recherchés (Semrush, estimations nov. 2026).</li>
-<li><b>audit/data/semrush-ui/semrush-mcp-2026-11-01.md</b>, <b>plan-audit.html</b> : volume de recherche de « emdr saint nazaire » (110 par mois, Semrush).</li>
-</ul>
-<h3>Limites du relevé</h3>
-<ul class="small">
-<li>Tarif du 1er RDV d'1 h : à confirmer par Emmanuelle.</li>
-<li>Origine des réservations Calendly : non mesurable.</li>
-<li>Fiche Google de Laurence Martin et de Laure Sablé (avis, réponses, réservation) : non relevées.</li>
-<li>Effet de la panne du site du 28 octobre : non mesuré (hors des périodes comparées).</li>
-</ul>
-</section>
 '''
 
 import re
