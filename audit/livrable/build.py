@@ -30,7 +30,7 @@ def line_chart(data, key, title, color, ymax_step, W=400, H=300, step=3, fs=13):
     x = lambda i: L + i * (W - L - R) / (n - 1)
     y = lambda v: T + (H - T - B) * (1 - v / ymax)
     gid = "g" + key
-    s = [f'<svg viewBox="0 0 {W} {H}" width="100%" role="img" aria-label="{title}">',
+    s = [f'<svg viewBox="0 0 {W} {H}" width="100%" role="img" aria-label="{title}" font-family="Lato, sans-serif">',
          f'<defs><linearGradient id="{gid}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{color}" stop-opacity="0.22"/><stop offset="1" stop-color="{color}" stop-opacity="0"/></linearGradient></defs>']
     i6 = [r["mois"] for r in data].index("2026-06")
     s.append(f'<rect x="{x(i6):.1f}" y="{T}" width="{W-R-x(i6):.1f}" height="{H-T-B}" fill="{SABLE}" opacity="0.5" rx="3"/>')
@@ -125,6 +125,13 @@ dl {{ margin:0; }} dt {{ font-family:'Playfair Display',serif; font-weight:600; 
 .verdict .card {{ padding:20px 18px; margin-bottom:20px; border-radius:10px; }} .verdict .card h3 {{ font-size:14pt; margin-bottom:8px; }} .verdict .card p {{ font-size:11.4pt; line-height:1.6; }}
 .verdict > .note {{ font-size:9.6pt; margin-top:14mm; }}
 .verdict .colh {{ font-size:14.5pt; margin-bottom:12px; }}
+.colh.mid::before {{ background:#D9B25F; }} .colh.grey::before {{ background:#C9C2B8; }}
+.mid-c {{ border-left:4px solid #D9B25F; }} .grey-c {{ border-left:4px solid #C9C2B8; }}
+.rk {{ font-family:'Playfair Display',serif; font-weight:600; color:{PROF}; }}
+.pg .card p {{ font-size:10.2pt; }} .pg .card {{ padding:13px 15px; }}
+.pg .why {{ margin:.3em 0 0; font-size:9.3pt; color:#4a5a68; }}
+.next .card {{ padding:12px 14px; }} .next .card h3 {{ font-size:11.5pt; }}
+.pg li {{ font-size:10.2pt; }}
 '''
 
 BODY = f'''
@@ -133,7 +140,7 @@ BODY = f'''
 <h1>Audit de visibilité de [[votre]] site</h1>
 <div class="rule"></div>
 <p class="lead">Emmanuelle Demeulemeester, psychopraticienne à Saint-Nazaire. Relevés du 1er novembre 2026. Objectif du site : que des personnes réservent la séance découverte offerte de 45 minutes.</p>
-<div class="bandeau">BROUILLON — en attente des données Netlify et des exports Google par période</div>
+<div class="bandeau">BROUILLON — en attente des exports Google par période</div>
 </div>
 
 <section id="verdict" class="verdict">
@@ -165,7 +172,7 @@ BODY = f'''
 <tr><td>Apparitions dans Google (impressions)</td><td>2 550</td><td>3 364</td><td><b>+814 (+32 %)</b></td></tr>
 <tr><td>Part des apparitions qui donnent un clic</td><td>5,2 %</td><td>6,0 %</td><td>+0,8 point</td></tr>
 <tr><td>Place moyenne dans Google</td><td>15,6</td><td>13,3</td><td>2,3 places gagnées</td></tr></table>
-<p><b>On ne sait mesurer que ce qui vient de Google.</b> Aucun outil de comptage des visites n'est activé à ce jour : <span class="tag">à confirmer</span>. Les visites directes, par Bing ou par les réseaux sociaux ne sont donc pas comptées.</p>
+<p><b>On ne sait mesurer que ce qui vient de Google.</b> Il n'y a pas de compteur de visites sur le site : on ne mesure que ce qui vient de Google. Les visites directes, par Bing ou par les réseaux sociaux ne sont donc pas comptées.</p>
 <p class="note">Sur les 16 mois (1er juil. 2025 → 30 oct. 2026) : 7 513 apparitions, 441 clics (5,9 %). 97 % des clics viennent de France ; 304 sur mobile, 128 sur ordinateur.</p></div>
 <div class="q"><b class="t">2. Quelles pages sont vues ?</b>
 <div class="kpi"><div class="v">69 %</div><div class="lbl">des clics (303 sur 441) vont à l'accueil</div></div>
@@ -177,8 +184,8 @@ BODY = f'''
 <tr><td>Injonctions faites aux femmes</td><td>12</td><td>à venir</td><td>à venir</td><td>à venir</td></tr>
 <tr><td>Contact</td><td>12</td><td>à venir</td><td>à venir</td><td>à venir</td></tr>
 <tr><td>Thérapie IFS</td><td>11</td><td>à venir</td><td>à venir</td><td>à venir</td></tr>
-<tr><td>EFT</td><td>10 (881 apparitions)</td><td>à venir</td><td>à venir</td><td>à venir</td></tr>
-<tr><td>EMDR</td><td>4 (637 apparitions)</td><td>à venir</td><td>à venir</td><td>à venir</td></tr></table>
+<tr><td>EFT (ancienne page)</td><td>10 (881 apparitions)</td><td>à venir</td><td>à venir</td><td>à venir</td></tr>
+<tr><td>EMDR (ancienne page)</td><td>4 (637 apparitions)</td><td>à venir</td><td>à venir</td><td>à venir</td></tr></table>
 <p class="note">Les pages EFT et EMDR sont très vues dans Google mais très peu cliquées.</p></div>
 <div class="q"><b class="t">3. Quels mots tape-t-on pour [[vous]] trouver ?</b>
 <div class="kpi"><div class="v">19 %</div><div class="lbl">des clics (82 sur 441) ont un mot visible</div></div>
@@ -219,7 +226,7 @@ BODY = f'''
 
 <section id="avant-apres">
 <h2>Avant / après le nouveau site</h2>
-<p>Le site est passé de WordPress à un nouveau site en <b>juin 2026</b> (date de bascule : 8 juin, <span class="tag">à confirmer</span>). On compare deux périodes de 142 jours.</p>
+<p>Le site est passé de WordPress à un nouveau site en <b>juin 2026</b> (date de bascule : 8 juin 2026, d'après l'historique de mise en ligne). On compare deux périodes de 142 jours.</p>
 <div class="kpi"><div class="v old">133</div><div class="arr">→</div><div class="v">202</div><div class="lbl">clics depuis Google<br>avant → après</div><div class="up">+52 %</div></div>
 <table style="margin-bottom:6px"><tr><th></th><th>Avant (17 janv. → 7 juin)</th><th>Après (8 juin → 27 oct.)</th><th>Écart</th></tr>
 <tr><td>Clics depuis Google</td><td>133</td><td>202</td><td><b>+69 (+52 %)</b></td></tr>
@@ -262,6 +269,76 @@ Cela ne dit rien sur le site : ce sont de petits chiffres, et les rendez-vous on
 <p class="note">À ne pas copier : les témoignages anonymes. Morgane Houarner est de loin la plus visible sur l'EMDR à Saint-Nazaire. Place exacte de chacune sur Google : seulement relevée pour 4 recherches.</p>
 </section>
 
+<section id="morgane" class="pg">
+<h2>Pourquoi Morgane Houarner apparaît partout</h2>
+<p>Sur 24 recherches locales relevées le 1er nov. 2026, Morgane Houarner est très visible. Voici pourquoi, et ce que cela change pour [[vous]]. Elle est une consœur sérieuse : il s'agit seulement de comprendre ce qui joue.</p>
+<div class="card bad"><h3>1. Elle paie de la publicité Google</h3><p>Une annonce « sponsorisée » de Morgane Houarner s'affiche sur <b>8 recherches sur 24</b>, tout en haut de la page. Elle <b>paie</b> pour cette place : cela ne veut pas dire que son site est meilleur, et cela ne la fait pas monter dans les résultats « naturels ».</p></div>
+<div class="card bad"><h3>2. Sa fiche Google a deux fois plus d'avis</h3><p><b>40 avis</b> (note 4,9) contre <b>20</b> (note 5,0) pour [[vous]], et elle répond à chacun des avis récents relevés. Dans le bloc des 3 fiches avec carte, elle est présente sur 4 recherches sur 24, [[vous]] sur 3 (n°1 sur « EFT » et « psychopraticienne »). L'écart est donc faible.</p></div>
+<div class="card bad"><h3>3. Elle est dans deux annuaires où [[vous]] n'êtes pas</h3><p><b>Crénolibre</b> et <b>Psychologue.net</b> : sa fiche Crénolibre sort 2e sur « psychopraticien Saint-Nazaire ». Ces annuaires sont aussi souvent cités par les assistants IA (Crénolibre 6 fois, Psychologue.net 8 fois dans nos tests). [[Vous]] n'y êtes pas, mais [[vous]] êtes sur Resalib (5,0).</p></div>
+<div class="card good"><h3>Ce qui n'explique pas son avance</h3><p><b>L'ancienneté :</b> les deux sites sont jeunes (premiers passages archivés en sept. 2023 pour elle, oct. 2024 pour [[vous]]).<br><b>Son site :</b> il n'est dans les 10 premiers résultats sur <b>aucune</b> des 24 recherches. <b>Le contenu :</b> [[votre]] site est plus complet (accueil d'environ 1 200 mots contre 130, une vingtaine d'articles, une FAQ).</p></div>
+<h3>Ce que [[vous]] pouvez rattraper</h3>
+<table>
+<tr><th>Levier</th><th>Rattrapable ?</th><th>Coût</th></tr>
+<tr><td>Avis Google (de 20 vers 40) et publications sur la fiche</td><td><b>Oui</b></td><td>Gratuit</td></tr>
+<tr><td>Fiches Crénolibre et Psychologue.net</td><td><b>Oui</b></td><td>À vérifier avant</td></tr>
+<tr><td>Fiche Resalib à compléter (EMDR, avis)</td><td><b>Oui</b></td><td>À vérifier</td></tr>
+<tr><td>Publicité Google</td><td>Seulement avec un budget</td><td>Payant : à décider ensemble</td></tr></table>
+</section>
+
+<section id="recherches" class="pg">
+<h2>[[Vos]] recherches : où [[vous]] êtes, où mettre le paquet</h2>
+<p class="note">Relevé du 1er nov. 2026 depuis Saint-Nazaire, sur 24 recherches, <b>page 1 de Google seulement</b> (les places 11 à 20 n'ont pas été lues). Cela bouge d'un jour à l'autre.</p>
+<div class="cols">
+<div>
+ <p class="colh">Déjà bien placée</p>
+ <div class="card good"><h3><span class="rk">1re</span> thérapie en marchant</h3><p>Site 1er.</p></div>
+ <div class="card good"><h3><span class="rk">1re</span> soutien post-partum</h3><p>Site 1er.</p></div>
+ <div class="card good"><h3><span class="rk">2e</span> EFT Saint-Nazaire</h3><p>Site 2e ; fiche Google n°1.</p></div>
+ <div class="card good"><h3><span class="rk">3e</span> psychopraticienne Saint-Nazaire</h3><p>Site 3e ; fiche Google n°1.</p></div>
+ <div class="card good"><h3><span class="rk">3e</span> thérapie psychocorporelle</h3><p>Site 3e.</p></div>
+</div>
+<div>
+ <p class="colh mid">À portée de main</p>
+ <div class="card mid-c"><h3>EMDR Saint-Nazaire</h3><p>[[Votre]] fiche Google est <b>3e</b> du bloc des 3 fiches, et la place moyenne du site est de <b>8,7</b> (Search Console, 16 mois). Mais au relevé du 1er nov., le site n'est pas dans les 10 premiers résultats.</p><p class="why">110 recherches par mois (Semrush).</p></div>
+ <div class="card mid-c"><h3>Psychopraticien, thérapie brève, anxiété, EMDR Pornichet</h3><p>[[Votre]] site apparaît dans le bloc « sites web associés », sous les fiches, mais pas dans les 10 premiers résultats.</p></div>
+</div>
+<div>
+ <p class="colh grey">Pas encore présente</p>
+ <div class="card grey-c"><h3>Les autres villes</h3><p>La Baule, Guérande, Pornichet : EMDR La Baule, EMDR Guérande, psychopraticienne La Baule et Guérande, thérapeute Pornichet.</p></div>
+ <div class="card grey-c"><h3>Les autres thèmes</h3><p>Traumatisme, burn-out, couple, hypnose, thérapie en visio, et les mots très généraux (« psy », « psychologue », « thérapeute »).</p></div>
+</div>
+</div>
+<div class="warn"><b>Priorité n°1 : l'EMDR.</b> C'est la recherche où [[vous]] avez déjà un pied dans la porte : [[votre]] fiche Google est dans le bloc des 3 fiches, et l’ancienne page EMDR est apparue 637 fois dans Google sur 16 mois. Mais elle n’a reçu que 4 clics, et [[votre]] site n'est pas sur la 1re page. En la renforçant, [[vous]] pouvez passer de « visible » à « choisie ». Les concurrentes y sont très présentes : c'est là que l'effort rapporte le plus.</div>
+<p class="note">Volumes de recherche par mois : <span class="venir">à venir</span> pour la plupart des recherches ; seule « emdr saint nazaire » est connue : 110 par mois (Semrush).</p>
+</section>
+
+<section id="maintenant" class="pg next">
+<h2>Et maintenant ?</h2>
+<div class="cols">
+<div>
+ <p class="colh">Ce que [[vous]] pouvez faire (sans technique)</p>
+ <div class="card good"><h3>Demander des avis Google</h3><p>Proposer aux patientes satisfaites de laisser un avis, et répondre à chacun. Passer de 20 à 40 avis est le levier le plus simple.</p></div>
+ <div class="card good"><h3>Publier sur la fiche Google</h3><p>Une courte publication de temps en temps (une actualité, un atelier, un thème).</p></div>
+ <div class="card good"><h3>Créer deux fiches d'annuaire</h3><p>Crénolibre et Psychologue.net, où est Morgane Houarner. <b>Vérifier le coût avant</b> de [[vous]] inscrire.</p></div>
+ <div class="card good"><h3>Compléter la fiche Resalib</h3><p>Ajouter l'EMDR comme spécialité et recueillir des avis.</p></div>
+</div>
+<div>
+ <p class="colh warm">Ce que nous améliorons sur le site</p>
+ <div class="card bad"><h3>Renforcer la page EMDR</h3><p>Pour qu'elle sorte sur « EMDR Saint-Nazaire », la recherche prioritaire.</p></div>
+ <div class="card bad"><h3>Réserver plus directement</h3><p>Un seul clic pour prendre rendez-vous, avec le prix visible. <b>Il nous faut le tarif du 1er rendez-vous d'1 h.</b></p></div>
+ <div class="card bad"><h3>Retrouver les anciennes pages</h3><p>Faire en sorte que les anciennes pages de l'ancien site mènent bien vers les nouvelles (52 anciennes adresses ont encore été vues sur Google : 136 clics).</p></div>
+ <div class="card bad"><h3>Relier le blog aux séances</h3><p>Chaque article renverra vers la page de séance qui correspond.</p></div>
+</div>
+</div>
+<div class="warn" style="border-left-color:#5C7A62"><b>On refait le point dans 3 mois</b>, avec les mêmes chiffres qu'aujourd'hui.
+<table style="margin-top:6px"><tr><th></th><th>Aujourd'hui</th><th>Dans 3 mois</th></tr>
+<tr><td>Clics depuis Google (142 jours après la bascule)</td><td>202</td><td>à venir</td></tr>
+<tr><td>Place moyenne dans Google</td><td>13,3</td><td>à venir</td></tr>
+<tr><td>Place moyenne de « emdr saint nazaire » (16 mois)</td><td>8,7</td><td>à venir</td></tr>
+<tr><td>« EMDR Saint-Nazaire » : place de la fiche Google</td><td>3e</td><td>à venir</td></tr>
+<tr><td>Avis Google</td><td>20</td><td>à venir</td></tr></table></div>
+</section>
+
 <section id="sources">
 <h2>Sources</h2>
 <p class="note">Chaque chiffre vient de ces fichiers du dossier d'audit (fichiers bruts non joints au rapport). Ce qui n'a pas pu être vérifié est écrit « à confirmer ».</p>
@@ -269,12 +346,12 @@ Cela ne dit rien sur le site : ce sont de petits chiffres, et les rendez-vous on
 <li><b>audit/analyses/01-gsc.md</b>, <b>gsc-par-mois.csv</b>, <b>gsc-vs-calendly-par-mois.csv</b>, <b>audit/data/calendly/rdv-par-mois-anonyme.csv</b> : clics, impressions, pages, mots tapés, avant/après, Calendly (exports Google Search Console, 16 mois, et comptes Calendly anonymes).</li>
 <li><b>audit/analyses/03-concurrents.md</b> : comparaison des 4 praticiennes (lecture de leurs sites publics).</li>
 <li><b>audit/analyses/04-blog.md</b>, <b>blog-stats.csv</b> : état des 20 articles (lecture seule).</li>
-<li><b>audit/data/serp/serp.md</b> : relevé Google et Maps du 1er nov. 2026.</li>
+<li><b>audit/data/serp/serp.md</b>, <b>matrice-mots-cles.md</b> : relevé Google et Maps du 1er nov. 2026 (4 puis 24 recherches).</li>
+<li><b>audit/data/concurrents/morgane-pourquoi.md</b> : pourquoi Morgane Houarner est très visible (annonces, fiche Google, annuaires).</li>
+<li><b>audit/data/semrush-ui/semrush-mcp-2026-11-01.md</b>, <b>plan-audit.html</b> : volume de recherche de « emdr saint nazaire » (110 par mois, Semrush).</li>
 </ul>
 <h3>Reste à confirmer</h3>
 <ul class="small">
-<li>Aucun outil de visites activé : à confirmer.</li>
-<li>Date exacte de bascule du site (8 juin 2026) : à confirmer.</li>
 <li>Pages et mots tapés avant / après : exports Google par période à recevoir.</li>
 <li>Tarif du 1er RDV d'1 h : à confirmer.</li>
 <li>Origine des réservations Calendly : à confirmer auprès des patientes.</li>
