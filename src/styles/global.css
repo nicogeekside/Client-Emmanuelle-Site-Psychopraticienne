@@ -9,9 +9,16 @@
 /* Les éléments data-aos="fade-left/right" sont translatés hors-cadre avant leur
    animation d'entrée : sans ce garde-fou, cette translation élargit la largeur
    de scroll de la page entière (même au-dessus du pli) et autorise un scroll
-   horizontal accidentel sur mobile. */
+   horizontal accidentel sur mobile.
+   `clip` et non `hidden` : `hidden` transforme html/body en conteneur de
+   défilement, ce qui casse le header sticky. */
 html, body {
-  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+/* Une ancre (#formats…) ne doit pas atterrir sous le header collant. */
+html {
+  scroll-padding-top: 10rem;
 }
 
 :root {

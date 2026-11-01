@@ -1,6 +1,6 @@
 # État des travaux — à lire en premier
 
-> **Dernière mise à jour : 22 septembre 2026 — lots 1 à 6, 1re partie du lot 7, et lot 8 (retours de Nicolas) fusionnés sur `dev`. Prochaine étape : lot 7b (blog) ou relance d'Emmanuelle.**
+> **Dernière mise à jour : 25 septembre 2026 — lots 1 à 6, 1re partie du lot 7, lot 8 (retours de Nicolas), les nouveaux heros EFT/EMDR, un correctif responsive sitewide et un correctif du formulaire de contact (404 après envoi) fusionnés sur `dev` puis mis en production sur `main` à la demande explicite de Nicolas. Prochaine étape : lot 7b (blog) ou relance d'Emmanuelle.**
 > Ce fichier est le point d'entrée pour reprendre le travail. Le détail des
 > constats est dans [BACKLOG-QUALITE.md](BACKLOG-QUALITE.md).
 
@@ -14,6 +14,10 @@ cesse de ressembler à « un site fait à la va-vite par une IA ».
 ## Règles de travail — non négociables
 
 - **On ne pousse JAMAIS sur `main`.** Au maximum sur `dev`.
+  Exception actée le 25 sept. 2026 : Nicolas a demandé explicitement la mise
+  en production (« go sur main ») après un tour de vérification complet
+  (build, liens, formulaire testé en réel, sitemap). La règle reste la
+  même pour la suite — ce n'est pas devenu l'usage par défaut.
 - **Une branche par lot**, nom explicite : `fix/lot-N-sujet`.
 - **Un agent de vérification après chaque lot**, avant la fusion sur `dev`.
   Il a trouvé des régressions introduites par moi-même sur les trois lots.
