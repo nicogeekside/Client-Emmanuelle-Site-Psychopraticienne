@@ -382,7 +382,7 @@ ANN = [  # annuaire, accepte, tarif, Emma, Morgane   (source : audit/data/concur
  ("Doctolib", non("Non, en pratique"), "Payant", pill("—", "na"), pill("—", "na")),
  ("Annuaire EMDR France", pill("Restrictif", "mid"), "Cotisation (montant non lu)", pill("—", "na"), pill("—", "na")),
 ]
-ANN_ROWS = "".join(f"<tr><td><b>{a}</b></td><td>{b}</td><td class=\"note\">{c}</td><td>{d}</td><td>{e}</td></tr>" for a, b, c, d, e in ANN)
+ANN_ROWS = "".join(f"<tr><td><b>{a}</b></td><td>{b}</td><td class=\"note\">{c}</td><td>{d}</td></tr>" for a, b, c, d, e in ANN)
 
 BODY = f'''
 <div class="cover">
@@ -567,12 +567,12 @@ BODY = f'''
  <div class="gt"><div class="gi">{ico("chat")}</div><b>Les assistants IA</b><span>Ils citent souvent ces annuaires quand on leur demande un praticien près de chez soi.</span></div>
 </div>
 <table class="tbl-pill">
-<tr><th>Annuaire</th><th>Accepte les psychopraticiennes</th><th>Gratuit ou payant</th><th>Emmanuelle</th><th>Morgane Houarner</th></tr>
+<tr><th>Annuaire</th><th>Accepte les psychopraticiennes</th><th>Gratuit ou payant</th><th>Emmanuelle</th></tr>
 {ANN_ROWS}</table>
 <p class="note">Relevé du 1er nov. 2026. Aucune grille de prix officielle n'a été lue : les montants viennent de sources secondaires, d'où « prix à vérifier ». Doctolib et l'annuaire EMDR France ne sont pas ouverts à ce statut, selon les sources relevées. « Non trouvée » : aucune fiche repérée ; « non vérifié » : pas relevé.</p>
 <div class="enc"><h3>{ico("check")} Les inscriptions à faire</h3>
 <ul class="chk">
-<li><b>Crénolibre</b> : créer la fiche (Morgane Houarner y est). <small>Prix non trouvé : vérifier avant.</small></li>
+<li><b>Crénolibre</b> : créer la fiche. <small>Prix non trouvé : vérifier avant.</small></li>
 <li><b>Psychologue.net</b> : créer la fiche. <small>Payant probable : vérifier avant.</small></li>
 <li><b>Resalib</b> : compléter la fiche (EMDR et EFT en spécialités, lien vers le site, avis).</li>
 <li><b>Therapeutes.com</b> et <b>Priorise</b> : chercher si une fiche existe, sinon la créer (rubrique « Praticien EFT »).</li>
