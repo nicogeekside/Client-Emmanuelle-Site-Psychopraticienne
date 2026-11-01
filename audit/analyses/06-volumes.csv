@@ -1,0 +1,84 @@
+mot_cle,groupe,volume,kd,impressions_mois_site,clics_mois_site,rang_releve,part_captee,impressions_mois_16mois,clics_mois_16mois
+emdr saint nazaire,A,110,10,89.3,2.36,- (pack 3),81%,53.3,1.32
+eft saint nazaire,A,0,,0.0,0.0,2 (pack 1),,0.0,0.0
+emdr la baule,A,20,0,0.0,0.0,- (pack -),0%,0.0,0.0
+eft la baule,A,0,,0.0,0.0,non relevé,,0.0,0.0
+emdr guerande,A,30,0,0.0,0.0,- (pack -),0%,0.0,0.0
+eft guerande,A,n/a,,0.0,0.0,non relevé,,0.0,0.0
+emdr pornichet,A,0,,0.0,0.0,- (pack -),,0.0,0.0
+eft pornichet,A,n/a,,0.0,0.0,non relevé,,0.0,0.0
+psychopraticienne saint nazaire,B,n/a,,0.0,0.0,3 (pack 1),,0.0,0.0
+psychopraticien saint nazaire,B,n/a,,7.3,0.0,- (pack -),,2.2,0.0
+therapeute saint nazaire,B,0,,0.0,0.0,- (pack -),,0.0,0.0
+psychotherapeute saint nazaire,B,20,0,8.1,0.21,- (pack -),41%,6.7,0.19
+psychopraticienne la baule,B,n/a,,0.0,0.0,- (pack -),,0.0,0.0
+therapeute la baule,B,0,,0.0,0.0,non relevé,,0.0,0.0
+therapeute guerande,B,0,,0.0,0.0,non relevé,,0.0,0.0
+therapeute pornichet,B,0,,0.0,0.0,- (pack -),,0.0,0.0
+psychopraticienne guerande,B,n/a,,0.0,0.0,- (pack -),,0.0,0.0
+therapie en marchant,C,n/a,,0.0,0.0,non relevé,,0.0,0.0
+therapie psychocorporelle,C,20,0,0.0,0.0,non relevé,0%,0.1,0.0
+therapie breve saint nazaire,C,n/a,,0.0,0.0,- (pack -),,0.0,0.0
+hypnose saint nazaire,C,70,0,0.2,0.0,- (pack -),0%,0.1,0.0
+psychopraticienne en ligne,C,10,0,0.6,0.0,non relevé,6%,0.2,0.0
+therapie en visio,C,10,0,0.0,0.0,non relevé,0%,0.0,0.0
+emdr en visio,C,90,4,0.0,0.0,non relevé,0%,0.0,0.0
+deuil saint nazaire,D-local,n/a,,0.0,0.0,non relevé,,0.0,0.0
+accompagnement deuil saint nazaire,D-local,n/a,,0.0,0.0,non relevé,,0.0,0.0
+burn out saint nazaire,D-local,n/a,,0.0,0.0,non relevé,,0.0,0.0
+soutien post partum saint nazaire,D-local,n/a,,0.0,0.0,1 (pack -),,0.0,0.0
+post partum saint nazaire,D-local,n/a,,0.0,0.0,non relevé,,0.0,0.0
+anxiete saint nazaire,D-local,n/a,,0.0,0.0,non relevé,,0.0,0.0
+traumatisme saint nazaire,D-local,n/a,,0.0,0.0,non relevé,,0.0,0.0
+phobie saint nazaire,D-local,n/a,,0.0,0.0,non relevé,,0.0,0.0
+stress saint nazaire,D-local,n/a,,0.0,0.0,non relevé,,0.0,0.0
+confiance en soi saint nazaire,D-local,0,,0.0,0.0,non relevé,,0.0,0.0
+douleurs chroniques saint nazaire,D-local,n/a,,0.0,0.0,non relevé,,0.0,0.0
+troubles du sommeil saint nazaire,D-local,n/a,,0.0,0.0,non relevé,,0.0,0.0
+separation saint nazaire,D-local,n/a,,0.0,0.0,non relevé,,0.0,0.0
+gestion des emotions saint nazaire,D-local,n/a,,2.4,0.0,non relevé,,1.2,0.0
+perinatalite saint nazaire,D-local,n/a,,0.0,0.0,non relevé,,0.0,0.0
+blocages emotionnels saint nazaire,D-local,n/a,,0.0,0.0,non relevé,,0.0,0.0
+schemas repetitifs saint nazaire,D-local,n/a,,0.0,0.0,non relevé,,0.0,0.0
+therapie deuil,D-besoin,10,0,0.0,0.0,non relevé,0%,0.0,0.0
+soutien post partum,D-besoin,30,0,0.0,0.0,non relevé,0%,0.0,0.0
+depression post partum aide,D-besoin,20,0,0.0,0.0,non relevé,0%,0.0,0.0
+therapie traumatisme,D-besoin,0,,0.0,0.0,non relevé,,0.0,0.0
+gerer son anxiete,D-besoin,110,30,0.0,0.0,non relevé,0%,0.0,0.0
+phobie therapie,D-besoin,0,,0.0,0.0,non relevé,,0.0,0.0
+therapie phobie,D-besoin,10,0,0.0,0.0,non relevé,0%,0.0,0.0
+therapie burn out,D-besoin,0,,0.0,0.0,non relevé,,0.0,0.0
+burn out accompagnement,D-besoin,30,0,0.0,0.0,non relevé,0%,0.0,0.0
+gerer son stress,D-besoin,590,53,0.0,0.0,non relevé,0%,0.0,0.0
+retrouver confiance en soi,D-besoin,320,22,0.0,0.0,non relevé,0%,0.0,0.0
+douleurs chroniques emotions,D-besoin,n/a,,0.0,0.0,non relevé,,0.0,0.0
+troubles du sommeil therapie,D-besoin,n/a,,0.0,0.0,non relevé,,0.0,0.0
+surmonter une separation,D-besoin,20,0,0.0,0.0,non relevé,0%,0.0,0.0
+gerer ses emotions,D-besoin,140,27,0.0,0.0,non relevé,0%,0.0,0.0
+therapie blocages emotionnels,D-besoin,n/a,,0.0,0.0,non relevé,,0.0,0.0
+comprendre schemas repetitifs,D-besoin,n/a,,0.0,0.0,non relevé,,0.0,0.0
+perinatalite psychologue,D-besoin,n/a,,0.0,0.0,non relevé,,0.0,0.0
+baby blues,D-besoin,5400,18,0.0,0.0,non relevé,0%,0.0,0.0
+depression post partum,D-besoin,9900,57,0.0,0.0,non relevé,0%,0.0,0.0
+psy saint nazaire,E,70,12,0.0,0.0,- (pack -),0%,0.0,0.0
+psychologue saint nazaire,E,880,25,0.0,0.0,- (pack -),0%,0.0,0.0
+emdr,E,60500,19,8.1,0.0,non relevé,0%,4.6,0.06
+eft therapie,E,1000,27,3.4,0.0,non relevé,0%,2.1,0.0
+eft,E,9900,35,0.9,0.0,non relevé,0%,0.3,0.0
+psychopraticien,E,5400,29,0.6,0.0,non relevé,0%,0.5,0.0
+psychopraticienne,E,3600,29,0.9,0.0,non relevé,0%,0.8,0.0
+tapping eft,E,170,20,0.0,0.0,non relevé,0%,0.0,0.0
+psychotherapeute en ligne,C,90,29,0.0,0.0,non relevé,0%,0.0,0.0
+psychopraticien en ligne,C,50,0,0.0,0.0,non relevé,0%,0.0,0.0
+definition post partum,F-assoc,1000,34,0.0,0.0,non relevé,0%,0.0,0.0
+postpartum,F-assoc,2900,31,0.0,0.0,non relevé,0%,0.0,0.0
+post accouchement,F-assoc,590,44,0.0,0.0,non relevé,0%,0.0,0.0
+post partum c est quoi,F-assoc,320,35,0.0,0.0,non relevé,0%,0.0,0.0
+definition d un deuil,F-assoc,1300,24,0.0,0.0,non relevé,0%,0.0,0.0
+deuil phases,F-assoc,480,23,0.0,0.0,non relevé,0%,0.0,0.0
+comment faire son deuil,F-assoc,320,20,0.0,0.0,non relevé,0%,0.0,0.0
+faire un deuil,F-assoc,390,17,0.0,0.0,non relevé,0%,0.0,0.0
+en deuil,F-assoc,480,32,0.0,0.0,non relevé,0%,0.0,0.0
+psy emdr,F-assoc,1000,26,0.0,0.0,non relevé,0%,0.0,0.0
+neuropsychologue saint nazaire,F-assoc,90,12,0.0,0.0,non relevé,0%,0.0,0.0
+psychologie st nazaire,F-assoc,90,14,0.0,0.0,non relevé,0%,0.0,0.0
